@@ -1,26 +1,292 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* =========================
+   TAILWIND THEME TOKENS
+========================= */
+@theme inline {
+  /** breakpoints **/
+  --breakpoint-xs: 20rem; /* 320px */
+  --breakpoint-xss: 25rem; /* 400px */
+  --breakpoint-s: 30rem; /* 480px */
+  --breakpoint-sm: 40rem; /* 640px */
+  --breakpoint-md: 48rem; /* 768px */
+  --breakpoint-mlg: 56rem; /* 896px */
+  --breakpoint-lg: 64rem; /* 1024px */
+  --breakpoint-xl: 80rem; /* 1280px */
+  --breakpoint-2xl: 96rem; /* 1536px */
+  --breakpoint-3xl: 106rem; /* 1696px */
+
+  /** font **/
+  --font-IRANYekanX: "IRANYekanX";
+
+  /** radius **/
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  /* =========================
+     SHADCN CORE COLORS
+  ========================= */
+  --color-background: var(--background);
+  --color-secondary-bg: var(--secondary-bg);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* =========================
+     CUSTOM TOKENS
+  ========================= */
+
+  /* brand */
+  --color-custom-primary: #1e9dbd;
+
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+
+  /* cards system */
+  --color-card-secondary: var(--card-secondary);
+  --color-card-tertiary: var(--card-tertiary);
+
+  --color-card-secondary-foreground: var(--card-secondary-foreground);
+  --color-card-tertiary-foreground: var(--card-tertiary-foreground);
+
+  /* success */
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+
+  /* borders */
+  --color-border-secondary: var(--border-secondary);
+
+  /* links */
+  --color-footer-link-hover: var(--footer-link-hover);
+}
+
+/* =========================
+   LIGHT THEME
+========================= */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --radius: 0.625rem;
+
+  /* background */
+  --background: #fcf9f8;
+  --secondary-bg: #f5f3f1;
+  --foreground: #090605;
+
+  /* brand */
+  --primary: #625b5c;
+  --primary-hover: #484344;
+  --secondary: #fff0df;
+  --tertiary: #f8f5f2;
+
+  /* text */
+  --muted-foreground: #706a6b;
+
+  /* borders */
+  --border: #e4dfdc;
+  --border-secondary: #c9c2be;
+
+  /* input / ring */
+  --input: #e4dfdc;
+  --ring: #f49a34;
+
+  /* ui extras */
+  --accent: #f49a34;
+  --accent-foreground: #ffffff;
+
+  --destructive: #dc2626;
+
+  --success: #16a34a;
+  --success-foreground: #ffffff;
+
+  --popover: #ffffff;
+  --popover-foreground: #090605;
+
+  /* links */
+  --footer-link-hover: #f49a34;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* =========================
+   DARK THEME
+========================= */
+
+.dark {
+  --background: #090605;
+  --secondary-bg: #151212;
+  --foreground: #fcf9f8;
+
+  /* brand */
+  --primary: #f49a34;
+  --primary-hover: #fbae51;
+  --secondary: #2a2525;
+  --tertiary: #181515;
+
+  /* text */
+  --muted-foreground: #a9a3a1;
+
+  /* borders */
+  --border: #2c2727;
+  --border-secondary: #514a49;
+
+  /* input / ring */
+  --input: #302a2a;
+  --ring: #f49a34;
+
+  /* ui extras */
+  --accent: #f49a34;
+  --accent-foreground: #090605;
+
+  --destructive: #ef4444;
+
+  --success: #22c55e;
+  --success-foreground: #ffffff;
+
+  --popover: #151212;
+  --popover-foreground: #fcf9f8;
+
+  /* links */
+  --footer-link-hover: #fbae51;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* =========================
+   BASE
+========================= */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* =========================
+   COMPONENTS
+========================= */
+@layer components {
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background-color: #e5e7eb;
+  }
+
+  .shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    animation: shimmer 2s infinite;
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.6),
+      transparent
+    );
+  }
+
+  .w90 {
+    max-width: 1920px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .headerPadding {
+    padding-top: 68px;
+  }
+
+  @media (min-width: 1024px) {
+    .headerPadding {
+      padding-top: 69px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .headerPadding {
+      padding-top: 77px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .headerPadding {
+      padding-top: 89px;
+    }
+  }
+
+  /* =========================
+        FOOTER LINK 
+  ========================= */
+  .footer-link {
+    position: relative;
+    width: fit-content;
+    transition: color 300ms;
+  }
+
+  .footer-link:hover {
+    color: var(--footer-link-hover);
+  }
+
+  .footer-link::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    height: 2px;
+    width: 100%;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transition: transform 300ms;
+  }
+
+  html[dir="ltr"] .footer-link::after {
+    left: 0;
+    transform-origin: left;
+  }
+
+  html[dir="rtl"] .footer-link::after {
+    right: 0;
+    transform-origin: right;
+  }
+
+  .footer-link:hover::after {
+    transform: scaleX(1);
+  }
 }

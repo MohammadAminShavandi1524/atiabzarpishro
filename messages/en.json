@@ -1,0 +1,15 @@
+{
+  "Manifest": {
+    "name": "ATI Abzar Pishro",
+    "shortName": "ATI Abzar",
+    "description": "Specialized engineering and trading company providing advanced machining solutions and high-performance cutting tools."
+  },
+  "Error": {
+    "description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>",
+    "title": "Something went wrong!"
+  },
+
+  "LocaleLayout": {
+    "title": "Ati Abzar Pishro"
+  }
+}
