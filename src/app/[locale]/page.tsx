@@ -1,5 +1,6 @@
 import { Locale, useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
+import HeroCarousel from "@/components/landing/herosection/HeroCarousel";
 import { use } from "react";
 
 export default function IndexPage({ params }: PageProps<"/[locale]">) {
@@ -11,7 +12,10 @@ export default function IndexPage({ params }: PageProps<"/[locale]">) {
   return (
     <div
       //  className="headerPadding"
-      className=""
-    ></div>
+      className="h-250"
+    >
+      {/* hero section */}
+      <HeroCarousel />
+    </div>
   );
 }

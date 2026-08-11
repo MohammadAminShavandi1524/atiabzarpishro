@@ -11,5 +11,18 @@
 
   "LocaleLayout": {
     "title": "Ati Abzar Pishro"
+  },
+
+  "Header": {
+    "logoLabel": "Ati Abzar Pishro",
+    "Search": { "placeholder": "Search by brand or category" },
+    "Navigation": {
+      "home": "Home",
+      "ourPartners": "Our Partners",
+      "technicalInformation": "Technical Information",
+      "blog": "Blog",
+      "contactUs": "Contact Us",
+      "aboutUs": "About Us"
+    }
   }
 }

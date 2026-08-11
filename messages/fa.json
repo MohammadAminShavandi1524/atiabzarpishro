@@ -12,5 +12,18 @@
 
   "LocaleLayout": {
     "title": "آتی ابزار پیشرو"
+  },
+
+  "Header": {
+    "logoLabel": "آتی ابزار پیشرو",
+    "Search": { "placeholder": "جستجو بر اساس برند یا دسته‌بندی" },
+    "Navigation": {
+      "home": "خانه",
+      "ourPartners": "همکاران ما",
+      "technicalInformation": "اطلاعات فنی",
+      "blog": "بلاگ",
+      "contactUs": "تماس با ما",
+      "aboutUs": "درباره ما"
+    }
   }
 }

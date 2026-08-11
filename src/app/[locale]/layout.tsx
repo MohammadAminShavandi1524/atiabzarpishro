@@ -12,12 +12,12 @@ import {
   Noto_Serif,
 } from "next/font/google";
 import { routing } from "@/i18n/routing";
-// import Header from "@/components/header/Header";
-// import Footer from "@/components/footer/Footer";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme/Providers";
 import AppToaster from "@/components/AppToaster";
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 // import {
 //   MobileSidebar,
@@ -41,7 +41,7 @@ const playfair = Playfair_Display({
 
 const space = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500" ,"600", "700"],
   variable: "--font-space",
   display: "swap",
 });
@@ -109,11 +109,11 @@ export default async function LocaleLayout({
               </MobileSidebarContent> */}
 
             <div className="text-foreground bg-background relative">
-              {/* <Header /> */}
+              <Header />
 
               {children}
 
-              {/* <Footer /> */}
+              <Footer />
             </div>
             {/* </MobileSidebar> */}
           </ThemeProvider>

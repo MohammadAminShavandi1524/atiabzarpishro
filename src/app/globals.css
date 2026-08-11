@@ -4,26 +4,23 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* =========================
-   TAILWIND THEME TOKENS
-========================= */
 @theme inline {
-  /** breakpoints **/
-  --breakpoint-xs: 20rem; /* 320px */
-  --breakpoint-xss: 25rem; /* 400px */
-  --breakpoint-s: 30rem; /* 480px */
-  --breakpoint-sm: 40rem; /* 640px */
-  --breakpoint-md: 48rem; /* 768px */
-  --breakpoint-mlg: 56rem; /* 896px */
-  --breakpoint-lg: 64rem; /* 1024px */
-  --breakpoint-xl: 80rem; /* 1280px */
-  --breakpoint-2xl: 96rem; /* 1536px */
-  --breakpoint-3xl: 106rem; /* 1696px */
+  /* Breakpoints */
+  --breakpoint-xs: 20rem;
+  --breakpoint-xss: 25rem;
+  --breakpoint-s: 30rem;
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-mlg: 56rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 96rem;
+  --breakpoint-3xl: 106rem;
 
-  /** font **/
+  /* Font */
   --font-IRANYekanX: "IRANYekanX";
 
-  /** radius **/
+  /* Radius */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -32,9 +29,7 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
 
-  /* =========================
-     SHADCN CORE COLORS
-  ========================= */
+  /* Core */
   --color-background: var(--background);
   --color-secondary-bg: var(--secondary-bg);
   --color-foreground: var(--foreground);
@@ -46,6 +41,7 @@
   --color-popover-foreground: var(--popover-foreground);
 
   --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
   --color-primary-foreground: var(--primary-foreground);
 
   --color-secondary: var(--secondary);
@@ -58,125 +54,178 @@
   --color-accent-foreground: var(--accent-foreground);
 
   --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
 
-  --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* =========================
-     CUSTOM TOKENS
-  ========================= */
-
-  /* brand */
-  --color-custom-primary: #1e9dbd;
-
-  --color-primary-hover: var(--primary-hover);
-  --color-secondary: var(--secondary);
+  /* Custom */
+  --color-custom-primary: var(--custom-primary);
   --color-tertiary: var(--tertiary);
 
-  /* cards system */
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+
+  /* Cards */
   --color-card-secondary: var(--card-secondary);
   --color-card-tertiary: var(--card-tertiary);
 
   --color-card-secondary-foreground: var(--card-secondary-foreground);
   --color-card-tertiary-foreground: var(--card-tertiary-foreground);
 
-  /* success */
-  --color-success: var(--success);
-  --color-success-foreground: var(--success-foreground);
-
-  /* borders */
+  /* Borders */
+  --color-border: var(--border);
   --color-border-secondary: var(--border-secondary);
 
-  /* links */
+  /* Links */
   --color-footer-link-hover: var(--footer-link-hover);
-}
 
-/* =========================
-   LIGHT THEME
-========================= */
+  /* Scrollbar */
+  --color-scrollbar: var(--scrollbar);
+  --color-scrollbar-hover: var(--scrollbar-hover);
+}
 
 :root {
   --radius: 0.625rem;
 
-  /* background */
-  --background: #fcf9f8;
+  /* Background */
+  --background: #fcfeff;
   --secondary-bg: #f5f3f1;
   --foreground: #090605;
 
-  /* brand */
+  /* Brand */
+  --custom-primary: #1e9dbd;
   --primary: #625b5c;
   --primary-hover: #484344;
+  --primary-foreground: #ffffff;
+
   --secondary: #fff0df;
+  --secondary-foreground: #090605;
+
   --tertiary: #f8f5f2;
 
-  /* text */
+  /* Text */
+  --muted: #f5f3f1;
   --muted-foreground: #706a6b;
 
-  /* borders */
+  /* Cards */
+  --card: #ffffff;
+  --card-foreground: #090605;
+
+  --card-secondary: #f5f3f1;
+  --card-tertiary: #f8f5f2;
+
+  --card-secondary-foreground: #090605;
+  --card-tertiary-foreground: #090605;
+
+  /* Borders */
   --border: #e4dfdc;
   --border-secondary: #c9c2be;
 
-  /* input / ring */
+  /* Input / Ring */
   --input: #e4dfdc;
   --ring: #f49a34;
 
-  /* ui extras */
+  /* Accent */
   --accent: #f49a34;
   --accent-foreground: #ffffff;
 
+  /* Status */
   --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
 
   --success: #16a34a;
   --success-foreground: #ffffff;
 
+  --warning: #f59e0b;
+  --warning-foreground: #ffffff;
+
+  --info: #2563eb;
+  --info-foreground: #ffffff;
+
+  /* Popover */
   --popover: #ffffff;
   --popover-foreground: #090605;
 
-  /* links */
+  /* Links */
   --footer-link-hover: #f49a34;
-}
 
-/* =========================
-   DARK THEME
-========================= */
+  /* Scrollbar */
+  --scrollbar: #c9c2be;
+  --scrollbar-hover: #a9a3a1;
+}
 
 .dark {
   --background: #090605;
   --secondary-bg: #151212;
   --foreground: #fcf9f8;
 
-  /* brand */
+  /* Brand */
+  --custom-primary: #1e9dbd;
   --primary: #f49a34;
   --primary-hover: #fbae51;
+  --primary-foreground: #090605;
+
   --secondary: #2a2525;
+  --secondary-foreground: #fcf9f8;
+
   --tertiary: #181515;
 
-  /* text */
+  /* Text */
+  --muted: #211d1d;
   --muted-foreground: #a9a3a1;
 
-  /* borders */
+  /* Cards */
+  --card: #151212;
+  --card-foreground: #fcf9f8;
+
+  --card-secondary: #211d1d;
+  --card-tertiary: #181515;
+
+  --card-secondary-foreground: #fcf9f8;
+  --card-tertiary-foreground: #fcf9f8;
+
+  /* Borders */
   --border: #2c2727;
   --border-secondary: #514a49;
 
-  /* input / ring */
+  /* Input / Ring */
   --input: #302a2a;
   --ring: #f49a34;
 
-  /* ui extras */
+  /* Accent */
   --accent: #f49a34;
   --accent-foreground: #090605;
 
+  /* Status */
   --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
 
   --success: #22c55e;
   --success-foreground: #ffffff;
 
+  --warning: #f59e0b;
+  --warning-foreground: #090605;
+
+  --info: #3b82f6;
+  --info-foreground: #ffffff;
+
+  /* Popover */
   --popover: #151212;
   --popover-foreground: #fcf9f8;
 
-  /* links */
+  /* Links */
   --footer-link-hover: #fbae51;
+
+  /* Scrollbar */
+  --scrollbar: #514a49;
+  --scrollbar-hover: #f49a34;
 }
 
 /* =========================
