@@ -3,7 +3,7 @@ import { HeroCarouselItem } from "./hero-carousel.types";
 export const carouselItems: HeroCarouselItem[] = [
   {
     id: "1",
-    image: "/homepageCarousel/1.jpg",
+    image: "/homepageCarousel/1.webp",
     href: "",
 
     enLabel: "HANBOO ENGINEERING",
@@ -20,7 +20,7 @@ export const carouselItems: HeroCarouselItem[] = [
 
   {
     id: "2",
-    image: "/homepageCarousel/2.jpg",
+    image: "/homepageCarousel/2.webp",
     href: "",
 
     enLabel: "IZAR HSS TOOLS",
@@ -37,7 +37,7 @@ export const carouselItems: HeroCarouselItem[] = [
 
   {
     id: "3",
-    image: "/homepageCarousel/3.jpg",
+    image: "/homepageCarousel/3.webp",
     href: "",
 
     enLabel: "ILJIN DIAMOND",
@@ -54,7 +54,7 @@ export const carouselItems: HeroCarouselItem[] = [
 
   {
     id: "4",
-    image: "/homepageCarousel/4.jpg",
+    image: "/homepageCarousel/4.webp",
     href: "",
 
     enLabel: "WIDIN SOLID CARBIDE ENDMILL",
@@ -71,7 +71,7 @@ export const carouselItems: HeroCarouselItem[] = [
 
   {
     id: "5",
-    image: "/homepageCarousel/5.jpg",
+    image: "/homepageCarousel/5.webp",
     href: "",
 
     enLabel: "FUNIK ULTRAHARD MATERIAL",

@@ -230,7 +230,7 @@ export default function AboutCEO() {
               className="border-border w-full max-w-[410px] overflow-hidden border"
             >
               <Image
-                src="/about/ceo/ceo.png"
+                src="/about/ceo/ceo.webp"
                 alt={t("name")}
                 width={538}
                 height={670}
