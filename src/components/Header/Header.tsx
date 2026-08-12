@@ -1,62 +1,104 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
+import { useEffect, useRef, useState } from "react";
+import { useLocale } from "next-intl";
+
 import LanguageSwitcher from "./LanguageSwitcher";
-import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import { ThemeButton } from "../theme/ThemeButton";
 import SearchBar from "./Searchbar";
 import Nav from "./Nav";
-import { CustomButton } from "../ui/custom-button";
-import { CircleHelp } from "lucide-react";
-import Link from "next/link";
-import { customButtonVariants } from "../ui/custom-button/custom-button-variants";
+import FAQButton from "./FAQButton";
 import { cn } from "@/lib/utils";
 
-interface HeaderProps {}
-
-const Header = ({}: HeaderProps) => {
+const Header = () => {
   const locale = useLocale();
-  const pathname = usePathname();
-  const t = useTranslations("Header");
+
+  const [showHeader, setShowHeader] = useState(true);
+
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const SCROLL_THRESHOLD = 60;
+    const SCROLL_DELTA = 10;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const difference = currentScrollY - lastScrollY.current;
+
+      // بالای صفحه هدر همیشه نمایش داده شود
+      if (currentScrollY <= SCROLL_THRESHOLD) {
+        setShowHeader(true);
+        lastScrollY.current = currentScrollY;
+        return;
+      }
+
+      // جلوگیری از لرزش هدر در اسکرول‌های خیلی کوچک
+      if (Math.abs(difference) < SCROLL_DELTA) {
+        return;
+      }
+
+      if (difference > 0) {
+        // Scroll Down
+        setShowHeader(false);
+      } else {
+        // Scroll Up
+        setShowHeader(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    lastScrollY.current = window.scrollY;
+
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="border-b border-b-border">
+    <header
+      className={cn(
+        "bg-background border-border fixed inset-x-0 top-0 z-50 border-b",
+        "transition-transform duration-500 ease-out",
+        showHeader ? "translate-y-0" : "-translate-y-full",
+      )}
+    >
       <div className="w90 flex flex-col gap-y-1.5 pt-2.5 pb-2.5">
+        {/* =========================
+            TOP ROW
+        ========================= */}
         <div className="flex items-center justify-between">
-          {/* logo */}
+          {/* Logo */}
           <Logo />
 
-          {/* search bar */}
+          {/* Search */}
           <SearchBar />
 
-          {/* theme and language switcher */}
+          {/* Theme + Language */}
           <div className="flex items-center gap-x-3">
             <ThemeButton />
+
             <LanguageSwitcher defaultLocale={locale} />
           </div>
         </div>
 
+        {/* =========================
+            BOTTOM ROW
+        ========================= */}
         <div className="flex items-center justify-between px-1.5">
-          {/* nav */}
+          {/* Navigation */}
           <Nav />
 
-          {/* faq buttton */}
-          <Link
-            href={`/${locale}/faq`}
-            className={cn(
-              customButtonVariants({
-                intent: "primary",
-                variant: "solid",
-              }),
-              "gap-2 rounded-sm bg-primary",
-            )}
-          >
-            <CircleHelp className="size-5.5" />
-            <span className="text-lg">{locale === "fa" ? "سؤالات متداول" : "FAQ"}</span>
-          </Link>
+          {/* FAQ */}
+          <FAQButton />
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

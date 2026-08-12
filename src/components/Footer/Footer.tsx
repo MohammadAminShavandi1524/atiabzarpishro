@@ -1,9 +1,20 @@
-"use client";
+import FooterBottom from "./FooterBottom";
+import FooterFeatures from "./FooterFeatures";
+import FooterMain from "./FooterMain";
 
-interface FooterProps {}
+export default function Footer() {
+  return (
+    <footer className="text-footer-foreground bg-footer-bg pt-2.5">
+      <div className="w90">
+        {/* Features */}
+        <FooterFeatures />
 
-const Footer = ({}: FooterProps) => {
-  return <div>Footer</div>;
-};
+        {/* Main Footer */}
+        <FooterMain />
 
-export default Footer;
+        {/* Bottom */}
+        <FooterBottom />
+      </div>
+    </footer>
+  );
+}

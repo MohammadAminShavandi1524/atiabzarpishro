@@ -41,7 +41,7 @@ const playfair = Playfair_Display({
 
 const space = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "500" ,"600", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-space",
   display: "swap",
 });
@@ -111,7 +111,7 @@ export default async function LocaleLayout({
             <div className="text-foreground bg-background relative">
               <Header />
 
-              {children}
+              <main className="headerPadding">{children}</main>
 
               <Footer />
             </div>

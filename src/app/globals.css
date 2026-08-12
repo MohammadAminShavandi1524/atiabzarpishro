@@ -89,6 +89,12 @@
   /* Scrollbar */
   --color-scrollbar: var(--scrollbar);
   --color-scrollbar-hover: var(--scrollbar-hover);
+
+  /* footer */
+  --color-footer-bg: var(--footer-bg);
+  --color-footer-foreground: var(--footer-foreground);
+  --color-footer-muted: var(--footer-muted);
+  --color-footer-border: var(--footer-border);
 }
 
 :root {
@@ -159,12 +165,23 @@
   /* Scrollbar */
   --scrollbar: #c9c2be;
   --scrollbar-hover: #a9a3a1;
+
+  /* footer */
+  --footer-bg: #1f2426;
+  --footer-foreground: #ffffff;
+  --footer-muted: #aeb6b8;
+  --footer-border: #353d40;
 }
 
 .dark {
   --background: #090605;
   --secondary-bg: #151212;
   --foreground: #fcf9f8;
+
+  --footer-bg: #050404;
+  --footer-foreground: #ffffff;
+  --footer-muted: #a9a3a1;
+  --footer-border: #2c2727;
 
   /* Brand */
   --custom-primary: #1e9dbd;
@@ -226,6 +243,12 @@
   /* Scrollbar */
   --scrollbar: #514a49;
   --scrollbar-hover: #f49a34;
+
+  /* footer */
+  --footer-bg: #0d1113;
+  --footer-foreground: #fcf9f8;
+  --footer-muted: #8f999c;
+  --footer-border: #252c2f;
 }
 
 /* =========================
@@ -280,24 +303,24 @@
   }
 
   .headerPadding {
-    padding-top: 68px;
+    padding-top: 147px;
   }
 
   @media (min-width: 1024px) {
     .headerPadding {
-      padding-top: 69px;
+      padding-top: 147px;
     }
   }
 
   @media (min-width: 1280px) {
     .headerPadding {
-      padding-top: 77px;
+      padding-top: 147px;
     }
   }
 
   @media (min-width: 1536px) {
     .headerPadding {
-      padding-top: 89px;
+      padding-top: 147px;
     }
   }
 

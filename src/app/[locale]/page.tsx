@@ -11,7 +11,7 @@ export default function IndexPage({ params }: PageProps<"/[locale]">) {
 
   return (
     <div
-      //  className="headerPadding"
+     
       className="h-250"
     >
       {/* hero section */}
