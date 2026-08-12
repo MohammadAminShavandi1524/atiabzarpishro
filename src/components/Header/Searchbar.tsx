@@ -11,7 +11,7 @@ export default function SearchBar() {
     <div
       className={cn(
         "group relative flex h-13 w-full items-center",
-        "border-border rounded-lg border",
+        "border-border border",
         "bg-tertiary/70",
         "me-[12%] px-3.5",
         "transition-all duration-300",
@@ -48,12 +48,12 @@ export default function SearchBar() {
         )}
       />
 
-      {/* Accent line */}
+      {/* Accent Line */}
       <span
         className={cn(
           "pointer-events-none absolute bottom-0 left-1/2",
           "h-[2px] w-0 -translate-x-1/2",
-          "bg-accent rounded-full",
+          "bg-accent",
           "transition-all duration-300",
           "group-focus-within:w-1/3",
         )}

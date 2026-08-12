@@ -1,33 +1,34 @@
 "use client";
 
-import { useLocale } from "next-intl";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { customButtonVariants } from "../ui/custom-button/custom-button-variants";
-import { cn } from "@/lib/utils";
 import { CircleHelp } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import Link from "next/link";
 
-interface FAQButtonProps {}
-
-const FAQButton = ({}: FAQButtonProps) => {
+const FAQButton = () => {
   const locale = useLocale();
-  const pathname = usePathname();
+  const t = useTranslations("Header");
 
   return (
     <Link
       href={`/${locale}/faq`}
-      className={cn(
-        customButtonVariants({
-          intent: "primary",
-          variant: "solid",
-        }),
-        "bg-primary gap-2 rounded-sm h-12",
-      )}
+      className={[
+        "group/faq inline-flex h-12 items-center justify-center gap-2.5",
+        "border-custom-primary border",
+        "bg-custom-primary px-5",
+        "text-white",
+        "transition-[background-color,border-color,box-shadow] duration-300",
+        "hover:bg-custom-primary/90",
+        "hover:shadow-[0_4px_18px_rgba(30,157,189,0.18)]",
+        "focus-visible:outline-none",
+        "focus-visible:ring-custom-primary/40 focus-visible:ring-2",
+      ].join(" ")}
     >
-      <CircleHelp className="size-5.5" />
-      <span className="text-lg">
-        {locale === "fa" ? "سؤالات متداول" : "FAQ"}
-      </span>
+      <CircleHelp
+        strokeWidth={1.8}
+        className="size-5.5 transition-colors duration-300"
+      />
+
+      <span className="text-lg font-medium">{t("faq")}</span>
     </Link>
   );
 };

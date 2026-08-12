@@ -41,7 +41,7 @@ export default function LanguageSwitcher({ defaultLocale }: Props) {
       aria-label={`Switch language to ${targetLanguage}`}
       className={cn(
         "group relative flex h-13 cursor-pointer items-center gap-x-1.5",
-        "rounded-full border",
+        "border",
         "border-border bg-tertiary/70",
         "ps-2.5 pe-4",
         "shadow-[0_2px_10px_rgba(9,6,5,0.04)]",
@@ -61,7 +61,7 @@ export default function LanguageSwitcher({ defaultLocale }: Props) {
       <span
         className={cn(
           "relative flex items-center justify-center p-1",
-          "overflow-hidden rounded-full",
+          "overflow-hidden",
           "bg-background",
           "border-border border",
           "transition-all duration-300",
@@ -81,7 +81,7 @@ export default function LanguageSwitcher({ defaultLocale }: Props) {
       </span>
 
       {/* Language */}
-      <span className="flex items-center gap-x-1.5 mt-px">
+      <span className="mt-px flex items-center gap-x-1.5">
         {/* Current */}
         <span
           className={cn(
@@ -112,11 +112,11 @@ export default function LanguageSwitcher({ defaultLocale }: Props) {
       {/* Switch Icon */}
       <span
         className={cn(
-          "ms-1  flex items-center justify-center",
+          "ms-1 flex items-center justify-center",
           "text-muted-foreground",
           "transition-all duration-300",
           "group-hover:text-accent",
-          locale === "fa" && " mb-0.5"
+          locale === "fa" && "mb-0.5",
         )}
       >
         <ArrowLeftRight
@@ -125,7 +125,6 @@ export default function LanguageSwitcher({ defaultLocale }: Props) {
             "size-[20px]",
             "transition-all duration-500 ease-out",
             "group-hover:scale-x-110",
-            "group-hover:translate-x-0.5",
           )}
         />
       </span>

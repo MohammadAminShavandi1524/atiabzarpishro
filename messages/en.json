@@ -16,6 +16,7 @@
   "Header": {
     "logoLabel": "Ati Abzar Pishro",
     "Search": { "placeholder": "Search by brand or category" },
+    "faq": "FAQ",
     "Navigation": {
       "home": "Home",
       "ourPartners": "Our Partners",
@@ -78,6 +79,112 @@
       "title": "Visit Ati Abzar Pishro in Tehran.",
       "description": "Our team is available for technical consultation, product inquiries and industrial cooperation.",
       "mapTitle": "Ati Abzar Pishro location"
+    }
+  },
+
+  "About": {
+    "hero": {
+      "eyebrow": "BRIEF HISTORY",
+      "title": "All Together to Improve",
+      "description": "ATI ABZAR PISHRO has been operating since 2012 as a specialized engineering and trading company, dedicated to delivering cutting-edge machining solutions and high-performance cutting tools from globally recognized manufacturers. With a strong commitment to quality, innovation, and technical excellence, we serve a wide spectrum of industrial sectors including automotive, aerospace, mold and die, oil and gas, and general manufacturing.",
+      "downloadCatalogue": "Download Company Catalogue",
+      "established": "ESTABLISHED",
+      "companyName": "ATI ABZAR PISHRO"
+    },
+    "purpose": {
+      "eyebrow": "WHAT WE DO",
+      "title": "Engineering Progress Through Purpose",
+      "vision": {
+        "title": "Our Vision",
+        "description": "Guided by our core principle — ATI: All Together to Improve — we envision a future where collaborative growth and innovation drive the industry forward. Our strategic objective is to enhance operational productivity across all industrial segments by providing state-of-the-art machining solutions, fostering long-term partnerships, and maintaining close cooperation with our valued customers. Through this vision, we aspire to play a pivotal role in shaping the next generation of precision engineering and manufacturing excellence."
+      },
+      "mission": {
+        "title": "Our Mission",
+        "description": "At ATI ABZAR PISHRO, our mission is to exceed customer expectations by offering comprehensive post-sales support, expert technical consultations for selecting optimal cutting tools, and conducting professional training programs and technical seminars. These initiatives aim to enhance our clients’ knowledge of advanced machining technologies and empower them to achieve superior performance and cost-efficiency in their production processes."
+      }
+    },
+    "engagement": {
+      "eyebrow": "Global Engagement in Industry & Training",
+      "title": "Highlights from Key Exhibitions and Seminars (2014–2023)",
+      "items": {
+        "amtech2023": {
+          "title": "Training Seminar",
+          "date": "AMTECH 2023"
+        },
+        "amtech2017": {
+          "title": "Training Seminar",
+          "date": "AMTECH 2017"
+        },
+        "tiie2016": {
+          "title": "Tehran International Industry Exhibition",
+          "date": "TIIE 2016"
+        },
+        "trainingSeminar2014": {
+          "title": "Training Seminar",
+          "date": "2014"
+        },
+        "gazvinExhibition2015": {
+          "title": "Gazvin Exhibition",
+          "date": "2015"
+        },
+        "simtos2014": {
+          "title": "Korea Exhibition",
+          "date": "SIMTOS 2014"
+        },
+        "simtos2016": {
+          "title": "Korea Exhibition",
+          "date": "SIMTOS 2016 & 50th Anniversary of KORLOY"
+        }
+      }
+    },
+    "ceo": {
+      "eyebrow": "Leadership / CEO",
+      "name": "Mr. Mohammad Reza Adinelou",
+      "position": "Managing Director",
+      "backgroundLabel": "Background",
+      "backgroundTitle": "Professional Background",
+      "background": "With an academic background in Metallurgy Engineering and more than two decades of professional experience in the industrial tooling and manufacturing sector, Mr. Mohammad Reza Adinelou has built a strong career in technical sales and business development. He previously served as Sales Manager for SECO Tools Company in Iran for 11 years and later spent 15 years as Sales Manager of AKERS Roll Manufacturing Co. in Iran. Drawing on this extensive industry experience, he went on to establish Ati Abzar Pishro and has since led the company as its Founder and CEO.",
+      "educationLabel": "Education",
+      "education": "M.Sc. in Metallurgy Engineering",
+      "roleLabel": "Current Role",
+      "role": "Founder & CEO",
+      "emailLabel": "Email"
+    },
+    "team": {
+      "eyebrow": "OUR CREATIVE TEAM",
+      "title": "ATI Team Members",
+      "areasLabel": "SERVICE AREAS",
+      "members": {
+        "mansourRoshan": {
+          "name": "Mr. Mansour Roshan",
+          "position": "Area Sales Manager",
+          "areas": "Tabriz / Ahwaz / Tehran"
+        },
+        "javadGhomi": {
+          "name": "Mr. Javad Ghomi",
+          "position": "Area Sales Manager",
+          "areas": "Golpaygan / Tehran / Yazd / Saveh / Mazandaran"
+        },
+        "miladSadeh": {
+          "name": "Mr. Milad Sadeh",
+          "position": "Area Sales Manager",
+          "areas": "Isfahan / Tehran / Mashhad / Rasht"
+        },
+        "ehsanAraghi": {
+          "name": "Mr. Ehsan Araghi",
+          "position": "Area Sales Manager",
+          "areas": "Tehran / Qazvin / Arak / Alborz / Zanjan"
+        },
+        "kianAdinelou": {
+          "name": "Mr. Kian Adinelou",
+          "position": "Area Sales Manager",
+          "areas": "Tehran / Qazvin / Naein / Eshtehard / Kerman"
+        },
+        "ehsanSalem": {
+          "name": "Mr. Ehsan Salem",
+          "position": "Sales Manager"
+        }
+      }
     }
   },
 

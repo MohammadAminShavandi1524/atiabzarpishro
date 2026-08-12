@@ -90,7 +90,7 @@ const Header = () => {
         {/* =========================
             BOTTOM ROW
         ========================= */}
-        <div className="flex items-center justify-between px-1.5">
+        <div className="flex items-center justify-between ps-1.5">
           {/* Navigation */}
           <Nav />
 
