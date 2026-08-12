@@ -264,7 +264,7 @@ export default function ContactSection() {
 
       {/* Contact Form Section */}
       <section ref={contactSectionRef} className="w90 py-24">
-        <div className="grid grid-cols-[0.9fr_1.6fr] items-start gap-20">
+        <div className="grid grid-cols-[1fr_1.6fr] items-start gap-20">
           {/* Contact Intro */}
           <aside className="self-start">
             <div ref={contactIntroRef}>
@@ -272,7 +272,7 @@ export default function ContactSection() {
                 {t("formSection.title")}
               </h2>
 
-              <p className="text-muted-foreground mt-7 max-w-lg text-lg leading-9">
+              <p className="text-muted-foreground mt-7 max-w-xl pe-10 text-justify text-lg leading-9">
                 {t("formSection.description")}
               </p>
 
