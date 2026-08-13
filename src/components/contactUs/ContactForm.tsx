@@ -13,6 +13,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 import { ContactFormValues, createContactSchema } from "./contact.schema";
+import { createContact } from "./contact.api";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -31,6 +32,8 @@ export default function ContactForm() {
       createContactSchema({
         nameRequired: t("validation.nameRequired"),
         phoneRequired: t("validation.phoneRequired"),
+        emailRequired: t("validation.emailRequired"),
+        emailInvalid: t("validation.emailInvalid"),
         companyRequired: t("validation.companyRequired"),
         messageRequired: t("validation.messageRequired"),
       }),
@@ -46,13 +49,22 @@ export default function ContactForm() {
     defaultValues: {
       name: "",
       phone: "",
+      email: "",
       companyName: "",
       message: "",
     },
   });
 
   const onSubmit = async (data: ContactFormValues) => {
-    console.log(data);
+    const payload = {
+      full_name: data.name,
+      phone_number: data.phone,
+      email: data.email,
+      company: data.companyName,
+      message: data.message,
+    };
+
+    const response = await createContact(payload);
   };
 
   useGSAP(
@@ -174,30 +186,59 @@ export default function ContactForm() {
         </div>
       </div>
 
-      {/* Company */}
-      <div className="contact-form-field group/field border-border focus-within:border-custom-primary border-b py-6 transition-colors duration-500">
-        <label
-          htmlFor="companyName"
-          className="text-muted-foreground group-focus-within/field:text-custom-primary block text-base font-medium transition-colors duration-300"
-        >
-          {t("form.companyName")}
-        </label>
+      {/* Email + Company */}
+      <div className="grid grid-cols-2">
+        {/* Email */}
+        <div className="contact-form-field group/field border-border focus-within:border-b-custom-primary border-e border-b py-6 pe-6 transition-colors duration-500">
+          <label
+            htmlFor="email"
+            className="text-muted-foreground group-focus-within/field:text-custom-primary block text-base font-medium transition-colors duration-300"
+          >
+            {t("form.email")}
+          </label>
 
-        <input
-          id="companyName"
-          type="text"
-          autoComplete="organization"
-          placeholder={t("form.companyPlaceholder")}
-          {...register("companyName")}
-          className="text-foreground placeholder:text-muted-foreground/60 mt-4 w-full bg-transparent text-xl outline-none"
-        />
+          <input
+            id="email"
+            type="email"
+            dir="ltr"
+            autoComplete="email"
+            placeholder={t("form.emailPlaceholder")}
+            {...register("email")}
+            className="text-foreground placeholder:text-muted-foreground/60 mt-4 w-full bg-transparent text-xl outline-none"
+          />
 
-        <div className="mt-3 min-h-6">
-          {errors.companyName && (
-            <p className="text-destructive text-sm">
-              {errors.companyName.message}
-            </p>
-          )}
+          <div className="mt-3 min-h-6">
+            {errors.email && (
+              <p className="text-destructive text-sm">{errors.email.message}</p>
+            )}
+          </div>
+        </div>
+
+        {/* Company */}
+        <div className="contact-form-field group/field border-border focus-within:border-custom-primary border-b py-6 ps-6 transition-colors duration-500">
+          <label
+            htmlFor="companyName"
+            className="text-muted-foreground group-focus-within/field:text-custom-primary block text-base font-medium transition-colors duration-300"
+          >
+            {t("form.companyName")}
+          </label>
+
+          <input
+            id="companyName"
+            type="text"
+            autoComplete="organization"
+            placeholder={t("form.companyPlaceholder")}
+            {...register("companyName")}
+            className="text-foreground placeholder:text-muted-foreground/60 mt-4 w-full bg-transparent text-xl outline-none"
+          />
+
+          <div className="mt-3 min-h-6">
+            {errors.companyName && (
+              <p className="text-destructive text-sm">
+                {errors.companyName.message}
+              </p>
+            )}
+          </div>
         </div>
       </div>
 

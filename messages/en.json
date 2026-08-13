@@ -53,6 +53,9 @@
       "companyName": "Company Name",
       "companyPlaceholder": "Your company or workshop",
 
+      "email": "Email",
+      "emailPlaceholder": "Enter your email address",
+
       "message": "Message",
       "messagePlaceholder": "Tell us about your machining requirements or technical inquiry",
 
@@ -63,6 +66,8 @@
     "validation": {
       "nameRequired": "Please enter your name.",
       "phoneRequired": "Please enter your phone number.",
+      "emailRequired": "Email is required.",
+      "emailInvalid": "Please enter a valid email address.",
       "companyRequired": "Please enter your company name.",
       "messageRequired": "Please enter your message."
     },

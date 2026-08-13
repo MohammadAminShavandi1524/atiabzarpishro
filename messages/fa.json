@@ -51,6 +51,9 @@
       "phone": "شماره تماس",
       "phonePlaceholder": "شماره تماس شما",
 
+      "email": "ایمیل",
+      "emailPlaceholder": "آدرس ایمیل خود را وارد کنید",
+
       "companyName": "نام شرکت",
       "companyPlaceholder": "نام شرکت یا کارگاه",
 
@@ -64,6 +67,8 @@
     "validation": {
       "nameRequired": "لطفاً نام خود را وارد کنید.",
       "phoneRequired": "لطفاً شماره تماس خود را وارد کنید.",
+      "emailRequired": "ایمیل الزامی است.",
+      "emailInvalid": "لطفاً یک ایمیل معتبر وارد کنید.",
       "companyRequired": "لطفاً نام شرکت خود را وارد کنید.",
       "messageRequired": "لطفاً پیام خود را وارد کنید."
     },
