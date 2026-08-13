@@ -15,11 +15,15 @@ import { useGSAP } from "@gsap/react";
 import { ContactFormValues, createContactSchema } from "./contact.schema";
 import { createContact } from "./contact.api";
 
+import { useCustomToast } from "@/components/ui/custom-toast";
+
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function ContactForm() {
   const locale = useLocale();
   const t = useTranslations("Contact");
+
+  const toast = useCustomToast();
 
   const isRTL = locale === "fa";
   const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
@@ -43,6 +47,7 @@ export default function ContactForm() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(schema),
@@ -64,7 +69,17 @@ export default function ContactForm() {
       message: data.message,
     };
 
-    const response = await createContact(payload);
+    try {
+      await createContact(payload);
+
+      reset();
+
+      toast.success(t("toast.submit.success"));
+    } catch (error) {
+      console.error("CREATE CONTACT ERROR:", error);
+
+      toast.error(t("toast.submit.error"));
+    }
   };
 
   useGSAP(
@@ -271,7 +286,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="group/submit bg-custom-primary inline-flex cursor-pointer items-center gap-5 px-7 py-4 text-lg font-medium text-white transition-[opacity,transform] duration-300 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0"
+          className="group/submit bg-custom-primary inline-flex cursor-pointer items-center gap-5 px-7 py-4 text-lg font-medium text-white transition-[opacity,transform] duration-300 disabled:cursor-not-allowed disabled:opacity-50"
         >
           <span>{isSubmitting ? t("form.sending") : t("form.submit")}</span>
 

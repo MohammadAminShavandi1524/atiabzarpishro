@@ -18,6 +18,7 @@ import { ThemeProvider } from "@/components/theme/Providers";
 import AppToaster from "@/components/AppToaster";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import { CustomToastProvider } from "@/components/ui/custom-toast";
 
 // import {
 //   MobileSidebar,
@@ -111,7 +112,9 @@ export default async function LocaleLayout({
             <div className="text-foreground bg-background relative">
               <Header />
 
-              <main className="headerPadding">{children}</main>
+              <main className="headerPadding">
+                <CustomToastProvider>{children}</CustomToastProvider>
+              </main>
 
               <Footer />
             </div>

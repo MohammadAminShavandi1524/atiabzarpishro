@@ -84,6 +84,13 @@
       "title": "Visit Ati Abzar Pishro in Tehran.",
       "description": "Our team is available for technical consultation, product inquiries and industrial cooperation.",
       "mapTitle": "Ati Abzar Pishro location"
+    },
+
+    "toast": {
+      "submit": {
+        "success": "Your request was submitted successfully.",
+        "error": "Failed to submit your request. Please try again."
+      }
     }
   },
 
