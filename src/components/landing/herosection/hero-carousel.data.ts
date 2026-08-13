@@ -3,8 +3,86 @@ import { HeroCarouselItem } from "./hero-carousel.types";
 export const carouselItems: HeroCarouselItem[] = [
   {
     id: "1",
-    image: "/homepageCarousel/1.webp",
     href: "",
+
+    darkImage: "/homepageCarousel/dark1.webp",
+    lightImage: "/homepageCarousel/light1.webp",
+
+    enLabel: "KORLOY",
+    faLabel: "KORLOY",
+
+    enTitle: "ADVANCED TURNING SOLUTIONS",
+    faTitle: "راهکارهای پیشرفته تراشکاری",
+
+    enDescription:
+      "High-performance cutting tools and indexable inserts engineered for productive, precise, and reliable machining across demanding industrial applications.",
+    faDescription:
+      "ابزارهای برشی و اینسرت‌های تعویض‌شونده با عملکرد بالا، طراحی‌شده برای ماشین‌کاری دقیق، پایدار و پربازده در کاربردهای صنعتی.",
+  },
+
+  {
+    id: "2",
+    href: "",
+
+    darkImage: "/homepageCarousel/dark2.webp",
+    lightImage: "/homepageCarousel/light2.webp",
+
+    enLabel: "WIDIN",
+    faLabel: "WIDIN",
+
+    enTitle: "SOLID CARBIDE CUTTING TOOLS",
+    faTitle: "ابزارهای برشی تمام‌کارباید",
+
+    enDescription:
+      "High-performance solid carbide end mills, drills, and precision cutting tools developed for efficient machining across a wide range of materials.",
+    faDescription:
+      "فرزهای انگشتی، مته‌ها و ابزارهای دقیق تمام‌کارباید با عملکرد بالا برای ماشین‌کاری مؤثر طیف گسترده‌ای از مواد.",
+  },
+
+  {
+    id: "3",
+    href: "",
+
+    darkImage: "/homepageCarousel/dark3.webp",
+    lightImage: "/homepageCarousel/light3.webp",
+
+    enLabel: "MPA",
+    faLabel: "MPA",
+
+    enTitle: "PRECISION TOOLING SYSTEMS",
+    faTitle: "سیستم‌های ابزار دقیق ماشین‌کاری",
+
+    enDescription:
+      "Precision tooling solutions designed to deliver stability, accuracy, and consistent performance in modern machining and manufacturing processes.",
+    faDescription:
+      "راهکارهای ابزار دقیق با هدف دستیابی به پایداری، دقت و عملکرد یکنواخت در فرآیندهای مدرن ماشین‌کاری و تولید.",
+  },
+
+  {
+    id: "4",
+    href: "",
+
+    darkImage: "/homepageCarousel/dark4.webp",
+    lightImage: "/homepageCarousel/light4.webp",
+
+    enLabel: "UNION MATERIALS",
+    faLabel: "UNION MATERIALS",
+
+    enTitle: "ADVANCED CARBIDE MATERIALS",
+    faTitle: "مواد پیشرفته کاربایدی",
+
+    enDescription:
+      "Advanced carbide materials and precision components engineered for high wear resistance, durability, and demanding industrial applications.",
+    faDescription:
+      "مواد و قطعات دقیق کاربایدی با مقاومت بالا در برابر سایش و دوام مناسب برای کاربردهای صنعتی سنگین و تخصصی.",
+  },
+
+  {
+    id: "5",
+    href: "",
+
+    darkImage: "/homepageCarousel/dark5.webp",
+    lightImage: "/homepageCarousel/light5.webp",
 
     enLabel: "HANBOO ENGINEERING",
     faLabel: "HANBOO ENGINEERING",
@@ -13,76 +91,46 @@ export const carouselItems: HeroCarouselItem[] = [
     faTitle: "ابزارهای تخصصی صنایع خودروسازی",
 
     enDescription:
-      "HANBOO is a Korean engineering and manufacturing company with over 30 years of experience, providing specialized tooling solutions for machining major automotive components such as cylinder heads, cylinder blocks, and transmission cases.",
+      "Specialized tooling solutions for machining critical automotive components including cylinder heads, cylinder blocks, and transmission cases.",
     faDescription:
-      "HANBOO یک شرکت مهندسی و تولیدی کره‌ای با بیش از ۳۰ سال تجربه است که راهکارهای تخصصی ابزارکاری برای ماشین‌کاری قطعات اصلی خودرو مانند سرسیلندر، بلوک سیلندر و پوسته گیربکس ارائه می‌دهد.",
+      "راهکارهای تخصصی ابزارکاری برای ماشین‌کاری قطعات کلیدی خودرو از جمله سرسیلندر، بلوک سیلندر و پوسته گیربکس.",
   },
 
   {
-    id: "2",
-    image: "/homepageCarousel/2.webp",
+    id: "6",
     href: "",
 
-    enLabel: "IZAR HSS TOOLS",
-    faLabel: "ابزارهای HSS شرکت IZAR",
+    darkImage: "/homepageCarousel/dark6.webp",
+    lightImage: "/homepageCarousel/light6.webp",
 
-    enTitle: "HSS-E JOBBER DRILL",
-    faTitle: "مته‌های HSS-E استاندارد",
+    enLabel: "IZAR CUTTING TOOLS",
+    faLabel: "IZAR CUTTING TOOLS",
+
+    enTitle: "HSS & CARBIDE CUTTING TOOLS",
+    faTitle: "ابزارهای برشی HSS و کارباید",
 
     enDescription:
-      "IZAR CUTTING TOOLS is a leading European manufacturer of HSS and carbide cutting tools, offering a wide range of twist drills, end mills, and other precision cutting solutions.",
+      "A comprehensive range of HSS and carbide drills, end mills, and precision cutting tools developed for professional machining applications.",
     faDescription:
-      "IZAR CUTTING TOOLS یکی از تولیدکنندگان مطرح اروپایی ابزارهای برشی HSS و کارباید است و طیف گسترده‌ای از مته‌های مارپیچ، فرزهای انگشتی و سایر ابزارهای دقیق برشی را ارائه می‌دهد.",
+      "مجموعه‌ای گسترده از مته‌ها، فرزهای انگشتی و ابزارهای دقیق HSS و کارباید برای کاربردهای حرفه‌ای ماشین‌کاری.",
   },
 
   {
-    id: "3",
-    image: "/homepageCarousel/3.webp",
+    id: "7",
     href: "",
 
-    enLabel: "ILJIN DIAMOND",
-    faLabel: "ILJIN DIAMOND",
+    darkImage: "/homepageCarousel/dark7.webp",
+    lightImage: "/homepageCarousel/light7.webp",
 
-    enTitle: "DIAMOND SAW GRIT, PCD & PCBN",
-    faTitle: "گریت الماس، PCD و PCBN",
+    enLabel: "SHINHAN DIAMOND",
+    faLabel: "SHINHAN DIAMOND",
 
-    enDescription:
-      "ILJIN Diamond is a renowned Korean manufacturer of diamond saw and wheel grit, PCD and PCBN blanks and inserts, tungsten carbide rods and blanks, and TC rolls for the steel industry.",
-    faDescription:
-      "ILJIN Diamond یک تولیدکننده شناخته‌شده کره‌ای در زمینه گریت الماس برای اره و چرخ، بلنک و اینسرت‌های PCD و PCBN، میله و بلنک کارباید تنگستن و رول‌های TC برای صنایع فولاد است.",
-  },
-
-  {
-    id: "4",
-    image: "/homepageCarousel/4.webp",
-    href: "",
-
-    enLabel: "WIDIN SOLID CARBIDE ENDMILL",
-    faLabel: "فرز انگشتی تمام‌کارباید WIDIN",
-
-    enTitle: "U-WING ENDMILL",
-    faTitle: "فرز انگشتی U-WING",
+    enTitle: "INDUSTRIAL DIAMOND TOOLS",
+    faTitle: "ابزارهای صنعتی الماسه",
 
     enDescription:
-      "WIDIN, with more than 30 years of experience, provides high-quality solid carbide end mills, drills, and taps for a wide range of industrial applications.",
+      "Advanced diamond tooling solutions engineered for precision cutting, grinding, and high-performance machining of challenging materials.",
     faDescription:
-      "WIDIN با بیش از ۳۰ سال تجربه، تولیدکننده فرزهای انگشتی تمام‌کارباید، مته‌ها و قلاویزهای باکیفیت برای طیف گسترده‌ای از کاربردهای صنعتی است.",
-  },
-
-  {
-    id: "5",
-    image: "/homepageCarousel/5.webp",
-    href: "",
-
-    enLabel: "FUNIK ULTRAHARD MATERIAL",
-    faLabel: "مواد فوق‌سخت FUNIK",
-
-    enTitle: "SOLID CBN INSERTS & BLANKS",
-    faTitle: "اینسرت‌ها و بلنک‌های تمام CBN",
-
-    enDescription:
-      "Advanced solid CBN solutions designed to substantially improve cutting efficiency, machining performance, and tool life across demanding industrial applications.",
-    faDescription:
-      "راهکارهای پیشرفته تمام CBN با هدف افزایش چشمگیر بهره‌وری برش، عملکرد ماشین‌کاری و عمر ابزار در کاربردهای صنعتی دشوار.",
+      "راهکارهای پیشرفته ابزارهای الماسه برای برش دقیق، سنگ‌زنی و ماشین‌کاری با عملکرد بالا روی مواد دشوار.",
   },
 ];

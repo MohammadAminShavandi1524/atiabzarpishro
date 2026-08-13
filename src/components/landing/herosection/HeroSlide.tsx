@@ -1,8 +1,11 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { useTheme } from "next-themes";
+
 import { cn } from "@/lib/utils";
 import type { HeroCarouselItem } from "./hero-carousel.types";
 
@@ -13,27 +16,38 @@ type Props = {
 };
 
 export default function HeroSlide({ item, locale, isActive }: Props) {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
   const isRTL = locale === "fa";
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const label = isRTL ? item.faLabel : item.enLabel;
   const title = isRTL ? item.faTitle : item.enTitle;
   const description = isRTL ? item.faDescription : item.enDescription;
 
+  const imageSrc =
+    mounted && resolvedTheme === "dark" ? item.darkImage : item.lightImage;
+
   return (
-    <article
-      className={cn(
-        "hero-slide relative min-w-0 shrink-0 grow-0 basis-full",
-        "h-[480px] overflow-hidden",
-        "lg:h-[540px]",
-        "xl:h-[580px]",
-        "2xl:h-[620px]",
-      )}
-      dir={isRTL ? "rtl" : "ltr"}
-    >
+   <article
+  className={cn(
+    "hero-slide relative min-w-0 shrink-0 grow-0 basis-full",
+    "h-[500px] overflow-hidden",
+    "md:h-[540px]",
+    "lg:h-[560px]",
+    "xl:h-[590px]",
+    "2xl:h-[620px]",
+  )}
+  dir={isRTL ? "rtl" : "ltr"}
+>
       {/* Image */}
       <div className="hero-slide-image absolute inset-0">
         <Image
-          src={item.image}
+          src={imageSrc}
           alt={title}
           fill
           priority={item.id === "1"}
