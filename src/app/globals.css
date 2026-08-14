@@ -393,4 +393,12 @@
   *::-webkit-scrollbar-corner {
     background: transparent;
   }
+
+  :lang(fa) {
+    font-family: var(--font-IRANYekanX), sans-serif;
+  }
+
+  :lang(en) {
+    font-family: var(--font-space), sans-serif;
+  }
 }

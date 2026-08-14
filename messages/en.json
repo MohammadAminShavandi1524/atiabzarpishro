@@ -75,6 +75,30 @@
           "description": "Providing professional courses and seminars in cutting-tool technology and modern machining to strengthen technical knowledge across industries."
         }
       }
+    },
+    "industries": {
+      "eyebrow": "Industries & Applications",
+      "chapter": "Industrial Sectors",
+      "titleLine1": "Engineering for",
+      "titleLine2": "Critical Industries.",
+      "description": "ATI Abzar Pishro develops machining solutions around the specialized demands of diverse industries, from automotive manufacturing and energy to aerospace and medical equipment.",
+      "scrollHint": "Continue to build the industry network",
+      "core": {
+        "title": "Machining",
+        "subtitle": "ATI Engineering Core"
+      },
+      "items": {
+        "automotive": "Automotive & Components",
+        "power": "Power Generation",
+        "machinery": "Gearbox & Industrial Machinery",
+        "steel": "Steel, Pipe & Rolling Industries",
+        "mold": "Mold & Die",
+        "oilGas": "Oil, Gas & Petrochemical",
+        "railway": "Railway Industry",
+        "glass": "Automotive Glass",
+        "aerospace": "Aerospace",
+        "medical": "Medical Equipment"
+      }
     }
   },
 
