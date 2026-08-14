@@ -22,19 +22,19 @@ const CompanyStoryStage = forwardRef<HTMLDivElement, CompanyStoryStageProps>(
         >
           {/* Horizontal Line - Top */}
           <div className="absolute inset-x-0 top-[22%]">
-            <div className="story-technical-line bg-border h-px w-full" />
+            <div className="story-horizontal-line bg-border h-px w-full" />
           </div>
 
           {/* Horizontal Line - Bottom */}
           <div className="absolute inset-x-0 top-[73%]">
-            <div className="story-technical-line bg-border h-px w-full" />
+            <div className="story-horizontal-line bg-border h-px w-full" />
           </div>
 
           {/* Vertical Frame - Start */}
-          <div className="story-technical-line bg-border absolute inset-y-0 start-[5%] w-px" />
+          <div className="story-vertical-line story-vertical-start bg-border absolute inset-y-0 start-[5%] w-px" />
 
           {/* Vertical Frame - End */}
-          <div className="story-technical-line bg-border absolute inset-y-0 end-[5%] w-px" />
+          <div className="story-vertical-line story-vertical-end bg-border absolute inset-y-0 end-[5%] w-px" />
 
           {/* Giant Background Index */}
           <div className="story-background-index text-foreground/[0.025] absolute end-[3%] top-1/2 -translate-y-1/2 text-[clamp(15rem,32vw,38rem)] leading-none font-semibold tracking-[-0.08em] select-none">
@@ -181,11 +181,20 @@ const CompanyStoryStage = forwardRef<HTMLDivElement, CompanyStoryStageProps>(
 
             {/* Capabilities */}
             <div className="grid grid-cols-3 ps-[8vw]">
-              <StoryStat index="01" title={t("stats.engineering")} />
+              <StoryStat
+                index="01"
+                title={t("stats.engineering")}
+                isRTL={isRTL}
+              />
 
-              <StoryStat index="02" title={t("stats.supply")} />
+              <StoryStat index="02" title={t("stats.supply")} isRTL={isRTL} />
 
-              <StoryStat index="03" title={t("stats.support")} last />
+              <StoryStat
+                index="03"
+                title={t("stats.support")}
+                isRTL={isRTL}
+                last
+              />
             </div>
           </div>
         </div>
@@ -209,10 +218,11 @@ export default CompanyStoryStage;
 interface StoryStatProps {
   index: string;
   title: string;
+  isRTL: boolean;
   last?: boolean;
 }
 
-function StoryStat({ index, title, last = false }: StoryStatProps) {
+function StoryStat({ index, title, isRTL, last = false }: StoryStatProps) {
   return (
     <div
       className={`story-stat flex flex-col justify-center px-7 ${
@@ -220,7 +230,7 @@ function StoryStat({ index, title, last = false }: StoryStatProps) {
       }`}
     >
       <span className="text-custom-primary font-mono text-[12px] tracking-[0.09em]">
-        / {index}
+        /  {index}
       </span>
 
       <span className="text-foreground mt-2 min-h-12 max-w-[160px] text-[15px] leading-6 font-medium">

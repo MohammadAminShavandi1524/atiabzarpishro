@@ -32,10 +32,9 @@ export default function HeroCarousel() {
 
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [autoplayProgress, setAutoplayProgress] = useState(0);
 
   const [canScrollPrev, setCanScrollPrev] = useState(false);
-
   const [canScrollNext, setCanScrollNext] = useState(false);
 
   const progressTween = useRef<gsap.core.Tween | null>(null);
@@ -52,12 +51,6 @@ export default function HeroCarousel() {
     setSelectedIndex(api.selectedScrollSnap());
   }, []);
 
-  const updateScrollProgress = useCallback((api: EmblaCarouselType) => {
-    const progress = Math.max(0, Math.min(1, api.scrollProgress()));
-
-    setScrollProgress(progress * 100);
-  }, []);
-
   const updateButtons = useCallback((api: EmblaCarouselType) => {
     setCanScrollPrev(api.canScrollPrev());
     setCanScrollNext(api.canScrollNext());
@@ -67,35 +60,22 @@ export default function HeroCarousel() {
     if (!emblaApi) return;
 
     updateSelectedIndex(emblaApi);
-    updateScrollProgress(emblaApi);
     updateButtons(emblaApi);
 
     emblaApi.on("select", updateSelectedIndex);
-
-    emblaApi.on("scroll", updateScrollProgress);
+    emblaApi.on("select", updateButtons);
 
     emblaApi.on("reInit", updateSelectedIndex);
-
-    emblaApi.on("reInit", updateScrollProgress);
-
     emblaApi.on("reInit", updateButtons);
-
-    emblaApi.on("select", updateButtons);
 
     return () => {
       emblaApi.off("select", updateSelectedIndex);
-
-      emblaApi.off("scroll", updateScrollProgress);
+      emblaApi.off("select", updateButtons);
 
       emblaApi.off("reInit", updateSelectedIndex);
-
-      emblaApi.off("reInit", updateScrollProgress);
-
       emblaApi.off("reInit", updateButtons);
-
-      emblaApi.off("select", updateButtons);
     };
-  }, [emblaApi, updateSelectedIndex, updateScrollProgress, updateButtons]);
+  }, [emblaApi, updateSelectedIndex, updateButtons]);
 
   /*
    * --------------------------------------------------
@@ -132,15 +112,12 @@ export default function HeroCarousel() {
       if (!activeSlide) return;
 
       const image = activeSlide.querySelector(".hero-slide-image");
-
       const overlay = activeSlide.querySelector(".hero-slide-overlay");
-
       const label = activeSlide.querySelector(".hero-slide-label");
-
       const title = activeSlide.querySelector(".hero-slide-title");
-
-      const description = activeSlide.querySelector(".hero-slide-description");
-
+      const description = activeSlide.querySelector(
+        ".hero-slide-description",
+      );
       const cta = activeSlide.querySelector(".hero-slide-cta");
 
       const direction = isRTL ? 1 : -1;
@@ -260,6 +237,8 @@ export default function HeroCarousel() {
 
     progressTween.current?.kill();
 
+    setAutoplayProgress(0);
+
     const progressObject = {
       value: 0,
     };
@@ -268,9 +247,11 @@ export default function HeroCarousel() {
       value: 100,
       duration: AUTOPLAY_DURATION / 1000,
       ease: "none",
+
       onUpdate: () => {
-        setScrollProgress(progressObject.value);
+        setAutoplayProgress(progressObject.value);
       },
+
       onComplete: () => {
         emblaApi.scrollNext();
       },
@@ -344,7 +325,7 @@ export default function HeroCarousel() {
           <HeroProgress
             current={selectedIndex + 1}
             total={carouselItems.length}
-            progress={scrollProgress}
+            progress={autoplayProgress}
             locale={locale}
           />
 

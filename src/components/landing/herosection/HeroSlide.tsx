@@ -33,17 +33,21 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
     mounted && resolvedTheme === "dark" ? item.darkImage : item.lightImage;
 
   return (
-   <article
-  className={cn(
-    "hero-slide relative min-w-0 shrink-0 grow-0 basis-full",
-    "h-[500px] overflow-hidden",
-    "md:h-[540px]",
-    "lg:h-[560px]",
-    "xl:h-[590px]",
-    "2xl:h-[620px]",
-  )}
-  dir={isRTL ? "rtl" : "ltr"}
->
+    <article
+      className={cn(
+        "hero-slide relative min-w-0 shrink-0 grow-0 basis-full overflow-hidden",
+
+        // Mobile / Tablet
+        "h-[520px]",
+        "md:h-[560px]",
+
+        // Desktop
+        "lg:h-[calc(100svh-154px)]",
+        "lg:min-h-[580px]",
+        "lg:max-h-[700px]",
+      )}
+      dir={isRTL ? "rtl" : "ltr"}
+    >
       {/* Image */}
       <div className="hero-slide-image absolute inset-0">
         <Image

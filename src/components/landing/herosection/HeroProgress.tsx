@@ -27,7 +27,7 @@ export default function HeroProgress({
 
   return (
     <div
-      className={cn("flex items-center gap-x-4", "text-white")}
+      className="flex items-center gap-x-4 text-white"
       dir={isRTL ? "rtl" : "ltr"}
     >
       <span className="min-w-[22px] text-xs font-medium tabular-nums">
@@ -36,9 +36,12 @@ export default function HeroProgress({
 
       <div className="relative h-[2px] w-28 overflow-hidden bg-white/25 sm:w-36">
         <div
-          className="bg-accent absolute inset-y-0 start-0"
+          className={cn(
+            "bg-accent absolute inset-0",
+            isRTL ? "origin-right" : "origin-left",
+          )}
           style={{
-            width: `${progress}%`,
+            transform: `scaleX(${progress / 100})`,
           }}
         />
       </div>

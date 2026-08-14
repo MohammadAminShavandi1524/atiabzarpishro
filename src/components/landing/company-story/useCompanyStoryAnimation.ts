@@ -32,8 +32,15 @@ export function useCompanyStoryAnimation({
 
       if (reduceMotion) return;
 
+      // =========================================================
       // Elements
-      const technicalLines = stage.querySelectorAll(".story-technical-line");
+      // =========================================================
+
+      const horizontalLines = stage.querySelectorAll(".story-horizontal-line");
+
+      const verticalStart = stage.querySelector(".story-vertical-start");
+
+      const verticalEnd = stage.querySelector(".story-vertical-end");
 
       const mainDivider = stage.querySelector(".story-main-divider");
 
@@ -73,13 +80,23 @@ export function useCompanyStoryAnimation({
 
       const sideCoordinate = stage.querySelector(".story-side-coordinate");
 
-      // -------------------------------------------------------
-      // Initial states
-      // -------------------------------------------------------
+      // =========================================================
+      // Initial States
+      // =========================================================
 
-      gsap.set(technicalLines, {
+      gsap.set(horizontalLines, {
         scaleX: 0,
         transformOrigin: isRTL ? "right center" : "left center",
+      });
+
+      gsap.set(verticalStart, {
+        scaleY: 0,
+        transformOrigin: "top center",
+      });
+
+      gsap.set(verticalEnd, {
+        scaleY: 0,
+        transformOrigin: "bottom center",
       });
 
       gsap.set(mainDivider, {
@@ -171,9 +188,104 @@ export function useCompanyStoryAnimation({
         opacity: 0,
       });
 
-      // -------------------------------------------------------
-      // Main scroll timeline
-      // -------------------------------------------------------
+      // =========================================================
+      // Intro Timeline
+      // =========================================================
+
+      const introTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top 92%",
+          end: "top top",
+          scrub: 0.8,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      // Horizontal lines
+      introTimeline.to(
+        horizontalLines,
+        {
+          scaleX: 1,
+          duration: 1,
+          stagger: 0.08,
+          ease: "power2.inOut",
+        },
+        0,
+      );
+
+      // Vertical start line
+      introTimeline.to(
+        verticalStart,
+        {
+          scaleY: 1,
+          duration: 1.15,
+          ease: "power2.inOut",
+        },
+        0.04,
+      );
+
+      // Vertical end line
+      introTimeline.to(
+        verticalEnd,
+        {
+          scaleY: 1,
+          duration: 1.15,
+          ease: "power2.inOut",
+        },
+        0.12,
+      );
+
+      // Background index
+      introTimeline.to(
+        backgroundIndex,
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
+        },
+        0.08,
+      );
+
+      // Eyebrow
+      introTimeline.to(
+        eyebrow,
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.75,
+          ease: "power3.out",
+        },
+        0.16,
+      );
+
+      // Chapter
+      introTimeline.to(
+        chapter,
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.75,
+          ease: "power3.out",
+        },
+        0.22,
+      );
+
+      // Side coordinate
+      introTimeline.to(
+        sideCoordinate,
+        {
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+        },
+        0.28,
+      );
+
+      // =========================================================
+      // Main Pinned Timeline
+      // =========================================================
 
       const timeline = gsap.timeline({
         scrollTrigger: {
@@ -182,105 +294,59 @@ export function useCompanyStoryAnimation({
           end: "bottom bottom",
           scrub: 1.15,
           pin: stage,
+          pinSpacing: true,
           anticipatePin: 1,
+          invalidateOnRefresh: true,
         },
       });
 
-      // -------------------------------------------------------
-      // Phase 01 — Construct the technical frame
-      // -------------------------------------------------------
+      // =========================================================
+      // Structural Dividers
+      // =========================================================
 
       timeline.to(
-        technicalLines,
+        mainDivider,
         {
-          scaleX: 1,
-          duration: 1.2,
-          stagger: 0.08,
+          scaleY: 1,
+          duration: 0.9,
           ease: "power2.inOut",
         },
         0,
       );
 
       timeline.to(
-        mainDivider,
+        bottomDivider,
         {
-          scaleY: 1,
-          duration: 1.05,
+          scaleX: 1,
+          duration: 0.9,
           ease: "power2.inOut",
         },
         0.08,
       );
 
       timeline.to(
-        bottomDivider,
-        {
-          scaleX: 1,
-          duration: 1.05,
-          ease: "power2.inOut",
-        },
-        0.2,
-      );
-
-      timeline.to(
         bottomVerticalDivider,
         {
           scaleY: 1,
-          duration: 0.95,
+          duration: 0.8,
           ease: "power2.inOut",
         },
-        0.35,
+        0.16,
       );
 
-      // -------------------------------------------------------
-      // Phase 02 — Background construction
-      // -------------------------------------------------------
-
-      timeline.to(
-        backgroundIndex,
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 1.15,
-          ease: "power3.out",
-        },
-        0.12,
-      );
-
-      timeline.to(
-        eyebrow,
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        0.32,
-      );
-
-      timeline.to(
-        chapter,
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        0.42,
-      );
-
-      // -------------------------------------------------------
-      // Phase 03 — Experience number
-      // -------------------------------------------------------
+      // =========================================================
+      // Experience Number
+      // =========================================================
 
       timeline.to(
         number,
         {
           opacity: 1,
           yPercent: 0,
-          duration: 1.2,
+          duration: 1.15,
           ease: "power4.out",
         },
-        0.62,
+        0.24,
       );
 
       timeline.to(
@@ -289,35 +355,39 @@ export function useCompanyStoryAnimation({
           opacity: 1,
           scale: 1,
           y: 0,
-          duration: 0.7,
-          ease: "back.out(1.7)",
+          duration: 0.65,
+          ease: "back.out(1.6)",
         },
-        1.05,
+        0.65,
       );
 
-      // -------------------------------------------------------
-      // Phase 04 — Main statement
-      // -------------------------------------------------------
+      // =========================================================
+      // Main Story Title
+      // =========================================================
 
       timeline.to(
         titleLines,
         {
           yPercent: 0,
-          duration: 1.1,
-          stagger: 0.12,
+          duration: 1,
+          stagger: 0.1,
           ease: "power4.out",
         },
-        0.82,
+        0.45,
       );
+
+      // =========================================================
+      // Experience Detail
+      // =========================================================
 
       timeline.to(
         experienceLine,
         {
           scaleX: 1,
-          duration: 0.7,
+          duration: 0.65,
           ease: "power3.inOut",
         },
-        1.25,
+        0.85,
       );
 
       timeline.to(
@@ -325,35 +395,39 @@ export function useCompanyStoryAnimation({
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
+          duration: 0.75,
           ease: "power3.out",
         },
-        1.3,
+        0.9,
       );
+
+      // =========================================================
+      // Description
+      // =========================================================
 
       timeline.to(
         description,
         {
           opacity: 1,
           y: 0,
-          duration: 0.9,
+          duration: 0.8,
           ease: "power3.out",
         },
-        1.4,
+        1.02,
       );
 
-      // -------------------------------------------------------
-      // Phase 05 — Measurement details
-      // -------------------------------------------------------
+      // =========================================================
+      // Measurement
+      // =========================================================
 
       timeline.to(
         measurementLine,
         {
           scaleX: 1,
-          duration: 0.7,
+          duration: 0.6,
           ease: "power2.inOut",
         },
-        1.6,
+        1.22,
       );
 
       timeline.to(
@@ -361,64 +435,84 @@ export function useCompanyStoryAnimation({
         {
           opacity: 1,
           y: 0,
-          duration: 0.7,
+          duration: 0.65,
           ease: "power3.out",
         },
-        1.66,
+        1.28,
       );
 
-      // -------------------------------------------------------
-      // Phase 06 — Bottom information
-      // -------------------------------------------------------
+      // =========================================================
+      // Bottom Stats
+      // =========================================================
 
       timeline.to(
         stats,
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          stagger: 0.12,
+          duration: 0.75,
+          stagger: 0.1,
           ease: "power3.out",
         },
-        1.82,
+        1.42,
       );
+
+      // =========================================================
+      // Scroll Indicator
+      // =========================================================
 
       timeline.to(
         scrollLabel,
         {
           opacity: 1,
           y: 0,
-          duration: 0.7,
+          duration: 0.65,
           ease: "power3.out",
         },
-        1.95,
+        1.55,
       );
 
-      timeline.to(
-        sideCoordinate,
-        {
-          opacity: 1,
-          duration: 0.8,
-          ease: "power2.out",
-        },
-        2,
-      );
-
-      // -------------------------------------------------------
-      // Global scroll progress
-      // -------------------------------------------------------
+      // =========================================================
+      // Progress
+      // =========================================================
 
       timeline.to(
         progress,
         {
           scaleY: 1,
-          duration: 2.2,
+          duration: 2.1,
           ease: "none",
         },
-        0.8,
+        0.25,
+      );
+
+      // =========================================================
+      // Late Motion
+      // =========================================================
+
+      timeline.to(
+        backgroundIndex,
+        {
+          xPercent: isRTL ? -4 : 4,
+          scale: 1.025,
+          duration: 1.1,
+          ease: "none",
+        },
+        1.45,
+      );
+
+      timeline.to(
+        number,
+        {
+          yPercent: -3,
+          duration: 1,
+          ease: "none",
+        },
+        1.6,
       );
 
       return () => {
+        introTimeline.kill();
         timeline.kill();
       };
     },

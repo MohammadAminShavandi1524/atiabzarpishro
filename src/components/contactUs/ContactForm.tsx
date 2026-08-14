@@ -215,7 +215,7 @@ export default function ContactForm() {
           <input
             id="email"
             type="email"
-            dir="ltr"
+           
             autoComplete="email"
             placeholder={t("form.emailPlaceholder")}
             {...register("email")}
