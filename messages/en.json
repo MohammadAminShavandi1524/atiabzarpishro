@@ -155,6 +155,33 @@
           "description": "A German manufacturer of specialized HSS, HSS-E and carbide drills and reamers for precision machining applications."
         }
       }
+    },
+    "technicalInformation": {
+      "eyebrow": "Technical Information",
+      "titleLine1": "Technical resources.",
+      "titleLine2": "Built for the shop floor.",
+      "description": "Access technical resources, product documentation, videos and engineering tools developed to support better machining decisions.",
+      "listDescription": "Explore ATI Abzar Pishro technical resources and access the information you need.",
+      "bottomLabel": "Engineering knowledge & technical resources",
+
+      "items": {
+        "videos": {
+          "title": "Video Clips",
+          "description": "Product videos and machining demonstrations"
+        },
+        "brochures": {
+          "title": "Brochures",
+          "description": "Technical guides and product brochures"
+        },
+        "catalogues": {
+          "title": "Catalogues",
+          "description": "Product catalogues and technical data"
+        },
+        "softwares": {
+          "title": "Softwares",
+          "description": "Applications and engineering software"
+        }
+      }
     }
   },
 
