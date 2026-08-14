@@ -19,6 +19,7 @@ import AppToaster from "@/components/AppToaster";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import { CustomToastProvider } from "@/components/ui/custom-toast";
+import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 
 // import {
 //   MobileSidebar,
@@ -113,7 +114,9 @@ export default async function LocaleLayout({
               <Header />
 
               <main className="headerPadding">
-                <CustomToastProvider>{children}</CustomToastProvider>
+                <CustomToastProvider>
+                  <SmoothScrollProvider>{children}</SmoothScrollProvider>
+                </CustomToastProvider>
               </main>
 
               <Footer />
