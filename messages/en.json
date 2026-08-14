@@ -204,6 +204,27 @@
           "description": "Explore the fundamentals of carbide inserts, common geometries and how different insert types are applied across machining operations."
         }
       }
+    },
+    "contactCTA": {
+      "eyebrow": "Get in Touch",
+      "titleLine1": "Need the right",
+      "titleLine2": "machining solution?",
+      "titleLine3": "Let's talk.",
+      "description": "Talk to ATI Abzar Pishro about your machining requirements, tooling needs and technical challenges.",
+      "sideDescription": "Reach our team directly by email or visit the contact page for complete company and communication details.",
+      "bottomLabel": "Start an engineering conversation",
+      "methods": {
+        "email": {
+          "eyebrow": "Direct Contact",
+          "title": "Send us an email",
+          "description": "Share your technical questions, machining requirements or collaboration inquiries directly with our team."
+        },
+        "contact": {
+          "eyebrow": "Contact Information",
+          "title": "Contact ATI Abzar Pishro",
+          "description": "Access our contact information, company location and additional ways to reach ATI Abzar Pishro."
+        }
+      }
     }
   },
 

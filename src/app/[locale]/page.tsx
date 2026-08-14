@@ -9,6 +9,7 @@ import FeaturedProducts from "@/components/landing/featured-products/FeaturedPro
 import Partners from "@/components/landing/partners/Partners";
 import TechnicalInformation from "@/components/landing/TechnicalInformation/TechnicalInformation";
 import BlogInsights from "@/components/landing/BlogInsights/BlogInsights";
+import ContactCTA from "@/components/landing/ContactCTA/ContactCTA";
 
 export default function IndexPage({ params }: PageProps<"/[locale]">) {
   const { locale } = use(params);
@@ -17,7 +18,7 @@ export default function IndexPage({ params }: PageProps<"/[locale]">) {
   setRequestLocale(locale as Locale);
 
   return (
-    <div className="mb-100">
+    <div className="">
       <HeroCarousel />
 
       <CompanyStory />
@@ -27,6 +28,7 @@ export default function IndexPage({ params }: PageProps<"/[locale]">) {
       <Partners />
       <TechnicalInformation />
       <BlogInsights />
+      <ContactCTA />
     </div>
   );
 }
