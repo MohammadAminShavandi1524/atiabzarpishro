@@ -8,6 +8,7 @@ import Industries from "@/components/landing/industries/Industries";
 import FeaturedProducts from "@/components/landing/featured-products/FeaturedProducts";
 import Partners from "@/components/landing/partners/Partners";
 import TechnicalInformation from "@/components/landing/TechnicalInformation/TechnicalInformation";
+import BlogInsights from "@/components/landing/BlogInsights/BlogInsights";
 
 export default function IndexPage({ params }: PageProps<"/[locale]">) {
   const { locale } = use(params);
@@ -22,9 +23,10 @@ export default function IndexPage({ params }: PageProps<"/[locale]">) {
       <CompanyStory />
       <Capabilities />
       <Industries />
-      <FeaturedProducts/>
+      <FeaturedProducts />
       <Partners />
       <TechnicalInformation />
+      <BlogInsights />
     </div>
   );
 }

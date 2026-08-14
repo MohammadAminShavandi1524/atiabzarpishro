@@ -182,6 +182,28 @@
           "description": "Applications and engineering software"
         }
       }
+    },
+    "blogInsights": {
+      "eyebrow": "Latest Insights",
+      "titleLine1": "Machining knowledge.",
+      "titleLine2": "Built from experience.",
+      "description": "Technical articles, practical machining knowledge and industry insights from ATI Abzar Pishro.",
+      "viewAll": "View All Articles",
+
+      "items": {
+        "first": {
+          "title": "Choosing the Right Cutting Tool for High-Performance Machining",
+          "description": "A practical look at the key factors involved in selecting cutting tools for stable, accurate and productive machining."
+        },
+        "second": {
+          "title": "How Cutting Parameters Affect Tool Life",
+          "description": "Understand how cutting speed, feed and depth of cut influence tool wear, process stability and overall machining performance."
+        },
+        "third": {
+          "title": "Understanding Carbide Inserts and Their Applications",
+          "description": "Explore the fundamentals of carbide inserts, common geometries and how different insert types are applied across machining operations."
+        }
+      }
     }
   },
 
