@@ -8,17 +8,17 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-interface UseFeaturedProductsAnimationProps {
+interface UsePartnersAnimationProps {
   sectionRef: RefObject<HTMLElement | null>;
   stageRef: RefObject<HTMLDivElement | null>;
   isRTL: boolean;
 }
 
-export function useFeaturedProductsAnimation({
+export function usePartnersAnimation({
   sectionRef,
   stageRef,
   isRTL,
-}: UseFeaturedProductsAnimationProps) {
+}: UsePartnersAnimationProps) {
   useGSAP(
     () => {
       const section = sectionRef.current;
@@ -34,42 +34,48 @@ export function useFeaturedProductsAnimation({
 
       // Elements
       const horizontalLines = stage.querySelectorAll(
-        ".featured-horizontal-line",
+        ".partners-horizontal-line",
       );
 
-      const verticalStart = stage.querySelector(".featured-vertical-start");
+      const verticalStart = stage.querySelector(".partners-vertical-start");
 
-      const verticalEnd = stage.querySelector(".featured-vertical-end");
+      const verticalEnd = stage.querySelector(".partners-vertical-end");
 
-      const backgroundIndex = stage.querySelector(".featured-background-index");
+      const backgroundIndex = stage.querySelector(".partners-background-index");
 
-      const eyebrow = stage.querySelector(".featured-eyebrow");
+      const eyebrow = stage.querySelector(".partners-eyebrow");
 
-      const eyebrowLine = stage.querySelector(".featured-eyebrow-line");
+      const eyebrowLine = stage.querySelector(".partners-eyebrow-line");
 
-      const chapter = stage.querySelector(".featured-chapter");
+      const chapter = stage.querySelector(".partners-chapter");
 
-      const chapterLine = stage.querySelector(".featured-chapter-line");
+      const chapterLine = stage.querySelector(".partners-chapter-line");
 
-      const mainDivider = stage.querySelector(".featured-main-divider");
+      const mainDivider = stage.querySelector(".partners-main-divider");
 
-      const counter = stage.querySelector(".featured-counter");
+      const rail = stage.querySelector(".partners-rail");
 
-      const currentIndex = stage.querySelector(".featured-current-index");
-
-      const steps = gsap.utils.toArray<HTMLElement>(
-        stage.querySelectorAll(".featured-step"),
+      const railItems = gsap.utils.toArray<HTMLElement>(
+        stage.querySelectorAll(".partner-rail-item"),
       );
-
-      const viewAll = stage.querySelector(".featured-view-all");
-
-      const sideLabel = stage.querySelector(".featured-side-label");
 
       const items = gsap.utils.toArray<HTMLElement>(
-        stage.querySelectorAll(".featured-product-item"),
+        stage.querySelectorAll(".partner-item"),
       );
 
-      // Initial states
+      const counter = stage.querySelector(".partners-counter");
+
+      const currentIndex = stage.querySelector(".partners-current-index");
+
+      const bottomVertical = stage.querySelector(".partners-bottom-vertical");
+
+      const bottomReadout = stage.querySelector(".partners-bottom-readout");
+
+      const progress = stage.querySelector(".partners-progress");
+
+      const sideLabel = stage.querySelector(".partners-side-label");
+
+      // Initial
       gsap.set(horizontalLines, {
         scaleX: 0,
         transformOrigin: isRTL ? "right center" : "left center",
@@ -114,65 +120,89 @@ export function useFeaturedProductsAnimation({
         transformOrigin: "top center",
       });
 
+      gsap.set(rail, {
+        opacity: 0,
+        y: 20,
+      });
+
       gsap.set(counter, {
         opacity: 0,
-        y: 14,
+        y: 12,
       });
 
-      gsap.set(steps, {
-        opacity: 0.3,
+      gsap.set(bottomVertical, {
+        scaleY: 0,
+        transformOrigin: "top center",
       });
 
-      gsap.set(viewAll, {
+      gsap.set(bottomReadout, {
         opacity: 0,
         y: 12,
+      });
+
+      gsap.set(progress, {
+        width: 0,
       });
 
       gsap.set(sideLabel, {
         opacity: 0,
       });
 
+      railItems.forEach((item) => {
+        const indicator = item.querySelector(".partner-rail-indicator");
+
+        gsap.set(item, {
+          opacity: 0.38,
+        });
+
+        gsap.set(indicator, {
+          height: 0,
+        });
+      });
+
       items.forEach((item) => {
-        const code = item.querySelector(".featured-product-code");
-        const codeLine = item.querySelector(".featured-product-code-line");
-        const brand = item.querySelector(".featured-product-brand");
-        const title = item.querySelector(".featured-product-title");
-        const description = item.querySelector(".featured-product-description");
-        const image = item.querySelector(".featured-product-image");
+        const logoPlate = item.querySelector(".partner-logo-plate");
+
+        const logo = item.querySelector(".partner-logo");
+
+        const corners = item.querySelectorAll(".partner-logo-corner");
+
+        const code = item.querySelector(".partner-code");
+
+        const name = item.querySelector(".partner-name");
+
+        const description = item.querySelector(".partner-description");
 
         gsap.set(item, {
           autoAlpha: 0,
         });
 
+        gsap.set(logoPlate, {
+          opacity: 0,
+          scale: 0.96,
+        });
+
+        gsap.set(logo, {
+          opacity: 0,
+          scale: 0.9,
+        });
+
+        gsap.set(corners, {
+          scale: 0,
+        });
+
         gsap.set(code, {
           opacity: 0,
-          y: 12,
+          y: 10,
         });
 
-        gsap.set(codeLine, {
-          scaleX: 0,
-          transformOrigin: "left center",
-        });
-
-        gsap.set(brand, {
-          opacity: 0,
-          y: 14,
-        });
-
-        gsap.set(title, {
+        gsap.set(name, {
           yPercent: 115,
         });
 
         gsap.set(description, {
           opacity: 0,
-          y: 22,
-        });
-
-        gsap.set(image, {
-          opacity: 0,
-          scale: 0.88,
-          rotate: isRTL ? 3 : -3,
-          xPercent: isRTL ? -5 : 5,
+          y: 20,
         });
       });
 
@@ -257,7 +287,7 @@ export function useFeaturedProductsAnimation({
           duration: 0.65,
           ease: "power3.out",
         },
-        0.26,
+        0.25,
       );
 
       introTimeline.to(
@@ -266,7 +296,7 @@ export function useFeaturedProductsAnimation({
           scaleX: 1,
           duration: 0.5,
         },
-        0.3,
+        0.29,
       );
 
       introTimeline.to(
@@ -276,7 +306,28 @@ export function useFeaturedProductsAnimation({
           duration: 0.75,
           ease: "power2.inOut",
         },
-        0.32,
+        0.3,
+      );
+
+      introTimeline.to(
+        bottomVertical,
+        {
+          scaleY: 1,
+          duration: 0.75,
+          ease: "power2.inOut",
+        },
+        0.34,
+      );
+
+      introTimeline.to(
+        rail,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.65,
+          ease: "power3.out",
+        },
+        0.38,
       );
 
       introTimeline.to(
@@ -284,21 +335,21 @@ export function useFeaturedProductsAnimation({
         {
           opacity: 1,
           y: 0,
-          duration: 0.55,
+          duration: 0.5,
           ease: "power3.out",
         },
         0.5,
       );
 
       introTimeline.to(
-        viewAll,
+        bottomReadout,
         {
           opacity: 1,
           y: 0,
-          duration: 0.55,
+          duration: 0.5,
           ease: "power3.out",
         },
-        0.58,
+        0.54,
       );
 
       introTimeline.to(
@@ -307,10 +358,10 @@ export function useFeaturedProductsAnimation({
           opacity: 1,
           duration: 0.5,
         },
-        0.62,
+        0.58,
       );
 
-      // Main timeline
+      // Scroll timeline
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: section,
@@ -323,42 +374,75 @@ export function useFeaturedProductsAnimation({
           invalidateOnRefresh: true,
 
           onUpdate: (self) => {
-            if (!currentIndex) return;
-
             const normalized = gsap.utils.clamp(
               0,
               1,
-              gsap.utils.mapRange(0.08, 0.92, 0, 1, self.progress),
+              gsap.utils.mapRange(0.05, 0.94, 0, 1, self.progress),
             );
 
-            const index = Math.min(
+            const activeIndex = Math.min(
               items.length - 1,
               Math.round(normalized * (items.length - 1)),
             );
 
-            currentIndex.textContent = String(index + 1).padStart(2, "0");
+            if (currentIndex) {
+              currentIndex.textContent = String(activeIndex + 1).padStart(
+                2,
+                "0",
+              );
+            }
 
-            steps.forEach((step, stepIndex) => {
-              gsap.set(step, {
-                opacity: stepIndex === index ? 1 : 0.3,
+            railItems.forEach((railItem, index) => {
+              const indicator = railItem.querySelector<HTMLElement>(
+                ".partner-rail-indicator",
+              );
+
+              const name =
+                railItem.querySelector<HTMLElement>(".partner-rail-name");
+
+              gsap.set(railItem, {
+                opacity: index === activeIndex ? 1 : 0.38,
               });
+
+              if (indicator) {
+                gsap.set(indicator, {
+                  height: index === activeIndex ? "100%" : "0%",
+                });
+              }
+
+              if (name) {
+                gsap.set(name, {
+                  color: index === activeIndex ? "var(--foreground)" : "",
+                });
+              }
             });
+
+            if (progress) {
+              gsap.set(progress, {
+                width: `${normalized * 90}px`,
+              });
+            }
           },
         },
       });
 
-      // Products
+      // Partners
       const start = 0.25;
-      const gap = 1.65;
-      const hold = 1.15;
+      const gap = 1.02;
+      const hold = 0.7;
 
       items.forEach((item, index) => {
-        const code = item.querySelector(".featured-product-code");
-        const codeLine = item.querySelector(".featured-product-code-line");
-        const brand = item.querySelector(".featured-product-brand");
-        const title = item.querySelector(".featured-product-title");
-        const description = item.querySelector(".featured-product-description");
-        const image = item.querySelector(".featured-product-image");
+        const logoPlate = item.querySelector(".partner-logo-plate");
+
+        const logo = item.querySelector(".partner-logo");
+
+        const corners = item.querySelectorAll(".partner-logo-corner");
+
+        const code = item.querySelector(".partner-code");
+
+        const name = item.querySelector(".partner-name");
+
+        const description = item.querySelector(".partner-description");
 
         const position = start + index * gap;
 
@@ -371,23 +455,34 @@ export function useFeaturedProductsAnimation({
         );
 
         timeline.to(
-          image,
+          logoPlate,
           {
             opacity: 1,
             scale: 1,
-            rotate: 0,
-            xPercent: 0,
-            duration: 0.8,
-            ease: "power4.out",
+            duration: 0.5,
+            ease: "power3.out",
           },
           position,
         );
 
         timeline.to(
-          codeLine,
+          logo,
           {
-            scaleX: 1,
-            duration: 0.45,
+            opacity: 1,
+            scale: 1,
+            duration: 0.5,
+            ease: "power4.out",
+          },
+          position + 0.06,
+        );
+
+        timeline.to(
+          corners,
+          {
+            scale: 1,
+            duration: 0.25,
+            stagger: 0.05,
+            ease: "back.out(1.7)",
           },
           position + 0.1,
         );
@@ -397,29 +492,19 @@ export function useFeaturedProductsAnimation({
           {
             opacity: 1,
             y: 0,
-            duration: 0.45,
+            duration: 0.35,
           },
-          position + 0.12,
+          position + 0.14,
         );
 
         timeline.to(
-          brand,
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.4,
-          },
-          position + 0.18,
-        );
-
-        timeline.to(
-          title,
+          name,
           {
             yPercent: 0,
-            duration: 0.65,
+            duration: 0.5,
             ease: "power4.out",
           },
-          position + 0.22,
+          position + 0.18,
         );
 
         timeline.to(
@@ -427,44 +512,52 @@ export function useFeaturedProductsAnimation({
           {
             opacity: 1,
             y: 0,
-            duration: 0.5,
+            duration: 0.42,
             ease: "power3.out",
           },
-          position + 0.3,
+          position + 0.25,
         );
 
         if (index < items.length - 1) {
           const exit = position + hold;
 
           timeline.to(
-            image,
+            logo,
             {
               opacity: 0,
-              scale: 1.06,
-              rotate: isRTL ? -2 : 2,
-              xPercent: isRTL ? 4 : -4,
-              duration: 0.55,
-              ease: "power3.in",
-            },
-            exit,
-          );
-
-          timeline.to(
-            [code, brand, description],
-            {
-              opacity: 0,
-              y: -14,
-              duration: 0.35,
+              scale: 0.94,
+              duration: 0.3,
               ease: "power2.in",
             },
             exit,
           );
 
           timeline.to(
-            title,
+            logoPlate,
+            {
+              opacity: 0,
+              scale: 0.98,
+              duration: 0.3,
+            },
+            exit,
+          );
+
+          timeline.to(
+            [code, description],
+            {
+              opacity: 0,
+              y: -12,
+              duration: 0.28,
+              ease: "power2.in",
+            },
+            exit,
+          );
+
+          timeline.to(
+            name,
             {
               yPercent: -115,
-              duration: 0.45,
+              duration: 0.36,
               ease: "power3.in",
             },
             exit,
@@ -475,7 +568,7 @@ export function useFeaturedProductsAnimation({
             {
               autoAlpha: 0,
             },
-            exit + 0.5,
+            exit + 0.38,
           );
         }
       });

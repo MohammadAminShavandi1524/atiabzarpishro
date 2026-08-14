@@ -6,6 +6,7 @@ import CompanyStory from "@/components/landing/company-story/CompanyStory";
 import Capabilities from "@/components/landing/capabilities/Capabilities";
 import Industries from "@/components/landing/industries/Industries";
 import FeaturedProducts from "@/components/landing/featured-products/FeaturedProducts";
+import Partners from "@/components/landing/partners/Partners";
 
 export default function IndexPage({ params }: PageProps<"/[locale]">) {
   const { locale } = use(params);
@@ -21,6 +22,7 @@ export default function IndexPage({ params }: PageProps<"/[locale]">) {
       <Capabilities />
       <Industries />
       <FeaturedProducts/>
+      <Partners />
     </div>
   );
 }

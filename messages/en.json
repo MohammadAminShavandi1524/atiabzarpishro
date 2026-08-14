@@ -117,6 +117,44 @@
           "description": "IZAR cutting solutions including milling, drilling, tapping and precision machining tools for a broad range of industrial applications."
         }
       }
+    },
+    "partners": {
+      "eyebrow": "Global Partners",
+      "label": "International Brands",
+      "intro": "ATI Abzar Pishro works with established international manufacturers of machining tools and industrial solutions to deliver advanced products and specialized technologies across diverse industries.",
+      "scrollHint": "Continue to explore our global partners",
+      "items": {
+        "korloy": {
+          "description": "A South Korean manufacturer of toolholders, turning, milling and drilling tools, inserts and specialized tooling for automotive, power generation, oil and gas industries."
+        },
+        "widin": {
+          "description": "A South Korean manufacturer of standard and special solid carbide drills and end mills, along with a wide range of HSS-E tapping tools."
+        },
+        "mpa": {
+          "description": "A specialist in technical ceramics and advanced engineering materials for demanding industrial applications."
+        },
+        "union": {
+          "description": "A South Korean manufacturer specializing in ceramic, cermet and CBN inserts for advanced machining applications."
+        },
+        "hanboo": {
+          "description": "A South Korean manufacturer of specialized automotive tooling including guide-pad tools, PCD and CBN tools, honing equipment, inserts and special drills."
+        },
+        "izar": {
+          "description": "A Spanish manufacturer of drills, reamers, end mills, taps and deburring tools made from HSS, HSS-E and carbide materials."
+        },
+        "shinhan": {
+          "description": "A manufacturer of Diamond and CBN grinding wheels, honing stones, stationary and rotary dressers, and specialized CBN and PCD tooling."
+        },
+        "iljin": {
+          "description": "A South Korean manufacturer of tungsten carbide rolls and raw materials for rolling lines, along with CBN and PCD materials for tool manufacturing."
+        },
+        "osg": {
+          "description": "A manufacturer of drills, taps, end mills, forming rolls, thread rolling tools and precision thread gauges."
+        },
+        "fromm": {
+          "description": "A German manufacturer of specialized HSS, HSS-E and carbide drills and reamers for precision machining applications."
+        }
+      }
     }
   },
 
