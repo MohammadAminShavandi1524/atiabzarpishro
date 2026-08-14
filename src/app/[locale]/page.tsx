@@ -2,7 +2,7 @@ import { Locale, useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import HeroCarousel from "@/components/landing/herosection/HeroCarousel";
 import { use } from "react";
-import CompanyStory from "@/components/landing/CompanyStory";
+import CompanyStory from "@/components/landing/company-story/CompanyStory";
 
 export default function IndexPage({ params }: PageProps<"/[locale]">) {
   const { locale } = use(params);
