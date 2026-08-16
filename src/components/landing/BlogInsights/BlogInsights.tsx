@@ -45,9 +45,7 @@ export default function BlogInsights() {
 
         <span className="blog-bg-line bg-border absolute inset-y-0 end-[5%] w-px" />
 
-        <div className="blog-bg-index text-foreground/[0.022] absolute end-[2%] top-[18%] text-[clamp(13rem,25vw,31rem)] leading-none font-semibold tracking-[-0.08em] select-none">
-          {isRTL ? englishToPersianNumber("07") : "07"}
-        </div>
+       
       </div>
 
       <div className="w90 relative z-10">
@@ -73,7 +71,7 @@ export default function BlogInsights() {
               
               className="blog-chapter text-muted-foreground flex items-center gap-3 text-[10px] tracking-[0.14em]"
             >
-              <span>ATI / 07</span>
+              <span>ATI</span>
 
               <span className="blog-chapter-line bg-border block h-px w-8" />
 

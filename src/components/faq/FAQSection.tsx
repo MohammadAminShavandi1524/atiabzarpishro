@@ -182,10 +182,8 @@ export default function FAQSection() {
 
   return (
     <div ref={rootRef} dir={isRTL ? "rtl" : "ltr"} className="bg-background">
-      {/* =========================
-          FAQ HERO
-      ========================= */}
-      <section className="bg-secondary-bg border-border border-b">
+      {/* FAQ HERO */}
+      <section className="bg-secondary-bg border-border border-b ">
         <div className="w90 py-20">
           <div className="grid grid-cols-[1.4fr_0.6fr] items-end gap-16">
             {/* Intro */}
@@ -196,32 +194,32 @@ export default function FAQSection() {
                   className="bg-custom-primary h-px w-12 shrink-0"
                 />
 
-                <span className="text-custom-primary text-base font-medium tracking-[0.14em]">
+                <span className="text-custom-primary text-sm font-medium tracking-[0.14em]">
                   {t("eyebrow")}
                 </span>
               </div>
 
-              <h1 className="text-foreground max-w-4xl text-6xl leading-[1.12] font-semibold">
+              <h1 className="text-foreground max-w-4xl text-[46px] leading-[1.12] font-semibold">
                 {t("title")}
               </h1>
 
-              <p className="text-muted-foreground mt-7 max-w-3xl text-lg leading-9">
+              <p className="text-muted-foreground mt-7 max-w-3xl text-justify text-base leading-8">
                 {t("description")}
               </p>
             </div>
 
             {/* Industrial Detail */}
             <div ref={heroDetailRef} className="border-border border-s ps-9">
-              <div className="text-custom-primary text-base font-medium tracking-[0.14em]">
+              <div className="text-custom-primary text-sm font-medium tracking-[0.14em]">
                 {t("companyName")}
               </div>
 
-              <div className="text-foreground mt-4 text-2xl font-semibold">
+              <div className="text-foreground mt-4 text-xl font-semibold">
                 {t("tagline")}
               </div>
 
               <div className="border-border mt-9 border-t pt-6">
-                <span className="text-muted-foreground text-base tracking-wider">
+                <span className="text-muted-foreground text-sm tracking-wider">
                   {t("shortLabel")} / {String(faqItems.length).padStart(2, "0")}
                 </span>
               </div>
@@ -230,36 +228,32 @@ export default function FAQSection() {
         </div>
       </section>
 
-      {/* =========================
-          FAQ CONTENT
-      ========================= */}
+      {/* FAQ CONTENT */}
       <section ref={contentRef} className="w90 py-24">
         <div className="grid grid-cols-[1fr_1.6fr] items-start gap-20">
-          {/* =========================
-              STICKY INTRO
-          ========================= */}
+          {/* Sticky Intro */}
           <aside className="relative self-stretch">
             <div ref={stickyIntroRef} className="sticky top-26 pb-12">
               {/* Section Index */}
               <div className="mb-6 flex items-center gap-3">
-                <span className="text-custom-primary text-base font-medium">
+                <span className="text-custom-primary text-sm font-medium">
                   01
                 </span>
 
                 <span className="bg-border h-px w-10" />
 
-                <span className="text-muted-foreground text-base font-medium tracking-wider">
+                <span className="text-muted-foreground text-sm font-medium tracking-wider">
                   {t("sectionLabel")}
                 </span>
               </div>
 
               {/* Section Title */}
-              <h2 className="text-foreground max-w-xl text-[2.65rem] leading-[1.2] font-semibold">
+              <h2 className="text-foreground max-w-xl text-[2rem] leading-[1.2] font-semibold">
                 {t("sectionTitle")}
               </h2>
 
               {/* Section Description */}
-              <p className="text-muted-foreground mt-7 max-w-xl pe-5 text-justify text-lg leading-9">
+              <p className="text-muted-foreground mt-7 max-w-xl pe-5 text-justify text-base leading-8">
                 {t("sectionDescription")}
               </p>
 
@@ -268,31 +262,29 @@ export default function FAQSection() {
                 href="mailto:info@Atiabzarpishro.com"
                 className="group/contact mt-10 inline-flex items-center gap-4"
               >
-                <span className="text-foreground group-hover/contact:text-custom-primary text-lg font-medium transition-colors duration-300">
+                <span className="text-foreground group-hover/contact:text-custom-primary text-base font-medium transition-colors duration-300">
                   {t("contact")}
                 </span>
 
-                <span className="border-border group-hover/contact:border-custom-primary group-hover/contact:text-custom-primary flex size-11 items-center justify-center border transition-colors duration-300">
-                  <ArrowIcon className="size-5 transition-transform duration-300" />
+                <span className="border-border group-hover/contact:border-custom-primary group-hover/contact:text-custom-primary flex size-10 items-center justify-center border transition-colors duration-300">
+                  <ArrowIcon className="size-4.5 transition-transform duration-300" />
                 </span>
               </a>
             </div>
           </aside>
 
-          {/* =========================
-              FAQ LIST
-          ========================= */}
+          {/* FAQ List */}
           <div ref={listRef}>
             {/* List Header */}
             <div
               ref={listHeaderRef}
-              className="border-border flex items-center justify-between border-b pb-6"
+              className=" flex items-center justify-between  pb-6"
             >
-              <span className="text-muted-foreground text-base font-medium tracking-wider">
+              <span className="text-muted-foreground text-sm font-medium tracking-wider">
                 {t("listLabel")}
               </span>
 
-              <span className="text-muted-foreground text-base">
+              <span className="text-muted-foreground text-sm">
                 {String(faqItems.length).padStart(2, "0")}
               </span>
             </div>

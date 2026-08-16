@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="text-footer-foreground bg-footer-bg pt-2.5">
       <div className="w90">
         {/* Features */}
-        <FooterFeatures />
+        {/* <FooterFeatures /> */}
 
         {/* Main Footer */}
         <FooterMain />

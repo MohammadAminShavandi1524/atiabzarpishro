@@ -62,7 +62,7 @@ const Nav = ({}: NavProps) => {
           </Link>
         </li>
 
-        <NavItem label={t("blog")} href={`/${locale}/blog`} />
+        <NavItem label={t("news")} href={`/${locale}/news`} />
 
         <NavItem label={t("contactUs")} href={`/${locale}/contact-us`} />
 

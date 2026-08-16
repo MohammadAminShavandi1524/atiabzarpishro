@@ -194,9 +194,7 @@ export default function FAQItem({
       onMouseLeave={handleMouseLeave}
       className="faq-item group relative"
     >
-      {/* =========================
-          SINGLE BOTTOM BOUNDARY
-      ========================= */}
+      {/* Single Bottom Boundary */}
       <span className="bg-border pointer-events-none absolute inset-x-0 bottom-0 h-px" />
 
       <span
@@ -211,17 +209,13 @@ export default function FAQItem({
           .join(" ")}
       />
 
-      {/* =========================
-          ACTIVE INDICATOR
-      ========================= */}
+      {/* Active Indicator */}
       <span
         ref={indicatorRef}
         className="bg-custom-primary absolute inset-y-0 start-0 z-20 w-0.5 origin-top scale-y-0"
       />
 
-      {/* =========================
-          QUESTION
-      ========================= */}
+      {/* Question */}
       <button
         type="button"
         aria-expanded={isOpen}
@@ -235,7 +229,7 @@ export default function FAQItem({
         {/* Number */}
         <span
           className={[
-            "mt-1.5 shrink-0 text-base font-medium transition-colors duration-300",
+            "mt-1.5 shrink-0 text-sm font-medium transition-colors duration-300",
             isOpen
               ? "text-custom-primary"
               : "text-muted-foreground group-hover:text-custom-primary",
@@ -244,11 +238,11 @@ export default function FAQItem({
           {String(id).padStart(2, "0")}
         </span>
 
-        {/* Question */}
+        {/* Question Content */}
         <div className="flex flex-1 items-start justify-between gap-8">
           <h3
             className={[
-              "max-w-3xl text-xl leading-9 font-medium transition-colors duration-300",
+              "max-w-3xl text-lg leading-8 font-medium transition-colors duration-300",
               isOpen
                 ? "text-custom-primary"
                 : "text-foreground group-hover:text-custom-primary",
@@ -261,24 +255,22 @@ export default function FAQItem({
           <span
             ref={toggleRef}
             className={[
-              "flex size-11 shrink-0 items-center justify-center border",
+              "flex size-10 shrink-0 items-center justify-center border",
               "transition-[color,background-color,border-color] duration-300",
               isOpen
                 ? "border-custom-primary bg-custom-primary text-white"
                 : "border-border text-foreground group-hover:border-custom-primary group-hover:text-custom-primary",
             ].join(" ")}
           >
-            {isOpen ? <Minus size={20} /> : <Plus size={20} />}
+            {isOpen ? <Minus size={18} /> : <Plus size={18} />}
           </span>
         </div>
       </button>
 
-      {/* =========================
-          ANSWER
-      ========================= */}
+      {/* Answer */}
       <div ref={answerRef} className="h-0 overflow-hidden">
         <div ref={answerInnerRef} className="ps-17 pe-16 pb-9 opacity-0">
-          <p className="text-muted-foreground max-w-3xl text-lg leading-9">
+          <p className="text-muted-foreground max-w-3xl text-justify text-base leading-8">
             {answer}
           </p>
         </div>

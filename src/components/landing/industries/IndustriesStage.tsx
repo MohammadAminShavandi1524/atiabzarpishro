@@ -29,11 +29,6 @@ const IndustriesStage = forwardRef<HTMLDivElement, IndustriesStageProps>(
           <span className="industries-vertical-start bg-border absolute inset-y-0 start-[5%] w-px" />
 
           <span className="industries-vertical-end bg-border absolute inset-y-0 end-[5%] w-px" />
-
-          {/* Background index */}
-          <div className="industries-background-index text-foreground/[0.022] absolute end-[2%] top-1/2 -translate-y-1/2 text-[clamp(14rem,28vw,34rem)] leading-none font-semibold tracking-[-0.08em] select-none">
-            {isRTL ? englishToPersianNumber("03") : "03"}
-          </div>
         </div>
 
         {/* Content */}
@@ -52,7 +47,7 @@ const IndustriesStage = forwardRef<HTMLDivElement, IndustriesStageProps>(
               dir="ltr"
               className="industries-chapter text-muted-foreground hidden items-center gap-3 text-xs tracking-[0.12em] uppercase lg:flex"
             >
-              <span>ATI / 03</span>
+              <span>ATI</span>
 
               <span className="industries-chapter-line bg-border block h-px w-8" />
 
@@ -146,15 +141,6 @@ const IndustriesStage = forwardRef<HTMLDivElement, IndustriesStageProps>(
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Side label */}
-        <div
-          aria-hidden="true"
-          dir="ltr"
-          className="industries-side-label text-muted-foreground/30 absolute top-1/2 hidden -translate-y-1/2 rotate-90 font-mono text-[9px] tracking-[0.16em] xl:block ltr:right-[1.5%] rtl:left-[1.5%]"
-        >
-          ATI ABZAR PISHRO — INDUSTRIAL APPLICATIONS / 03
         </div>
       </div>
     );

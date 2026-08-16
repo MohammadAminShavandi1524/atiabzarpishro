@@ -1,35 +1,49 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { useLocale, useTranslations } from "next-intl";
-import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 
-interface LogoProps {}
-
-const Logo = ({}: LogoProps) => {
+const Logo = () => {
   const locale = useLocale();
   const t = useTranslations("Header");
 
   return (
-    <Link className="flex items-center gap-x-1.5" href={`/${locale}`}>
-      <div className="relative size-[80px]">
+    <Link
+      href={`/${locale}`}
+      className="flex items-center gap-x-2.5"
+    >
+      {/* Logo mark */}
+      <div className="relative size-[72px] shrink-0">
         <Image
-          src="/ati_abzar.webp"
-          alt="logo"
+          src="/logo.webp"
+          alt={t("logoLine2")}
           fill
-          className="drop-shadow-[0_0_8px_rgba(0,0,0,0.08)] dark:drop-shadow-[0_0_10px_rgba(0,0,0,0.35)]"
+          className="object-contain drop-shadow-[0_0_8px_rgba(0,0,0,0.08)] dark:drop-shadow-[0_0_10px_rgba(0,0,0,0.35)]"
         />
       </div>
-      <div
-        className={cn(
-          "font-normal text-[#333333] dark:text-[#fcf9f8] ",
-          locale === "en" ? "text-[28px] font-medium" : "text-[26px]",
-        )}
-      >
-        {t("logoLabel")}
+
+      {/* Logo text */}
+      <div className="flex flex-col justify-center text-[#222222] dark:text-[#fcf9f8] mb-0.5">
+        <span
+          className={
+            locale === "en"
+              ? "text-[34px] leading-none font-semibold tracking-[0.02em] font-cinzel"
+              : "text-[30px] leading-none font-semibold"
+          }
+        >
+          {t("logoLine1")}
+        </span>
+
+        <span
+          className={
+            locale === "en"
+              ? "mt-1 text-[17px] leading-none font-medium tracking-[0.04em] font-cinzel"
+              : "mt-1.5 text-[17px] leading-none font-medium"
+          }
+        >
+          {t("logoLine2")}
+        </span>
       </div>
     </Link>
   );

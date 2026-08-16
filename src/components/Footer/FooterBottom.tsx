@@ -13,10 +13,10 @@ export default function FooterBottom() {
     <div dir={isRTL ? "rtl" : "ltr"} className="border-footer-border border-t">
       <div className="mx-auto flex flex-col items-center gap-y-3 px-8 py-8 text-center md:flex-row md:justify-between md:text-start">
         {/* Copyright */}
-        <p className="text-footer-muted text-base">{t("bottom.copyright")}</p>
+        <p className="text-footer-muted text-sm">{t("bottom.copyright")}</p>
 
         {/* Credit */}
-        <p className="text-footer-muted flex items-center gap-x-1.5 text-base">
+        <p className="text-footer-muted flex items-center gap-x-1.5 text-sm">
           <span className="">{t("bottom.designedBy")}</span>
           <Link
             href="https://atihooshbonyan.com"

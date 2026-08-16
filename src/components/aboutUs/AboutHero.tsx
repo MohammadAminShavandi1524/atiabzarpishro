@@ -104,6 +104,7 @@ export default function AboutHero() {
     >
       <div className="w90 py-20">
         <div className="grid grid-cols-[1.35fr_0.65fr] items-end gap-20">
+          {/* Intro */}
           <div ref={introRef} className="max-w-5xl">
             <div className="mb-6 flex items-center gap-4">
               <span
@@ -111,44 +112,45 @@ export default function AboutHero() {
                 className="bg-custom-primary h-px w-12 shrink-0"
               />
 
-              <span className="text-custom-primary text-base font-medium tracking-[0.14em]">
+              <span className="text-custom-primary text-sm font-medium tracking-[0.14em]">
                 {t("eyebrow")}
               </span>
             </div>
 
-            <h1 className="text-foreground max-w-4xl text-6xl leading-[1.12] font-semibold">
+            <h1 className="text-foreground max-w-4xl text-5xl leading-[1.15] font-semibold">
               {t("title")}
             </h1>
 
-            <p className="text-muted-foreground mt-7 max-w-4xl text-justify text-lg leading-9">
+            <p className="text-muted-foreground mt-7 max-w-4xl text-justify text-[17px] leading-8">
               {t("description")}
             </p>
 
             <a
               href="/catalogues/ati-abzar-pishro-catalogue.pdf"
               download
-              className="group/catalogue border-border hover:border-custom-primary hover:text-custom-primary mt-9 inline-flex items-center gap-4 border px-6 py-4 text-lg font-medium transition-colors duration-300"
+              className="group/catalogue border-border hover:border-custom-primary hover:text-custom-primary mt-9 inline-flex items-center gap-4 border px-6 py-4 text-base font-medium transition-colors duration-300"
             >
               <span>{t("downloadCatalogue")}</span>
 
               <Download
-                size={20}
+                size={19}
                 className="transition-transform duration-300"
               />
             </a>
           </div>
 
+          {/* Meta */}
           <div ref={metaRef} className="border-border border-s ps-10">
-            <span className="text-muted-foreground text-base tracking-[0.14em]">
+            <span className="text-muted-foreground text-sm tracking-[0.14em]">
               {t("established")}
             </span>
 
-            <div className="text-custom-primary mt-3 text-7xl leading-none font-semibold">
+            <div className="text-custom-primary mt-3 text-6xl leading-none font-semibold">
               2012
             </div>
 
             <div className="border-border mt-9 border-t pt-6">
-              <span className="text-foreground text-xl font-semibold">
+              <span className="text-foreground text-lg font-semibold">
                 {t("companyName")}
               </span>
             </div>

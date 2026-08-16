@@ -14,14 +14,15 @@
   },
 
   "Header": {
-    "logoLabel": "Ati Abzar Pishro",
+    "logoLine1": "ATI",
+    "logoLine2": "ABZAR PISHRO",
     "Search": { "placeholder": "Search by brand or category" },
     "faq": "FAQ",
     "Navigation": {
       "home": "Home",
       "ourPartners": "Our Partners",
       "technicalInformation": "Technical Information",
-      "blog": "Blog",
+      "news": "News",
       "contactUs": "Contact Us",
       "aboutUs": "About Us"
     }
@@ -90,8 +91,8 @@
       "items": {
         "automotive": "Automotive & Components",
         "power": "Power Generation",
-        "machinery": "Gearbox & Industrial Machinery",
-        "steel": "Steel, Pipe & Rolling Industries",
+        "machinery": "Gearbox & Machinery",
+        "steel": "Steel & Rolling",
         "mold": "Mold & Die",
         "oilGas": "Oil, Gas & Petrochemical",
         "railway": "Railway Industry",
@@ -228,6 +229,58 @@
     }
   },
 
+  "News": {
+    "HeroSection": {
+      "eyebrow": "News & Insights",
+      "title": "Industry News, Technical Insights & Updates",
+      "description": "Explore the latest news, technical developments, industry updates, and insights from ATI Abzar Pishro and the machining sector.",
+      "companyName": "ATI ABZAR PISHRO",
+      "tagline": "Industry Knowledge & Updates",
+      "meta": "NEWS / TECHNICAL INSIGHTS"
+    },
+
+    "Stats": {
+      "articlesPublished": "News Published",
+      "topicsCovered": "Topics Covered",
+      "latestEdition": "Latest Update",
+      "avgReadTime": "Avg. Read Time"
+    },
+
+    "LatestNews": {
+      "eyebrow": "Latest News",
+      "heading": "Latest Updates & Industry Insights",
+      "badge": "News",
+      "viewMore": "View More News",
+      "showLess": "Show Less",
+      "readMore": "Read More"
+    },
+
+    "Article": {
+      "intro": "Introduction",
+      "moreArticles": "Related News",
+      "viewAll": "View All",
+      "writtenBy": "Published by",
+      "author": "ATI Abzar Pishro",
+      "readTime": "min read",
+      "introDescription": "Explore the details, technical context, and key information related to this update.",
+      "noRelatedNews": "There are no related news items available at the moment."
+    },
+
+    "ArticleFooter": {
+      "tagsTitle": "News Tags",
+      "tagsDescription": "Explore topics related to this news item.",
+      "shareTitle": "Share News",
+      "shareDescription": "Share this update with colleagues and industry professionals."
+    },
+
+    "GetNewArticle": {
+      "eyebrow": "Need More Information?",
+      "title": "Have Questions About Our News?",
+      "description": "Contact our team for more information about our latest news, technical updates, products, or industry developments.",
+      "emailLabel": "Contact Our Team"
+    }
+  },
+
   "Contact": {
     "eyebrow": "CONTACT / TECHNICAL SUPPORT",
     "title": "Let’s Talk About Your Machining Needs",
@@ -241,7 +294,8 @@
       "label": "CONTACT FORM",
       "title": "Tell us what your operation needs.",
       "description": "Share your machining requirements, technical questions or project details with our team. We will review your request and help you identify the most suitable solution.",
-      "formLabel": "YOUR INQUIRY"
+      "contactLabel": "Contact Information",
+      "formLabel": "Your Inquiry"
     },
 
     "form": {
@@ -365,7 +419,7 @@
     },
     "team": {
       "eyebrow": "OUR CREATIVE TEAM",
-      "title": "ATI Team Members",
+      "title": "ATI Sales Team Members",
       "areasLabel": "SERVICE AREAS",
       "members": {
         "mansourRoshan": {
@@ -464,7 +518,7 @@
       "home": "Home",
       "ourPartners": "Our Partners",
       "technicalInformation": "Technical Information",
-      "blog": "Blog",
+      "news": "news",
       "contactUs": "Contact Us",
       "aboutUs": "About Us",
       "faq": "FAQ"
@@ -474,8 +528,10 @@
       "addressLabel": "Address",
       "address": "No. 14, Mokhberi Blvd, Ashrafi Esfahani HWY, Tehran, 1476693977, IRAN",
       "phoneLabel": "Phone",
-      "emailLabel": "Email"
+      "emailLabel": "Email",
+      "faxLabel": "Fax"
     },
+
     "bottom": {
       "copyright": "Copyright 2015–2026 Ati Abzar Pishro LLC. All Rights Reserved. ©",
       "designedBy": "Designed & Developed by",

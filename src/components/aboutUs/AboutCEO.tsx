@@ -217,7 +217,7 @@ export default function AboutCEO() {
             className="bg-custom-primary h-px w-12 shrink-0"
           />
 
-          <span className="text-custom-primary text-base font-medium tracking-[0.14em]">
+          <span className="text-custom-primary text-sm font-medium tracking-[0.14em]">
             {t("eyebrow")}
           </span>
         </div>
@@ -256,23 +256,23 @@ export default function AboutCEO() {
           {/* Content */}
           <div ref={contentRef}>
             {/* Identity */}
-            <div ref={identityRef} className="border-border border-b pb-7">
-              <span className="text-custom-primary text-base font-medium">
+            <div ref={identityRef} className="border-border border-b pb-6">
+              <span className="text-custom-primary text-sm font-medium">
                 {t("position")}
               </span>
 
-              <h2 className="text-foreground mt-3 max-w-4xl text-[3.15rem] leading-[1.12] font-semibold">
+              <h2 className="text-foreground mt-3 max-w-4xl text-[36px] leading-[1.12] font-semibold">
                 {t("name")}
               </h2>
             </div>
 
             {/* Background */}
-            <div ref={backgroundRef} className="border-border border-b py-7">
-              <h3 className="text-foreground text-2xl font-semibold">
+            <div ref={backgroundRef} className="border-border border-b py-6">
+              <h3 className="text-foreground text-[20px] font-semibold">
                 {t("backgroundTitle")}
               </h3>
 
-              <p className="text-muted-foreground mt-5 max-w-4xl text-justify text-lg leading-9">
+              <p className="text-muted-foreground mt-5 max-w-4xl text-justify text-[17px] leading-9">
                 {t("background")}
               </p>
             </div>
@@ -287,7 +287,7 @@ export default function AboutCEO() {
                   {t("educationLabel")}
                 </span>
 
-                <p className="text-foreground mt-2.5 text-lg font-medium">
+                <p className="text-foreground mt-2.5 text-[17px] font-medium">
                   {t("education")}
                 </p>
               </div>
@@ -297,7 +297,7 @@ export default function AboutCEO() {
                   {t("roleLabel")}
                 </span>
 
-                <p className="text-foreground mt-2.5 text-lg font-medium">
+                <p className="text-foreground mt-2.5 text-[17px] font-medium">
                   {t("role")}
                 </p>
               </div>
@@ -320,7 +320,7 @@ export default function AboutCEO() {
 
                   <span
                     dir="ltr"
-                    className="text-foreground group-hover/email:text-custom-primary mt-1 block text-lg font-medium transition-colors duration-300"
+                    className="text-foreground group-hover/email:text-custom-primary mt-1 block text-base font-medium transition-colors duration-300"
                   >
                     {email}
                   </span>

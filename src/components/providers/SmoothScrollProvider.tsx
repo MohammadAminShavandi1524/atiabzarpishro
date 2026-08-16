@@ -24,9 +24,9 @@ export default function SmoothScrollProvider({
     if (reduceMotion) return;
 
     const lenis = new Lenis({
-      duration: 1.05,
+      duration: 0.75,
       smoothWheel: true,
-      wheelMultiplier: 0.9,
+      wheelMultiplier: 1.1,
       touchMultiplier: 1,
     });
 

@@ -34,10 +34,6 @@ const FeaturedProductsStage = forwardRef<
         <span className="featured-vertical-start bg-border absolute inset-y-0 start-[5%] w-px" />
 
         <span className="featured-vertical-end bg-border absolute inset-y-0 end-[5%] w-px" />
-
-        <div className="featured-background-index text-foreground/[0.022] absolute end-[2%] top-1/2 -translate-y-1/2 text-[clamp(14rem,28vw,34rem)] leading-none font-semibold tracking-[-0.08em] select-none">
-          {isRTL ? englishToPersianNumber("04") : "04"}
-        </div>
       </div>
 
       {/* Content */}
@@ -57,7 +53,7 @@ const FeaturedProductsStage = forwardRef<
             dir="ltr"
             className="featured-chapter text-muted-foreground hidden items-center gap-3 text-xs tracking-[0.12em] uppercase lg:flex"
           >
-            <span>ATI / 04</span>
+            <span>ATI</span>
 
             <span className="featured-chapter-line bg-border block h-px w-8" />
 
@@ -71,11 +67,7 @@ const FeaturedProductsStage = forwardRef<
 
           <div className="relative h-full">
             {featuredProducts.map((item) => (
-              <FeaturedProductVisual
-                key={item.id}
-                item={item}
-                t={t}
-              />
+              <FeaturedProductVisual key={item.id} item={item} t={t} />
             ))}
           </div>
         </div>
@@ -94,9 +86,7 @@ const FeaturedProductsStage = forwardRef<
 
               <span className="bg-border block h-px w-16" />
 
-              <span className="text-muted-foreground text-xs">
-                03
-              </span>
+              <span className="text-muted-foreground text-xs">03</span>
             </div>
           </div>
 
@@ -135,16 +125,6 @@ const FeaturedProductsStage = forwardRef<
             </Link>
           </div>
         </div>
-      </div>
-
-      {/* Side label */}
-      <div
-        lang="en"
-        dir="ltr"
-        aria-hidden="true"
-        className="featured-side-label text-muted-foreground/30 absolute top-1/2 hidden -translate-y-1/2 rotate-90 text-[9px] tracking-[0.16em] xl:block ltr:right-[1.5%] rtl:left-[1.5%]"
-      >
-        ATI ABZAR PISHRO — PRODUCT ENGINEERING / 04
       </div>
     </div>
   );

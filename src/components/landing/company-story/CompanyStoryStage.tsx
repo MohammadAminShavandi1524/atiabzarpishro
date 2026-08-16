@@ -35,11 +35,6 @@ const CompanyStoryStage = forwardRef<HTMLDivElement, CompanyStoryStageProps>(
 
           {/* Vertical Frame - End */}
           <div className="story-vertical-line story-vertical-end bg-border absolute inset-y-0 end-[5%] w-px" />
-
-          {/* Giant Background Index */}
-          <div className="story-background-index text-foreground/[0.025] absolute end-[3%] top-1/2 -translate-y-1/2 text-[clamp(15rem,32vw,38rem)] leading-none font-semibold tracking-[-0.08em] select-none">
-            {isRTL ? englishToPersianNumber("01") : "01"}
-          </div>
         </div>
 
         {/* Main Content */}
@@ -60,7 +55,7 @@ const CompanyStoryStage = forwardRef<HTMLDivElement, CompanyStoryStageProps>(
               dir="ltr"
               className="story-chapter text-muted-foreground hidden items-center gap-3 text-xs tracking-[0.12em] uppercase lg:flex"
             >
-              <span>ATI / 01</span>
+              <span>ATI</span>
 
               <span className="bg-border block h-px w-10" />
 
@@ -100,22 +95,6 @@ const CompanyStoryStage = forwardRef<HTMLDivElement, CompanyStoryStageProps>(
                     {t("experience")}
                   </p>
                 </div>
-              </div>
-
-              {/* Measurement */}
-              <div
-                aria-hidden="true"
-                className="story-measurement text-muted-foreground absolute start-0 bottom-6 flex items-center gap-4 text-xs font-medium"
-              >
-                <span dir={isRTL ? "rtl" : "ltr"} className="whitespace-nowrap">
-                  {isRTL ? `${englishToPersianNumber("25")} سال` : "25Y"}
-                </span>
-
-                <span className="story-measurement-line bg-border block h-px w-20" />
-
-                <span className="whitespace-nowrap">
-                  {isRTL ? "تجربه" : "EXP."}
-                </span>
               </div>
             </div>
 
@@ -181,30 +160,13 @@ const CompanyStoryStage = forwardRef<HTMLDivElement, CompanyStoryStageProps>(
 
             {/* Capabilities */}
             <div className="grid grid-cols-3 ps-[8vw]">
-              <StoryStat
-                index="01"
-                title={t("stats.engineering")}
-                isRTL={isRTL}
-              />
+              <StoryStat title={t("stats.engineering")} isRTL={isRTL} />
 
-              <StoryStat index="02" title={t("stats.supply")} isRTL={isRTL} />
+              <StoryStat title={t("stats.supply")} isRTL={isRTL} />
 
-              <StoryStat
-                index="03"
-                title={t("stats.support")}
-                isRTL={isRTL}
-                last
-              />
+              <StoryStat title={t("stats.support")} isRTL={isRTL} last />
             </div>
           </div>
-        </div>
-
-        {/* Side Coordinate */}
-        <div
-          aria-hidden="true"
-          className="story-side-coordinate text-muted-foreground/40 absolute top-1/2 hidden -translate-y-1/2 rotate-90 font-mono text-[10px] tracking-[0.18em] xl:block ltr:right-[1.5%] rtl:left-[1.5%]"
-        >
-          ATI ABZAR PISHRO — ENGINEERING / 01
         </div>
       </div>
     );
@@ -216,23 +178,18 @@ CompanyStoryStage.displayName = "CompanyStoryStage";
 export default CompanyStoryStage;
 
 interface StoryStatProps {
-  index: string;
   title: string;
   isRTL: boolean;
   last?: boolean;
 }
 
-function StoryStat({ index, title, isRTL, last = false }: StoryStatProps) {
+function StoryStat({ title, isRTL, last = false }: StoryStatProps) {
   return (
     <div
       className={`story-stat flex flex-col justify-center px-7 ${
         last ? "" : "border-border border-e"
       }`}
     >
-      <span className="text-custom-primary font-mono text-[12px] tracking-[0.09em]">
-        /  {index}
-      </span>
-
       <span className="text-foreground mt-2 min-h-12 max-w-[160px] text-[15px] leading-6 font-medium">
         {title}
       </span>

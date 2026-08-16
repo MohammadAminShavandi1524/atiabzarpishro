@@ -41,21 +41,19 @@ export default function FooterFeatures() {
   }, [isRTL]);
 
   return (
-   
-      <section
-        ref={sectionRef}
-        dir={isRTL ? "rtl" : "ltr"}
-        className=" border-b-footer-border border-b"
+    <section
+      ref={sectionRef}
+      dir={isRTL ? "rtl" : "ltr"}
+      className="border-b-footer-border border-b"
+    >
+      <div
+        ref={itemsRef}
+        className="divide-footer-border grid grid-cols-1 divide-y md:grid-cols-2 md:divide-x md:divide-y-0 lg:grid-cols-4"
       >
-        <div
-          ref={itemsRef}
-          className="divide-footer-border grid grid-cols-1 divide-y md:grid-cols-2 md:divide-x md:divide-y-0 lg:grid-cols-4"
-        >
-          {footerFeatures.map((feature) => (
-            <FooterFeatureItem key={feature.id} feature={feature} />
-          ))}
-        </div>
-      </section>
-   
+        {footerFeatures.map((feature) => (
+          <FooterFeatureItem key={feature.id} feature={feature} />
+        ))}
+      </div>
+    </section>
   );
 }

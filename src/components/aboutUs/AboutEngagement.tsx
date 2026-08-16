@@ -258,25 +258,25 @@ export default function AboutEngagement() {
                 className="bg-custom-primary h-px w-12 shrink-0"
               />
 
-              <span className="text-custom-primary text-base font-medium tracking-[0.14em]">
+              <span className="text-custom-primary text-sm font-medium tracking-[0.14em]">
                 {t("eyebrow")}
               </span>
             </div>
 
-            <h2 className="text-foreground max-w-4xl text-[2.9rem] leading-[1.18] font-semibold">
+            <h2 className="text-foreground max-w-4xl text-[2.5rem] leading-[1.18] font-semibold">
               {t("title")}
             </h2>
           </div>
 
           {/* Counter */}
           <div className="flex shrink-0 items-end gap-2">
-            <span className="text-custom-primary text-3xl font-semibold">
+            <span className="text-custom-primary text-2xl font-semibold">
               {String(selectedIndex + 1).padStart(2, "0")}
             </span>
 
-            <span className="text-muted-foreground mb-1 text-base">/</span>
+            <span className="text-muted-foreground mb-1 text-sm">/</span>
 
-            <span className="text-muted-foreground mb-1 text-base">
+            <span className="text-muted-foreground mb-1 text-sm">
               {String(engagementItems.length).padStart(2, "0")}
             </span>
           </div>
@@ -293,14 +293,14 @@ export default function AboutEngagement() {
                   <div
                     key={item.id}
                     data-engagement-index={index}
-                    className="min-w-0 flex-[0_0_82%] pe-8"
+                    className="min-w-0 flex-[0_0_100%]"
                   >
-                    <article>
+                    <article className="w-full">
                       {/* Image */}
                       <div
                         className={[
                           "engagement-image",
-                          "border-border bg-card relative aspect-[1165/482] max-w-[900px] overflow-hidden border",
+                          "border-border bg-card relative aspect-[1165/482] w-full max-w-[1200px] overflow-hidden border",
                           "transition-opacity duration-500",
                           isActive ? "opacity-100" : "opacity-55",
                         ].join(" ")}
@@ -309,18 +309,18 @@ export default function AboutEngagement() {
                           src={item.image}
                           alt={t(`items.${item.key}.title`)}
                           fill
-                          sizes="(max-width: 1280px) 75vw, 900px"
+                          sizes="(max-width: 1280px) 90vw, 1200px"
                           className="object-cover"
                         />
                       </div>
 
                       {/* Caption */}
-                      <div className="engagement-caption max-w-[900px] pt-6">
+                      <div className="engagement-caption max-w-[1200px] pt-6">
                         <div className="border-border flex items-start justify-between gap-10 border-t pt-5">
                           <div>
                             <h3
                               className={[
-                                "text-xl font-semibold transition-colors duration-300",
+                                "text-lg font-semibold transition-colors duration-300",
                                 isActive
                                   ? "text-foreground"
                                   : "text-muted-foreground",
@@ -329,12 +329,12 @@ export default function AboutEngagement() {
                               {t(`items.${item.key}.title`)}
                             </h3>
 
-                            <p className="text-custom-primary mt-2 text-base font-medium">
+                            <p className="text-custom-primary mt-2 text-sm font-medium">
                               {t(`items.${item.key}.date`)}
                             </p>
                           </div>
 
-                          <span className="text-muted-foreground text-base">
+                          <span className="text-muted-foreground text-sm">
                             {String(index + 1).padStart(2, "0")}
                           </span>
                         </div>
@@ -382,7 +382,7 @@ export default function AboutEngagement() {
 
           {/* Progress */}
           <div className="flex w-64 items-center gap-4">
-            <span className="text-muted-foreground text-sm">01</span>
+            <span className="text-muted-foreground text-xs">01</span>
 
             <div className="bg-border relative h-px flex-1 overflow-hidden">
               <span
@@ -395,7 +395,7 @@ export default function AboutEngagement() {
               />
             </div>
 
-            <span className="text-muted-foreground text-sm">
+            <span className="text-muted-foreground text-xs">
               {String(engagementItems.length).padStart(2, "0")}
             </span>
           </div>

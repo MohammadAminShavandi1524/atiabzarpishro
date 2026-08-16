@@ -1,49 +1,76 @@
-export const footerFeatures = [
+export interface AboutFeature {
+  key: string;
+
+  icon: "automation" | "brands" | "support" | "team";
+
+  title: {
+    en: string;
+    fa: string;
+  };
+
+  description: {
+    en: string;
+    fa: string;
+  };
+}
+
+export const aboutFeatures: AboutFeature[] = [
   {
-    id: "01",
-    image: "/footerLogos/1.png",
+    key: "automation",
+    icon: "automation",
+
     title: {
       en: "Industrial Automation Focus",
       fa: "تمرکز بر اتوماسیون صنعتی",
     },
+
     description: {
       en: "Advanced solutions for modern industrial applications.",
       fa: "ارائه راهکارهای پیشرفته برای کاربردهای صنعتی مدرن.",
     },
   },
+
   {
-    id: "02",
-    image: "/footerLogos/2.png",
+    key: "brands",
+    icon: "brands",
+
     title: {
       en: "Trusted Global Brands",
       fa: "برندهای معتبر جهانی",
     },
+
     description: {
       en: "Working with globally recognized manufacturers.",
       fa: "همکاری با تولیدکنندگان معتبر جهانی.",
     },
   },
+
   {
-    id: "03",
-    image: "/footerLogos/3.png",
+    key: "support",
+    icon: "support",
+
     title: {
       en: "Expert Support & Consulting",
       fa: "پشتیبانی و مشاوره تخصصی",
     },
+
     description: {
       en: "Technical guidance tailored to your requirements.",
       fa: "ارائه مشاوره فنی متناسب با نیازهای شما.",
     },
   },
+
   {
-    id: "04",
-    image: "/footerLogos/4.png",
+    key: "team",
+    icon: "team",
+
     title: {
       en: "Experienced Technical Team",
       fa: "تیم فنی باتجربه",
     },
+
     description: {
-      en: "Engineering expertise achieved by years of experience.",
+      en: "Engineering expertise achieved through years of experience.",
       fa: "دانش مهندسی و تجربه تخصصی در صنایع مختلف.",
     },
   },

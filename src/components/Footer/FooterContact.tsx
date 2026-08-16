@@ -1,7 +1,8 @@
 "use client";
 
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, Printer } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
+
 import { footerNavigation } from "./footer-navigation.data";
 
 export default function FooterContact() {
@@ -57,24 +58,13 @@ export default function FooterContact() {
               {t("contact.phoneLabel")}
             </span>
 
-            <div
-              className="text-footer-foreground flex flex-col text-base"
+            <a
+              href={`tel:${contact.phone}`}
               dir="ltr"
+              className="text-footer-foreground hover:text-custom-primary inline-block text-base transition-colors duration-300"
             >
-              <a
-                href={`tel:${contact.phone}`}
-                className="hover:text-custom-primary w-fit transition-colors duration-300"
-              >
-                {contact.phone}
-              </a>
-
-              <a
-                href={`tel:${contact.secondaryPhone}`}
-                className="hover:text-custom-primary mt-1.5 w-fit transition-colors duration-300"
-              >
-                {contact.secondaryPhone}
-              </a>
-            </div>
+              {contact.phone}
+            </a>
           </div>
         </div>
 
@@ -97,6 +87,24 @@ export default function FooterContact() {
             >
               {contact.email}
             </a>
+          </div>
+        </div>
+
+        {/* Fax */}
+        <div className="flex items-start gap-x-4">
+          <Printer
+            className="text-custom-primary mt-0.5 size-6 shrink-0"
+            strokeWidth={1.5}
+          />
+
+          <div className="min-w-0">
+            <span className="text-footer-muted mb-1.5 block text-sm">
+              {t("contact.faxLabel")}
+            </span>
+
+            <span dir="ltr" className="text-footer-foreground block text-base">
+              {contact.fax}
+            </span>
           </div>
         </div>
       </div>

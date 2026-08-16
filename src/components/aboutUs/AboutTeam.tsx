@@ -213,25 +213,25 @@ export default function AboutTeam() {
                 className="bg-custom-primary h-px w-12 shrink-0"
               />
 
-              <span className="text-custom-primary text-base font-medium tracking-[0.14em]">
+              <span className="text-custom-primary text-sm font-medium tracking-[0.14em]">
                 {t("eyebrow")}
               </span>
             </div>
 
-            <h2 className="text-foreground max-w-4xl text-[2.9rem] leading-[1.18] font-semibold">
+            <h2 className="text-foreground max-w-4xl text-[2.5rem] leading-[1.18] font-semibold">
               {t("title")}
             </h2>
           </div>
 
           {/* Counter */}
           <div className="flex shrink-0 items-end gap-2">
-            <span className="text-custom-primary text-3xl font-semibold">
+            <span className="text-custom-primary text-2xl font-semibold">
               {String(selectedIndex + 1).padStart(2, "0")}
             </span>
 
-            <span className="text-muted-foreground mb-1 text-base">/</span>
+            <span className="text-muted-foreground mb-1 text-sm">/</span>
 
-            <span className="text-muted-foreground mb-1 text-base">
+            <span className="text-muted-foreground mb-1 text-sm">
               {String(teamMembers.length).padStart(2, "0")}
             </span>
           </div>
@@ -242,8 +242,8 @@ export default function AboutTeam() {
           <div ref={emblaRef}>
             <div ref={cardsTrackRef} className="flex">
               {teamMembers.map((member) => (
-                <div key={member.id} className="min-w-0 flex-[0_0_32%] pe-6">
-                  <article className="group/member border-border bg-background relative min-h-[350px] border">
+                <div key={member.id} className="min-w-0 flex-[0_0_25%] pe-6">
+                  <article className="group/member border-border bg-background relative min-h-[330px] border">
                     {/* Hover Line */}
                     <span
                       className={[
@@ -255,24 +255,20 @@ export default function AboutTeam() {
                       ].join(" ")}
                     />
 
-                    <div className="flex min-h-[350px] flex-col p-8">
+                    <div className="flex min-h-[330px] flex-col p-8">
                       {/* Member Info */}
                       <div>
-                        <h3 className="text-foreground group-hover/member:text-custom-primary text-2xl leading-tight font-semibold transition-colors duration-300">
+                        <h3 className="text-foreground group-hover/member:text-custom-primary text-xl leading-tight font-semibold transition-colors duration-300">
                           {t(`members.${member.key}.name`)}
                         </h3>
 
-                        <p className="text-custom-primary mt-3 text-base font-medium">
-                          {t(`members.${member.key}.position`)}
-                        </p>
-
                         {t.has(`members.${member.key}.areas`) && (
                           <div className="border-border mt-7 border-t pt-6">
-                            <span className="text-muted-foreground text-sm font-medium tracking-wider">
+                            <span className="text-muted-foreground text-xs font-medium tracking-wider">
                               {t("areasLabel")}
                             </span>
 
-                            <p className="text-foreground mt-3 text-base leading-8">
+                            <p className="text-foreground mt-3 text-[15px] leading-8">
                               {t(`members.${member.key}.areas`)}
                             </p>
                           </div>
@@ -292,7 +288,7 @@ export default function AboutTeam() {
 
                             <span
                               dir="ltr"
-                              className="text-muted-foreground group-hover/email:text-custom-primary truncate text-sm transition-colors duration-300"
+                              className="text-muted-foreground group-hover/email:text-custom-primary truncate text-xs transition-colors duration-300"
                             >
                               {member.email}
                             </span>
@@ -340,7 +336,7 @@ export default function AboutTeam() {
 
           {/* Progress */}
           <div className="flex w-64 items-center gap-4">
-            <span className="text-muted-foreground text-sm">01</span>
+            <span className="text-muted-foreground text-xs">01</span>
 
             <div className="bg-border relative h-px flex-1 overflow-hidden">
               <span
@@ -351,7 +347,7 @@ export default function AboutTeam() {
               />
             </div>
 
-            <span className="text-muted-foreground text-sm">
+            <span className="text-muted-foreground text-xs">
               {String(teamMembers.length).padStart(2, "0")}
             </span>
           </div>

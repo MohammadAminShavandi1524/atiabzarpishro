@@ -52,7 +52,9 @@ export default function AboutPurpose() {
 
       const headingChildren = Array.from(headingRef.current.children);
 
-      const panels = Array.from(panelsRef.current.children) as HTMLElement[];
+      const panels = Array.from(
+        panelsRef.current.children,
+      ) as HTMLElement[];
 
       gsap.set(eyebrowLineRef.current, {
         scaleX: 0,
@@ -137,7 +139,11 @@ export default function AboutPurpose() {
   );
 
   return (
-    <section ref={sectionRef} dir={isRTL ? "rtl" : "ltr"} className="w90 py-24">
+    <section
+      ref={sectionRef}
+      dir={isRTL ? "rtl" : "ltr"}
+      className="w90 py-24"
+    >
       {/* Heading */}
       <div ref={headingRef} className="mb-14 max-w-4xl">
         <div className="mb-6 flex items-center gap-4">
@@ -146,12 +152,12 @@ export default function AboutPurpose() {
             className="bg-custom-primary h-px w-12 shrink-0"
           />
 
-          <span className="text-custom-primary text-base font-medium tracking-[0.14em]">
+          <span className="text-custom-primary text-sm font-medium tracking-[0.14em]">
             {t("eyebrow")}
           </span>
         </div>
 
-        <h2 className="text-foreground max-w-4xl text-[2.9rem] leading-[1.18] font-semibold">
+        <h2 className="text-foreground max-w-4xl text-[2.5rem] leading-[1.18] font-semibold">
           {t("title")}
         </h2>
       </div>
@@ -173,15 +179,15 @@ export default function AboutPurpose() {
             ].join(" ")}
           />
 
-          <span className="purpose-content text-muted-foreground group-hover/purpose:text-custom-primary text-base font-medium transition-colors duration-500">
+          <span className="purpose-content text-muted-foreground group-hover/purpose:text-custom-primary text-sm font-medium transition-colors duration-500">
             01
           </span>
 
-          <h3 className="purpose-content text-foreground group-hover/purpose:text-custom-primary mt-6 text-3xl font-semibold transition-colors duration-500">
+          <h3 className="purpose-content text-foreground group-hover/purpose:text-custom-primary mt-6 text-[1.65rem] font-semibold transition-colors duration-500">
             {t("vision.title")}
           </h3>
 
-          <p className="purpose-content text-muted-foreground mt-6 max-w-2xl text-lg leading-9">
+          <p className="purpose-content text-muted-foreground mt-6 max-w-2xl text-justify text-[17px] leading-9">
             {t("vision.description")}
           </p>
         </article>
@@ -198,15 +204,15 @@ export default function AboutPurpose() {
             ].join(" ")}
           />
 
-          <span className="purpose-content text-muted-foreground group-hover/purpose:text-custom-primary text-base font-medium transition-colors duration-500">
+          <span className="purpose-content text-muted-foreground group-hover/purpose:text-custom-primary text-sm font-medium transition-colors duration-500">
             02
           </span>
 
-          <h3 className="purpose-content text-foreground group-hover/purpose:text-custom-primary mt-6 text-3xl font-semibold transition-colors duration-500">
+          <h3 className="purpose-content text-foreground group-hover/purpose:text-custom-primary mt-6 text-[1.65rem] font-semibold transition-colors duration-500">
             {t("mission.title")}
           </h3>
 
-          <p className="purpose-content text-muted-foreground mt-6 max-w-2xl text-lg leading-9">
+          <p className="purpose-content text-muted-foreground mt-6 max-w-2xl text-justify text-[17px] leading-9">
             {t("mission.description")}
           </p>
         </article>

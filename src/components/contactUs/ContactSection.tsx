@@ -228,32 +228,32 @@ export default function ContactSection() {
                   className="bg-custom-primary h-px w-12 shrink-0"
                 />
 
-                <span className="text-custom-primary text-base font-medium tracking-[0.14em]">
+                <span className="text-custom-primary text-sm font-medium tracking-[0.14em]">
                   {t("eyebrow")}
                 </span>
               </div>
 
-              <h1 className="text-foreground max-w-4xl text-6xl leading-[1.12] font-semibold">
+              <h1 className="text-foreground max-w-4xl text-[46px] leading-[1.12] font-semibold">
                 {t("title")}
               </h1>
 
-              <p className="text-muted-foreground mt-7 max-w-3xl text-lg leading-9">
+              <p className="text-muted-foreground mt-7 max-w-3xl text-base leading-8">
                 {t("description")}
               </p>
             </div>
 
             {/* Technical Meta */}
             <div ref={heroMetaRef} className="border-border border-s ps-9">
-              <div className="text-custom-primary text-base font-medium tracking-[0.14em]">
+              <div className="text-custom-primary text-sm font-medium tracking-[0.14em]">
                 {t("companyName")}
               </div>
 
-              <div className="text-foreground mt-4 text-2xl font-semibold">
+              <div className="text-foreground mt-4 text-xl font-semibold">
                 {t("tagline")}
               </div>
 
               <div className="border-border mt-9 border-t pt-6">
-                <span className="text-muted-foreground text-base tracking-wider">
+                <span className="text-muted-foreground text-sm tracking-wider">
                   {t("heroMeta")}
                 </span>
               </div>
@@ -262,25 +262,22 @@ export default function ContactSection() {
         </div>
       </section>
 
+    
       {/* Contact Form Section */}
       <section ref={contactSectionRef} className="w90 py-24">
         <div className="grid grid-cols-[1fr_1.6fr] items-start gap-20">
-          {/* Contact Intro */}
+          {/* Contact Information */}
           <aside className="self-start">
             <div ref={contactIntroRef}>
-              <h2 className="text-foreground max-w-xl text-[2.65rem] leading-[1.2] font-semibold">
-                {t("formSection.title")}
-              </h2>
-
-              <p className="text-muted-foreground mt-7 max-w-xl pe-10 text-justify text-lg leading-9">
-                {t("formSection.description")}
-              </p>
+              {/* Section Label */}
+              <div className="mb-6 flex items-center justify-between">
+                <span className="text-muted-foreground text-sm font-medium tracking-wider">
+                  {t("formSection.contactLabel")}
+                </span>
+              </div>
 
               {/* Contact Details */}
-              <div
-                ref={contactDetailsRef}
-                className="border-border mt-10 border-t"
-              >
+              <div ref={contactDetailsRef} className="border-border border-t">
                 {/* Email */}
                 <a
                   href="mailto:info@Atiabzarpishro.com"
@@ -291,11 +288,11 @@ export default function ContactSection() {
                   </span>
 
                   <div>
-                    <span className="text-muted-foreground text-base">
+                    <span className="text-muted-foreground text-sm">
                       {t("details.email")}
                     </span>
 
-                    <p className="text-foreground group-hover/contact:text-custom-primary mt-1 text-lg transition-colors duration-300">
+                    <p className="text-foreground group-hover/contact:text-custom-primary mt-1 text-base transition-colors duration-300">
                       info@Atiabzarpishro.com
                     </p>
                   </div>
@@ -311,13 +308,13 @@ export default function ContactSection() {
                   </span>
 
                   <div>
-                    <span className="text-muted-foreground text-base">
+                    <span className="text-muted-foreground text-sm">
                       {t("details.phone")}
                     </span>
 
                     <p
                       dir="ltr"
-                      className="text-foreground group-hover/contact:text-custom-primary mt-1 text-lg transition-colors duration-300"
+                      className="text-foreground group-hover/contact:text-custom-primary mt-1 text-base transition-colors duration-300"
                     >
                       +98-21 444 55 407-9
                     </p>
@@ -331,11 +328,11 @@ export default function ContactSection() {
                   </span>
 
                   <div>
-                    <span className="text-muted-foreground text-base">
+                    <span className="text-muted-foreground text-sm">
                       {t("details.address")}
                     </span>
 
-                    <p className="text-foreground mt-1 max-w-md text-lg leading-8">
+                    <p className="text-foreground mt-1 max-w-md text-justify text-base leading-8">
                       {t("details.addressValue")}
                     </p>
                   </div>
@@ -347,7 +344,7 @@ export default function ContactSection() {
           {/* Form */}
           <div ref={formWrapperRef}>
             <div className="mb-6 flex items-center justify-between">
-              <span className="text-muted-foreground text-base font-medium tracking-wider">
+              <span className="text-muted-foreground text-sm font-medium tracking-wider">
                 {t("formSection.formLabel")}
               </span>
             </div>

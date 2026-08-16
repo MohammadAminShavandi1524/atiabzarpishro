@@ -70,11 +70,6 @@ const CapabilitiesStage = forwardRef<HTMLDivElement, CapabilitiesStageProps>(
           <span className="cap-vertical-start bg-border absolute inset-y-0 start-[5%] w-px" />
 
           <span className="cap-vertical-end bg-border absolute inset-y-0 end-[5%] w-px" />
-
-          {/* Giant Section Index */}
-          <div className="cap-background-index text-foreground/[0.022] absolute end-[2%] top-1/2 -translate-y-1/2 text-[clamp(14rem,28vw,34rem)] leading-none font-semibold tracking-[-0.08em] select-none">
-            {isRTL ? englishToPersianNumber("02") : "02"}
-          </div>
         </div>
 
         {/* Main Content */}
@@ -95,7 +90,7 @@ const CapabilitiesStage = forwardRef<HTMLDivElement, CapabilitiesStageProps>(
               dir="ltr"
               className="cap-chapter text-muted-foreground hidden items-center gap-3 text-xs tracking-[0.12em] uppercase lg:flex"
             >
-              <span>ATI / 02</span>
+              <span>ATI</span>
 
               <span className="cap-chapter-line bg-border block h-px w-8" />
 
@@ -234,15 +229,6 @@ const CapabilitiesStage = forwardRef<HTMLDivElement, CapabilitiesStageProps>(
               ))}
             </div>
           </div>
-        </div>
-
-        {/* Side Label */}
-        <div
-          aria-hidden="true"
-          dir="ltr"
-          className="cap-side-label text-muted-foreground/30 absolute top-1/2 hidden -translate-y-1/2 rotate-90 font-mono text-[9px] tracking-[0.16em] xl:block ltr:right-[1.5%] rtl:left-[1.5%]"
-        >
-          ATI ABZAR PISHRO — CAPABILITIES / 02
         </div>
       </div>
     );
