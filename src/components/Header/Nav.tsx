@@ -1,66 +1,46 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import Link from "next/link";
-import NavItem from "./NavItem";
+
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
+
 import { ChevronDown } from "lucide-react";
 
-interface NavProps {}
+import { cn } from "@/lib/utils";
 
-const Nav = ({}: NavProps) => {
+import NavItem from "./NavItem";
+import TechnicalInformationDropdown from "./TechnicalInformationDropdown";
+
+const Nav = () => {
   const t = useTranslations("Header.Navigation");
   const locale = useLocale();
   const pathname = usePathname();
+
   return (
     <nav className="ms-2.5">
       <ul className="flex items-center gap-x-6">
         <NavItem label={t("home")} href={`/${locale}`} />
 
-        <li>
-          <Link
-            className={cn(
-              "group flex items-center gap-x-1 text-lg transition-all",
-              "hover:text-ring",
-              pathname === `/${locale}/our-partners` &&
-                "text-ring font-medium",
-            )}
-            href={`/${locale}/our-partners`}
-          >
-            <span>{t("ourPartners")}</span>
+        <li
+          className={cn(
+            "group flex items-center gap-x-1 text-lg transition-all",
+            "hover:text-ring",
+            pathname === `/${locale}/our-partners` && "text-ring font-medium",
+          )}
+        >
+          <span>{t("ourPartners")}</span>
 
-            <ChevronDown
-              className={cn(
-                "mt-[3px] size-5.5 transition-transform duration-300",
-                "group-hover:rotate-180",
-              )}
-              strokeWidth={1.8}
-            />
-          </Link>
+          <ChevronDown
+            className={cn(
+              "mt-[3px] size-5.5 transition-transform duration-250 ease-out",
+              "group-hover/technical:rotate-180",
+            )}
+            strokeWidth={1.8}
+          />
         </li>
 
-        <li>
-          <Link
-            className={cn(
-              "group flex items-center gap-x-1 text-lg transition-all",
-              "hover:text-ring",
-              pathname === `/${locale}/technical-information` &&
-                "text-ring font-medium",
-            )}
-            href={`/${locale}/technical-information`}
-          >
-            <span>{t("technicalInformation")}</span>
-
-            <ChevronDown
-              className={cn(
-                "mt-[3px] size-5.5 transition-transform duration-300",
-                "group-hover:rotate-180",
-              )}
-              strokeWidth={1.8}
-            />
-          </Link>
-        </li>
+        <TechnicalInformationDropdown />
 
         <NavItem label={t("news")} href={`/${locale}/news`} />
 

@@ -24,7 +24,25 @@
       "technicalInformation": "Technical Information",
       "news": "News",
       "contactUs": "Contact Us",
-      "aboutUs": "About Us"
+      "aboutUs": "About Us",
+      "technicalDropdown": {
+        "videoClips": {
+          "title": "Video Clips",
+          "description": "Product & machining videos"
+        },
+        "brochures": {
+          "title": "Brochures",
+          "description": "Technical product guides"
+        },
+        "catalogues": {
+          "title": "Catalogues",
+          "description": "Product & technical data"
+        },
+        "softwares": {
+          "title": "Softwares",
+          "description": "Engineering applications"
+        }
+      }
     }
   },
 
@@ -225,6 +243,58 @@
           "title": "Contact ATI Abzar Pishro",
           "description": "Access our contact information, company location and additional ways to reach ATI Abzar Pishro."
         }
+      }
+    }
+  },
+
+  "VideoClips": {
+    "hero": {
+      "eyebrow": "VIDEO LIBRARY",
+      "title": "Technical Videos & Machining Insights",
+      "description": "Explore technical videos, machining demonstrations, cutting tool applications, and practical insights for modern manufacturing.",
+      "companyName": "ATI ABZAR PISHRO",
+      "tagline": "All Together to Improve",
+      "meta": "TECHNICAL VIDEOS"
+    },
+
+    "section": {
+      "eyebrow": "WATCH & EXPLORE",
+      "title": "Video Library"
+    },
+
+    "playlist": {
+      "title": "More Videos",
+      "description": "Select a video to watch"
+    },
+
+    "playerNotSupported": "Your browser does not support video playback."
+  },
+
+  "Softwares": {
+    "hero": {
+      "eyebrow": "ENGINEERING SOFTWARE",
+      "title": "Softwares & Applications",
+      "description": "Engineering software and digital tools developed to support machining, cutting data calculations, tooling selection, and manufacturing processes.",
+      "companyName": "ATI ABZAR PISHRO",
+      "tagline": "All Together to Improve",
+      "meta": "SOFTWARES"
+    },
+
+    "section": {
+      "eyebrow": "AVAILABLE SOFTWARE",
+      "title": "Engineering Tools"
+    },
+
+    "download": "Download",
+
+    "items": {
+      "kts": {
+        "title": "KTS",
+        "description": "KTS (KORLOY Tooling Solution) is designed by KORLOY for cutting data calculations in turning, milling, drilling, and grooving. It also provides grade and chipbreaker conversion between KORLOY products and other manufacturers."
+      },
+      "ktis": {
+        "title": "KTIS",
+        "description": "KTIS (KORLOY Turning Insert Selection) was developed and published by ATI Abzar Pishro in 2015 to help users select suitable KORLOY turning insert grades and chipbreakers."
       }
     }
   },
