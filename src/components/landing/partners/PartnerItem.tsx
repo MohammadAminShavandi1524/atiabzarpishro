@@ -3,16 +3,15 @@
 import Image from "next/image";
 
 import type { PartnerItem as PartnerItemType } from "./partners.data";
+import Link from "next/link";
 
 interface PartnerItemProps {
   partner: PartnerItemType;
 }
 
-export default function PartnerItem({
-  partner,
-}: PartnerItemProps) {
-  return (
-    <article className="group flex min-h-[245px] flex-col items-center justify-center px-3 py-6 transition-colors duration-300 hover:bg-foreground/[0.015]">
+export default function PartnerItem({ partner }: PartnerItemProps) {
+  const content = (
+    <article className="group hover:bg-foreground/[0.015] flex min-h-[245px] flex-col items-center justify-center px-3 py-6 transition-colors duration-300">
       {/* Logo */}
       <div className="relative flex h-[105px] w-full items-center justify-center">
         <div
@@ -34,10 +33,26 @@ export default function PartnerItem({
       {/* Name */}
       <span
         lang="en"
-        className="text-muted-foreground mt-5 text-center text-[13px] font-medium tracking-[0.06em]"
+        className="text-muted-foreground group-hover:text-custom-primary mt-5 text-center text-[13px] font-medium tracking-[0.06em] transition-colors duration-300"
       >
         {partner.name}
       </span>
     </article>
+  );
+
+  if (!partner.website) {
+    return content;
+  }
+
+  return (
+    <Link
+      href={partner.website}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Visit ${partner.name} website`}
+      className="block"
+    >
+      {content}
+    </Link>
   );
 }
