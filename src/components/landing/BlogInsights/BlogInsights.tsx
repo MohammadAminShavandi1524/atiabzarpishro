@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-
 import { englishToPersianNumber } from "@/lib/utils";
 
 import { blogInsights } from "./blogInsights.data";
@@ -44,13 +43,11 @@ export default function BlogInsights() {
         <span className="blog-bg-line bg-border absolute inset-y-0 start-[5%] w-px" />
 
         <span className="blog-bg-line bg-border absolute inset-y-0 end-[5%] w-px" />
-
-       
       </div>
 
       <div className="w90 relative z-10">
         {/* Header */}
-        <div className="blog-header  border-border grid min-h-[360px] grid-cols-[0.42fr_1.58fr] border-b">
+        <div className="blog-header border-border grid min-h-[360px] grid-cols-[0.42fr_1.58fr] border-b">
           {/* Left */}
           <div className="relative flex flex-col justify-between py-11 pe-12 pt-16">
             <span
@@ -68,7 +65,6 @@ export default function BlogInsights() {
 
             <div
               lang="en"
-              
               className="blog-chapter text-muted-foreground flex items-center gap-3 text-[10px] tracking-[0.14em]"
             >
               <span>ATI</span>
@@ -80,21 +76,21 @@ export default function BlogInsights() {
           </div>
 
           {/* Title */}
-          <div className="flex items-end ps-[7vw] pb-12 pt-16">
+          <div className="flex items-center ps-[7vw] pt-12 pb-12">
             <div className="max-w-[900px]">
               <div className="overflow-hidden">
-                <h2 className="blog-title-line text-foreground text-[clamp(2.7rem,4.4vw,5.5rem)] font-semibold ltr:leading-[0.98] ltr:tracking-[-0.045em] rtl:leading-[1.2]">
+                <h2 className="blog-title-line text-foreground text-[80px] rtl:text-[64px] font-semibold ltr:leading-[0.98] ltr:tracking-[-0.045em]  rtl:leading-[1.2]">
                   {t("titleLine1")}
                 </h2>
               </div>
 
               <div className="mt-1 overflow-hidden">
-                <h2 className="blog-title-line text-custom-primary text-[clamp(2.7rem,4.4vw,5.5rem)] font-semibold ltr:leading-[0.98] ltr:tracking-[-0.045em] rtl:leading-[1.2]">
+                <h2 className="blog-title-line text-custom-primary text-[64px] rtl:text-[56px] font-semibold ltr:leading-[0.98] ltr:tracking-[-0.045em]  rtl:leading-[1.2]">
                   {t("titleLine2")}
                 </h2>
               </div>
 
-              <p className="blog-description text-muted-foreground mt-7 max-w-[650px] text-[15px] leading-8">
+              <p className="blog-description text-muted-foreground mt-9 max-w-[680px] text-[15px] leading-8">
                 {t("description")}
               </p>
             </div>
@@ -103,11 +99,7 @@ export default function BlogInsights() {
 
         {/* Featured */}
         <div className="blog-featured-section py-16">
-          <FeaturedArticle
-            article={featured}
-            isRTL={isRTL}
-            t={t}
-          />
+          <FeaturedArticle article={featured} isRTL={isRTL} t={t} />
         </div>
 
         {/* Secondary */}
@@ -127,10 +119,9 @@ export default function BlogInsights() {
         <div className="blog-bottom border-border flex min-h-[130px] items-center justify-between border-t">
           <span
             lang="en"
-           
             className="text-muted-foreground text-[10px] tracking-[0.13em]"
           >
-            03 / LATEST ARTICLES
+            LATEST ARTICLES
           </span>
 
           <Link

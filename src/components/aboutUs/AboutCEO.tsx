@@ -230,7 +230,7 @@ export default function AboutCEO() {
               className="border-border w-full max-w-[410px] overflow-hidden border"
             >
               <Image
-                src="/about/ceo/ceo.webp"
+                src="/about/ceo/ceo2.jpg"
                 alt={t("name")}
                 width={538}
                 height={670}
@@ -261,7 +261,7 @@ export default function AboutCEO() {
                 {t("position")}
               </span>
 
-              <h2 className="text-foreground mt-3 max-w-4xl text-[36px] leading-[1.12] font-semibold">
+              <h2 className="text-foreground mt-3 max-w-4xl text-[32px] leading-[1.12] font-semibold">
                 {t("name")}
               </h2>
             </div>

@@ -2,7 +2,6 @@
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-
 import { englishToPersianNumber } from "@/lib/utils";
 
 import type { TechnicalResource } from "./technicalInformation.data";
@@ -24,7 +23,7 @@ export default function TechnicalResourceItem({
   return (
     <Link
       href={resource.href}
-      className="technical-resource group border-border relative grid min-h-[150px] grid-cols-[80px_1fr_auto] items-center border-t first:border-t-0"
+      className="technical-resource group border-border relative grid  grid-cols-[80px_1fr_auto] items-center border-t first:border-t-0"
     >
       {/* Active line */}
       <span className="technical-resource-line bg-custom-primary origin-start absolute inset-x-0 top-[-1px] h-px scale-x-0" />
@@ -32,23 +31,17 @@ export default function TechnicalResourceItem({
       {/* Index */}
       <div className="technical-resource-index text-muted-foreground self-start pt-7 font-mono text-[12px]">
         {/* {isRTL ? englishToPersianNumber(resource.index) : resource.index} */}
-         {resource.index}
       </div>
 
       {/* Content */}
-      <div className="py-7 pe-8">
-        <div
-         
-          className="technical-resource-code text-muted-foreground mb-3 font-mono text-[10px] tracking-[0.14em]"
-        >
-          {resource.code}
-        </div>
+      <div className="pt-4 pb-6 pe-8">
+        <div className="technical-resource-code text-muted-foreground mb-3 font-mono text-[10px] tracking-[0.14em]"></div>
 
-        <h3 className="technical-resource-title text-foreground text-[clamp(1.4rem,2vw,2.2rem)] leading-tight font-medium">
+        <h3 className="technical-resource-title text-foreground text-[28px] leading-tight font-medium">
           {t(resource.titleKey)}
         </h3>
 
-        <p className="technical-resource-description text-muted-foreground mt-3 max-w-[540px] text-[14px] leading-7">
+        <p className="technical-resource-description text-muted-foreground mt-2.5 max-w-[540px] text-[14px] leading-7">
           {t(resource.descriptionKey)}
         </p>
       </div>

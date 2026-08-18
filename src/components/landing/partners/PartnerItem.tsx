@@ -11,7 +11,7 @@ interface PartnerItemProps {
 
 export default function PartnerItem({ partner }: PartnerItemProps) {
   const content = (
-    <article className="group hover:bg-foreground/[0.015] flex min-h-[245px] flex-col items-center justify-center px-3 py-6 transition-colors duration-300">
+    <article className="group hover:bg-foreground/[0.015] flex min-h-[220px] flex-col items-center justify-center px-3 py-6 transition-colors duration-300">
       {/* Logo */}
       <div className="relative flex h-[105px] w-full items-center justify-center">
         <div

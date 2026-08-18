@@ -363,7 +363,7 @@ export default function ContactSection() {
             className="border-border relative h-[430px] overflow-hidden border"
           >
             <iframe
-              src="https://www.google.com/maps?q=35.755164,51.333777&z=15&output=embed"
+              src="https://www.google.com/maps?q=35.754243,51.332173&z=15&output=embed"
               width="100%"
               height="100%"
               loading="lazy"

@@ -39,7 +39,7 @@ export default function ContactCTA() {
 
       <div className="w90 relative z-10">
         {/* Header */}
-        <div className="contact-header border-border grid min-h-[430px] grid-cols-[0.42fr_1.58fr] border-b">
+        <div className="contact-header border-border grid grid-cols-[0.42fr_1.58fr] border-b">
           {/* Left */}
           <div className="relative flex flex-col justify-between py-12 pe-12 pt-16">
             <span
@@ -68,27 +68,29 @@ export default function ContactCTA() {
           </div>
 
           {/* Intro */}
-          <div className="flex items-end ps-[7vw] pt-16 pb-14">
-            <div className="max-w-[950px]">
-              <div className="overflow-hidden">
-                <h2 className="contact-title-line text-foreground text-[clamp(2.8rem,4.7vw,5.8rem)] font-semibold ltr:leading-[0.98] ltr:tracking-[-0.045em] rtl:leading-[1.2]">
-                  {t("titleLine1")}
-                </h2>
+          <div className="flex items-center ps-[7vw] pt-12 pb-10">
+            <div className="max-w-[1200px]">
+              <div className="flex items-end gap-x-10">
+                <div className="overflow-hidden">
+                  <h2 className="contact-title-line text-foreground shrink-0 text-[64px] font-semibold ltr:leading-[0.98] ltr:tracking-[-0.045em] rtl:text-[54px] rtl:leading-[1.2]">
+                    {t("titleLine1")} {t("titleLine2")}
+                  </h2>
+                </div>
+
+                <div className="mt-1 hidden overflow-hidden">
+                  <h2 className="contact-title-line text-foreground shrink-0 text-[64px] font-semibold ltr:leading-[0.98] ltr:tracking-[-0.045em] rtl:text-[48px] rtl:leading-[1.2]">
+                    {t("titleLine2")}
+                  </h2>
+                </div>
               </div>
 
               <div className="mt-1 overflow-hidden">
-                <h2 className="contact-title-line text-foreground text-[clamp(2.8rem,4.7vw,5.8rem)] font-semibold ltr:leading-[0.98] ltr:tracking-[-0.045em] rtl:leading-[1.2]">
-                  {t("titleLine2")}
-                </h2>
-              </div>
-
-              <div className="mt-1 overflow-hidden">
-                <h2 className="contact-title-line text-custom-primary text-[clamp(2.8rem,4.7vw,5.8rem)] font-semibold ltr:leading-[0.98] ltr:tracking-[-0.045em] rtl:leading-[1.2]">
+                <h2 className="contact-title-line text-custom-primary text-[64px] font-semibold ltr:leading-[0.98] ltr:tracking-[-0.045em] rtl:text-[52px] rtl:leading-[1.2]">
                   {t("titleLine3")}
                 </h2>
               </div>
 
-              <p className="contact-description text-muted-foreground mt-8 max-w-[680px] text-[15px] leading-8">
+              <p className="contact-description text-muted-foreground mt-10 max-w-[700px] text-[15px] leading-8">
                 {t("description")}
               </p>
             </div>
@@ -98,21 +100,24 @@ export default function ContactCTA() {
         {/* Contact methods */}
         <div className="grid grid-cols-[0.42fr_1.58fr]">
           {/* Side */}
-          <div className="relative py-10 pe-12">
+          <div className="relative pe-12 pt-10 pb-0">
             <span
               aria-hidden="true"
               className="contact-methods-divider bg-border absolute inset-y-0 end-0 w-px"
             />
 
             <div className="contact-side-copy">
-              <p className="text-muted-foreground mt-4 max-w-[280px] text-justify text-[15px] leading-7">
-                {t("sideDescription")}
+              <p className="text-muted-foreground mt-4 max-w-[288px] text-justify text-[15px] leading-8">
+                <span className="text-custom-primary text-[24px] font-medium">
+                  {t("sideDescription1")}
+                </span>
+                {t("sideDescription2")}
               </p>
             </div>
           </div>
 
           {/* Methods */}
-          <div className="ps-[7vw] pb-20">
+          <div className="ps-[7vw] pb-4">
             <ContactMethod
               index="01"
               eyebrow={t("methods.email.eyebrow")}

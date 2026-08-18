@@ -268,7 +268,7 @@ export default function AboutTeam() {
                               {t("areasLabel")}
                             </span>
 
-                            <p className="text-foreground mt-3 text-[15px] leading-8">
+                            <p className="text-foreground mt-3 text-[14px] leading-8">
                               {t(`members.${member.key}.areas`)}
                             </p>
                           </div>

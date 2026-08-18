@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-
 import type { BlogInsightItem } from "./blogInsights.data";
 import Link from "next/link";
 
@@ -43,18 +42,18 @@ export default function FeaturedArticle({
             <div
               lang="en"
               dir="ltr"
-              className="blog-featured-meta text-muted-foreground flex items-center gap-3 text-[10px] tracking-[0.14em]"
+              className="blog-featured-meta text-muted-foreground flex items-center gap-3 text-[10px] tracking-[0.14em] hidden"
             >
               <span>01</span>
               <span>/</span>
               <span>{article.tags[0]}</span>
             </div>
 
-            <h3 className="blog-featured-title text-foreground mt-8 max-w-[520px] text-[clamp(2rem,3vw,3.7rem)] leading-[1.05] font-semibold tracking-[-0.035em]">
+            <h3 className="blog-featured-title text-foreground mt-8 max-w-[560px] text-[50px] leading-[1.05] font-semibold tracking-[-0.035em]">
               {t(article.titleKey)}
             </h3>
 
-            <p className="blog-featured-description text-muted-foreground mt-6 max-w-[500px] text-justify text-[15px] leading-8">
+            <p className="blog-featured-description text-muted-foreground mt-12 max-w-[500px] text-justify text-[15px] leading-8">
               {t(article.descriptionKey)}
             </p>
           </div>

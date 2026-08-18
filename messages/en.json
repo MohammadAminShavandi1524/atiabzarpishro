@@ -52,7 +52,7 @@
       "chapter": "About ATI Abzar",
       "experience": "Years of experience and expertise in machining",
       "titleLine1": "Beyond",
-      "titleLine2": "Tool Supply",
+      "titleLine2": "Tools Supply",
       "description": "Backed by more than 25 years of experience and specialized engineering knowledge, ATI Abzar Pishro delivers advanced solutions for the design, production and supply of cutting tools across diverse industries.",
       "scroll": "Continue",
       "stats": {
@@ -99,7 +99,7 @@
       "eyebrow": "Industries & Applications",
       "chapter": "Industrial Sectors",
       "titleLine1": "Engineering for",
-      "titleLine2": "Critical Industries.",
+      "titleLine2": "Critical Industries",
       "description": "ATI Abzar Pishro develops machining solutions around the specialized demands of diverse industries, from automotive manufacturing and energy to aerospace and medical equipment.",
       "scrollHint": "Continue to build the industry network",
       "core": {
@@ -177,10 +177,11 @@
     },
     "technicalInformation": {
       "eyebrow": "Technical Information",
-      "titleLine1": "Technical resources.",
-      "titleLine2": "Built for the shop floor.",
+      "titleLine1": "Technical Resources",
+      "titleLine2": "Built for the Shop Floor",
       "description": "Access technical resources, product documentation, videos and engineering tools developed to support better machining decisions.",
-      "listDescription": "Explore ATI Abzar Pishro technical resources and access the information you need.",
+      "listDescription1": "Explore",
+      "listDescription2": " ATI Abzar Pishro technical resources and access the information you need.",
       "bottomLabel": "Engineering knowledge & technical resources",
 
       "items": {
@@ -204,18 +205,18 @@
     },
     "blogInsights": {
       "eyebrow": "Latest Insights",
-      "titleLine1": "Machining knowledge.",
-      "titleLine2": "Built from experience.",
-      "description": "Technical articles, practical machining knowledge and industry insights from ATI Abzar Pishro.",
+      "titleLine1": "Machining Knowledge",
+      "titleLine2": "Built from Experience",
+      "description": "Technical articles, practical machining knowledge and industry insights from ATI Abzar Pishro",
       "viewAll": "View All Articles",
 
       "items": {
         "first": {
-          "title": "Choosing the Right Cutting Tool for High-Performance Machining",
+          "title": "Choosing the Right Cutting Tools for High-Performance Machining",
           "description": "A practical look at the key factors involved in selecting cutting tools for stable, accurate and productive machining."
         },
         "second": {
-          "title": "How Cutting Parameters Affect Tool Life",
+          "title": "How Cutting Parameters Affect Tools Life",
           "description": "Understand how cutting speed, feed and depth of cut influence tool wear, process stability and overall machining performance."
         },
         "third": {
@@ -228,9 +229,10 @@
       "eyebrow": "Get in Touch",
       "titleLine1": "Need the right",
       "titleLine2": "machining solution?",
-      "titleLine3": "Let's talk.",
+      "titleLine3": "Let's talk",
       "description": "Talk to ATI Abzar Pishro about your machining requirements, tooling needs and technical challenges.",
-      "sideDescription": "Reach our team directly by email or visit the contact page for complete company and communication details.",
+      "sideDescription1": "Reach",
+      "sideDescription2": " our team directly by email or visit the contact page for complete company and communication details.",
       "bottomLabel": "Start an engineering conversation",
       "methods": {
         "email": {
@@ -442,7 +444,7 @@
     },
     "engagement": {
       "eyebrow": "Global Engagement in Industry & Training",
-      "title": "Highlights from Key Exhibitions and Seminars (2014–2023)",
+      "title": "Highlights from Key Exhibitions and Seminars (2014–2026)",
       "items": {
         "amtech2023": {
           "title": "Training Seminar",
@@ -519,7 +521,8 @@
         },
         "ehsanSalem": {
           "name": "Mr. Ehsan Salem",
-          "position": "Sales Manager"
+          "position": "Sales Manager",
+          "areas": "Sales Manager"
         }
       }
     }
@@ -535,7 +538,7 @@
     "shortLabel": "FAQ",
 
     "sectionLabel": "FAQ",
-    "sectionTitle": "Technical answers, without the unnecessary complexity.",
+    "sectionTitle": "Technical answers, without the unnecessary complexity",
     "sectionDescription": "Explore frequently asked questions about our products, services and technical support. If you need more specific assistance, our technical team is ready to help.",
 
     "contact": "Email our technical team",

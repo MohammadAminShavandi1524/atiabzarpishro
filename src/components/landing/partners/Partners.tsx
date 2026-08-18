@@ -32,7 +32,7 @@ export default function Partners() {
 
       <div className="w90 relative z-10 ">
         {/* Top */}
-        <div className="border-border  flex min-h-[150px] items-end justify-between border-b pb-7">
+        <div className="border-border  flex min-h-[80px] items-end justify-between border-b pb-7">
           <div className="flex items-center gap-4">
             <span className="bg-custom-primary block h-px w-10" />
 
@@ -62,18 +62,18 @@ export default function Partners() {
           />
 
           {/* Description */}
-          <div className="flex flex-col justify-start pt-12 pe-12 pb-14">
-            <span className="text-custom-primary text-[20px] font-medium">
+          <div className="flex flex-col justify-start pt-20 pe-12 pb-10">
+            <span className="text-custom-primary text-[48px] font-medium font-semibold ltr:leading-[1] ltr:tracking-[-0.04em] rtl:leading-[1.2]">
               {t("label")}
             </span>
 
-            <p className="text-muted-foreground mt-4 text-justify text-[15px] leading-7">
+            <p className="text-muted-foreground mt-10 text-justify text-[15px] leading-8">
               {t("intro")}
             </p>
           </div>
 
           {/* Partners */}
-          <div className="grid grid-cols-5 grid-rows-2 gap-x-4 gap-y-0 px-6 pb-10">
+          <div className="grid grid-cols-5 grid-rows-2 gap-x-4 gap-y-0 px-6 pb-0">
             {partners.map((partner) => (
               <PartnerItem
                 key={partner.id}

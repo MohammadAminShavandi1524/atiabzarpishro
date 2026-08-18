@@ -28,6 +28,7 @@ export const teamMembers: TeamMember[] = [
     id: 4,
     key: "ehsanAraghi",
     image: "/about/team/4.jpg",
+    email: "ehsan.araghi@atiabzarpishro.com",
   },
   {
     id: 5,

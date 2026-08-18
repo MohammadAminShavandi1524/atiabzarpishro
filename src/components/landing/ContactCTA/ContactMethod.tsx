@@ -27,7 +27,7 @@ export default function ContactMethod({
   return (
     <Link
       href={href}
-      className="contact-method group border-border relative grid min-h-[190px] grid-cols-[90px_1fr_auto] items-center border-t first:border-t-0"
+      className="contact-method group border-border relative grid  grid-cols-[90px_1fr_auto] items-center border-t first:border-t-0"
     >
       {/* Hover line */}
       <span className="contact-method-line bg-custom-primary origin-start absolute inset-x-0 top-[-1px] h-px scale-x-0" />
@@ -38,12 +38,12 @@ export default function ContactMethod({
       
         className="contact-method-index text-muted-foreground self-start pt-10 text-[11px] tracking-[0.14em]"
       >
-        {index}
+       
       </div>
 
       {/* Content */}
-      <div className="py-9 pe-10">
-        <span className="contact-method-eyebrow text-custom-primary text-[11px] tracking-[0.12em]">
+      <div className="py-6 pe-10">
+        <span className="contact-method-eyebrow text-custom-primary hidden text-[11px] tracking-[0.12em]">
           {eyebrow}
         </span>
 

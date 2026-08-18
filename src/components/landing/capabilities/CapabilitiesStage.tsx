@@ -110,17 +110,17 @@ const CapabilitiesStage = forwardRef<HTMLDivElement, CapabilitiesStageProps>(
 
               {/* Meta */}
               <div className="cap-left-meta max-w-[300px]">
-                <span className="text-custom-primary text-[15px] font-medium">
+                <span className="text-custom-primary text-[48px] font-semibold ltr:leading-[1] ltr:tracking-[-0.04em] rtl:leading-[1.2]">
                   {t("label")}
                 </span>
 
-                <p className="text-muted-foreground mt-4 text-justify text-[15px] leading-7">
+                <p className="text-muted-foreground mt-10 text-justify text-[15px] leading-7">
                   {t("intro")}
                 </p>
               </div>
 
               {/* Rail */}
-              <div className="cap-rail mt-10 flex max-w-[310px] items-center gap-4">
+              <div className="cap-rail mt-16 flex max-w-[310px] items-center gap-4">
                 <span
                   dir="ltr"
                   className="cap-current-index text-foreground text-[26px] font-semibold"

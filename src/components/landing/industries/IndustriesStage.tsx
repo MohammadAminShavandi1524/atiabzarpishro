@@ -65,7 +65,7 @@ const IndustriesStage = forwardRef<HTMLDivElement, IndustriesStageProps>(
               />
 
               <div className="industries-copy max-w-[340px]">
-                <h2 className="text-foreground text-[clamp(2.2rem,3vw,3rem)] font-semibold ltr:leading-[1] ltr:tracking-[-0.04em] rtl:leading-[1.2]">
+                <h2 className="text-foreground text-[48px] font-semibold ltr:leading-[1] ltr:tracking-[-0.04em] rtl:leading-[1.2]">
                   <span className="block overflow-hidden">
                     <span className="industries-title-line block">
                       {t("titleLine1")}
@@ -79,7 +79,7 @@ const IndustriesStage = forwardRef<HTMLDivElement, IndustriesStageProps>(
                   </span>
                 </h2>
 
-                <p className="industries-description text-muted-foreground mt-7 text-justify text-[15px] leading-8">
+                <p className="industries-description text-muted-foreground mt-10 text-justify text-[15px] leading-8">
                   {t("description")}
                 </p>
               </div>

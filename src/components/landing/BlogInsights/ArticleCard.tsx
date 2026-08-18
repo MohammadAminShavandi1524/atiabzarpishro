@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-
 import type { BlogInsightItem } from "./blogInsights.data";
 import Link from "next/link";
 
@@ -36,24 +35,13 @@ export default function ArticleCard({
           />
         </div>
 
-        {/* Meta */}
-        <div
-          lang="en"
-          dir="ltr"
-          className="blog-card-meta text-muted-foreground mt-5 flex items-center gap-3 text-[10px] tracking-[0.13em]"
-        >
-          <span>{String(index).padStart(2, "0")}</span>
-          <span>/</span>
-          <span>{article.tags[0]}</span>
-        </div>
-
         {/* Title */}
-        <h3 className="blog-card-title text-foreground mt-4 max-w-[620px] text-[clamp(1.45rem,2vw,2.2rem)] leading-[1.2] font-semibold">
+        <h3 className="blog-card-title text-foreground mt-4 max-w-[615px] text-[clamp(1.45rem,2vw,2.2rem)] leading-[1.2] font-semibold">
           {t(article.titleKey)}
         </h3>
 
         {/* Description */}
-        <p className="blog-card-description text-muted-foreground mt-4 max-w-[620px] text-justify text-[14px] leading-7">
+        <p className="blog-card-description text-muted-foreground mt-8 max-w-[620px] text-justify text-[14px] leading-7">
           {t(article.descriptionKey)}
         </p>
 

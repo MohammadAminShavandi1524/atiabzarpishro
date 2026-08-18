@@ -263,7 +263,7 @@ export default function AboutEngagement() {
               </span>
             </div>
 
-            <h2 className="text-foreground max-w-4xl text-[2.5rem] leading-[1.18] font-semibold">
+            <h2 className="text-foreground max-w-4xl text-[36px] leading-[1.18] font-semibold">
               {t("title")}
             </h2>
           </div>
