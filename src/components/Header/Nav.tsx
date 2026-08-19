@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 
@@ -22,6 +20,7 @@ const Nav = () => {
       <ul className="flex items-center gap-x-6">
         <NavItem label={t("home")} href={`/${locale}`} />
 
+        {/* Our Partners */}
         <li
           className={cn(
             "group flex items-center gap-x-1 text-lg transition-all",
@@ -34,18 +33,28 @@ const Nav = () => {
           <ChevronDown
             className={cn(
               "mt-[3px] size-5.5 transition-transform duration-250 ease-out",
-              "group-hover/technical:rotate-180",
+              "group-hover:rotate-180",
             )}
             strokeWidth={1.8}
           />
         </li>
 
+        {/* Technical Information */}
         <TechnicalInformationDropdown />
 
+        {/* Representations */}
+        <NavItem
+          label={t("representations")}
+          href={`/${locale}/representations`}
+        />
+
+        {/* News */}
         <NavItem label={t("news")} href={`/${locale}/news`} />
 
+        {/* Contact Us */}
         <NavItem label={t("contactUs")} href={`/${locale}/contact-us`} />
 
+        {/* About Us */}
         <NavItem label={t("aboutUs")} href={`/${locale}/about-us`} />
       </ul>
     </nav>

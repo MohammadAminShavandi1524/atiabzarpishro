@@ -28,6 +28,13 @@ export default function SmoothScrollProvider({
       smoothWheel: true,
       wheelMultiplier: 1.1,
       touchMultiplier: 1,
+
+      prevent: (node) => {
+        return (
+          node instanceof HTMLElement &&
+          node.hasAttribute("data-lenis-prevent-wheel")
+        );
+      },
     });
 
     lenis.on("scroll", ScrollTrigger.update);

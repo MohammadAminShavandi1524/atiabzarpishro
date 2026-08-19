@@ -1,6 +1,8 @@
 import "../globals.css";
 import "../../Webfonts/fontiran.css";
 
+import "maplibre-gl/dist/maplibre-gl.css";
+
 import { notFound } from "next/navigation";
 import { Locale, hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";

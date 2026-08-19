@@ -401,4 +401,27 @@
   :lang(en) {
     font-family: var(--font-space), sans-serif;
   }
+
+  
+  .representation-popup .maplibregl-popup-content {
+    padding: 0 !important;
+    margin: 0 !important;
+
+    background: transparent !important;
+
+    border: none !important;
+    outline: none !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+  }
+
+  .representation-popup .maplibregl-popup-tip {
+    display: none !important;
+  }
+
+  .representation-popup {
+    filter: none !important;
+  }
 }
