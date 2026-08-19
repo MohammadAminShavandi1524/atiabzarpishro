@@ -2,6 +2,8 @@
 
 import { useRef } from "react";
 
+import Link from "next/link";
+
 import { ChevronDown } from "lucide-react";
 
 import { useLocale, useTranslations } from "next-intl";
@@ -11,13 +13,15 @@ import gsap from "gsap";
 
 import { cn } from "@/lib/utils";
 
-import { partners } from "@/components/landing/partners/partners.data";
+import { ScrollArea } from "@/components/ui/scroll-area";
+
+import { brands } from "../products/products.data";
 
 import PartnerDropdownItem from "./PartnerDropdownItem";
-import Link from "next/link";
 
 const PartnersDropdown = () => {
   const t = useTranslations("Header.Navigation");
+
   const locale = useLocale();
   const pathname = usePathname();
 
@@ -25,17 +29,22 @@ const PartnersDropdown = () => {
   const chevronRef = useRef<SVGSVGElement>(null);
 
   const isActive =
-    pathname === `/${locale}/our-partners` ||
-    pathname.startsWith(`/${locale}/our-partners/`);
+    pathname === `/${locale}/products` ||
+    pathname.startsWith(`/${locale}/products/`);
 
   const openDropdown = () => {
     if (!dropdownRef.current) return;
 
     const dropdown = dropdownRef.current;
 
-    const dropdownItems = dropdown.querySelectorAll(".partner-item");
+    const dropdownItems =
+      dropdown.querySelectorAll(".partner-item");
 
-    gsap.killTweensOf([dropdown, dropdownItems, chevronRef.current]);
+    gsap.killTweensOf([
+      dropdown,
+      dropdownItems,
+      chevronRef.current,
+    ]);
 
     gsap.set(dropdown, {
       pointerEvents: "auto",
@@ -88,9 +97,14 @@ const PartnersDropdown = () => {
 
     const dropdown = dropdownRef.current;
 
-    const dropdownItems = dropdown.querySelectorAll(".partner-item");
+    const dropdownItems =
+      dropdown.querySelectorAll(".partner-item");
 
-    gsap.killTweensOf([dropdown, dropdownItems, chevronRef.current]);
+    gsap.killTweensOf([
+      dropdown,
+      dropdownItems,
+      chevronRef.current,
+    ]);
 
     gsap.to(dropdownItems, {
       opacity: 0,
@@ -152,10 +166,20 @@ const PartnersDropdown = () => {
         ref={dropdownRef}
         className="pointer-events-none absolute start-0 top-full z-50 pt-3 opacity-0"
       >
-        <div className="border-border-secondary bg-background w-[290px] overflow-hidden border shadow-[0_16px_45px_rgba(0,0,0,0.10)]">
-          {partners.map((partner) => (
-            <PartnerDropdownItem key={partner.id} partner={partner} />
-          ))}
+        <div className="border-border-secondary bg-background w-[280px] overflow-hidden border shadow-[0_16px_45px_rgba(0,0,0,0.10)]">
+          <ScrollArea
+            dir={locale === "fa" ? "rtl" : "ltr"}
+            className="h-[450px]"
+            scrollBarClassName="me-0"
+            lockWheel
+          >
+            {brands.map((brand) => (
+              <PartnerDropdownItem
+                key={brand.id}
+                brand={brand}
+              />
+            ))}
+          </ScrollArea>
         </div>
       </div>
     </li>

@@ -5,36 +5,35 @@ import Link from "next/link";
 
 import { useLocale } from "next-intl";
 
-import type { PartnerItem } from "@/components/landing/partners/partners.data";
+import type { ProductBrand } from "../products/products.data";
 
 interface PartnerDropdownItemProps {
-  partner: PartnerItem;
+  brand: ProductBrand;
 }
 
 export default function PartnerDropdownItem({
-  partner,
+  brand,
 }: PartnerDropdownItemProps) {
   const locale = useLocale();
 
+  const isRTL = locale === "fa";
+
+  const name = isRTL ? brand.name_fa : brand.name_en;
+
   return (
     <Link
-      href={`/${locale}/products?brand=${partner.id}`}
-      className="partner-item group/item hover:bg-custom-primary/[0.045] relative flex items-center gap-2 px-4 py-3 transition-colors duration-200"
+      href={`/${locale}/products?brand=${brand.slug}`}
+      className="partner-item group/item hover:bg-custom-primary/[0.045] relative flex items-center gap-2 py-3 ps-4 pe-4 transition-colors duration-200"
     >
       {/* Hover Line */}
       <span className="bg-custom-primary absolute inset-y-0 start-0 w-[2px] scale-y-0 transition-transform duration-200 group-hover/item:scale-y-100" />
 
       {/* Logo */}
       <div className="relative flex h-10 w-12 shrink-0 items-center justify-center overflow-hidden">
-        <div
-          className="relative h-6 w-9"
-          style={{
-            transform: `scale(${partner.logoScale})`,
-          }}
-        >
+        <div className="relative h-11 w-12">
           <Image
-            src={partner.logo}
-            alt={partner.name}
+            src={brand.image}
+            alt={brand.name_en}
             fill
             sizes="48px"
             className="object-contain"
@@ -43,11 +42,8 @@ export default function PartnerDropdownItem({
       </div>
 
       {/* Name */}
-      <span
-        lang="en"
-        className="text-foreground group-hover/item:text-custom-primary min-w-0 truncate text-[14px] font-medium transition-colors duration-200"
-      >
-        {partner.name}
+      <span className="text-foreground group-hover/item:text-custom-primary min-w-0 truncate text-[14px] font-medium transition-colors duration-200">
+        {name}
       </span>
     </Link>
   );
