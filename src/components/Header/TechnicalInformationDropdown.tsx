@@ -156,11 +156,10 @@ const TechnicalInformationDropdown = () => {
       onMouseLeave={closeDropdown}
     >
       {/* Trigger */}
-      <Link
-        href={`/${locale}/technical-information`}
+      <div
         className={cn(
           "flex items-center gap-x-1 text-lg transition-colors",
-          "hover:text-ring",
+          "hover:text-ring cursor-pointer",
           isActive && "text-ring font-medium",
         )}
       >
@@ -171,7 +170,7 @@ const TechnicalInformationDropdown = () => {
           className="mt-[3px] size-5.5"
           strokeWidth={1.8}
         />
-      </Link>
+      </div>
 
       {/* Dropdown */}
       <div

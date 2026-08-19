@@ -24,10 +24,7 @@ const IRAN_FIT_BOUNDS: [[number, number], [number, number]] = [
   [66.5, 42.5],
 ];
 
-const MAP_BOUNDS: [[number, number], [number, number]] = [
-  [28, 12],
-  [80, 52],
-];
+const MAP_BOUNDS: [number, number, number, number] = [28, 12, 80, 52];
 
 const mapStyle = {
   version: 8 as const,

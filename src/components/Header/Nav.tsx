@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 
 import NavItem from "./NavItem";
 import TechnicalInformationDropdown from "./TechnicalInformationDropdown";
+import PartnersDropdown from "./PartnersDropdown";
 
 const Nav = () => {
   const t = useTranslations("Header.Navigation");
@@ -21,32 +22,16 @@ const Nav = () => {
         <NavItem label={t("home")} href={`/${locale}`} />
 
         {/* Our Partners */}
-        <li
-          className={cn(
-            "group flex items-center gap-x-1 text-lg transition-all",
-            "hover:text-ring",
-            pathname === `/${locale}/our-partners` && "text-ring font-medium",
-          )}
-        >
-          <span>{t("ourPartners")}</span>
-
-          <ChevronDown
-            className={cn(
-              "mt-[3px] size-5.5 transition-transform duration-250 ease-out",
-              "group-hover:rotate-180",
-            )}
-            strokeWidth={1.8}
-          />
-        </li>
-
-        {/* Technical Information */}
-        <TechnicalInformationDropdown />
+        <PartnersDropdown />
 
         {/* Representations */}
         <NavItem
           label={t("representations")}
           href={`/${locale}/representations`}
         />
+
+        {/* Technical Information */}
+        <TechnicalInformationDropdown />
 
         {/* News */}
         <NavItem label={t("news")} href={`/${locale}/news`} />

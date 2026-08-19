@@ -259,6 +259,24 @@
     }
   },
 
+  "Products": {
+    "header": {
+       "label": "PRODUCTS",
+  "title": "Machining Solutions",
+  "countLabel": "PRODUCTS"
+    },
+
+    "aside": {
+      "title": "BRANDS",
+      "allProducts": "All Products"
+    },
+
+    "empty": {
+      "title": "No products found.",
+      "description": "There are currently no products available for this brand."
+    }
+  },
+
   "VideoClips": {
     "hero": {
       "eyebrow": "VIDEO LIBRARY",

@@ -260,6 +260,24 @@
     }
   },
 
+  "Products": {
+    "header": {
+      "label": "محصولات",
+      "title": "راهکارهای ماشین‌کاری",
+      "countLabel": "محصول"
+    },
+
+    "aside": {
+      "title": "برندها",
+      "allProducts": "همه محصولات"
+    },
+
+    "empty": {
+      "title": "محصولی یافت نشد.",
+      "description": "در حال حاضر محصولی برای این برند ثبت نشده است."
+    }
+  },
+
   "VideoClips": {
     "hero": {
       "eyebrow": "آرشیو ویدیو",
