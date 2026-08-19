@@ -12,7 +12,7 @@ export const partners: PartnerItem[] = [
     name: "KORLOY",
     logo: "/home/partners/korloy.webp",
     logoScale: 1.8,
-    website: "https://www.korloy.com/",
+    website: "https://korloy.com/",
   },
   {
     id: "widin",
@@ -33,7 +33,7 @@ export const partners: PartnerItem[] = [
     name: "UNION Materials",
     logo: "/home/partners/union.webp",
     logoScale: 1.8,
-    website: "https://www.unionmaterials.com/",
+    website: "https://www.unionmaterials.com/eng/html/main.html",
   },
   {
     id: "hanboo",
@@ -68,13 +68,29 @@ export const partners: PartnerItem[] = [
     name: "OSG",
     logo: "/home/partners/osg.webp",
     logoScale: 1.8,
-    website: "https://www.osg.co.jp/en/",
+    website: "http://www.osg.co.kr/en/",
   },
   {
     id: "fromm",
     name: "FROMM Präzision",
     logo: "/home/partners/fromm.webp",
     logoScale: 1.8,
-    website: "",
+    website: "https://fromm-praezision.de/en/Products/",
   },
+
+  // New — provided by client
+  // {
+  //   id: "dine",
+  //   name: "DINE",
+  //   logo: "/home/partners/dine.webp",
+  //   logoScale: 1.8,
+  //   website: "https://dine.co.kr/en/sub/product/list.asp?s_cate=17",
+  // },
+  // {
+  //   id: "funik",
+  //   name: "FUNIK",
+  //   logo: "/home/partners/funik.webp",
+  //   logoScale: 1.8,
+  //   website: "https://en.funik.com/",
+  // },
 ];

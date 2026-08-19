@@ -22,6 +22,7 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import { CustomToastProvider } from "@/components/ui/custom-toast";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
+import ScrollToTop from "@/components/ScrollToTop";
 
 // import {
 //   MobileSidebar,
@@ -122,6 +123,8 @@ export default async function LocaleLayout({
               </main>
 
               <Footer />
+
+              <ScrollToTop />
             </div>
             {/* </MobileSidebar> */}
           </ThemeProvider>

@@ -54,7 +54,7 @@ export default function Partners() {
         </div>
 
         {/* Main */}
-        <div className="relative grid  min-h-[590px] grid-cols-[0.42fr_1.58fr]">
+        <div className="relative grid grid-cols-[0.42fr_1.58fr]">
           {/* Full divider */}
           <span
             aria-hidden="true"
@@ -62,7 +62,7 @@ export default function Partners() {
           />
 
           {/* Description */}
-          <div className="flex flex-col justify-start pt-20 pe-12 pb-10">
+          <div className="flex flex-col justify-start pt-16 pe-12 pb-10">
             <span className="text-custom-primary text-[48px] font-medium font-semibold ltr:leading-[1] ltr:tracking-[-0.04em] rtl:leading-[1.2]">
               {t("label")}
             </span>
@@ -73,7 +73,7 @@ export default function Partners() {
           </div>
 
           {/* Partners */}
-          <div className="grid grid-cols-5 grid-rows-2 gap-x-4 gap-y-0 px-6 pb-0">
+          <div className="grid grid-cols-5 grid-rows-2 gap-x-4 gap-y-0 px-6 pb-10">
             {partners.map((partner) => (
               <PartnerItem
                 key={partner.id}
