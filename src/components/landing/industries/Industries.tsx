@@ -8,11 +8,13 @@ import { useIndustriesAnimation } from "./useIndustriesAnimation";
 
 export default function Industries() {
   const t = useTranslations("Home.industries");
+
   const locale = useLocale();
 
   const isRTL = locale === "fa";
 
   const sectionRef = useRef<HTMLElement>(null);
+
   const stageRef = useRef<HTMLDivElement>(null);
 
   useIndustriesAnimation({
@@ -25,7 +27,7 @@ export default function Industries() {
     <section
       ref={sectionRef}
       dir={isRTL ? "rtl" : "ltr"}
-      className="bg-background relative h-[380vh]"
+      className="bg-background relative"
     >
       <IndustriesStage ref={stageRef} isRTL={isRTL} t={t} />
     </section>

@@ -420,6 +420,7 @@
     "validation": {
       "nameRequired": "Please enter your name.",
       "phoneRequired": "Please enter your phone number.",
+      "phoneInvalid": "Enter a valid 11-digit Iranian mobile number starting with 09.",
       "emailRequired": "Email is required.",
       "emailInvalid": "Please enter a valid email address.",
       "companyRequired": "Please enter your company name.",

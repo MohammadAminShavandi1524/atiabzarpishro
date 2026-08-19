@@ -181,11 +181,10 @@ export function useIndustriesAnimation({
         scale: 0,
       });
 
-      // Partial lines visible before build
       gsap.set(links, {
         strokeDasharray: "0.12 0.88",
         strokeDashoffset: 0.42,
-        opacity: 0.8,
+        opacity: 0.45,
       });
 
       nodes.forEach((node) => {
@@ -246,7 +245,7 @@ export function useIndustriesAnimation({
           trigger: section,
           start: "top 92%",
           end: "top top",
-          scrub: 0.7,
+          scrub: 0.55,
           invalidateOnRefresh: true,
         },
       });
@@ -255,8 +254,8 @@ export function useIndustriesAnimation({
         horizontalLines,
         {
           scaleX: 1,
-          duration: 0.85,
-          stagger: 0.06,
+          duration: 0.7,
+          stagger: 0.04,
           ease: "power2.inOut",
         },
         0,
@@ -266,20 +265,20 @@ export function useIndustriesAnimation({
         verticalStart,
         {
           scaleY: 1,
-          duration: 0.95,
+          duration: 0.75,
           ease: "power2.inOut",
         },
-        0.03,
+        0.02,
       );
 
       introTimeline.to(
         verticalEnd,
         {
           scaleY: 1,
-          duration: 0.95,
+          duration: 0.75,
           ease: "power2.inOut",
         },
-        0.08,
+        0.05,
       );
 
       introTimeline.to(
@@ -287,20 +286,20 @@ export function useIndustriesAnimation({
         {
           opacity: 1,
           scale: 1,
-          duration: 0.85,
+          duration: 0.65,
           ease: "power3.out",
         },
-        0.06,
+        0.05,
       );
 
       introTimeline.to(
         eyebrowLine,
         {
           scaleX: 1,
-          duration: 0.5,
+          duration: 0.4,
           ease: "power3.inOut",
         },
-        0.13,
+        0.1,
       );
 
       introTimeline.to(
@@ -308,10 +307,10 @@ export function useIndustriesAnimation({
         {
           opacity: 1,
           x: 0,
-          duration: 0.6,
+          duration: 0.48,
           ease: "power3.out",
         },
-        0.16,
+        0.13,
       );
 
       introTimeline.to(
@@ -319,60 +318,60 @@ export function useIndustriesAnimation({
         {
           opacity: 1,
           x: 0,
-          duration: 0.6,
+          duration: 0.48,
           ease: "power3.out",
         },
-        0.2,
+        0.16,
       );
 
       introTimeline.to(
         chapterLine,
         {
           scaleX: 1,
-          duration: 0.45,
+          duration: 0.38,
           ease: "power3.inOut",
         },
-        0.23,
+        0.18,
       );
 
       introTimeline.to(
         mainDivider,
         {
           scaleY: 1,
-          duration: 0.72,
+          duration: 0.55,
           ease: "power2.inOut",
         },
-        0.25,
+        0.2,
       );
 
       introTimeline.to(
         bottomVertical,
         {
           scaleY: 1,
-          duration: 0.68,
+          duration: 0.52,
           ease: "power2.inOut",
         },
-        0.31,
+        0.24,
       );
 
       introTimeline.to(
         copy,
         {
           opacity: 1,
-          duration: 0.18,
+          duration: 0.15,
         },
-        0.3,
+        0.23,
       );
 
       introTimeline.to(
         titleLines,
         {
           yPercent: 0,
-          duration: 0.64,
-          stagger: 0.06,
+          duration: 0.5,
+          stagger: 0.04,
           ease: "power4.out",
         },
-        0.36,
+        0.27,
       );
 
       introTimeline.to(
@@ -380,10 +379,10 @@ export function useIndustriesAnimation({
         {
           opacity: 1,
           y: 0,
-          duration: 0.55,
+          duration: 0.42,
           ease: "power3.out",
         },
-        0.46,
+        0.35,
       );
 
       introTimeline.to(
@@ -391,10 +390,10 @@ export function useIndustriesAnimation({
         {
           opacity: 1,
           y: 0,
-          duration: 0.48,
+          duration: 0.38,
           ease: "power3.out",
         },
-        0.51,
+        0.39,
       );
 
       introTimeline.to(
@@ -402,10 +401,10 @@ export function useIndustriesAnimation({
         {
           opacity: 1,
           y: 0,
-          duration: 0.44,
+          duration: 0.35,
           ease: "power3.out",
         },
-        0.53,
+        0.41,
       );
 
       introTimeline.to(
@@ -413,109 +412,80 @@ export function useIndustriesAnimation({
         {
           opacity: 1,
           y: 0,
-          duration: 0.44,
+          duration: 0.35,
           ease: "power3.out",
         },
-        0.56,
+        0.43,
       );
 
       introTimeline.to(
         sideLabel,
         {
           opacity: 1,
-          duration: 0.42,
+          duration: 0.32,
         },
-        0.59,
+        0.45,
       );
 
       // =========================================================
-      // Pinned Timeline
+      // Core + Network Timeline
       // =========================================================
 
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 0.9,
-          pin: stage,
-          pinSpacing: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
+      const networkTimeline = gsap.timeline({
+        paused: true,
 
-          onUpdate: (self) => {
-            if (!currentIndex) return;
-
-            const normalized = gsap.utils.clamp(
-              0,
-              1,
-              gsap.utils.mapRange(0.06, 0.82, 0, 1, self.progress),
-            );
-
-            const activeIndex = Math.min(
-              nodes.length - 1,
-              Math.floor(normalized * nodes.length),
-            );
-
-            currentIndex.textContent = String(activeIndex + 1).padStart(2, "0");
-          },
+        defaults: {
+          ease: "power3.out",
         },
       });
 
-      // =========================================================
-      // Core
-      // =========================================================
-
-      timeline.to(
+      // Core first
+      networkTimeline.to(
         core,
         {
           opacity: 1,
           scale: 1,
-          duration: 0.58,
+          duration: 0.36,
           ease: "power4.out",
         },
-        0.05,
+        0,
       );
 
-      timeline.to(
+      networkTimeline.to(
         coreFrame,
         {
           scale: 1,
-          duration: 0.5,
+          duration: 0.32,
           ease: "power3.out",
+        },
+        0,
+      );
+
+      networkTimeline.to(
+        coreCorners,
+        {
+          scale: 1,
+          duration: 0.18,
+          stagger: 0.025,
+          ease: "back.out(1.8)",
         },
         0.05,
       );
 
-      timeline.to(
-        coreCorners,
-        {
-          scale: 1,
-          duration: 0.28,
-          stagger: 0.04,
-          ease: "back.out(1.8)",
-        },
-        0.13,
-      );
-
-      timeline.to(
+      networkTimeline.to(
         corePulse,
         {
           opacity: 1,
           scale: 1,
-          duration: 0.46,
+          duration: 0.28,
           ease: "power3.out",
         },
-        0.15,
+        0.07,
       );
 
-      // =========================================================
       // Network
-      // 8 connections intentionally build much faster
-      // =========================================================
-
-      const buildStart = 0.55;
-      const buildGap = 0.34;
+      const nodesStart = 0.32;
+      const nodeGap = 0.085;
 
       nodes.forEach((node, index) => {
         const link = links[index];
@@ -526,108 +496,139 @@ export function useIndustriesAnimation({
 
         const title = node.querySelector(".industry-node-title");
 
-        const position = buildStart + index * buildGap;
+        const position = nodesStart + index * nodeGap;
 
-        // Connection line
+        networkTimeline.call(
+          () => {
+            if (!currentIndex) return;
+
+            currentIndex.textContent = String(index + 1).padStart(2, "0");
+          },
+          [],
+          position,
+        );
+
         if (link) {
-          timeline.to(
+          networkTimeline.to(
             link,
             {
               strokeDasharray: "1 0",
               strokeDashoffset: 0,
               opacity: 1,
-              duration: 0.26,
+              duration: 0.2,
               ease: "power2.inOut",
             },
             position,
           );
         }
 
-        // Node
-        timeline.to(
+        networkTimeline.to(
           node,
           {
             opacity: 1,
-            duration: 0.12,
-            ease: "power2.out",
+            duration: 0.1,
           },
-          position + 0.12,
+          position + 0.035,
         );
 
-        // Point
-        timeline.to(
+        networkTimeline.to(
           point,
           {
             scale: 1,
-            duration: 0.2,
-            ease: "back.out(1.8)",
+            duration: 0.16,
+            ease: "back.out(1.7)",
           },
-          position + 0.13,
+          position + 0.045,
         );
 
-        // Code
-        timeline.to(
+        networkTimeline.to(
           code,
           {
             opacity: 1,
             y: 0,
-            duration: 0.22,
-            ease: "power3.out",
+            duration: 0.18,
           },
-          position + 0.14,
+          position + 0.055,
         );
 
-        // Title
-        timeline.to(
+        networkTimeline.to(
           title,
           {
             opacity: 1,
             y: 0,
-            duration: 0.28,
-            ease: "power3.out",
+            duration: 0.22,
           },
-          position + 0.17,
+          position + 0.07,
         );
       });
 
-      // =========================================================
-      // Final State
-      // =========================================================
-
-      const finalPosition = buildStart + nodes.length * buildGap;
-
-      timeline.to(
+      networkTimeline.to(
         readoutProgress,
         {
           width: 80,
-          duration: 0.55,
+          duration: 0.3,
           ease: "power2.inOut",
         },
-        finalPosition - 0.18,
+        "-=0.08",
       );
 
-      timeline.to(
+      networkTimeline.to(
         corePulse,
         {
           scale: 1.06,
           opacity: 0.4,
-          duration: 0.58,
+          duration: 0.4,
           ease: "sine.inOut",
         },
-        finalPosition,
+        "<",
       );
 
-      // Small hold before leaving section
-      timeline.to(
-        {},
-        {
-          duration: 0.7,
+      // =========================================================
+      // Pin Trigger
+      // =========================================================
+
+      const pinTrigger = ScrollTrigger.create({
+        trigger: section,
+
+        start: "top top",
+
+        // مدت pin مستقل از ارتفاع section
+        end: "+=110%",
+
+        pin: stage,
+        pinSpacing: true,
+
+        anticipatePin: 1,
+
+        invalidateOnRefresh: true,
+
+        onEnter: () => {
+          if (networkTimeline.progress() < 1) {
+            networkTimeline.play();
+          }
         },
-      );
+
+        onEnterBack: () => {
+          /*
+           * مهم:
+           * هیچ resetی انجام نمی‌دهیم.
+           * اگر animation قبلاً تمام شده،
+           * همه‌ی آیتم‌ها visible باقی می‌مانند.
+           */
+          if (networkTimeline.progress() < 1) {
+            networkTimeline.play();
+          }
+        },
+      });
+
+      // =========================================================
+      // Cleanup
+      // =========================================================
 
       return () => {
         introTimeline.kill();
-        timeline.kill();
+        networkTimeline.kill();
+        pinTrigger.kill();
       };
     },
     {

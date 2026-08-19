@@ -35,9 +35,13 @@ export default function ContactForm() {
     () =>
       createContactSchema({
         nameRequired: t("validation.nameRequired"),
+
         phoneRequired: t("validation.phoneRequired"),
+        phoneInvalid: t("validation.phoneInvalid"),
+
         emailRequired: t("validation.emailRequired"),
         emailInvalid: t("validation.emailInvalid"),
+
         companyRequired: t("validation.companyRequired"),
         messageRequired: t("validation.messageRequired"),
       }),
@@ -215,7 +219,6 @@ export default function ContactForm() {
           <input
             id="email"
             type="email"
-           
             autoComplete="email"
             placeholder={t("form.emailPlaceholder")}
             {...register("email")}
