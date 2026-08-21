@@ -300,6 +300,32 @@
     "playerNotSupported": "Your browser does not support video playback."
   },
 
+  "Brochures": {
+    "hero": {
+      "eyebrow": "BROCHURES / PRODUCT DOCUMENTS",
+      "title": "Explore Our Product Brochures",
+      "description": "Browse technical brochures for our machining and cutting tool products. Select a product to review its brochure and technical information."
+    },
+
+    "sidebar": {
+      "title": "BROCHURES"
+    },
+
+    "viewer": {
+      "label": "ACTIVE BROCHURE",
+      "brochure": "Brochure",
+      "open": "Open in New Tab",
+      "download": "Download Brochure"
+    },
+
+    "loading": "Loading brochures...",
+
+    "empty": {
+      "title": "No brochures available",
+      "description": "There are currently no product brochures available to display."
+    }
+  },
+
   "Catalogues": {
     "hero": {
       "eyebrow": "CATALOGUES / TECHNICAL DOCUMENTS",
