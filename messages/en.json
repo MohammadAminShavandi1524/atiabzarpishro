@@ -261,9 +261,9 @@
 
   "Products": {
     "header": {
-       "label": "PRODUCTS",
-  "title": "Machining Solutions",
-  "countLabel": "PRODUCTS"
+      "label": "PRODUCTS",
+      "title": "Machining Solutions",
+      "countLabel": "PRODUCTS"
     },
 
     "aside": {
@@ -298,6 +298,32 @@
     },
 
     "playerNotSupported": "Your browser does not support video playback."
+  },
+
+  "Catalogues": {
+    "hero": {
+      "eyebrow": "CATALOGUES / TECHNICAL DOCUMENTS",
+      "title": "Explore Our Brand Catalogues",
+      "description": "Browse technical catalogues from our global machining and cutting tool partners. Select a brand to view its product catalogue."
+    },
+
+    "sidebar": {
+      "title": "CATALOGUES"
+    },
+
+    "viewer": {
+      "label": "ACTIVE CATALOGUE",
+      "catalogue": "Catalogue",
+      "open": "Open in New Tab",
+      "download": "Download Catalogue"
+    },
+
+    "loading": "Loading catalogues...",
+
+    "empty": {
+      "title": "No catalogues available",
+      "description": "There are currently no brand catalogues available to display."
+    }
   },
 
   "Softwares": {

@@ -42,7 +42,7 @@ export const brands: ProductBrand[] = [
     slug: "dine",
     name_en: "DINE",
     name_fa: "DINE",
-    image: "/home/partners/dine.webp",
+    image: "/home/partners/Dine.webp",
     catalog: null,
   },
   {

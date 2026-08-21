@@ -18,7 +18,7 @@ export default function PartnerDropdownItem({
 
   const isRTL = locale === "fa";
 
-  const name = isRTL ? brand.name_fa : brand.name_en;
+  const name = brand.name_en;
 
   return (
     <Link

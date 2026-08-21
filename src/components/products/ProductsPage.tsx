@@ -23,11 +23,7 @@ export default function ProductsPage({ activeBrand }: ProductsPageProps) {
 
   const activeBrandItem = brands.find((brand) => brand.slug === activeBrand);
 
-  const activeBrandName = activeBrandItem
-    ? isRTL
-      ? activeBrandItem.name_fa
-      : activeBrandItem.name_en
-    : undefined;
+  const activeBrandName = activeBrandItem ? activeBrandItem.name_en : undefined;
 
   const productCounts = products.reduce<Record<string, number>>(
     (acc, product) => {
