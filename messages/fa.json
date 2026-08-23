@@ -26,17 +26,21 @@
 
     "Navigation": {
       "home": "خانه",
-      "ourPartners": "همکاران ما",
-      "representations": "نمایندگی‌ها",
-      "technicalInformation": "اطلاعات فنی",
-      "news": "اخبار",
+      "ourPartners": "شرکای تجاری",
+      "representations": "شبکه فروش",
+      "technicalInformation": "اخبار و رسانه",
       "contactUs": "تماس با ما",
       "aboutUs": "درباره ما",
 
       "technicalDropdown": {
+        "news": {
+          "title": "اخبار",
+          "description": "اخبار و تازه‌های شرکت"
+        },
+
         "videoClips": {
           "title": "ویدیوها",
-          "description": "ویدیوهای محصول و ماشین‌کاری"
+          "description": "ویدیوهای محصولات و ماشین‌کاری"
         },
 
         "brochures": {
@@ -46,7 +50,7 @@
 
         "catalogues": {
           "title": "کاتالوگ‌ها",
-          "description": "محصولات و اطلاعات فنی"
+          "description": "اطلاعات فنی و محصولات"
         },
 
         "softwares": {
@@ -113,21 +117,21 @@
       "titleLine2": "صنایع پیشرو",
       "description": "راهکارهای ماشینکاری آتی ابزار پیشرو با توجه به نیازهای تخصصی صنایع مختلف، از تولید قطعات خودرو تا صنایع انرژی، هوافضا و تجهیزات پزشکی توسعه یافته‌اند.",
       "scrollHint": "برای ساخت شبکه صنایع ادامه دهید",
+
       "core": {
         "title": "ماشینکاری",
         "subtitle": "هسته مهندسی آتی ابزار"
       },
+
       "items": {
-        "automotive": "خودروسازی و قطعات وابسته",
+        "automotive": "قطعات خودرو",
         "power": "صنایع نیروگاهی",
         "machinery": "گیربکس و ماشین‌آلات",
-        "steel": "فولاد و نورد",
+        "steel": "فولاد، لوله و نورد",
         "mold": "قالب‌سازی",
-        "oilGas": "نفت، گاز و پتروشیمی",
+        "oilGas": "نفت و گاز",
         "railway": "صنایع ریلی",
-        "glass": "شیشه‌سازی خودرو",
-        "aerospace": "هوا و فضا",
-        "medical": "تجهیزات پزشکی"
+        "aerospace": "هوافضا"
       }
     },
     "featuredProducts": {

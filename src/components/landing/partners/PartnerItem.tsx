@@ -11,7 +11,7 @@ interface PartnerItemProps {
 
 export default function PartnerItem({ partner }: PartnerItemProps) {
   const content = (
-    <article className="group hover:bg-foreground/[0.015] flex min-h-[220px] flex-col items-center justify-center px-3 py-6 transition-colors duration-300">
+    <article className="group  flex min-h-[220px] flex-col items-center justify-center px-3 py-6 transition-colors duration-300">
       {/* Logo */}
       <div className="relative flex h-[105px] w-full items-center justify-center">
         <div
@@ -25,7 +25,7 @@ export default function PartnerItem({ partner }: PartnerItemProps) {
             alt={partner.name}
             fill
             sizes="160px"
-            className="object-contain transition-opacity duration-300 group-hover:opacity-80"
+            className="object-contain transition-opacity duration-300"
           />
         </div>
       </div>

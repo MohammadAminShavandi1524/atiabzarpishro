@@ -34,7 +34,7 @@ const Nav = () => {
         <TechnicalInformationDropdown />
 
         {/* News */}
-        <NavItem label={t("news")} href={`/${locale}/news`} />
+        {/* <NavItem label={t("news")} href={`/${locale}/news`} /> */}
 
         {/* Contact Us */}
         <NavItem label={t("contactUs")} href={`/${locale}/contact-us`} />

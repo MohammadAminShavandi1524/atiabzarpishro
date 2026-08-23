@@ -78,7 +78,7 @@ export default function IndustriesNetwork({ t }: IndustriesNetworkProps) {
               <span className="industry-node-point bg-custom-primary absolute start-0 top-[4px] z-10 z-20 hidden size-2" />
 
               <div className="bg-background relative z-10 ps-5">
-                <p className="industry-node-title text-foreground mt-1.5 max-w-[180px] text-sm leading-6 font-medium">
+                <p className="industry-node-title text-foreground min-w-[148px] text-sm leading-6 font-medium text-center">
                   {t(industry.translationKey)}
                 </p>
               </div>

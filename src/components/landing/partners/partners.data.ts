@@ -56,13 +56,21 @@ export const partners: PartnerItem[] = [
     logoScale: 1.8,
     website: "https://en.shinhandia.co.kr/",
   },
+
   {
-    id: "iljin",
-    name: "ILJIN Diamond",
-    logo: "/home/partners/iljin_diamond.webp",
+    id: "funik",
+    name: "FUNIK",
+    logo: "/home/partners/funik.webp",
     logoScale: 1.8,
-    website: "https://www.iljindiamond.com/eng",
+    website: "https://en.funik.com/",
   },
+  // {
+  //   id: "iljin",
+  //   name: "ILJIN Diamond",
+  //   logo: "/home/partners/iljin_diamond.webp",
+  //   logoScale: 1.8,
+  //   website: "https://www.iljindiamond.com/eng",
+  // },
   {
     id: "osg",
     name: "OSG",
@@ -85,12 +93,5 @@ export const partners: PartnerItem[] = [
   //   logo: "/home/partners/dine.webp",
   //   logoScale: 1.8,
   //   website: "https://dine.co.kr/en/sub/product/list.asp?s_cate=17",
-  // },
-  // {
-  //   id: "funik",
-  //   name: "FUNIK",
-  //   logo: "/home/partners/funik.webp",
-  //   logoScale: 1.8,
-  //   website: "https://en.funik.com/",
   // },
 ];

@@ -117,6 +117,7 @@ export default function LanguageSwitcher({ defaultLocale }: Props) {
           "transition-all duration-300",
           "group-hover:text-accent",
           locale === "fa" && "mb-0.5",
+          "hidden"
         )}
       >
         <ArrowLeftRight

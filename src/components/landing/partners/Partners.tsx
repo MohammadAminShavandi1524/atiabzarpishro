@@ -14,7 +14,7 @@ export default function Partners() {
   return (
     <section
       dir={isRTL ? "rtl" : "ltr"}
-      className="bg-background relative overflow-hidden"
+      className="bg-background relative overflow-hidden "
     >
       {/* Main section structure */}
       <div
@@ -73,7 +73,7 @@ export default function Partners() {
           </div>
 
           {/* Partners */}
-          <div className="grid grid-cols-5 grid-rows-2 gap-x-4 gap-y-0 px-6 pb-10">
+          <div className="grid grid-cols-5 grid-rows-2 gap-x-4 gap-y-0 px-6 pb-30">
             {partners.map((partner) => (
               <PartnerItem
                 key={partner.id}

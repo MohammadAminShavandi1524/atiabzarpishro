@@ -12,6 +12,7 @@ import {
   ChevronDown,
   FileText,
   MonitorCog,
+  Newspaper,
   Video,
 } from "lucide-react";
 
@@ -21,6 +22,7 @@ import { cn } from "@/lib/utils";
 
 const TechnicalInformationDropdown = () => {
   const t = useTranslations("Header.Navigation");
+
   const locale = useLocale();
   const pathname = usePathname();
 
@@ -28,6 +30,11 @@ const TechnicalInformationDropdown = () => {
   const chevronRef = useRef<SVGSVGElement>(null);
 
   const items = [
+    {
+      key: "news",
+      href: `/${locale}/news`,
+      icon: Newspaper,
+    },
     {
       key: "videoClips",
       href: `/${locale}/video-clips`,
@@ -60,6 +67,7 @@ const TechnicalInformationDropdown = () => {
     if (!dropdownRef.current) return;
 
     const dropdown = dropdownRef.current;
+
     const dropdownItems = dropdown.querySelectorAll(".technical-item");
 
     gsap.killTweensOf([dropdown, dropdownItems, chevronRef.current]);
@@ -114,6 +122,7 @@ const TechnicalInformationDropdown = () => {
     if (!dropdownRef.current) return;
 
     const dropdown = dropdownRef.current;
+
     const dropdownItems = dropdown.querySelectorAll(".technical-item");
 
     gsap.killTweensOf([dropdown, dropdownItems, chevronRef.current]);
@@ -158,8 +167,8 @@ const TechnicalInformationDropdown = () => {
       {/* Trigger */}
       <div
         className={cn(
-          "flex items-center gap-x-1 text-lg transition-colors",
-          "hover:text-ring cursor-pointer",
+          "flex cursor-pointer items-center gap-x-1 text-lg transition-colors",
+          "hover:text-ring",
           isActive && "text-ring font-medium",
         )}
       >

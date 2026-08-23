@@ -3,6 +3,7 @@ export interface IndustryItem {
   index: string;
   translationKey: string;
   code: string;
+  image: string;
   x: number;
   y: number;
 }
@@ -13,7 +14,8 @@ export const industries: IndustryItem[] = [
     index: "01",
     translationKey: "items.automotive",
     code: "AUTO",
-    x: 17,
+    image: "/images/industries/automotive.svg",
+    x: 20,
     y: 20,
   },
   {
@@ -21,6 +23,7 @@ export const industries: IndustryItem[] = [
     index: "02",
     translationKey: "items.power",
     code: "POWER",
+    image: "/images/industries/power.svg",
     x: 50,
     y: 12,
   },
@@ -29,7 +32,8 @@ export const industries: IndustryItem[] = [
     index: "03",
     translationKey: "items.machinery",
     code: "MACHINERY",
-    x: 81,
+    image: "/images/industries/machinery.svg",
+    x: 80,
     y: 20,
   },
   {
@@ -37,31 +41,35 @@ export const industries: IndustryItem[] = [
     index: "04",
     translationKey: "items.steel",
     code: "STEEL",
-    x: 90,
-    y: 45,
+    image: "/images/industries/steel.svg",
+    x: 88,
+    y: 50,
   },
   {
     id: "mold",
     index: "05",
     translationKey: "items.mold",
     code: "MOLD",
-    x: 78,
-    y: 74,
+    image: "/images/industries/mold.svg",
+    x: 80,
+    y: 80,
   },
   {
     id: "oilGas",
     index: "06",
     translationKey: "items.oilGas",
     code: "OIL / GAS",
-    x: 54,
-    y: 87,
+    image: "/images/industries/oil-gas.svg",
+    x: 50,
+    y: 88,
   },
   {
     id: "railway",
     index: "07",
     translationKey: "items.railway",
     code: "RAIL",
-    x: 27,
+    image: "/images/industries/railway.svg",
+    x: 20,
     y: 80,
   },
   {
@@ -69,7 +77,8 @@ export const industries: IndustryItem[] = [
     index: "08",
     translationKey: "items.aerospace",
     code: "AERO",
-    x: 9,
-    y: 48,
+    image: "/images/industries/aerospace.svg",
+    x: 12,
+    y: 50,
   },
 ];

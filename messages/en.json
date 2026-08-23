@@ -26,13 +26,17 @@
     "Navigation": {
       "home": "Home",
       "ourPartners": "Our Partners",
-      "representations": "Representations",
-      "technicalInformation": "Technical Information",
-      "news": "News",
+      "representations": "Sales Network",
+      "technicalInformation": "News & Media",
       "contactUs": "Contact Us",
       "aboutUs": "About Us",
 
       "technicalDropdown": {
+        "news": {
+          "title": "News",
+          "description": "Company news and updates"
+        },
+
         "videoClips": {
           "title": "Video Clips",
           "description": "Product & machining videos"
@@ -112,21 +116,21 @@
       "titleLine2": "Critical Industries",
       "description": "ATI Abzar Pishro develops machining solutions around the specialized demands of diverse industries, from automotive manufacturing and energy to aerospace and medical equipment.",
       "scrollHint": "Continue to build the industry network",
+
       "core": {
         "title": "Machining",
         "subtitle": "ATI Engineering Core"
       },
+
       "items": {
-        "automotive": "Automotive & Components",
+        "automotive": "Automotive Parts",
         "power": "Power Generation",
         "machinery": "Gearbox & Machinery",
-        "steel": "Steel & Rolling",
+        "steel": "Steel, Pipe & Rolling",
         "mold": "Mold & Die",
-        "oilGas": "Oil, Gas & Petrochemical",
+        "oilGas": "Oil & Gas",
         "railway": "Railway Industry",
-        "glass": "Automotive Glass",
-        "aerospace": "Aerospace",
-        "medical": "Medical Equipment"
+        "aerospace": "Aerospace"
       }
     },
     "featuredProducts": {
