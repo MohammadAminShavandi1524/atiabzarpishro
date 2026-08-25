@@ -40,11 +40,11 @@ const TechnicalInformationDropdown = () => {
       href: `/${locale}/video-clips`,
       icon: Video,
     },
-    {
-      key: "brochures",
-      href: `/${locale}/brochures`,
-      icon: FileText,
-    },
+    // {
+    //   key: "brochures",
+    //   href: `/${locale}/brochures`,
+    //   icon: FileText,
+    // },
     {
       key: "catalogues",
       href: `/${locale}/catalogues`,

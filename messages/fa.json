@@ -22,8 +22,6 @@
       "placeholder": "جستجو بر اساس برند یا دسته‌بندی"
     },
 
-    "faq": "سؤالات متداول",
-
     "Navigation": {
       "home": "خانه",
       "ourPartners": "شرکای تجاری",
@@ -31,7 +29,7 @@
       "technicalInformation": "اخبار و رسانه",
       "contactUs": "تماس با ما",
       "aboutUs": "درباره ما",
-
+      "faq": "سؤالات متداول",
       "technicalDropdown": {
         "news": {
           "title": "اخبار",
@@ -686,30 +684,33 @@
   "Footer": {
     "columns": {
       "pages": "صفحات",
-      "partners": "همکاران ما",
+      "partners": "شرکای تجاری",
       "contact": "تماس با ما"
     },
 
     "pages": {
       "home": "خانه",
-      "ourPartners": "همکاران ما",
-      "technicalInformation": "اطلاعات فنی",
+      "ourPartners": "شرکای تجاری",
+      "representations": "شبکه فروش",
       "news": "اخبار",
+      "videoClips": "ویدیوها",
+      "catalogues": "کاتالوگ‌ها",
+      "softwares": "نرم‌افزارها",
       "contactUs": "تماس با ما",
       "aboutUs": "درباره ما",
-      "faq": "سؤالات متداول"
+      "faq": "سوالات متداول"
     },
 
     "contact": {
       "addressLabel": "آدرس",
-      "address": "ایران، تهران، بزرگراه اشرفی اصفهانی، بلوار مخبری، پلاک ۱۴، ۱۴۷۶۶۹۳۹۷۷",
+      "address": "تهران، بزرگراه اشرفی اصفهانی، بلوار مخبری، پلاک ۱۴، کد پستی ۱۴۷۶۶۹۳۹۷۷",
       "phoneLabel": "تلفن",
       "emailLabel": "ایمیل",
       "faxLabel": "فکس"
     },
 
     "bottom": {
-      "copyright": "© کپی‌رایت ۲۰۱۵–۲۰۲۶ شرکت آتی ابزار پیشرو. تمامی حقوق محفوظ است.",
+      "copyright": "کلیه حقوق مادی و معنوی این وب‌سایت متعلق به آتی ابزار پیشرو است. © ۲۰۱۵–۲۰۲۶",
       "designedBy": "طراحی و توسعه توسط",
       "developer": "آتی هوش بنیان"
     }

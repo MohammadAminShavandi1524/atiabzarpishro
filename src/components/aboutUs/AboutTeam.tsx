@@ -1,8 +1,11 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, Mail } from "lucide-react";
+
+import { ArrowLeft, ArrowRight, Mail, Phone } from "lucide-react";
+
 import { useLocale, useTranslations } from "next-intl";
+
 import useEmblaCarousel from "embla-carousel-react";
 
 import gsap from "gsap";
@@ -243,7 +246,7 @@ export default function AboutTeam() {
             <div ref={cardsTrackRef} className="flex">
               {teamMembers.map((member) => (
                 <div key={member.id} className="min-w-0 flex-[0_0_25%] pe-6">
-                  <article className="group/member border-border bg-background relative min-h-[330px] border">
+                  <article className="group/member border-border bg-background relative min-h-[380px] border">
                     {/* Hover Line */}
                     <span
                       className={[
@@ -255,7 +258,7 @@ export default function AboutTeam() {
                       ].join(" ")}
                     />
 
-                    <div className="flex min-h-[330px] flex-col p-8">
+                    <div className="flex min-h-[380px] flex-col p-8">
                       {/* Member Info */}
                       <div>
                         <h3 className="text-foreground group-hover/member:text-custom-primary text-xl leading-tight font-semibold transition-colors duration-300">
@@ -275,26 +278,48 @@ export default function AboutTeam() {
                         )}
                       </div>
 
-                      {/* Email */}
-                      {member.email && (
-                        <div className="border-border mt-auto border-t pt-6">
-                          <a
-                            href={`mailto:${member.email}`}
-                            className="group/email inline-flex max-w-full items-center gap-3"
-                          >
-                            <span className="border-border text-muted-foreground group-hover/email:border-custom-primary group-hover/email:text-custom-primary flex size-11 shrink-0 items-center justify-center border transition-colors duration-300">
-                              <Mail size={19} strokeWidth={1.8} />
-                            </span>
-
-                            <span
-                              dir="ltr"
-                              className="text-muted-foreground group-hover/email:text-custom-primary truncate text-xs transition-colors duration-300"
+                      {/* Contact */}
+                      <div className="border-border mt-auto border-t pt-6">
+                        <div className="flex flex-col gap-3">
+                          {/* Email */}
+                          {member.email && (
+                            <a
+                              href={`mailto:${member.email}`}
+                              className="group/email inline-flex max-w-full items-center gap-3"
                             >
-                              {member.email}
-                            </span>
-                          </a>
+                              <span className="border-border text-muted-foreground group-hover/email:border-custom-primary group-hover/email:text-custom-primary flex size-11 shrink-0 items-center justify-center border transition-colors duration-300">
+                                <Mail className="size-5" strokeWidth={1.8} />
+                              </span>
+
+                              <span
+                                dir="ltr"
+                                className="text-muted-foreground group-hover/email:text-custom-primary truncate text-sm transition-colors duration-300"
+                              >
+                                {member.email}
+                              </span>
+                            </a>
+                          )}
+
+                          {/* Phone */}
+                          {member.phone && (
+                            <a
+                              href={`tel:${member.phone}`}
+                              className="group/phone inline-flex max-w-full items-center gap-3"
+                            >
+                              <span className="border-border text-muted-foreground group-hover/phone:border-custom-primary group-hover/phone:text-custom-primary flex size-11 shrink-0 items-center justify-center border transition-colors duration-300">
+                                <Phone className="size-5" strokeWidth={1.8} />
+                              </span>
+
+                              <span
+                                dir="ltr"
+                                className="text-muted-foreground group-hover/phone:text-custom-primary text-sm transition-colors duration-300"
+                              >
+                                {member.phone}
+                              </span>
+                            </a>
+                          )}
                         </div>
-                      )}
+                      </div>
                     </div>
                   </article>
                 </div>

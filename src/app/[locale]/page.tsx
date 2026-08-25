@@ -27,7 +27,7 @@ export default function IndexPage({ params }: PageProps<"/[locale]">) {
       {/* <FeaturedProducts /> */}
       <Partners />
       {/* <TechnicalInformation /> */}
-      {/* <BlogInsights /> */}
+      <BlogInsights />
       {/* <ContactCTA /> */}
     </div>
   );

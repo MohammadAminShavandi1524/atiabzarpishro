@@ -21,8 +21,6 @@
       "placeholder": "Search by brand or category"
     },
 
-    "faq": "FAQ",
-
     "Navigation": {
       "home": "Home",
       "ourPartners": "Our Partners",
@@ -30,7 +28,7 @@
       "technicalInformation": "News & Media",
       "contactUs": "Contact Us",
       "aboutUs": "About Us",
-
+      "faq": "FAQ",
       "technicalDropdown": {
         "news": {
           "title": "News",
@@ -692,8 +690,11 @@
     "pages": {
       "home": "Home",
       "ourPartners": "Our Partners",
-      "technicalInformation": "Technical Information",
-      "news": "news",
+      "representations": "Sales Network",
+      "news": "News",
+      "videoClips": "Video Clips",
+      "catalogues": "Catalogues",
+      "softwares": "Softwares",
       "contactUs": "Contact Us",
       "aboutUs": "About Us",
       "faq": "FAQ"

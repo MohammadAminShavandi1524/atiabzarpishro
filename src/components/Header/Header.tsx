@@ -3,9 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocale } from "next-intl";
 
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-
 import LanguageSwitcher from "./LanguageSwitcher";
 import Logo from "./Logo";
 import { ThemeButton } from "../theme/ThemeButton";
@@ -15,11 +12,8 @@ import FAQButton from "./FAQButton";
 
 import { cn } from "@/lib/utils";
 
-gsap.registerPlugin(useGSAP);
-
 const Header = () => {
   const locale = useLocale();
-  const isRTL = locale === "fa";
 
   const headerRef = useRef<HTMLElement>(null);
 
@@ -27,9 +21,6 @@ const Header = () => {
 
   const lastScrollY = useRef(0);
 
-  // =========================================================
-  // Header Hide / Show On Scroll
-  // =========================================================
   useEffect(() => {
     const SCROLL_THRESHOLD = 60;
     const SCROLL_DELTA = 10;
@@ -38,23 +29,19 @@ const Header = () => {
       const currentScrollY = window.scrollY;
       const difference = currentScrollY - lastScrollY.current;
 
-      // Always show header near the top
       if (currentScrollY <= SCROLL_THRESHOLD) {
         setShowHeader(true);
         lastScrollY.current = currentScrollY;
         return;
       }
 
-      // Prevent tiny scroll movements from toggling header
       if (Math.abs(difference) < SCROLL_DELTA) {
         return;
       }
 
       if (difference > 0) {
-        // Scroll Down
         setShowHeader(false);
       } else {
-        // Scroll Up
         setShowHeader(true);
       }
 
@@ -72,147 +59,6 @@ const Header = () => {
     };
   }, []);
 
-  // =========================================================
-  // Entrance Animation
-  // =========================================================
-  useGSAP(
-    () => {
-      if (!headerRef.current) return;
-
-      const reduceMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
-
-      if (reduceMotion) {
-        gsap.set(
-          [
-            ".header-logo",
-            ".header-search",
-            ".header-actions",
-            ".header-nav",
-            ".header-faq",
-          ],
-          {
-            opacity: 1,
-            clearProps: "transform",
-          },
-        );
-
-        gsap.set(".header-line", {
-          scaleX: 1,
-        });
-
-        return;
-      }
-
-      const timeline = gsap.timeline({
-        defaults: {
-          ease: "power3.out",
-        },
-      });
-
-      // Initial States
-      gsap.set(".header-logo", {
-        opacity: 0,
-        y: -12,
-      });
-
-      gsap.set(".header-search", {
-        opacity: 0,
-        y: -10,
-      });
-
-      gsap.set(".header-actions", {
-        opacity: 0,
-        y: -10,
-      });
-
-      gsap.set(".header-nav", {
-        opacity: 0,
-        y: 10,
-      });
-
-      gsap.set(".header-faq", {
-        opacity: 0,
-        y: 10,
-      });
-
-      gsap.set(".header-line", {
-        scaleX: 0,
-        transformOrigin: isRTL ? "right center" : "left center",
-      });
-
-      // Entrance
-      timeline.to(
-        ".header-logo",
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.65,
-        },
-        0.05,
-      );
-
-      timeline.to(
-        ".header-search",
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.65,
-        },
-        0.12,
-      );
-
-      timeline.to(
-        ".header-actions",
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.65,
-        },
-        0.18,
-      );
-
-      timeline.to(
-        ".header-line",
-        {
-          scaleX: 1,
-          duration: 0.85,
-          ease: "power2.inOut",
-        },
-        0.12,
-      );
-
-      timeline.to(
-        ".header-nav",
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.65,
-        },
-        0.28,
-      );
-
-      timeline.to(
-        ".header-faq",
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.65,
-        },
-        0.34,
-      );
-
-      return () => {
-        timeline.kill();
-      };
-    },
-    {
-      scope: headerRef,
-      dependencies: [isRTL],
-    },
-  );
-
   return (
     <header
       ref={headerRef}
@@ -225,7 +71,7 @@ const Header = () => {
       {/* Animated Bottom Border */}
       <span
         aria-hidden="true"
-        className="header-line bg-border pointer-events-none absolute inset-x-0 bottom-0 h-px"
+        className="bg-border pointer-events-none absolute inset-x-0 bottom-0 h-px"
       />
 
       <div className="w90 flex flex-col gap-y-1.5 pt-2.5 pb-2.5">
@@ -234,18 +80,18 @@ const Header = () => {
         ===================================================== */}
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="header-logo">
+          <div className="">
             <Logo />
           </div>
 
           {/* Search */}
-          <div className="header-search">
+          <div className="">
             <SearchBar />
           </div>
 
           {/* Theme + Language */}
-          <div className="header-actions flex items-center gap-x-3">
-            <ThemeButton />
+          <div className="flex items-center gap-x-3">
+            {/* <ThemeButton /> */}
 
             <LanguageSwitcher defaultLocale={locale} />
           </div>
@@ -256,13 +102,8 @@ const Header = () => {
         ===================================================== */}
         <div className="flex items-center justify-between ps-1.5">
           {/* Navigation */}
-          <div className="header-nav">
+          <div className="">
             <Nav />
-          </div>
-
-          {/* FAQ */}
-          <div className="header-faq">
-            <FAQButton />
           </div>
         </div>
       </div>

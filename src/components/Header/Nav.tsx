@@ -18,7 +18,7 @@ const Nav = () => {
 
   return (
     <nav className="ms-2.5">
-      <ul className="flex items-center gap-x-6">
+      <ul className="flex items-center gap-x-6 pt-3 pb-2 text-lg">
         <NavItem label={t("home")} href={`/${locale}`} />
 
         {/* Our Partners */}
@@ -41,6 +41,9 @@ const Nav = () => {
 
         {/* About Us */}
         <NavItem label={t("aboutUs")} href={`/${locale}/about-us`} />
+
+         {/* faq */}
+        <NavItem label={t("faq")} href={`/${locale}/faq`} />
       </ul>
     </nav>
   );

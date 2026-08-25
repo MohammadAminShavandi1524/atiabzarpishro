@@ -7,15 +7,13 @@ import { notFound } from "next/navigation";
 import { Locale, hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-import {
-  Inter,
-  Playfair_Display,
-  Space_Grotesk,
-  Noto_Serif,
-} from "next/font/google";
+import { Playfair_Display, Noto_Serif } from "next/font/google";
+
 import { routing } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
+
 import { Metadata } from "next";
+
 import { ThemeProvider } from "@/components/theme/Providers";
 import AppToaster from "@/components/AppToaster";
 import Header from "@/components/Header/Header";
@@ -24,30 +22,10 @@ import { CustomToastProvider } from "@/components/ui/custom-toast";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import ScrollToTop from "@/components/ScrollToTop";
 
-// import {
-//   MobileSidebar,
-//   MobileSidebarContent,
-// } from "@/components/ui/mobile-sidebar";
-// import MobileMenu from "@/components/mobile-menu/mobile-menu";
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
   variable: "--font-playfair",
-  display: "swap",
-});
-
-const space = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-space",
   display: "swap",
 });
 
@@ -82,6 +60,7 @@ export default async function LocaleLayout({
   params,
 }: LayoutProps<"/[locale]">) {
   const { locale } = await params;
+
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
@@ -96,22 +75,14 @@ export default async function LocaleLayout({
     >
       <body
         className={cn(
-          inter.variable,
           playfair.variable,
-          space.variable,
           notoSerif.variable,
-
-          locale === "fa" ? "font-IRANYekanX" : space.className,
+          locale === "fa" ? "font-IRANYekanX" : "font-sans",
         )}
       >
         <NextIntlClientProvider>
           <ThemeProvider>
-            {/* <MobileSidebar> */}
             <AppToaster />
-
-            {/* <MobileSidebarContent width={340}>
-                <MobileMenu />
-              </MobileSidebarContent> */}
 
             <div className="text-foreground bg-background relative">
               <Header />
@@ -126,7 +97,6 @@ export default async function LocaleLayout({
 
               <ScrollToTop />
             </div>
-            {/* </MobileSidebar> */}
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

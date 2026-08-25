@@ -15,10 +15,10 @@ const NavItem = ({ label, href }: NavItemProps) => {
   const locale = useLocale();
   const pathname = usePathname();
   return (
-    <li>
+    <li className="">
       <Link
         className={cn(
-          "hover:text-ring transition-all text-lg",
+          "hover:text-ring transition-all ",
           pathname ===  href  && "text-ring font-medium",
         )}
         href={href}

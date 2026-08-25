@@ -9,12 +9,24 @@ export const footerNavigation = {
       href: "/our-partners",
     },
     {
-      key: "technicalInformation",
-      href: "/technical-information",
+      key: "representations",
+      href: "/representations",
     },
     {
       key: "news",
       href: "/news",
+    },
+    {
+      key: "videoClips",
+      href: "/video-clips",
+    },
+    {
+      key: "catalogues",
+      href: "/catalogues",
+    },
+    {
+      key: "softwares",
+      href: "/softwares",
     },
     {
       key: "contactUs",

@@ -12,7 +12,7 @@ import { videos } from "@/data/videos";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-const VIDEO_PLACEHOLDER = "/videos/video-placeholder.webp";
+const VIDEO_PLACEHOLDER = "/videos/korloyThumb.webp";
 
 const Page = () => {
   const t = useTranslations("VideoClips");
@@ -28,8 +28,7 @@ const Page = () => {
   const getDescription = (video: (typeof videos)[number]) =>
     isRTL ? video.description_fa : video.description_en;
 
-  const getImage = (video: (typeof videos)[number]) =>
-    video.image || VIDEO_PLACEHOLDER;
+  const getImage = (video: (typeof videos)[number]) => VIDEO_PLACEHOLDER;
 
   return (
     <>

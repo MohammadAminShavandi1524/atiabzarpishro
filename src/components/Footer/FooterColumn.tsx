@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+
 import { useLocale, useTranslations } from "next-intl";
+
 import { ArrowUpRight } from "lucide-react";
+
 import { cn } from "@/lib/utils";
 
 type PageItem = {
@@ -33,51 +36,58 @@ export default function FooterColumn({ title, type, items }: Props) {
         <div className="bg-footer-border mt-3 h-px w-8" />
       </div>
 
-      {/* Items */}
-      <ul className="space-y-4">
-        {type === "pages"
-          ? (items as readonly PageItem[]).map((item) => (
-              <li key={item.key}>
-                <Link
-                  href={`/${locale}${item.href}`}
-                  className={cn(
-                    "group inline-flex items-center gap-x-2",
-                    "text-footer-muted text-base",
-                    "transition-colors duration-300",
-                    "hover:text-custom-primary",
-                  )}
-                >
-                  <span>{t(`pages.${item.key}`)}</span>
+      {/* Pages */}
+      {type === "pages" && (
+        <ul className="space-y-4">
+          {(items as readonly PageItem[]).map((item) => (
+            <li key={item.key}>
+              <Link
+                href={`/${locale}${item.href}`}
+                className={cn(
+                  "group inline-flex items-center gap-x-2",
+                  "text-footer-muted text-base",
+                  "transition-colors duration-300",
+                  "hover:text-custom-primary",
+                )}
+              >
+                <span>{t(`pages.${item.key}`)}</span>
 
-                  <ArrowUpRight
-                    className={cn(
-                      "size-4 opacity-0",
-                      "transition-all duration-300",
-                      "group-hover:translate-x-0.5",
-                      "group-hover:-translate-y-0.5",
-                      "group-hover:opacity-100",
-                      isRTL && "rotate-[-90deg]",
-                    )}
-                    strokeWidth={1.5}
-                  />
-                </Link>
-              </li>
-            ))
-          : (items as readonly string[]).map((partner) => (
-              <li key={partner}>
-                <span
+                <ArrowUpRight
                   className={cn(
-                    "inline-block cursor-default",
-                    "text-footer-muted text-base",
-                    "transition-colors duration-300",
-                    "hover:text-footer-foreground",
+                    "size-4 opacity-0",
+                    "transition-all duration-300",
+                    "group-hover:translate-x-0.5",
+                    "group-hover:-translate-y-0.5",
+                    "group-hover:opacity-100",
+                    isRTL && "rotate-[-90deg]",
                   )}
-                >
-                  {partner}
-                </span>
-              </li>
-            ))}
-      </ul>
+                  strokeWidth={1.5}
+                />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {/* Partners */}
+      {type === "partners" && (
+        <ul className="space-y-4">
+          {(items as readonly string[]).map((partner) => (
+            <li key={partner}>
+              <span
+                className={cn(
+                  "inline-block cursor-default",
+                  "text-footer-muted text-base",
+                  "transition-colors duration-300",
+                  "hover:text-footer-foreground",
+                )}
+              >
+                {partner}
+              </span>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

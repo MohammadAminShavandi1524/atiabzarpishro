@@ -4,6 +4,7 @@ import { useLocale, useTranslations } from "next-intl";
 
 import FooterColumn from "./FooterColumn";
 import FooterContact from "./FooterContact";
+
 import { footerNavigation } from "./footer-navigation.data";
 
 export default function FooterMain() {

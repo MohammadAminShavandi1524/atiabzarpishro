@@ -1,12 +1,16 @@
-export type HeroCarouselItem = {
+export interface HeroCarouselItem {
   id: string;
+
   href: string;
-  darkImage: string;
-  lightImage: string;
+
+  image: string;
+
   enLabel: string;
   faLabel: string;
+
   enTitle: string;
   faTitle: string;
+
   enDescription: string;
   faDescription: string;
-};
+}

@@ -60,7 +60,7 @@ export const partners: PartnerItem[] = [
   {
     id: "funik",
     name: "FUNIK",
-    logo: "/home/partners/funik.webp",
+    logo: "/home/partners/Funik.webp",
     logoScale: 1.8,
     website: "https://en.funik.com/",
   },

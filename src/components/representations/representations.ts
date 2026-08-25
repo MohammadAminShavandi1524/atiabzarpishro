@@ -40,55 +40,55 @@ export const representations: RepresentationItem[] = [
 
     image: "/representations/tehran.webp",
 
-    latitude: 35.6892,
-    longitude: 51.389,
+    latitude: 35.754243,
+    longitude: 51.332173,
   },
 
-  {
-    id: "tabriz",
+  // {
+  //   id: "tabriz",
 
-    city_en: "Tabriz",
-    city_fa: "تبریز",
+  //   city_en: "Tabriz",
+  //   city_fa: "تبریز",
 
-    name_en: "ATI Abzar Pishro — Tabriz",
-    name_fa: "نمایندگی آتی ابزار پیشرو — تبریز",
+  //   name_en: "ATI Abzar Pishro — Tabriz",
+  //   name_fa: "نمایندگی آتی ابزار پیشرو — تبریز",
 
-    description_en:
-      "Machining tools, industrial solutions and technical support for manufacturers in the northwest region.",
+  //   description_en:
+  //     "Machining tools, industrial solutions and technical support for manufacturers in the northwest region.",
 
-    description_fa:
-      "تأمین ابزارهای ماشین‌کاری، راهکارهای صنعتی و پشتیبانی فنی برای صنایع منطقه شمال‌غرب کشور.",
+  //   description_fa:
+  //     "تأمین ابزارهای ماشین‌کاری، راهکارهای صنعتی و پشتیبانی فنی برای صنایع منطقه شمال‌غرب کشور.",
 
-    address_en: "Tabriz, East Azerbaijan, Iran",
-    address_fa: "تبریز، آذربایجان شرقی، ایران",
+  //   address_en: "Tabriz, East Azerbaijan, Iran",
+  //   address_fa: "تبریز، آذربایجان شرقی، ایران",
 
-    image: "/representations/tabriz.webp",
+  //   image: "/representations/tabriz.webp",
 
-    latitude: 38.0801,
-    longitude: 46.2919,
-  },
+  //   latitude: 38.0801,
+  //   longitude: 46.2919,
+  // },
 
-  {
-    id: "isfahan",
+  // {
+  //   id: "isfahan",
 
-    city_en: "Isfahan",
-    city_fa: "اصفهان",
+  //   city_en: "Isfahan",
+  //   city_fa: "اصفهان",
 
-    name_en: "ATI Abzar Pishro — Isfahan",
-    name_fa: "نمایندگی آتی ابزار پیشرو — اصفهان",
+  //   name_en: "ATI Abzar Pishro — Isfahan",
+  //   name_fa: "نمایندگی آتی ابزار پیشرو — اصفهان",
 
-    description_en:
-      "Industrial cutting tool supply and machining consultation for manufacturing industries in Isfahan.",
+  //   description_en:
+  //     "Industrial cutting tool supply and machining consultation for manufacturing industries in Isfahan.",
 
-    description_fa:
-      "تأمین ابزارهای برشی صنعتی و ارائه مشاوره ماشین‌کاری برای صنایع تولیدی استان اصفهان.",
+  //   description_fa:
+  //     "تأمین ابزارهای برشی صنعتی و ارائه مشاوره ماشین‌کاری برای صنایع تولیدی استان اصفهان.",
 
-    address_en: "Isfahan, Iran",
-    address_fa: "اصفهان، ایران",
+  //   address_en: "Isfahan, Iran",
+  //   address_fa: "اصفهان، ایران",
 
-    image: "/representations/isfahan.webp",
+  //   image: "/representations/isfahan.webp",
 
-    latitude: 32.6546,
-    longitude: 51.668,
-  },
+  //   latitude: 32.6546,
+  //   longitude: 51.668,
+  // },
 ];
