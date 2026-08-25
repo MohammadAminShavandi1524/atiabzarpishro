@@ -1,143 +1,283 @@
 "use client";
 
-import { useRef } from "react";
-import { useLocale, useTranslations } from "next-intl";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import {
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
 
-import { englishToPersianNumber } from "@/lib/utils";
+import Link from "next/link";
+
+import {
+  ArrowLeft,
+  ArrowRight,
+} from "lucide-react";
+
+import {
+  useLocale,
+  useTranslations,
+} from "next-intl";
+
+import useEmblaCarousel from "embla-carousel-react";
+
+import ArticleCard from "./ArticleCard";
 
 import { blogInsights } from "./blogInsights.data";
-import FeaturedArticle from "./FeaturedArticle";
-import ArticleCard from "./ArticleCard";
-import { useBlogInsightsAnimation } from "./useBlogInsightsAnimation";
-import Link from "next/link";
 
 export default function BlogInsights() {
   const locale = useLocale();
-  const t = useTranslations("Home.blogInsights");
 
-  const isRTL = locale === "fa";
+  const t = useTranslations(
+    "Home.blogInsights",
+  );
 
-  const sectionRef = useRef<HTMLElement>(null);
+  const isRTL =
+    locale === "fa";
 
-  useBlogInsightsAnimation({
-    sectionRef,
-    isRTL,
+  const PrevIcon =
+    isRTL
+      ? ArrowRight
+      : ArrowLeft;
+
+  const NextIcon =
+    isRTL
+      ? ArrowLeft
+      : ArrowRight;
+
+  const [
+    emblaRef,
+    emblaApi,
+  ] = useEmblaCarousel({
+    align: "start",
+
+    loop: true,
+
+    direction: isRTL
+      ? "rtl"
+      : "ltr",
+
+    slidesToScroll: 1,
   });
 
-  const [featured, ...rest] = blogInsights;
+  const [
+    selectedIndex,
+    setSelectedIndex,
+  ] = useState(0);
 
-  const Arrow = isRTL ? ArrowLeft : ArrowRight;
+  const onSelect =
+    useCallback(() => {
+      if (!emblaApi) {
+        return;
+      }
+
+      setSelectedIndex(
+        emblaApi.selectedScrollSnap(),
+      );
+    }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) {
+      return;
+    }
+
+    onSelect();
+
+    emblaApi.on(
+      "select",
+      onSelect,
+    );
+
+    emblaApi.on(
+      "reInit",
+      onSelect,
+    );
+
+    return () => {
+      emblaApi.off(
+        "select",
+        onSelect,
+      );
+
+      emblaApi.off(
+        "reInit",
+        onSelect,
+      );
+    };
+  }, [
+    emblaApi,
+    onSelect,
+  ]);
+
+  const scrollPrev =
+    useCallback(() => {
+      emblaApi?.scrollPrev();
+    }, [emblaApi]);
+
+  const scrollNext =
+    useCallback(() => {
+      emblaApi?.scrollNext();
+    }, [emblaApi]);
 
   return (
     <section
-      ref={sectionRef}
-      dir={isRTL ? "rtl" : "ltr"}
-      className="bg-background border-border relative overflow-hidden border-t"
+      dir={
+        isRTL
+          ? "rtl"
+          : "ltr"
+      }
+      className="bg-background py-24"
     >
-      {/* Background */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 overflow-hidden"
-      >
-        <span className="blog-bg-line bg-border absolute inset-y-0 start-[5%] w-px" />
-
-        <span className="blog-bg-line bg-border absolute inset-y-0 end-[5%] w-px" />
-      </div>
-
-      <div className="w90 relative z-10">
+      <div className="w90">
         {/* Header */}
-        <div className="blog-header border-border grid min-h-[360px] grid-cols-[0.42fr_1.58fr] border-b">
-          {/* Left */}
-          <div className="relative flex flex-col justify-between py-11 pe-12 pt-16">
-            <span
-              aria-hidden="true"
-              className="blog-main-divider bg-border absolute inset-y-0 end-0 w-px"
-            />
-
-            <div className="blog-eyebrow flex items-center gap-4">
-              <span className="blog-eyebrow-line bg-custom-primary block h-px w-10" />
+        <div className="flex items-end justify-between gap-20">
+          {/* Content */}
+          <div className="max-w-[900px]">
+            {/* Eyebrow */}
+            <div className="flex items-center gap-4">
+              <span className="bg-custom-primary block h-px w-12 shrink-0" />
 
               <span className="text-muted-foreground text-sm font-medium tracking-[0.08em]">
                 {t("eyebrow")}
               </span>
             </div>
 
-            <div
-              lang="en"
-              className="blog-chapter text-muted-foreground flex items-center gap-3 text-[10px] tracking-[0.14em]"
-            >
-              <span>ATI</span>
+            {/* Title */}
+            <h2 className="text-foreground mt-8 text-[clamp(3rem,4vw,5rem)] font-semibold ltr:leading-[1.03] ltr:tracking-[-0.045em] rtl:leading-[1.2]">
+              <span className="block">
+                {t(
+                  "titleLine1",
+                )}
+              </span>
 
-              <span className="blog-chapter-line bg-border block h-px w-8" />
+              <span className="text-custom-primary block">
+                {t(
+                  "titleLine2",
+                )}
+              </span>
+            </h2>
 
-              <span>INSIGHTS / BLOG</span>
-            </div>
+            {/* Description */}
+            <p className="text-muted-foreground mt-6 max-w-[760px] text-[17px] leading-8">
+              {t(
+                "description",
+              )}
+            </p>
           </div>
 
-          {/* Title */}
-          <div className="flex items-center ps-[7vw] pt-12 pb-12">
-            <div className="max-w-[900px]">
-              <div className="overflow-hidden">
-                <h2 className="blog-title-line text-foreground text-[80px] rtl:text-[64px] font-semibold ltr:leading-[0.98] ltr:tracking-[-0.045em]  rtl:leading-[1.2]">
-                  {t("titleLine1")}
-                </h2>
-              </div>
-
-              <div className="mt-1 overflow-hidden">
-                <h2 className="blog-title-line text-custom-primary text-[64px] rtl:text-[56px] font-semibold ltr:leading-[0.98] ltr:tracking-[-0.045em]  rtl:leading-[1.2]">
-                  {t("titleLine2")}
-                </h2>
-              </div>
-
-              <p className="blog-description text-muted-foreground mt-9 max-w-[680px] text-[15px] leading-8">
-                {t("description")}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Featured */}
-        <div className="blog-featured-section py-16">
-          <FeaturedArticle article={featured} isRTL={isRTL} t={t} />
-        </div>
-
-        {/* Secondary */}
-        <div className="blog-secondary border-border grid grid-cols-2 gap-10 border-t py-14">
-          {rest.map((article, index) => (
-            <ArticleCard
-              key={article.id}
-              article={article}
-              index={index + 2}
-              isRTL={isRTL}
-              t={t}
-            />
-          ))}
-        </div>
-
-        {/* Bottom */}
-        <div className="blog-bottom border-border flex min-h-[130px] items-center justify-between border-t">
-          <span
-            lang="en"
-            className="text-muted-foreground text-[10px] tracking-[0.13em]"
-          >
-            LATEST ARTICLES
-          </span>
-
+          {/* View All */}
           <Link
-            href="/blogs"
-            className="blog-view-all group text-foreground flex items-center gap-4 text-sm font-medium"
+            href={`/${locale}/blogs`}
+            className="group text-foreground mb-1 flex shrink-0 items-center gap-4 text-sm font-medium"
           >
-            <span>{t("viewAll")}</span>
+            <span>
+              {t("viewAll")}
+            </span>
 
             <span className="border-border group-hover:border-custom-primary flex size-10 items-center justify-center border transition-colors duration-300">
-              <Arrow
+              <NextIcon
                 size={16}
                 strokeWidth={1.7}
                 className="text-custom-primary"
               />
             </span>
           </Link>
+        </div>
+
+        {/* Carousel */}
+        <div className="mt-14 overflow-hidden">
+          <div
+            ref={emblaRef}
+            className="overflow-hidden"
+          >
+            <div className="-ms-5 flex">
+              {blogInsights.map(
+                (article) => (
+                  <div
+                    key={
+                      article.id
+                    }
+                    className="min-w-0 flex-[0_0_33.333333%] ps-5"
+                  >
+                    <ArticleCard
+                      article={
+                        article
+                      }
+                      isRTL={
+                        isRTL
+                      }
+                      locale={
+                        locale
+                      }
+                      t={t}
+                    />
+                  </div>
+                ),
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Controls */}
+        <div className="border-border mt-10 flex items-center justify-between border-t pt-7">
+          {/* Counter */}
+          <div
+            dir="ltr"
+            className="flex items-center gap-3"
+          >
+            <span className="text-custom-primary text-sm font-medium">
+              {String(
+                selectedIndex +
+                  1,
+              ).padStart(
+                2,
+                "0",
+              )}
+            </span>
+
+            <span className="text-border">
+              /
+            </span>
+
+            <span className="text-muted-foreground text-sm">
+              {String(
+                blogInsights.length,
+              ).padStart(
+                2,
+                "0",
+              )}
+            </span>
+          </div>
+
+          {/* Navigation */}
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={
+                scrollPrev
+              }
+              aria-label="Previous article"
+              className="border-border text-foreground hover:border-custom-primary hover:text-custom-primary flex size-11 cursor-pointer items-center justify-center border transition-colors duration-300"
+            >
+              <PrevIcon
+                size={18}
+                strokeWidth={1.7}
+              />
+            </button>
+
+            <button
+              type="button"
+              onClick={
+                scrollNext
+              }
+              aria-label="Next article"
+              className="border-border text-foreground hover:border-custom-primary hover:text-custom-primary flex size-11 cursor-pointer items-center justify-center border transition-colors duration-300"
+            >
+              <NextIcon
+                size={18}
+                strokeWidth={1.7}
+              />
+            </button>
+          </div>
         </div>
       </div>
     </section>

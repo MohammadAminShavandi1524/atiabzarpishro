@@ -222,9 +222,12 @@
     },
     "blogInsights": {
       "eyebrow": "Latest Insights",
+
       "titleLine1": "Machining Knowledge",
       "titleLine2": "Built from Experience",
-      "description": "Technical articles, practical machining knowledge and industry insights from ATI Abzar Pishro",
+
+      "description": "Technical articles, practical machining knowledge and industry insights from ATI Abzar Pishro.",
+
       "viewAll": "View All Articles",
 
       "items": {
@@ -232,13 +235,30 @@
           "title": "Choosing the Right Cutting Tools for High-Performance Machining",
           "description": "A practical look at the key factors involved in selecting cutting tools for stable, accurate and productive machining."
         },
+
         "second": {
-          "title": "How Cutting Parameters Affect Tools Life",
+          "title": "How Cutting Parameters Affect Tool Life",
           "description": "Understand how cutting speed, feed and depth of cut influence tool wear, process stability and overall machining performance."
         },
+
         "third": {
           "title": "Understanding Carbide Inserts and Their Applications",
           "description": "Explore the fundamentals of carbide inserts, common geometries and how different insert types are applied across machining operations."
+        },
+
+        "fourth": {
+          "title": "Improving Milling Performance Through Better Process Control",
+          "description": "A practical overview of the machining conditions and tooling decisions that can improve stability, surface quality and milling productivity."
+        },
+
+        "fifth": {
+          "title": "Reducing Machining Cycle Time Without Sacrificing Quality",
+          "description": "Explore practical approaches to improving production efficiency while maintaining dimensional accuracy, surface quality and process reliability."
+        },
+
+        "sixth": {
+          "title": "Why Cutting Tool Selection Matters in Modern Manufacturing",
+          "description": "Understanding how the right tooling strategy can improve machining performance, tool life, production consistency and overall manufacturing efficiency."
         }
       }
     },
