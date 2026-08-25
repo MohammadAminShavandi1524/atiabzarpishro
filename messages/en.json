@@ -61,17 +61,17 @@
   "Home": {
     "companyStory": {
       "eyebrow": "Machining Engineering Since 2012",
-      "chapter": "About ATI Abzar",
+
       "experience": "Years of experience and expertise in machining",
+
       "titleLine1": "Beyond",
       "titleLine2": "Tools Supply",
-      "description": "Backed by more than 25 years of experience and specialized engineering knowledge, ATI Abzar Pishro delivers advanced solutions for the design, production and supply of cutting tools across diverse industries.",
-      "scroll": "Continue",
-      "stats": {
-        "engineering": "Process Engineering & Optimization",
-        "supply": "Specialized Tool Supply",
-        "support": "Technical Consulting & Support"
-      }
+
+      "description1": "ATI Abzar Pishro Company was established in 2012 as an engineering and trading company specializing in cutting tools. Supported by more than 25 years of experience and the technical knowledge of machining experts, the company has developed extensive expertise in the design, manufacture and supply of standard and special cutting tools for a wide range of industries.",
+
+      "description2": "Over the years, ATI Abzar Pishro has obtained representation from reputable Korean and European manufacturers and has continuously worked to enhance technical knowledge and equip different industries with modern tooling solutions aimed at achieving greater productivity and machining performance.",
+
+      "description3": "ATI Abzar Pishro considers its mission to provide advanced machining solutions, specialized consulting for selecting optimal cutting tools, after-sales services, technical customer support, and professional training courses and seminars. Guided by the vision and slogan “ATI — All Together to Improve”, the company remains committed to improving productivity and building close, long-term cooperation with customers across various industrial sectors."
     },
     "capabilities": {
       "eyebrow": "Engineering Capabilities",
