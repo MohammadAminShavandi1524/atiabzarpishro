@@ -75,31 +75,36 @@
     },
     "capabilities": {
       "eyebrow": "Engineering Capabilities",
-      "chapter": "Services & Capabilities",
+
       "label": "From Tooling to Process",
+
       "intro": "ATI Abzar Pishro goes beyond tool supply, delivering engineering support from cutting-tool selection to machining-process optimization.",
-      "scrollHint": "Continue to explore capabilities",
+
       "items": {
         "process": {
           "titleLine1": "Process",
           "titleLine2": "Optimization",
           "description": "Analyzing production processes and delivering engineering solutions to improve productivity, reduce machining time and optimize cutting conditions."
         },
+
         "consulting": {
           "titleLine1": "Tool Selection",
           "titleLine2": "& Engineering Consulting",
           "description": "Technical visits, machining analysis and selection of the right cutting tools based on the workpiece, material, machine and process conditions."
         },
+
         "tools": {
           "titleLine1": "Standard",
           "titleLine2": "& Special Cutting Tools",
           "description": "Supplying standard and special-purpose cutting tools for demanding industrial applications and specialized machining processes."
         },
+
         "oem": {
           "titleLine1": "Complete Tooling",
           "titleLine2": "For OEM Projects",
           "description": "Engineering and supplying complete tooling packages for OEM projects with a focus on process integration, quality and production efficiency."
         },
+
         "training": {
           "titleLine1": "Advanced Machining",
           "titleLine2": "Technical Training",
