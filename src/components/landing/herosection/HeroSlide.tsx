@@ -68,8 +68,10 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
           {/* Label */}
           <div className="mb-10 flex items-center gap-x-1.5">
             {/* <span className="bg-accent h-px w-8" /> */}
-            <div className="relative size-14">
-              <Image src={item.logo} alt="logo" fill/>
+            <div
+              className={cn("relative size-20", item.id < "3"  && "size-14")}
+            >
+              <Image src={item.logo} alt="logo" fill />
             </div>
 
             <span className="text-sm font-medium tracking-[0.12em] text-white/80">
