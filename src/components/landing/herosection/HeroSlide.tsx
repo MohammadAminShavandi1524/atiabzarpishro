@@ -29,12 +29,12 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
       className={cn(
         "hero-slide relative min-w-0 shrink-0 grow-0 basis-full overflow-hidden",
 
-        "h-[520px]",
-        "md:h-[560px]",
+        "h-[550px]",
+        "md:h-[590px]",
 
         "lg:h-[calc(100svh-154px)]",
-        "lg:min-h-[580px]",
-        "lg:max-h-[700px]",
+        "lg:min-h-[620px]",
+        "lg:max-h-[760px]",
       )}
       dir={isRTL ? "rtl" : "ltr"}
     >
@@ -46,7 +46,10 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
           fill
           priority={item.id === "1"}
           sizes="100vw"
-          className={cn("object-cover", isRTL && "-scale-x-100")}
+          className={cn(
+            "object-cover",
+            ["1", "2"].includes(item.id) ? "" : isRTL ? "-scale-x-100" : "",
+          )}
         />
       </div>
 
@@ -65,16 +68,37 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
       {/* Content */}
       <div className="w90 relative z-10 mx-auto flex h-full items-center">
         <div className="max-w-[680px] text-white">
-          {/* Label */}
-          <div className="mb-10 flex items-center gap-x-1.5">
-            {/* <span className="bg-accent h-px w-8" /> */}
-            <div className="relative size-14">
-              <Image src={item.logo} alt="logo" fill/>
+          {/* logo */}
+          <div
+            className={cn(
+              "flex items-center",
+              item.brandName && "",
+              item.className,
+            )}
+          >
+            <div
+              className={cn(
+                "relative size-30",
+                ["3", "4", "8", "9"].includes(item.id) && "size-40",
+                ["8", "10"].includes(item.id) && "size-36",
+              )}
+            >
+              <Image
+                src={item.logo}
+                alt="logo"
+                fill
+                className="scale-1.8 object-cover [filter:drop-shadow(0_1px_1px_rgba(255,255,255,0.25))_drop-shadow(0_3px_6px_rgba(0,0,0,0.4))]"
+              />
             </div>
-
-            <span className="text-sm font-medium tracking-[0.12em] text-white/80">
-              {label}
-            </span>
+            {item.brandName && (
+              <div
+                lang="en"
+                dir="ltr"
+                className="-ms-4 text-[24px] font-semibold tracking-wide"
+              >
+                {item.brandName}
+              </div>
+            )}
           </div>
 
           {/* Title */}
