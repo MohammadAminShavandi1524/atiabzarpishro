@@ -245,7 +245,7 @@ export default function AboutTeam() {
           <div ref={emblaRef}>
             <div ref={cardsTrackRef} className="flex">
               {teamMembers.map((member) => (
-                <div key={member.id} className="min-w-0 flex-[0_0_25%] pe-6">
+                <div key={member.id} className="min-w-0 flex-[0_0_25%] pe-4">
                   <article className="group/member border-border bg-background relative min-h-[380px] border">
                     {/* Hover Line */}
                     <span
@@ -258,20 +258,20 @@ export default function AboutTeam() {
                       ].join(" ")}
                     />
 
-                    <div className="flex min-h-[380px] flex-col p-8">
+                    <div className="flex min-h-[380px] flex-col p-6">
                       {/* Member Info */}
                       <div>
-                        <h3 className="text-foreground group-hover/member:text-custom-primary text-xl leading-tight font-semibold transition-colors duration-300">
+                        <h3 className="text-foreground group-hover/member:text-custom-primary text-2xl leading-tight font-semibold transition-colors duration-300">
                           {t(`members.${member.key}.name`)}
                         </h3>
 
                         {t.has(`members.${member.key}.areas`) && (
                           <div className="border-border mt-7 border-t pt-6">
-                            <span className="text-muted-foreground text-xs font-medium tracking-wider">
+                            <span className="text-muted-foreground text-sm font-medium tracking-wider">
                               {t("areasLabel")}
                             </span>
 
-                            <p className="text-foreground mt-3 text-[14px] leading-8">
+                            <p className="text-foreground mt-3 text-[16px] leading-8">
                               {t(`members.${member.key}.areas`)}
                             </p>
                           </div>

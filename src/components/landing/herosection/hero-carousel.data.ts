@@ -183,7 +183,7 @@ export const carouselItems: HeroCarouselItem[] = [
     href: "",
 
     image: "/homepageCarousel/3.webp",
-    logo: "/home/partners/korloy.webp",
+    logo: "/home/partners/Widin.webp",
 
     enLabel: "WIDIN SOLID CARBIDE ENDMILL",
     faLabel: "فرزهای تمام‌کارباید WIDIN",
@@ -203,7 +203,7 @@ export const carouselItems: HeroCarouselItem[] = [
     href: "",
 
     image: "/homepageCarousel/4.webp",
-    logo: "/home/partners/korloy.webp",
+    logo: "/home/partners/IZAR.webp",
 
     enLabel: "IZAR HSS TOOLS",
     faLabel: "ابزارهای HSS برند IZAR",
@@ -223,7 +223,7 @@ export const carouselItems: HeroCarouselItem[] = [
     href: "",
 
     image: "/homepageCarousel/5.webp",
-    logo: "/home/partners/korloy.webp",
+    logo: "/home/partners/hanboo.webp",
 
     enLabel: "HANBOO ENGINEERING",
     faLabel: "مهندسی HANBOO",
@@ -243,7 +243,7 @@ export const carouselItems: HeroCarouselItem[] = [
     href: "",
 
     image: "/homepageCarousel/6.webp",
-    logo: "/home/partners/korloy.webp",
+    logo: "/home/partners/Funik.webp",
 
     enLabel: "FUNIK ULTRA HARD MATERIAL",
     faLabel: "مواد فوق‌سخت FUNIK",

@@ -66,11 +66,11 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
       <div className="w90 relative z-10 mx-auto flex h-full items-center">
         <div className="max-w-[680px] text-white">
           {/* Label */}
-          <div className="mb-10 flex items-center gap-x-3">
-            <span className="bg-accent h-px w-8" />
-            {/* <div className="relative size-12">
+          <div className="mb-10 flex items-center gap-x-1.5">
+            {/* <span className="bg-accent h-px w-8" /> */}
+            <div className="relative size-14">
               <Image src={item.logo} alt="logo" fill/>
-            </div> */}
+            </div>
 
             <span className="text-sm font-medium tracking-[0.12em] text-white/80">
               {label}
