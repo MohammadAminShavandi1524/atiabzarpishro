@@ -74,36 +74,39 @@ const Header = () => {
         className="bg-border pointer-events-none absolute inset-x-0 bottom-0 h-px"
       />
 
-      <div className="w90 flex flex-col gap-y-1.5 pt-2.5 pb-2.5">
-        {/* =====================================================
-            TOP ROW
-        ===================================================== */}
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="">
-            <Logo />
-          </div>
-
-          {/* Search */}
-          <div className="">
-            <SearchBar />
-          </div>
-
-          {/* Theme + Language */}
-          <div className="flex items-center gap-x-3">
-            {/* <ThemeButton /> */}
-
-            <LanguageSwitcher defaultLocale={locale} />
-          </div>
+      <div className="w90 flex gap-x-1.5 pt-2.5 pb-2.5">
+        {/* Logo */}
+        <div className="flex mt-1 items-start shrink-0">
+          <Logo />
         </div>
 
-        {/* =====================================================
+        <div className="w-full space-y-2.5 pt-2">
+          {/* =====================================================
+            TOP ROW
+        ===================================================== */}
+          <div className="flex items-center justify-between">
+            <div></div>
+            {/* Search */}
+            <div className="">
+              <SearchBar />
+            </div>
+
+            {/* Theme + Language */}
+            <div className="flex items-center gap-x-3">
+              {/* <ThemeButton /> */}
+
+              <LanguageSwitcher defaultLocale={locale} />
+            </div>
+          </div>
+
+          {/* =====================================================
             BOTTOM ROW
         ===================================================== */}
-        <div className="flex items-center justify-between ps-1.5">
-          {/* Navigation */}
-          <div className="">
-            <Nav />
+          <div className="flex items-center justify-between ps-1.5">
+            {/* Navigation */}
+            <div className="">
+              <Nav />
+            </div>
           </div>
         </div>
       </div>

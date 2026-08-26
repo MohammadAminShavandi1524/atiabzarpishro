@@ -147,7 +147,7 @@ const PartnersDropdown = () => {
       <Link
         href={`/${locale}/products`}
         className={cn(
-          "flex cursor-pointer items-center gap-x-1 text-lg transition-colors",
+          "flex cursor-pointer items-center gap-x-1 text-[20px] transition-colors",
           "hover:text-ring",
           isActive && "text-ring font-medium",
         )}

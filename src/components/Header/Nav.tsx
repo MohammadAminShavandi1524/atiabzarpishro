@@ -17,8 +17,8 @@ const Nav = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="ms-2.5">
-      <ul className="flex items-center gap-x-6 pt-3 pb-2 text-lg">
+    <nav className="ms-6.5">
+      <ul className="flex items-center gap-x-9 pt-3 pb-2 text-[20px]">
         <NavItem label={t("home")} href={`/${locale}`} />
 
         {/* Our Partners */}

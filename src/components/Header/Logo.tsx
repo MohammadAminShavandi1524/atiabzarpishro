@@ -11,7 +11,7 @@ const Logo = () => {
   return (
     <Link href={`/${locale}`} className="flex items-center gap-x-2.5">
       {/* Logo mark */}
-      <div className="relative size-[72px] shrink-0">
+      <div className="relative size-[90px] shrink-0">
         <Image
           src="/logo.webp"
           alt={t("logoLine2")}
@@ -27,8 +27,8 @@ const Logo = () => {
         <span
           className={
             locale === "en"
-              ? "font-cinzel text-[34px] leading-none font-semibold tracking-[0.02em]"
-              : "text-[30px] leading-none font-semibold"
+              ? "font-cinzel text-[36px] leading-none font-semibold tracking-[0.02em]"
+              : "text-[32px] leading-none font-semibold"
           }
         >
           {t("logoLine1")}
@@ -37,8 +37,8 @@ const Logo = () => {
         <span
           className={
             locale === "en"
-              ? "font-cinzel mt-1 text-[17px] leading-none font-medium tracking-[0.04em]"
-              : "mt-1.5 text-[17px] leading-none font-medium"
+              ? "font-cinzel mt-1 text-[20px] leading-none font-medium tracking-[0.04em]"
+              : "mt-1.5 text-[20px] leading-none font-medium"
           }
         >
           {t("logoLine2")}

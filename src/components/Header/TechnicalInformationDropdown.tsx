@@ -40,11 +40,6 @@ const TechnicalInformationDropdown = () => {
       href: `/${locale}/video-clips`,
       icon: Video,
     },
-    // {
-    //   key: "brochures",
-    //   href: `/${locale}/brochures`,
-    //   icon: FileText,
-    // },
     {
       key: "catalogues",
       href: `/${locale}/catalogues`,
@@ -54,6 +49,11 @@ const TechnicalInformationDropdown = () => {
       key: "softwares",
       href: `/${locale}/softwares`,
       icon: MonitorCog,
+    },
+    {
+      key: "brochures",
+      href: `/${locale}/tech-news`,
+      icon: FileText,
     },
   ] as const;
 
@@ -167,7 +167,7 @@ const TechnicalInformationDropdown = () => {
       {/* Trigger */}
       <div
         className={cn(
-          "flex cursor-pointer items-center gap-x-1 text-lg transition-colors",
+          "flex cursor-pointer items-center gap-x-1 text-[20px] transition-colors",
           "hover:text-ring",
           isActive && "text-ring font-medium",
         )}

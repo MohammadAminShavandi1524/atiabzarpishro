@@ -13,13 +13,13 @@ export default function SearchBar() {
         "group relative flex h-13 w-full items-center",
         "border-border border",
         "bg-tertiary/70",
-        "me-[12%] px-3.5",
+        "px-3.5",
         "transition-all duration-300",
         "hover:border-border-secondary",
         "focus-within:border-accent/50",
         "focus-within:bg-background",
         "focus-within:shadow-[0_4px_24px_rgba(244,154,52,0.08)]",
-        "lg:w-[420px] xl:w-[520px] 2xl:w-[600px]",
+        "w-[420px]",
       )}
     >
       {/* Search Icon */}
