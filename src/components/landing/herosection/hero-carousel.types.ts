@@ -4,6 +4,7 @@ export interface HeroCarouselItem {
   href: string;
 
   image: string;
+  logo: string;
 
   enLabel: string;
   faLabel: string;

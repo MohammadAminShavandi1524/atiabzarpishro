@@ -11,7 +11,7 @@ export default function FooterBottom() {
 
   return (
     <div dir={isRTL ? "rtl" : "ltr"} className="border-footer-border border-t">
-      <div className="mx-auto flex flex-col items-center gap-y-3 px-8 py-8 text-center md:flex-row md:justify-between md:text-start">
+      <div className="mx-auto flex flex-col items-center gap-y-3 px-8 py-4 text-center md:flex-row md:justify-between md:text-start">
         {/* Copyright */}
         <p className="text-footer-muted text-sm">{t("bottom.copyright")}</p>
 

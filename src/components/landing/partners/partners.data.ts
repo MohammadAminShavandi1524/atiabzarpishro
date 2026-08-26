@@ -83,7 +83,7 @@ export const partners: PartnerItem[] = [
     name: "FROMM Präzision",
     logo: "/home/partners/fromm.webp",
     logoScale: 1.8,
-    website: "https://fromm-praezision.de/en/Products/",
+    website: "https://fromm-praezision.de/en/",
   },
 
   // New — provided by client

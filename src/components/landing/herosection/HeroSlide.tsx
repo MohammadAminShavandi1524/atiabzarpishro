@@ -15,24 +15,14 @@ type Props = {
   isActive: boolean;
 };
 
-export default function HeroSlide({
-  item,
-  locale,
-  isActive,
-}: Props) {
+export default function HeroSlide({ item, locale, isActive }: Props) {
   const isRTL = locale === "fa";
 
-  const label = isRTL
-    ? item.faLabel
-    : item.enLabel;
+  const label = isRTL ? item.faLabel : item.enLabel;
 
-  const title = isRTL
-    ? item.faTitle
-    : item.enTitle;
+  const title = isRTL ? item.faTitle : item.enTitle;
 
-  const description = isRTL
-    ? item.faDescription
-    : item.enDescription;
+  const description = isRTL ? item.faDescription : item.enDescription;
 
   return (
     <article
@@ -56,10 +46,7 @@ export default function HeroSlide({
           fill
           priority={item.id === "1"}
           sizes="100vw"
-          className={cn(
-            "object-cover",
-            isRTL && "-scale-x-100",
-          )}
+          className={cn("object-cover", isRTL && "-scale-x-100")}
         />
       </div>
 
@@ -68,8 +55,7 @@ export default function HeroSlide({
         className={cn(
           "absolute inset-0",
           "bg-gradient-to-r from-black/75 via-black/35 to-transparent",
-          isRTL &&
-            "bg-gradient-to-l from-black/75 via-black/35 to-transparent",
+          isRTL && "bg-gradient-to-l from-black/75 via-black/35 to-transparent",
         )}
       />
 
@@ -80,8 +66,11 @@ export default function HeroSlide({
       <div className="w90 relative z-10 mx-auto flex h-full items-center">
         <div className="max-w-[680px] text-white">
           {/* Label */}
-          <div className="mb-4 flex items-center gap-x-3">
+          <div className="mb-10 flex items-center gap-x-3">
             <span className="bg-accent h-px w-8" />
+            {/* <div className="relative size-12">
+              <Image src={item.logo} alt="logo" fill/>
+            </div> */}
 
             <span className="text-sm font-medium tracking-[0.12em] text-white/80">
               {label}
@@ -97,8 +86,7 @@ export default function HeroSlide({
               "sm:text-5xl",
               "lg:text-6xl",
               "xl:text-7xl",
-              isRTL &&
-                "font-IRANYekanX leading-[1.3]",
+              isRTL && "font-IRANYekanX leading-[1.3]",
             )}
           >
             {title}
@@ -107,7 +95,7 @@ export default function HeroSlide({
           {/* Description */}
           <p
             className={cn(
-              "mt-5 max-w-[650px]",
+              "mt-10 max-w-[650px]",
               "text-sm leading-7 text-white/75",
               "sm:text-base sm:leading-8",
               isRTL && "font-IRANYekanX",
@@ -128,18 +116,10 @@ export default function HeroSlide({
                 "hover:bg-primary-hover",
               )}
             >
-              <span>
-                {isRTL
-                  ? "مشاهده بیشتر"
-                  : "Explore More"}
-              </span>
+              <span>{isRTL ? "مشاهده بیشتر" : "Explore More"}</span>
 
               <ArrowUpRight
-                className={cn(
-                  "size-4",
-                  isRTL &&
-                    "rotate-[270deg]",
-                )}
+                className={cn("size-4", isRTL && "rotate-[270deg]")}
                 strokeWidth={1.8}
               />
             </Link>

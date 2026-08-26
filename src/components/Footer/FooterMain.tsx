@@ -18,7 +18,7 @@ export default function FooterMain() {
       dir={isRTL ? "rtl" : "ltr"}
       className="border-footer-border border-b"
     >
-      <div className="mx-auto grid grid-cols-1 gap-y-12 px-6 py-10 sm:px-8 md:grid-cols-2 md:gap-x-12 lg:grid-cols-[0.9fr_1fr_1.5fr] lg:gap-x-16 lg:px-12 xl:px-16 2xl:px-20 2xl:py-20">
+      <div className="mx-auto grid grid-cols-1 gap-y-12 px-6 py-10 sm:px-8 md:grid-cols-2 md:gap-x-12 lg:grid-cols-[0.9fr_1fr_1.5fr] lg:gap-x-16 lg:px-12 xl:px-16 2xl:px-20 2xl:pb-10 2xl:pt-14">
         {/* Pages */}
         <FooterColumn
           title={t("columns.pages")}

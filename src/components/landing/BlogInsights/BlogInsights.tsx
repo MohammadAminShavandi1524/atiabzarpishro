@@ -125,7 +125,7 @@ export default function BlogInsights() {
           ? "rtl"
           : "ltr"
       }
-      className="bg-background py-24"
+      className="bg-background pb-12"
     >
       <div className="w90">
         {/* Header */}
@@ -157,7 +157,7 @@ export default function BlogInsights() {
             </h2>
 
             {/* Description */}
-            <p className="text-muted-foreground mt-6 max-w-[760px] text-[17px] leading-8">
+            <p className="text-muted-foreground mt-10 max-w-[760px] text-[17px] leading-8">
               {t(
                 "description",
               )}
@@ -184,7 +184,7 @@ export default function BlogInsights() {
         </div>
 
         {/* Carousel */}
-        <div className="mt-14 overflow-hidden">
+        <div className="mt-8 overflow-hidden">
           <div
             ref={emblaRef}
             className="overflow-hidden"
@@ -218,7 +218,7 @@ export default function BlogInsights() {
         </div>
 
         {/* Controls */}
-        <div className="border-border mt-10 flex items-center justify-between border-t pt-7">
+        <div className="border-border mt-6 flex items-center justify-between border-t pt-4">
           {/* Counter */}
           <div
             dir="ltr"

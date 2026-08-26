@@ -221,7 +221,7 @@
       }
     },
     "blogInsights": {
-      "eyebrow": "Latest Insights",
+      "eyebrow": "Tech News",
 
       "titleLine1": "Machining Knowledge",
       "titleLine2": "Built from Experience",
@@ -552,7 +552,7 @@
       "title": "All Together to Improve",
       "description": "ATI ABZAR PISHRO has been operating since 2012 as a specialized engineering and trading company, dedicated to delivering cutting-edge machining solutions and high-performance cutting tools from globally recognized manufacturers. With a strong commitment to quality, innovation, and technical excellence, we serve a wide spectrum of industrial sectors including automotive, aerospace, mold and die, oil and gas, and general manufacturing.",
       "downloadCatalogue": "Download Company Catalogue",
-      "established": "ESTABLISHED",
+      "established": "Since",
       "companyName": "ATI ABZAR PISHRO"
     },
     "purpose": {
@@ -716,7 +716,7 @@
       "home": "Home",
       "ourPartners": "Our Partners",
       "representations": "Sales Network",
-      "news": "News",
+      "news": "Tech News",
       "videoClips": "Video Clips",
       "catalogues": "Catalogues",
       "softwares": "Softwares",
