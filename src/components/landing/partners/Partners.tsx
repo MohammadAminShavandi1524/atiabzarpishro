@@ -14,7 +14,7 @@ export default function Partners() {
   return (
     <section
       dir={isRTL ? "rtl" : "ltr"}
-      className="bg-background relative py-24"
+      className="bg-background border-border relative border-b py-24"
     >
       <div className="w90">
         {/* Eyebrow */}

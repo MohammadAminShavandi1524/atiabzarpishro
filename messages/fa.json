@@ -288,10 +288,13 @@
   },
 
   "Products": {
-    "header": {
+    "overview": {
       "label": "محصولات",
-      "title": "راهکارهای ماشین‌کاری",
-      "countLabel": "محصول"
+      "brand": "برند",
+      "allProducts": "همه محصولات",
+      "products": "محصول",
+      "website": "وب‌سایت برند",
+      "catalog": "دانلود کاتالوگ"
     },
 
     "aside": {

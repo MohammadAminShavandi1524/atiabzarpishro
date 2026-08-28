@@ -11,7 +11,10 @@ export default function CompanyStory() {
   const isRTL = locale === "fa";
 
   return (
-    <section dir={isRTL ? "rtl" : "ltr"} className="bg-background pt-24">
+    <section
+      dir={isRTL ? "rtl" : "ltr"}
+      className="bg-background border-border border-b pt-24 pb-24"
+    >
       <CompanyStoryStage isRTL={isRTL} t={t} />
     </section>
   );

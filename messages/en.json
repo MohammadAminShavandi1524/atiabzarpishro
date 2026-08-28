@@ -287,10 +287,13 @@
   },
 
   "Products": {
-    "header": {
+    "overview": {
       "label": "PRODUCTS",
-      "title": "Machining Solutions",
-      "countLabel": "PRODUCTS"
+      "brand": "BRAND",
+      "allProducts": "All Products",
+      "products": "PRODUCTS",
+      "website": "Visit Website",
+      "catalog": "Download Catalogue"
     },
 
     "aside": {

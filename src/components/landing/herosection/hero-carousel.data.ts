@@ -135,7 +135,7 @@ export const carouselItems: HeroCarouselItem[] = [
     href: "",
 
     image: "/homepageCarousel/7.webp",
-    logo: "/home/partners/MPA.webp",
+    logo: "/home/partners/mpa.webp",
 
     className: "-ms-4.5",
 

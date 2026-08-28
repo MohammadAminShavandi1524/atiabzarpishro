@@ -5,8 +5,12 @@ export interface ProductBrand {
   name_en: string;
   name_fa: string;
 
+  description_en: string;
+  description_fa: string;
+
   image: string;
 
+  website?: string | null;
   catalog?: string | null;
 }
 
@@ -32,98 +36,229 @@ export const brands: ProductBrand[] = [
   {
     id: 1,
     slug: "korloy",
+
     name_en: "KORLOY",
     name_fa: "کرولوی",
+
+    description_en:
+      "KORLOY is a leading South Korean manufacturer of advanced cutting tools and tooling systems, offering professional solutions for turning, milling, drilling and specialized machining applications across a wide range of industries.",
+
+    description_fa:
+      "KORLOY یکی از تولیدکنندگان مطرح کره جنوبی در زمینه ابزارهای برشی و سیستم‌های ابزارکاری است و مجموعه‌ای گسترده از راهکارهای تراشکاری، فرزکاری، سوراخ‌کاری و ماشین‌کاری تخصصی را برای صنایع مختلف ارائه می‌دهد.",
+
     image: "/home/partners/korloy.webp",
-    catalog: null,
+
+    website: "https://korloy.com/",
+    catalog: "/catalogues/ati-abzar-pishro-catalogue.pdf",
   },
+
   {
     id: 2,
     slug: "dine",
+
     name_en: "DINE",
     name_fa: "DINE",
+
+    description_en:
+      "DINE develops high-quality tooling systems and precision tool-holding solutions for automotive, electronics, machinery and industrial manufacturing applications, with a focus on accuracy, rigidity and machining performance.",
+
+    description_fa:
+      "DINE تولیدکننده سیستم‌های ابزارگیری و راهکارهای دقیق نگهداری ابزار برای صنایع خودرو، الکترونیک، ماشین‌سازی و تولید صنعتی است و محصولات خود را با تمرکز بر دقت، صلبیت و عملکرد پایدار ماشین‌کاری توسعه می‌دهد.",
+
     image: "/home/partners/Dine.webp",
-    catalog: null,
+
+    website: "https://dine.co.kr/en/",
+    catalog: "/catalogues/ati-abzar-pishro-catalogue.pdf",
   },
+
   {
     id: 3,
     slug: "widin",
+
     name_en: "WIDIN",
     name_fa: "ویدین",
+
+    description_en:
+      "WIDIN is a South Korean cutting-tool manufacturer specializing in high-performance solid carbide end mills, drills, reamers and tapping tools for precision machining and demanding industrial applications.",
+
+    description_fa:
+      "WIDIN یک تولیدکننده کره‌ای ابزارهای برشی است که در زمینه فرزهای انگشتی تمام‌کارباید، مته‌ها، برقوها و ابزارهای قلاویزکاری با عملکرد بالا برای ماشین‌کاری دقیق فعالیت می‌کند.",
+
     image: "/home/partners/Widin.webp",
-    catalog: null,
+
+    website: "https://widinus.com/",
+    catalog: "/catalogues/ati-abzar-pishro-catalogue.pdf",
   },
+
   {
     id: 4,
     slug: "hanboo",
+
     name_en: "HANBOO Engineering",
     name_fa: "هانبو",
+
+    description_en:
+      "HANBOO Engineering provides specialized tooling solutions for automotive manufacturing, including carbide, PCD and CBN tools, guide-pad tooling, honing systems and complete tooling packages for critical automotive components.",
+
+    description_fa:
+      "HANBOO Engineering ارائه‌دهنده راهکارهای تخصصی ابزارکاری برای صنایع خودروسازی است و مجموعه‌ای از ابزارهای کارباید، PCD و CBN، ابزارهای Guide Pad، تجهیزات هونینگ و پکیج‌های کامل ابزارکاری را ارائه می‌دهد.",
+
     image: "/home/partners/hanboo.webp",
-    catalog: null,
+
+    website: "http://www.hbeg.co.kr/",
+    catalog: "/catalogues/ati-abzar-pishro-catalogue.pdf",
   },
+
   {
     id: 5,
     slug: "shinhan",
+
     name_en: "SHINHAN Diamond",
     name_fa: "شینهان دایموند",
+
+    description_en:
+      "SHINHAN Diamond specializes in super-abrasive tooling technologies including Diamond and CBN grinding wheels, honing stones, dressers, PCD and PCBN tools, and advanced solutions for automotive, glass and precision industries.",
+
+    description_fa:
+      "SHINHAN Diamond در زمینه ابزارهای فوق‌سخت و سایشی تخصص دارد و محصولاتی مانند سنگ‌های Diamond و CBN، سنگ‌های هونینگ، Dresserها و ابزارهای PCD و PCBN را برای صنایع خودرو، شیشه و کاربردهای دقیق صنعتی ارائه می‌دهد.",
+
     image: "/home/partners/Shinhan_diamond.webp",
-    catalog: null,
+
+    website: "https://en.shinhandia.co.kr/",
+    catalog: "/catalogues/ati-abzar-pishro-catalogue.pdf",
   },
+
   {
     id: 6,
     slug: "funik",
+
     name_en: "FUNIK",
     name_fa: "فونیک",
+
+    description_en:
+      "FUNIK specializes in ultra-hard cutting materials and high-performance CBN solutions, including tipped and solid CBN inserts developed to improve cutting efficiency, wear resistance and tool life in hard machining applications.",
+
+    description_fa:
+      "FUNIK در زمینه مواد فوق‌سخت و راهکارهای برشی CBN فعالیت می‌کند و انواع اینسرت‌های CBN Tip و Solid CBN را برای افزایش راندمان براده‌برداری، مقاومت سایشی و طول عمر ابزار ارائه می‌دهد.",
+
     image: "/home/partners/Funik.webp",
-    catalog: null,
+
+    website: "https://en.funik.com/",
+    catalog: "/catalogues/ati-abzar-pishro-catalogue.pdf",
   },
+
   {
     id: 7,
     slug: "izar",
+
     name_en: "IZAR Cutting Tools",
     name_fa: "ایزار",
+
+    description_en:
+      "IZAR Cutting Tools is a European manufacturer offering a broad range of HSS, HSS-E and carbide cutting tools, including drills, end mills, reamers, taps, rotary burrs and industrial sawing solutions.",
+
+    description_fa:
+      "IZAR Cutting Tools یکی از تولیدکنندگان اروپایی ابزارهای برشی HSS، HSS-E و کارباید است و طیف گسترده‌ای از مته، فرز انگشتی، برقو، قلاویز، Rotary Burr و ابزارهای اره‌کاری صنعتی را تولید می‌کند.",
+
     image: "/home/partners/IZAR.webp",
-    catalog: null,
+
+    website: "https://www.izartool.com/en/",
+    catalog: "/catalogues/ati-abzar-pishro-catalogue.pdf",
   },
+
   {
     id: 8,
     slug: "union",
+
     name_en: "UNION Materials",
     name_fa: "یونیون متریالز",
+
+    description_en:
+      "UNION Materials is a South Korean manufacturer specializing in ceramic, cermet and advanced cutting inserts, together with tooling solutions developed for high-speed and demanding machining applications.",
+
+    description_fa:
+      "UNION Materials تولیدکننده کره‌ای اینسرت‌های سرامیکی، سرمت و سایر مواد پیشرفته برشی است و راهکارهای تخصصی برای ماشین‌کاری سرعت بالا و کاربردهای صنعتی دشوار ارائه می‌دهد.",
+
     image: "/home/partners/union.webp",
-    catalog: null,
+
+    website: "https://www.unionmaterials.com/eng/html/main.html",
+    catalog: "/catalogues/ati-abzar-pishro-catalogue.pdf",
   },
+
   {
     id: 9,
     slug: "osg",
+
     name_en: "OSG",
     name_fa: "OSG",
+
+    description_en:
+      "OSG is a globally recognized cutting-tool manufacturer with extensive expertise in threading solutions, drills, end mills, forming tools and precision gauges for professional manufacturing applications.",
+
+    description_fa:
+      "OSG یکی از تولیدکنندگان شناخته‌شده ابزارهای برشی است و در زمینه قلاویزها، ابزارهای رزوه‌زنی، مته‌ها، فرزهای انگشتی، ابزارهای Forming و گیج‌های دقیق صنعتی فعالیت می‌کند.",
+
     image: "/home/partners/osg.webp",
-    catalog: null,
+
+    website: "http://www.osg.co.kr/en/",
+    catalog: "/catalogues/ati-abzar-pishro-catalogue.pdf",
   },
+
   {
     id: 10,
     slug: "fromm",
+
     name_en: "FROMM Präzision",
     name_fa: "فروم پرسیژن",
+
+    description_en:
+      "FROMM Präzision is a German manufacturer of precision cutting tools, providing HSS, HSS-E, carbide and special-purpose drilling and reaming solutions for high-accuracy machining applications.",
+
+    description_fa:
+      "FROMM Präzision یک تولیدکننده آلمانی ابزارهای دقیق برشی است و انواع ابزارهای HSS، HSS-E، کارباید و ابزارهای مخصوص سوراخ‌کاری و برقوکاری را برای ماشین‌کاری دقیق ارائه می‌دهد.",
+
     image: "/home/partners/fromm.webp",
-    catalog: null,
+
+    website: "https://fromm-praezision.de/en/Products/",
+    catalog: "/catalogues/ati-abzar-pishro-catalogue.pdf",
   },
+
   {
     id: 11,
     slug: "mpa",
+
     name_en: "MPA",
     name_fa: "MPA",
+
+    description_en:
+      "MPA provides advanced machine-tool accessories and specialized heads, including angle heads, multispindle systems, modular heads, speed increasers and driven tooling solutions for complex machining operations.",
+
+    description_fa:
+      "MPA ارائه‌دهنده تجهیزات و هدهای تخصصی ماشین‌ابزار شامل Angle Head، سیستم‌های چنداسپیندله، هدهای ماژولار، افزایش‌دهنده‌های سرعت و ابزارهای Driven برای عملیات پیچیده ماشین‌کاری است.",
+
     image: "/home/partners/mpa.webp",
-    catalog: null,
+
+    website: "https://www.m-p-a.it/index.php/en/",
+    catalog: "/catalogues/ati-abzar-pishro-catalogue.pdf",
   },
+
   {
     id: 12,
     slug: "iljin",
+
     name_en: "ILJIN Diamond",
     name_fa: "ایلجین دایموند",
+
+    description_en:
+      "ILJIN Diamond is a South Korean manufacturer of industrial diamond materials, PCD and CBN blanks, tungsten carbide rods and blanks, and wear-resistant materials for cutting-tool and steel-industry applications.",
+
+    description_fa:
+      "ILJIN Diamond تولیدکننده کره‌ای مواد الماس صنعتی، بلنک‌های PCD و CBN، راد و بلنک‌های تنگستن کارباید و مواد مقاوم در برابر سایش برای صنایع ابزارسازی و فولاد است.",
+
     image: "/home/partners/iljin_diamond.webp",
-    catalog: null,
+
+    website: "https://www.iljindiamond.com/eng",
+    catalog: "/catalogues/ati-abzar-pishro-catalogue.pdf",
   },
 ];
 

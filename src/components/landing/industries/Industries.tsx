@@ -12,7 +12,10 @@ export default function Industries() {
   const isRTL = locale === "fa";
 
   return (
-    <section dir={isRTL ? "rtl" : "ltr"} className="bg-background">
+    <section
+      dir={isRTL ? "rtl" : "ltr"}
+      className="bg-background border-border border-b py-24"
+    >
       <IndustriesStage isRTL={isRTL} t={t} />
     </section>
   );
