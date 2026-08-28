@@ -358,27 +358,15 @@
 
   "Catalogues": {
     "hero": {
-      "eyebrow": "CATALOGUES / TECHNICAL DOCUMENTS",
-      "title": "Explore Our Brand Catalogues",
-      "description": "Browse technical catalogues from our global machining and cutting tool partners. Select a brand to view its product catalogue."
+      "eyebrow": "TECHNICAL CATALOGUES",
+      "title": "Product Catalogues",
+      "description": "Explore technical catalogues, product ranges and machining solutions from ATI Abzar Pishro and our international technology partners."
     },
 
-    "sidebar": {
-      "title": "CATALOGUES"
-    },
-
-    "viewer": {
-      "label": "ACTIVE CATALOGUE",
-      "catalogue": "Catalogue",
-      "open": "Open in New Tab",
-      "download": "Download Catalogue"
-    },
-
-    "loading": "Loading catalogues...",
-
-    "empty": {
-      "title": "No catalogues available",
-      "description": "There are currently no brand catalogues available to display."
+    "library": {
+      "label": "CATALOGUES",
+      "title": "Technical Catalogue Library",
+      "count": "CATALOGUES"
     }
   },
 
