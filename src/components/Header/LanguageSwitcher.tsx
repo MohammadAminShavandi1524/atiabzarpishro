@@ -4,7 +4,8 @@ import { useTransition } from "react";
 import { useParams } from "next/navigation";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { Locale, useLocale } from "next-intl";
-import { ArrowLeftRight, Earth, MoveRight } from "lucide-react";
+import { Earth } from "lucide-react";
+
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -40,106 +41,33 @@ export default function LanguageSwitcher({ defaultLocale }: Props) {
       disabled={isPending}
       aria-label={`Switch language to ${targetLanguage}`}
       className={cn(
-        "group relative flex h-13 cursor-pointer items-center gap-x-1.5",
-        "border",
-        "border-border bg-tertiary/70",
-        "ps-2.5 pe-4",
-        "shadow-[0_2px_10px_rgba(9,6,5,0.04)]",
-        "backdrop-blur-sm",
-        "transition-all duration-300",
-        "hover:border-accent/40",
-        "hover:bg-secondary/70",
-        "hover:shadow-[0_4px_18px_rgba(244,154,52,0.10)]",
-        "active:scale-[0.97]",
-        "dark:shadow-[0_2px_12px_rgba(0,0,0,0.15)]",
-        "dark:hover:bg-secondary",
-        "dark:hover:shadow-[0_4px_20px_rgba(244,154,52,0.08)]",
+        "group border-border bg-tertiary/70 relative flex h-11 cursor-pointer items-center gap-x-1 border ps-2 pe-3 shadow-[0_2px_10px_rgba(9,6,5,0.04)] backdrop-blur-sm transition-all duration-300",
+        "hover:border-accent/40 hover:bg-secondary/70 hover:shadow-[0_4px_18px_rgba(244,154,52,0.10)] active:scale-[0.97]",
+        "dark:hover:bg-secondary dark:shadow-[0_2px_12px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_4px_20px_rgba(244,154,52,0.08)]",
+        "3xl:h-13 3xl:ps-2.5 3xl:pe-4 xl:h-12 xl:gap-x-1.5",
         isPending && "pointer-events-none opacity-50",
       )}
     >
-      {/* Globe */}
-      <span
-        className={cn(
-          "relative flex items-center justify-center p-1",
-          "overflow-hidden",
-          "bg-background",
-          "border-border border",
-          "transition-all duration-300",
-          "group-hover:border-accent/30",
-          "group-hover:bg-secondary",
-        )}
-      >
+      <span className="bg-background border-border group-hover:border-accent/30 group-hover:bg-secondary relative flex items-center justify-center overflow-hidden border p-1 transition-all duration-300">
         <Earth
           strokeWidth={1.6}
-          className={cn(
-            "size-[22px]",
-            "text-muted-foreground",
-            "transition-all duration-500",
-            "group-hover:text-accent",
-          )}
+          className="text-muted-foreground group-hover:text-accent 3xl:size-[22px] size-[19px] transition-all duration-500 xl:size-5"
         />
       </span>
 
-      {/* Language */}
       <span className="mt-px flex items-center gap-x-1.5">
-        {/* Current */}
-        <span
-          className={cn(
-            "text-base font-semibold tracking-wide",
-            "text-foreground",
-            "transition-colors duration-300",
-          )}
-        >
+        <span className="text-foreground 3xl:text-base text-[13px] font-semibold tracking-wide transition-colors duration-300 xl:text-sm 2xl:text-[15px]">
           {currentLanguage}
         </span>
 
-        {/* Divider */}
         <span className="bg-border-secondary/60 mb-0.5 h-3.5 w-px" />
 
-        {/* Target */}
-        <span
-          className={cn(
-            "text-base font-medium",
-            "text-muted-foreground",
-            "transition-colors duration-300",
-            "group-hover:text-accent",
-          )}
-        >
+        <span className="text-muted-foreground group-hover:text-accent 3xl:text-base text-[13px] font-medium transition-colors duration-300 xl:text-sm 2xl:text-[15px]">
           {targetLanguage}
         </span>
       </span>
 
-      {/* Switch Icon */}
-      <span
-        className={cn(
-          "ms-1 flex items-center justify-center",
-          "text-muted-foreground",
-          "transition-all duration-300",
-          "group-hover:text-accent",
-          locale === "fa" && "mb-0.5",
-          "hidden"
-        )}
-      >
-        <ArrowLeftRight
-          strokeWidth={1.7}
-          className={cn(
-            "size-[20px]",
-            "transition-all duration-500 ease-out",
-            "group-hover:scale-x-110",
-          )}
-        />
-      </span>
-
-      {/* Accent line */}
-      <span
-        className={cn(
-          "absolute bottom-0 left-1/2",
-          "h-px w-0 -translate-x-1/2",
-          "bg-accent",
-          "transition-all duration-300",
-          "group-hover:w-1/2",
-        )}
-      />
+      <span className="bg-accent absolute bottom-0 left-1/2 h-px w-0 -translate-x-1/2 transition-all duration-300 group-hover:w-1/2" />
     </button>
   );
 }

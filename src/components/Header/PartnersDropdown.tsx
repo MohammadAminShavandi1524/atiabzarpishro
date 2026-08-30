@@ -37,14 +37,9 @@ const PartnersDropdown = () => {
 
     const dropdown = dropdownRef.current;
 
-    const dropdownItems =
-      dropdown.querySelectorAll(".partner-item");
+    const dropdownItems = dropdown.querySelectorAll(".partner-item");
 
-    gsap.killTweensOf([
-      dropdown,
-      dropdownItems,
-      chevronRef.current,
-    ]);
+    gsap.killTweensOf([dropdown, dropdownItems, chevronRef.current]);
 
     gsap.set(dropdown, {
       pointerEvents: "auto",
@@ -97,14 +92,9 @@ const PartnersDropdown = () => {
 
     const dropdown = dropdownRef.current;
 
-    const dropdownItems =
-      dropdown.querySelectorAll(".partner-item");
+    const dropdownItems = dropdown.querySelectorAll(".partner-item");
 
-    gsap.killTweensOf([
-      dropdown,
-      dropdownItems,
-      chevronRef.current,
-    ]);
+    gsap.killTweensOf([dropdown, dropdownItems, chevronRef.current]);
 
     gsap.to(dropdownItems, {
       opacity: 0,
@@ -139,7 +129,7 @@ const PartnersDropdown = () => {
 
   return (
     <li
-      className="relative"
+      className="relative shrink-0"
       onMouseEnter={openDropdown}
       onMouseLeave={closeDropdown}
     >
@@ -147,8 +137,7 @@ const PartnersDropdown = () => {
       <Link
         href={`/${locale}/products`}
         className={cn(
-          "flex cursor-pointer items-center gap-x-1 text-[20px] transition-colors",
-          "hover:text-ring",
+          "hover:text-ring flex cursor-pointer items-center gap-x-1 whitespace-nowrap transition-colors",
           isActive && "text-ring font-medium",
         )}
       >
@@ -156,7 +145,7 @@ const PartnersDropdown = () => {
 
         <ChevronDown
           ref={chevronRef}
-          className="mt-[3px] size-5.5"
+          className="3xl:mt-[3px] 3xl:size-5.5 mt-[2px] size-4 xl:size-[18px] 2xl:size-5"
           strokeWidth={1.8}
         />
       </Link>
@@ -169,15 +158,12 @@ const PartnersDropdown = () => {
         <div className="border-border-secondary bg-background w-[280px] overflow-hidden border shadow-[0_16px_45px_rgba(0,0,0,0.10)]">
           <ScrollArea
             dir={locale === "fa" ? "rtl" : "ltr"}
-            className="h-[650px]"
+            className="h-[min(650px,calc(100vh-120px))]"
             scrollBarClassName="me-0"
             lockWheel
           >
             {brands.map((brand) => (
-              <PartnerDropdownItem
-                key={brand.id}
-                brand={brand}
-              />
+              <PartnerDropdownItem key={brand.id} brand={brand} />
             ))}
           </ScrollArea>
         </div>

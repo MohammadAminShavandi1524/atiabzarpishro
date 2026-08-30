@@ -160,15 +160,14 @@ const TechnicalInformationDropdown = () => {
 
   return (
     <li
-      className="relative"
+      className="relative shrink-0"
       onMouseEnter={openDropdown}
       onMouseLeave={closeDropdown}
     >
       {/* Trigger */}
       <div
         className={cn(
-          "flex cursor-pointer items-center gap-x-1 text-[20px] transition-colors",
-          "hover:text-ring",
+          "hover:text-ring flex cursor-pointer items-center gap-x-1 whitespace-nowrap transition-colors",
           isActive && "text-ring font-medium",
         )}
       >
@@ -176,7 +175,7 @@ const TechnicalInformationDropdown = () => {
 
         <ChevronDown
           ref={chevronRef}
-          className="mt-[3px] size-5.5"
+          className="3xl:mt-[3px] 3xl:size-5.5 mt-[2px] size-4 xl:size-[18px] 2xl:size-5"
           strokeWidth={1.8}
         />
       </div>
@@ -198,19 +197,14 @@ const TechnicalInformationDropdown = () => {
                 key={item.key}
                 href={item.href}
                 className={cn(
-                  "technical-item",
-                  "border-border-secondary group/item relative flex items-center gap-4 border-b px-6 py-[18px] last:border-b-0",
-                  "transition-colors duration-200",
-                  "hover:bg-custom-primary/[0.045]",
+                  "technical-item border-border-secondary group/item hover:bg-custom-primary/[0.045] relative flex items-center gap-4 border-b px-6 py-[18px] transition-colors duration-200 last:border-b-0",
                   itemActive && "bg-custom-primary/[0.045]",
                 )}
               >
                 {/* Active Line */}
                 <span
                   className={cn(
-                    "bg-custom-primary absolute inset-y-0 start-0 w-[2px]",
-                    "scale-y-0 transition-transform duration-200",
-                    "group-hover/item:scale-y-100",
+                    "bg-custom-primary absolute inset-y-0 start-0 w-[2px] scale-y-0 transition-transform duration-200 group-hover/item:scale-y-100",
                     itemActive && "scale-y-100",
                   )}
                 />
@@ -218,17 +212,13 @@ const TechnicalInformationDropdown = () => {
                 {/* Icon */}
                 <div
                   className={cn(
-                    "border-border-secondary flex size-11 shrink-0 items-center justify-center border",
-                    "transition-colors duration-200",
-                    "group-hover/item:border-custom-primary/60",
+                    "border-border-secondary group-hover/item:border-custom-primary/60 flex size-11 shrink-0 items-center justify-center border transition-colors duration-200",
                     itemActive && "border-custom-primary/60",
                   )}
                 >
                   <Icon
                     className={cn(
-                      "text-muted-foreground size-5",
-                      "transition-colors duration-200",
-                      "group-hover/item:text-custom-primary",
+                      "text-muted-foreground group-hover/item:text-custom-primary size-5 transition-colors duration-200",
                       itemActive && "text-custom-primary",
                     )}
                     strokeWidth={1.6}
@@ -239,9 +229,7 @@ const TechnicalInformationDropdown = () => {
                 <div className="min-w-0">
                   <div
                     className={cn(
-                      "text-foreground text-[15px] font-medium",
-                      "transition-colors duration-200",
-                      "group-hover/item:text-custom-primary",
+                      "text-foreground group-hover/item:text-custom-primary text-[15px] font-medium transition-colors duration-200",
                       itemActive && "text-custom-primary",
                     )}
                   >

@@ -1,9 +1,9 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+import { cn } from "@/lib/utils";
 
 interface NavItemProps {
   label: string;
@@ -11,17 +11,16 @@ interface NavItemProps {
 }
 
 const NavItem = ({ label, href }: NavItemProps) => {
-  const t = useTranslations("Header.Navigation");
-  const locale = useLocale();
   const pathname = usePathname();
+
   return (
-    <li className="">
+    <li className="shrink-0">
       <Link
-        className={cn(
-          "hover:text-ring transition-all ",
-          pathname ===  href  && "text-ring font-medium",
-        )}
         href={href}
+        className={cn(
+          "hover:text-ring whitespace-nowrap transition-all",
+          pathname === href && "text-ring font-medium",
+        )}
       >
         {label}
       </Link>
