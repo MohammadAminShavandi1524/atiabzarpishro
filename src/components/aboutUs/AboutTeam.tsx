@@ -112,7 +112,6 @@ export default function AboutTeam() {
       }
 
       const headingChildren = Array.from(headingRef.current.children);
-
       const cards = Array.from(cardsTrackRef.current.children);
 
       gsap.set(eyebrowLineRef.current, {
@@ -204,115 +203,117 @@ export default function AboutTeam() {
     <section
       ref={sectionRef}
       dir={isRTL ? "rtl" : "ltr"}
-      className="border-border border-t py-24"
+      className="border-t border-border py-14 sm:py-18 lg:py-20 xl:py-24"
     >
       <div className="w90">
-        {/* Heading */}
-        <div className="mb-14 flex items-end justify-between gap-16">
+        <div className="mb-9 flex flex-col items-start gap-6 sm:mb-11 sm:flex-row sm:items-end sm:justify-between sm:gap-10 xl:mb-14 xl:gap-16">
           <div ref={headingRef} className="max-w-4xl">
-            <div className="mb-6 flex items-center gap-4">
+            <div className="mb-4 flex items-center gap-3 sm:mb-5 sm:gap-4 xl:mb-6">
               <span
                 ref={eyebrowLineRef}
-                className="bg-custom-primary h-px w-12 shrink-0"
+                className="h-px w-9 shrink-0 bg-custom-primary sm:w-10 xl:w-12"
               />
 
-              <span className="text-custom-primary text-sm font-medium tracking-[0.14em]">
+              <span className="text-xs font-medium tracking-[0.12em] text-custom-primary sm:text-sm sm:tracking-[0.14em]">
                 {t("eyebrow")}
               </span>
             </div>
 
-            <h2 className="text-foreground max-w-4xl text-[2.5rem] leading-[1.18] font-semibold">
+            <h2 className="max-w-4xl text-[1.85rem] leading-[1.22] font-semibold text-foreground sm:text-[2.1rem] lg:text-[2.3rem] xl:text-[2.5rem] xl:leading-[1.18]">
               {t("title")}
             </h2>
           </div>
 
-          {/* Counter */}
           <div className="flex shrink-0 items-end gap-2">
-            <span className="text-custom-primary text-2xl font-semibold">
+            <span className="text-xl font-semibold text-custom-primary sm:text-2xl">
               {String(selectedIndex + 1).padStart(2, "0")}
             </span>
 
-            <span className="text-muted-foreground mb-1 text-sm">/</span>
+            <span className="mb-1 text-xs text-muted-foreground sm:text-sm">
+              /
+            </span>
 
-            <span className="text-muted-foreground mb-1 text-sm">
+            <span className="mb-1 text-xs text-muted-foreground sm:text-sm">
               {String(teamMembers.length).padStart(2, "0")}
             </span>
           </div>
         </div>
 
-        {/* Carousel */}
         <div ref={carouselWrapperRef} className="overflow-hidden">
           <div ref={emblaRef}>
             <div ref={cardsTrackRef} className="flex">
               {teamMembers.map((member) => (
-                <div key={member.id} className="min-w-0 flex-[0_0_25%] pe-4">
-                  <article className="group/member border-border bg-background relative min-h-[380px] border">
-                    {/* Hover Line */}
+                <div
+                  key={member.id}
+                  className="min-w-0 flex-[0_0_100%] pe-3 sm:flex-[0_0_50%] sm:pe-4 mlg:flex-[0_0_33.333333%] xl:flex-[0_0_25%]"
+                >
+                  <article className="group/member relative min-h-[340px] border border-border bg-background sm:min-h-[360px] xl:min-h-[380px]">
                     <span
                       className={[
-                        "bg-custom-primary pointer-events-none absolute inset-x-0 top-0 h-0.5",
-                        "scale-x-0 transition-transform duration-700",
-                        "ease-[cubic-bezier(0.65,0,0.35,1)]",
+                        "pointer-events-none absolute inset-x-0 top-0 h-0.5 bg-custom-primary",
+                        "scale-x-0 transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)]",
                         "group-hover/member:scale-x-100",
                         isRTL ? "origin-right" : "origin-left",
                       ].join(" ")}
                     />
 
-                    <div className="flex min-h-[380px] flex-col p-6">
-                      {/* Member Info */}
+                    <div className="flex min-h-[340px] flex-col p-5 sm:min-h-[360px] sm:p-5.5 xl:min-h-[380px] xl:p-6">
                       <div>
-                        <h3 className="text-foreground group-hover/member:text-custom-primary text-2xl leading-tight font-semibold transition-colors duration-300">
+                        <h3 className="text-xl leading-tight font-semibold text-foreground transition-colors duration-300 group-hover/member:text-custom-primary sm:text-[22px] xl:text-2xl">
                           {t(`members.${member.key}.name`)}
                         </h3>
 
                         {t.has(`members.${member.key}.areas`) && (
-                          <div className="border-border mt-7 border-t pt-6">
-                            <span className="text-muted-foreground text-sm font-medium tracking-wider">
+                          <div className="mt-5 border-t border-border pt-5 xl:mt-7 xl:pt-6">
+                            <span className="text-xs font-medium tracking-wider text-muted-foreground sm:text-sm">
                               {t("areasLabel")}
                             </span>
 
-                            <p className="text-foreground mt-3 text-[16px] leading-8">
+                            <p className="mt-2.5 text-[15px] leading-7 text-foreground sm:text-[16px] sm:leading-8 xl:mt-3">
                               {t(`members.${member.key}.areas`)}
                             </p>
                           </div>
                         )}
                       </div>
 
-                      {/* Contact */}
-                      <div className="border-border mt-auto border-t pt-6">
-                        <div className="flex flex-col gap-3">
-                          {/* Email */}
+                      <div className="mt-auto border-t border-border pt-5 xl:pt-6">
+                        <div className="flex flex-col gap-2.5 xl:gap-3">
                           {member.email && (
                             <a
                               href={`mailto:${member.email}`}
-                              className="group/email inline-flex max-w-full items-center gap-3"
+                              className="group/email inline-flex max-w-full items-center gap-2.5 sm:gap-3"
                             >
-                              <span className="border-border text-muted-foreground group-hover/email:border-custom-primary group-hover/email:text-custom-primary flex size-11 shrink-0 items-center justify-center border transition-colors duration-300">
-                                <Mail className="size-5" strokeWidth={1.8} />
+                              <span className="flex size-10 shrink-0 items-center justify-center border border-border text-muted-foreground transition-colors duration-300 group-hover/email:border-custom-primary group-hover/email:text-custom-primary xl:size-11">
+                                <Mail
+                                  className="size-[18px] xl:size-5"
+                                  strokeWidth={1.8}
+                                />
                               </span>
 
                               <span
                                 dir="ltr"
-                                className="text-muted-foreground group-hover/email:text-custom-primary truncate text-sm transition-colors duration-300"
+                                className="truncate text-xs text-muted-foreground transition-colors duration-300 group-hover/email:text-custom-primary sm:text-sm"
                               >
                                 {member.email}
                               </span>
                             </a>
                           )}
 
-                          {/* Phone */}
                           {member.phone && (
                             <a
                               href={`tel:${member.phone}`}
-                              className="group/phone inline-flex max-w-full items-center gap-3"
+                              className="group/phone inline-flex max-w-full items-center gap-2.5 sm:gap-3"
                             >
-                              <span className="border-border text-muted-foreground group-hover/phone:border-custom-primary group-hover/phone:text-custom-primary flex size-11 shrink-0 items-center justify-center border transition-colors duration-300">
-                                <Phone className="size-5" strokeWidth={1.8} />
+                              <span className="flex size-10 shrink-0 items-center justify-center border border-border text-muted-foreground transition-colors duration-300 group-hover/phone:border-custom-primary group-hover/phone:text-custom-primary xl:size-11">
+                                <Phone
+                                  className="size-[18px] xl:size-5"
+                                  strokeWidth={1.8}
+                                />
                               </span>
 
                               <span
                                 dir="ltr"
-                                className="text-muted-foreground group-hover/phone:text-custom-primary text-sm transition-colors duration-300"
+                                className="text-xs text-muted-foreground transition-colors duration-300 group-hover/phone:text-custom-primary sm:text-sm"
                               >
                                 {member.phone}
                               </span>
@@ -328,20 +329,19 @@ export default function AboutTeam() {
           </div>
         </div>
 
-        {/* Controls */}
         <div
           ref={controlsRef}
-          className="mt-10 flex items-center justify-between"
+          className="mt-8 flex flex-col gap-6 sm:mt-10 sm:flex-row sm:items-center sm:justify-between"
         >
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3">
             <button
               type="button"
               onClick={handleLeft}
               aria-label="Scroll team carousel left"
-              className="border-border text-foreground hover:border-custom-primary hover:text-custom-primary flex size-12 cursor-pointer items-center justify-center border transition-colors duration-300"
+              className="flex size-11 cursor-pointer items-center justify-center border border-border text-foreground transition-colors duration-300 hover:border-custom-primary hover:text-custom-primary xl:size-12"
             >
               <ArrowLeft
-                className="size-5.25 transition-transform duration-300 rtl:rotate-180"
+                className="size-5 transition-transform duration-300 rtl:rotate-180"
                 strokeWidth={1.8}
               />
             </button>
@@ -350,29 +350,28 @@ export default function AboutTeam() {
               type="button"
               onClick={handleRight}
               aria-label="Scroll team carousel right"
-              className="border-border text-foreground hover:border-custom-primary hover:text-custom-primary flex size-12 cursor-pointer items-center justify-center border transition-colors duration-300"
+              className="flex size-11 cursor-pointer items-center justify-center border border-border text-foreground transition-colors duration-300 hover:border-custom-primary hover:text-custom-primary xl:size-12"
             >
               <ArrowRight
-                className="size-5.25 transition-transform duration-300 rtl:rotate-180"
+                className="size-5 transition-transform duration-300 rtl:rotate-180"
                 strokeWidth={1.8}
               />
             </button>
           </div>
 
-          {/* Progress */}
-          <div className="flex w-64 items-center gap-4">
-            <span className="text-muted-foreground text-xs">01</span>
+          <div className="flex w-full items-center gap-3 sm:w-64 sm:gap-4">
+            <span className="text-xs text-muted-foreground">01</span>
 
-            <div className="bg-border relative h-px flex-1 overflow-hidden">
+            <div className="relative h-px flex-1 overflow-hidden bg-border">
               <span
-                className="bg-custom-primary absolute inset-y-0 start-0 transition-[width] duration-500 ease-[cubic-bezier(0.65,0,0.35,1)]"
+                className="absolute inset-y-0 start-0 bg-custom-primary transition-[width] duration-500 ease-[cubic-bezier(0.65,0,0.35,1)]"
                 style={{
                   width: `${((selectedIndex + 1) / teamMembers.length) * 100}%`,
                 }}
               />
             </div>
 
-            <span className="text-muted-foreground text-xs">
+            <span className="text-xs text-muted-foreground">
               {String(teamMembers.length).padStart(2, "0")}
             </span>
           </div>

@@ -299,7 +299,14 @@
     max-width: 1920px;
     width: 90%;
     margin: 0 auto;
-    padding: 0 24px;
+    padding-inline: 24px;
+  }
+
+  @media (max-width: 29.999rem) {
+    .w90 {
+      width: 100%;
+      padding-inline: 28px;
+    }
   }
 
   .headerPadding {
@@ -399,10 +406,9 @@
   }
 
   :lang(en) {
-    font-family:  sans-serif;
+    font-family: sans-serif;
   }
 
-  
   .representation-popup .maplibregl-popup-content {
     padding: 0 !important;
     margin: 0 !important;
