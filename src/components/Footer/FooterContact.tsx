@@ -20,7 +20,7 @@ export default function FooterContact() {
           {t("columns.contact")}
         </h3>
 
-        <div className="mt-3 h-px w-10 bg-footer-border" />
+        <div className="mt-3 h-px w-full sm:w-10 bg-footer-border" />
       </div>
 
       <div className="space-y-5 lg:space-y-6">
