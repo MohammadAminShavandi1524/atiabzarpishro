@@ -142,10 +142,10 @@ export const carouselItems: HeroCarouselItem[] = [
     enLabel: "",
     faLabel: "",
 
-    enTitle: "empty",
+    enTitle: "Special Heads",
     faTitle: "",
 
-    enDescription: "empty",
+    enDescription: "Angle heads, Multispindle heads, Turret heads, Driven tools for turning centersIn order to perform drilling, tapping, milling, boring, operations through to the applications on all machine types, transfer machines, special machines.",
 
     faDescription: "",
   },
