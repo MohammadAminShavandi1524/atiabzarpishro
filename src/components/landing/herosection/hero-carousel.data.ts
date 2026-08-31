@@ -12,17 +12,17 @@ export const carouselItems: HeroCarouselItem[] = [
     className: "-ms-6",
 
     enLabel: "KORLOY MILLING TOOLS",
-   
+
     faLabel: "",
 
     enTitle: "Milling Tools",
-    faTitle: "فرز پیشانی PCD مدل AEROMILL",
+    faTitle: "ابزارهای فرزکاری",
 
     enDescription:
       "Aero Mill Plus integrated the chip cover and the blade. To improve the chip interference on the chip cover and PCD life, a direct application system was applied, and it increased the life of the cutter by up to 20%.",
 
     faDescription:
-      "در Aero Mill Plus پوشش براده و تیغه به‌صورت یکپارچه طراحی شده‌اند. با به‌کارگیری سیستم مستقیم، تداخل براده کاهش یافته و عمر PCD بهبود پیدا کرده است؛ به‌طوری‌که عمر ابزار می‌تواند تا ۲۰ درصد افزایش یابد.",
+      "ابزارهای فرزکاری کرلوی با بهره ‌وری بالا جهت بهینه‌سازی تمامی عملیات های فرز کاری مانند، کفتراشی و دیواره تراشی و فرزکاری با پیشروی و سرعت بالا",
   },
 
   {
@@ -39,13 +39,13 @@ export const carouselItems: HeroCarouselItem[] = [
     faLabel: "ابزارهای تراشکاری KORLOY",
 
     enTitle: "TURNING INSERTS",
-    faTitle: "اینسرت‌های نگاتیو تراشکاری",
+    faTitle: "ابزارهای تراشکاری",
 
     enDescription:
       "Korloy turning tools cover a wide application range with a full line-up of ISO tools and FGT tools that produce high quality and high precision parts for all manufacturers' requirements.",
 
     faDescription:
-      "ابزارهای تراشکاری KORLOY با مجموعه کاملی از ابزارهای ISO و FGT، طیف گسترده‌ای از کاربردهای ماشین‌کاری را پوشش داده و امکان تولید قطعات با کیفیت و دقت بالا را برای نیازهای مختلف صنعتی فراهم می‌کنند.",
+      "ابزارهای تراشکاری کرلوی با مجموعه کاملی از ابزارهای  استاندارد و مخصوص، طیف گسترده‌ای از کاربردهای ماشین‌کاری را پوشش داده و امکان تولید قطعات با کیفیت و دقت بالا را برای نیازهای مختلف صنعتی فراهم می‌کنند.",
   },
 
   {
@@ -83,7 +83,7 @@ export const carouselItems: HeroCarouselItem[] = [
     className: "-mb-4",
 
     enTitle: "HSS-E JOBBER DRILL",
-    faTitle: "مته HSS-E مدل JOBBER",
+    faTitle: "متهHSS / HSS-E",
 
     enDescription:
       "IZAR CUTTING TOOLS, S.A.L. is one of the best manufacturers of HSS & carbide cutting tools such as all types of twist Drills and Endmills in Europe.",
@@ -109,7 +109,7 @@ export const carouselItems: HeroCarouselItem[] = [
       "HANBOO as Korean engineering and manufacturing company with Japanese know-how and with more than 30 years experiences provides special tooling solutions for machining main automotive parts such as cylinder head cylinder block and transmission case.",
 
     faDescription:
-      "HANBOO یک شرکت مهندسی و تولیدی کره‌ای با دانش فنی ژاپنی و بیش از ۳۰ سال تجربه است که راهکارهای ابزارکاری تخصصی برای ماشین‌کاری قطعات اصلی خودرو از جمله سرسیلندر، بلوک سیلندر و پوسته گیربکس ارائه می‌کند.",
+      "HANBOO یک شرکت مهندسی و تولیدی کره‌ای با دانش فنی ژاپنی و بیش از ۳۰ سال تجربه است که راهکارهای تخصصی برای ماشین‌کاری قطعات اصلی خودرو از جمله سرسیلندر، بلوک سیلندر و پوسته گیربکس ارائه می‌کند.",
   },
 
   {
@@ -124,12 +124,13 @@ export const carouselItems: HeroCarouselItem[] = [
     enLabel: "FUNIK ULTRA HARD MATERIAL",
     faLabel: "مواد فوق‌سخت FUNIK",
 
-    enTitle: "SOLID CBN INSERT AND BLANKS",
-    faTitle: "اینسرت و بلنک‌های CBN سالید",
+    enTitle: "Solid CBN Inserts CBN & PCD Blanks",
+    faTitle: "اینسرت CBN سالید  بلنک CBN  و PCD",
 
     enDescription: "Substantially Improve Cutting Efficiency And Tool Life",
 
-    faDescription: "افزایش چشمگیر راندمان براده‌برداری و طول عمر ابزار",
+    faDescription:
+      "تاسیس شده در سال 1988 میلادی و پیشرو در تولید اینسرت و ابزار های استاندارد و مخصوص CBN و PCD",
   },
   {
     id: "7",
@@ -144,11 +145,13 @@ export const carouselItems: HeroCarouselItem[] = [
     faLabel: "",
 
     enTitle: "Special Heads",
-    faTitle: "",
+    faTitle: "هد های مخصوص ماشین ابزار",
 
-    enDescription: "Angle heads, Multispindle heads, Turret heads, Driven tools for turning centersIn order to perform drilling, tapping, milling, boring, operations through to the applications on all machine types, transfer machines, special machines.",
+    enDescription:
+      "Angle heads, Multispindle heads, Turret heads, Driven tools for turning centersIn order to perform drilling, tapping, milling, boring, operations through to the applications on all machine types, transfer machines, special machines.",
 
-    faDescription: "",
+    faDescription:
+      " انواع مولتی اسپیندل، افزایش دهنده دور، تارت های مخصوص و Angle Head",
   },
   {
     id: "8",
@@ -163,12 +166,13 @@ export const carouselItems: HeroCarouselItem[] = [
     faLabel: "",
 
     enTitle: "Tooling System",
-    faTitle: "",
+    faTitle: "سیستم های گیرشی ابزار",
 
     enDescription:
       "By providing high-quality products for automobile, electronic equipment, machine, plant industry. Furthermore, DINE Inc. do our effort to introduce the excellence of Korean tooling system through export.",
 
-    faDescription: "",
+    faDescription:
+      "انواع ابزارگیرهای هیدرولیکی، شرینک فیت، ولدون، مورس، High Speed و ابزار های بورینگ",
   },
   {
     id: "9",
@@ -183,12 +187,13 @@ export const carouselItems: HeroCarouselItem[] = [
     faLabel: "",
 
     enTitle: "CERAMIC AND CERMET INSERTS",
-    faTitle: "",
+    faTitle: "اینسرت های سرامیک و سرمت",
 
     enDescription:
       "Union Materials (SsangYong) is well-known Korean manufacturer of Ceramic and Cermet Inserts with more than 40 years experiences. Kindly note that on September-28-2017 the company name has been changed from SsangYong Corp. to Union Materials Crop.",
 
-    faDescription: "",
+    faDescription:
+      "تولید کننده انواع اینسرت های سرامیک، سرمت و هلدرهای تراشکاری و فرزکاری مربوطه (شرکت SsangYong  سابق)",
   },
   {
     id: "10",
@@ -203,12 +208,13 @@ export const carouselItems: HeroCarouselItem[] = [
     faLabel: "",
 
     enTitle: "Tap",
-    faTitle: "",
+    faTitle: "قلاویز و ابزار های رزوه زنی",
 
     enDescription:
       "Threading solutions developed with years of cultivated technical know-how.Experience the performance of the world's No.1 tap market shareholder.",
 
-    faDescription: "",
+    faDescription:
+      "تولید کننده انواع ابزار های رزوه زنی، رول فرمینگ، حدیده، انواع مته ها و فرز های HSS و کارباید",
   },
   {
     id: "11",
@@ -224,11 +230,12 @@ export const carouselItems: HeroCarouselItem[] = [
     faLabel: "",
 
     enTitle: "Super abrasive CBN & Diamond tools",
-    faTitle: "",
+    faTitle: "سنگ های CBN  و PCD",
 
     enDescription:
       "Manufacturer of DIAMOND and CBN Grinding wheels and honing stones, fixed and rotary dressers, CBN and PCD tools, special for the automotive and glass industries",
 
-    faDescription: "",
+    faDescription:
+      "تولید کننده انواع سنگ های CBN  و PCD، هونینگ، درسرهای ثابت و دورانی، انواع ابزار های CBN  و PCD و سنگ های صنایع شیشه سازی",
   },
 ];

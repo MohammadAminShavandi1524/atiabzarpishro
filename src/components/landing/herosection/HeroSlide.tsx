@@ -46,7 +46,7 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
           sizes="100vw"
           className={cn(
             "object-cover",
-            ["1", "2"].includes(item.id) ? "" : isRTL ? "-scale-x-100" : "",
+            ["1", "2","7"].includes(item.id) ? "" : isRTL ? "-scale-x-100" : "",
           )}
         />
       </div>
