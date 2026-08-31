@@ -41,8 +41,8 @@
         },
 
         "brochures": {
-          "title": "Brochures",
-          "description": "Technical product guides"
+          "title": "Tech News / Brochures",
+          "description": "Technical updates, product news & brochures"
         },
 
         "catalogues": {
@@ -287,10 +287,13 @@
   },
 
   "Products": {
-    "header": {
+    "overview": {
       "label": "PRODUCTS",
-      "title": "Machining Solutions",
-      "countLabel": "PRODUCTS"
+      "brand": "BRAND",
+      "allProducts": "All Products",
+      "products": "PRODUCTS",
+      "website": "Visit Website",
+      "catalog": "Download Catalogue"
     },
 
     "aside": {
@@ -301,6 +304,18 @@
     "empty": {
       "title": "No products found.",
       "description": "There are currently no products available for this brand."
+    }
+  },
+
+  "TechNews": {
+    "hero": {
+      "title": "Tech News",
+      "description": "Explore technical updates, product developments and machining-related news from ATI Abzar Pishro and our technology partners."
+    },
+
+    "library": {
+      "title": "Technical News",
+      "count": "Items"
     }
   },
 
@@ -355,27 +370,15 @@
 
   "Catalogues": {
     "hero": {
-      "eyebrow": "CATALOGUES / TECHNICAL DOCUMENTS",
-      "title": "Explore Our Brand Catalogues",
-      "description": "Browse technical catalogues from our global machining and cutting tool partners. Select a brand to view its product catalogue."
+      "eyebrow": "TECHNICAL CATALOGUES",
+      "title": "Product Catalogues",
+      "description": "Explore technical catalogues, product ranges and machining solutions from ATI Abzar Pishro and our international technology partners."
     },
 
-    "sidebar": {
-      "title": "CATALOGUES"
-    },
-
-    "viewer": {
-      "label": "ACTIVE CATALOGUE",
-      "catalogue": "Catalogue",
-      "open": "Open in New Tab",
-      "download": "Download Catalogue"
-    },
-
-    "loading": "Loading catalogues...",
-
-    "empty": {
-      "title": "No catalogues available",
-      "description": "There are currently no brand catalogues available to display."
+    "library": {
+      "label": "CATALOGUES",
+      "title": "Technical Catalogue Library",
+      "count": "CATALOGUES"
     }
   },
 

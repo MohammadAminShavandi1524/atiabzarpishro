@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { industries } from "./industries.data";
 
 interface IndustriesNetworkProps {
@@ -45,15 +46,15 @@ export default function IndustriesNetwork({ t }: IndustriesNetworkProps) {
             <span className="industries-core-corner bg-custom-primary absolute right-[-1px] bottom-[-1px] size-2" />
 
             <div className="relative z-10 text-center">
-              <span className="text-custom-primary block font-mono text-[10px] tracking-[0.16em]">
+              <span className="text-custom-primary block font-mono text-[14px] tracking-[0.16em]">
                 ATI / CORE
               </span>
 
-              <span className="text-foreground mt-3 block text-xl font-semibold">
+              <span className="text-foreground mt-3 block text-2xl font-semibold">
                 {t("core.title")}
               </span>
 
-              <span className="text-muted-foreground mt-1.5 block text-xs">
+              <span className="text-muted-foreground mt-2 block text-sm">
                 {t("core.subtitle")}
               </span>
             </div>
@@ -74,11 +75,14 @@ export default function IndustriesNetwork({ t }: IndustriesNetworkProps) {
               transform: "translate(-50%, -50%)",
             }}
           >
-            <div className="relative min-w-[135px]">
+            <div className="relative min-w-[270px]">
               <span className="industry-node-point bg-custom-primary absolute start-0 top-[4px] z-20 hidden size-2" />
 
-              <div className="bg-background relative z-10 ps-5">
-                <p className="industry-node-title text-foreground min-w-[148px] text-center text-sm leading-6 font-medium">
+              <div className="bg-background z-10 flex items-center justify-center gap-x-2">
+                <div className="relative size-12 shrink-0">
+                  <Image src={industry.image} alt={industry.id} fill />
+                </div>
+                <p className="industry-node-title text-foreground  text-[22px] leading-6 font-medium">
                   {t(industry.translationKey)}
                 </p>
               </div>

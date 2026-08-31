@@ -5,10 +5,8 @@ import { useLocale } from "next-intl";
 
 import LanguageSwitcher from "./LanguageSwitcher";
 import Logo from "./Logo";
-import { ThemeButton } from "../theme/ThemeButton";
 import SearchBar from "./Searchbar";
 import Nav from "./Nav";
-import FAQButton from "./FAQButton";
 
 import { cn } from "@/lib/utils";
 
@@ -16,10 +14,9 @@ const Header = () => {
   const locale = useLocale();
 
   const headerRef = useRef<HTMLElement>(null);
+  const lastScrollY = useRef(0);
 
   const [showHeader, setShowHeader] = useState(true);
-
-  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const SCROLL_THRESHOLD = 60;
@@ -35,24 +32,15 @@ const Header = () => {
         return;
       }
 
-      if (Math.abs(difference) < SCROLL_DELTA) {
-        return;
-      }
+      if (Math.abs(difference) < SCROLL_DELTA) return;
 
-      if (difference > 0) {
-        setShowHeader(false);
-      } else {
-        setShowHeader(true);
-      }
-
+      setShowHeader(difference < 0);
       lastScrollY.current = currentScrollY;
     };
 
     lastScrollY.current = window.scrollY;
 
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -63,46 +51,32 @@ const Header = () => {
     <header
       ref={headerRef}
       className={cn(
-        "bg-background fixed inset-x-0 top-0 z-50",
-        "transition-transform duration-500 ease-out",
+        "bg-background fixed inset-x-0 top-0 z-50 hidden transition-transform duration-500 ease-out lg:block",
         showHeader ? "translate-y-0" : "-translate-y-full",
       )}
     >
-      {/* Animated Bottom Border */}
       <span
         aria-hidden="true"
         className="bg-border pointer-events-none absolute inset-x-0 bottom-0 h-px"
       />
 
-      <div className="w90 flex flex-col gap-y-1.5 pt-2.5 pb-2.5">
-        {/* =====================================================
-            TOP ROW
-        ===================================================== */}
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="">
-            <Logo />
-          </div>
-
-          {/* Search */}
-          <div className="">
-            <SearchBar />
-          </div>
-
-          {/* Theme + Language */}
-          <div className="flex items-center gap-x-3">
-            {/* <ThemeButton /> */}
-
-            <LanguageSwitcher defaultLocale={locale} />
-          </div>
+      <div className="w90 flex gap-x-1 py-2 xl:gap-x-1.5 xl:py-2.5">
+        <div className="3xl:mt-1 mt-0.5 flex shrink-0 items-start">
+          <Logo />
         </div>
 
-        {/* =====================================================
-            BOTTOM ROW
-        ===================================================== */}
-        <div className="flex items-center justify-between ps-1.5">
-          {/* Navigation */}
-          <div className="">
+        <div className="3xl:space-y-2.5 w-full space-y-1.5 pt-1.5 xl:space-y-2 xl:pt-2">
+          <div className="flex items-center justify-between">
+            <div />
+
+            <SearchBar />
+
+            <div className="flex items-center gap-x-3">
+              <LanguageSwitcher defaultLocale={locale} />
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between ps-1.5">
             <Nav />
           </div>
         </div>

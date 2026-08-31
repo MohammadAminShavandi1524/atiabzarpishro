@@ -62,9 +62,7 @@ export default function AboutEngagement() {
     const currentIndex = emblaApi.selectedScrollSnap();
     const lastIndex = engagementItems.length - 1;
 
-    const targetIndex = currentIndex === 0 ? lastIndex : currentIndex - 1;
-
-    emblaApi.scrollTo(targetIndex);
+    emblaApi.scrollTo(currentIndex === 0 ? lastIndex : currentIndex - 1);
   };
 
   const handleRight = () => {
@@ -73,9 +71,7 @@ export default function AboutEngagement() {
     const currentIndex = emblaApi.selectedScrollSnap();
     const lastIndex = engagementItems.length - 1;
 
-    const targetIndex = currentIndex === lastIndex ? 0 : currentIndex + 1;
-
-    emblaApi.scrollTo(targetIndex);
+    emblaApi.scrollTo(currentIndex === lastIndex ? 0 : currentIndex + 1);
   };
 
   useGSAP(
@@ -200,7 +196,6 @@ export default function AboutEngagement() {
     if (!activeSlide) return;
 
     const image = activeSlide.querySelector<HTMLElement>(".engagement-image");
-
     const caption = activeSlide.querySelector<HTMLElement>(
       ".engagement-caption",
     );
@@ -246,44 +241,43 @@ export default function AboutEngagement() {
     <section
       ref={sectionRef}
       dir={isRTL ? "rtl" : "ltr"}
-      className="border-border border-t py-24"
+      className="border-border border-t py-14 sm:py-18 lg:py-20 xl:py-24"
     >
       <div className="w90">
-        {/* Heading */}
-        <div className="mb-14 flex items-end justify-between gap-16">
+        <div className="mb-9 flex flex-col items-start gap-6 sm:mb-11 sm:flex-row sm:items-end sm:justify-between sm:gap-10 xl:mb-14 xl:gap-16">
           <div ref={headingRef} className="max-w-4xl">
-            <div className="mb-6 flex items-center gap-4">
+            <div className="mb-4 flex items-center gap-3 sm:mb-5 sm:gap-4 xl:mb-6">
               <span
                 ref={eyebrowLineRef}
-                className="bg-custom-primary h-px w-12 shrink-0"
+                className="bg-custom-primary h-px w-9 shrink-0 sm:w-10 xl:w-12"
               />
 
-              <span className="text-custom-primary text-sm font-medium tracking-[0.14em]">
+              <span className="text-custom-primary text-xs font-medium tracking-[0.12em] sm:text-sm sm:tracking-[0.14em]">
                 {t("eyebrow")}
               </span>
             </div>
 
-            <h2 className="text-foreground max-w-4xl text-[36px] leading-[1.18] font-semibold">
+            <h2 className="text-foreground max-w-4xl text-[1.85rem] leading-[1.22] font-semibold sm:text-[2.1rem] xl:text-[36px] xl:leading-[1.18]">
               {t("title")}
             </h2>
           </div>
 
-          {/* Counter */}
           <div className="flex shrink-0 items-end gap-2">
-            <span className="text-custom-primary text-2xl font-semibold">
+            <span className="text-custom-primary text-xl font-semibold sm:text-2xl">
               {String(selectedIndex + 1).padStart(2, "0")}
             </span>
 
-            <span className="text-muted-foreground mb-1 text-sm">/</span>
+            <span className="text-muted-foreground mb-1 text-xs sm:text-sm">
+              /
+            </span>
 
-            <span className="text-muted-foreground mb-1 text-sm">
+            <span className="text-muted-foreground mb-1 text-xs sm:text-sm">
               {String(engagementItems.length).padStart(2, "0")}
             </span>
           </div>
         </div>
 
-        {/* Carousel */}
-        <div ref={carouselWrapperRef}>
+        <div ref={carouselWrapperRef} className="-mx-5 sm:mx-0">
           <div ref={emblaRef} className="overflow-hidden">
             <div className="flex">
               {engagementItems.map((item, index) => {
@@ -296,11 +290,9 @@ export default function AboutEngagement() {
                     className="min-w-0 flex-[0_0_100%]"
                   >
                     <article className="w-full">
-                      {/* Image */}
                       <div
                         className={[
-                          "engagement-image",
-                          "border-border bg-card relative aspect-[1165/482] w-full max-w-[1200px] overflow-hidden border",
+                          "engagement-image border-border bg-card relative aspect-[1165/482] w-full max-w-none overflow-hidden border sm:max-w-[1200px]",
                           "transition-opacity duration-500",
                           isActive ? "opacity-100" : "opacity-55",
                         ].join(" ")}
@@ -309,18 +301,17 @@ export default function AboutEngagement() {
                           src={item.image}
                           alt={t(`items.${item.key}.title`)}
                           fill
-                          sizes="(max-width: 1280px) 90vw, 1200px"
+                          sizes="100vw"
                           className="object-cover"
                         />
                       </div>
 
-                      {/* Caption */}
-                      <div className="engagement-caption max-w-[1200px] pt-6">
-                        <div className="border-border flex items-start justify-between gap-10 border-t pt-5">
+                      <div className="engagement-caption px-4 pt-4 sm:max-w-[1200px] sm:px-0 sm:pt-5 xl:pt-6">
+                        <div className="border-border flex flex-col gap-4 border-t pt-4 sm:flex-row sm:items-start sm:justify-between sm:gap-10 sm:pt-5">
                           <div>
                             <h3
                               className={[
-                                "text-lg font-semibold transition-colors duration-300",
+                                "text-base font-semibold transition-colors duration-300 sm:text-lg",
                                 isActive
                                   ? "text-foreground"
                                   : "text-muted-foreground",
@@ -329,12 +320,12 @@ export default function AboutEngagement() {
                               {t(`items.${item.key}.title`)}
                             </h3>
 
-                            <p className="text-custom-primary mt-2 text-sm font-medium">
+                            <p className="text-custom-primary mt-1.5 text-xs font-medium sm:mt-2 sm:text-sm">
                               {t(`items.${item.key}.date`)}
                             </p>
                           </div>
 
-                          <span className="text-muted-foreground text-sm">
+                          <span className="text-muted-foreground text-xs sm:text-sm">
                             {String(index + 1).padStart(2, "0")}
                           </span>
                         </div>
@@ -347,21 +338,19 @@ export default function AboutEngagement() {
           </div>
         </div>
 
-        {/* Controls */}
         <div
           ref={controlsRef}
-          className="mt-10 flex items-center justify-between"
+          className="mt-8 flex flex-col gap-6 sm:mt-10 sm:flex-row sm:items-center sm:justify-between"
         >
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3">
             <button
               type="button"
               onClick={handleLeft}
               aria-label="Scroll carousel left"
-              className="border-border text-foreground hover:border-custom-primary hover:text-custom-primary flex size-12 cursor-pointer items-center justify-center border transition-colors duration-300"
+              className="border-border text-foreground hover:border-custom-primary hover:text-custom-primary flex size-11 cursor-pointer items-center justify-center border transition-colors duration-300 xl:size-12"
             >
               <ArrowLeft
-                className="size-5.25 transition-transform duration-300 rtl:rotate-180"
-                size={21}
+                className="size-5 transition-transform duration-300 rtl:rotate-180"
                 strokeWidth={1.8}
               />
             </button>
@@ -370,18 +359,16 @@ export default function AboutEngagement() {
               type="button"
               onClick={handleRight}
               aria-label="Scroll carousel right"
-              className="border-border text-foreground hover:border-custom-primary hover:text-custom-primary flex size-12 cursor-pointer items-center justify-center border transition-colors duration-300"
+              className="border-border text-foreground hover:border-custom-primary hover:text-custom-primary flex size-11 cursor-pointer items-center justify-center border transition-colors duration-300 xl:size-12"
             >
               <ArrowRight
-                className="size-5.25 transition-transform duration-300 rtl:rotate-180"
-                size={21}
+                className="size-5 transition-transform duration-300 rtl:rotate-180"
                 strokeWidth={1.8}
               />
             </button>
           </div>
 
-          {/* Progress */}
-          <div className="flex w-64 items-center gap-4">
+          <div className="flex w-full items-center gap-3 sm:w-64 sm:gap-4">
             <span className="text-muted-foreground text-xs">01</span>
 
             <div className="bg-border relative h-px flex-1 overflow-hidden">

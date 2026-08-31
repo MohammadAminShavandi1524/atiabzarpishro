@@ -9,7 +9,7 @@ interface IndustriesStageProps {
 
 export default function IndustriesStage({ isRTL, t }: IndustriesStageProps) {
   return (
-    <div className="relative w-full overflow-hidden pt-24">
+    <div className="relative w-full overflow-hidden ">
       <div className="w90 relative z-10">
         {/* Eyebrow */}
         <div className="-mb-8 flex items-center gap-4">

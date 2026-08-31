@@ -15,94 +15,92 @@ export default function FooterContact() {
 
   return (
     <div dir={isRTL ? "rtl" : "ltr"} className="min-w-0">
-      {/* Heading */}
-      <div className="mb-8">
-        <h3 className="text-footer-foreground text-lg font-medium tracking-wide">
+      <div className="mb-6 lg:mb-8">
+        <h3 className="text-base font-medium tracking-wide text-footer-foreground sm:text-lg">
           {t("columns.contact")}
         </h3>
 
-        <div className="bg-footer-border mt-3 h-px w-10" />
+        <div className="mt-3 h-px w-full sm:w-10 bg-footer-border" />
       </div>
 
-      <div className="space-y-6">
-        {/* Address */}
-        <div className="flex items-start gap-x-4">
+      <div className="space-y-5 lg:space-y-6">
+        <div className="flex items-start gap-x-3 sm:gap-x-4">
           <MapPin
-            className="text-custom-primary mt-0.5 size-6 shrink-0"
+            className="mt-0.5 size-5 shrink-0 text-custom-primary sm:size-6"
             strokeWidth={1.5}
           />
 
           <div className="min-w-0">
-            <span className="text-footer-muted mb-1.5 block text-sm">
+            <span className="mb-1.5 block text-xs text-footer-muted sm:text-sm">
               {t("contact.addressLabel")}
             </span>
 
             <p
-              className="text-footer-foreground max-w-sm text-base leading-7"
               dir={isRTL ? "rtl" : "ltr"}
+              className="max-w-sm text-sm leading-7 text-footer-foreground sm:text-base"
             >
               {t("contact.address")}
             </p>
           </div>
         </div>
 
-        {/* Phone */}
-        <div className="flex items-start gap-x-4">
+        <div className="flex items-start gap-x-3 sm:gap-x-4">
           <Phone
-            className="text-custom-primary mt-0.5 size-6 shrink-0"
+            className="mt-0.5 size-5 shrink-0 text-custom-primary sm:size-6"
             strokeWidth={1.5}
           />
 
           <div className="min-w-0">
-            <span className="text-footer-muted mb-1.5 block text-sm">
+            <span className="mb-1.5 block text-xs text-footer-muted sm:text-sm">
               {t("contact.phoneLabel")}
             </span>
 
             <a
               href={`tel:${contact.phone}`}
               dir="ltr"
-              className="text-footer-foreground hover:text-custom-primary inline-block text-base transition-colors duration-300"
+              className="inline-block text-sm text-footer-foreground transition-colors duration-300 hover:text-custom-primary sm:text-base"
             >
               {contact.phone}
             </a>
           </div>
         </div>
 
-        {/* Email */}
-        <div className="flex items-start gap-x-4">
+        <div className="flex items-start gap-x-3 sm:gap-x-4">
           <Mail
-            className="text-custom-primary mt-0.5 size-6 shrink-0"
+            className="mt-0.5 size-5 shrink-0 text-custom-primary sm:size-6"
             strokeWidth={1.5}
           />
 
           <div className="min-w-0">
-            <span className="text-footer-muted mb-1.5 block text-sm">
+            <span className="mb-1.5 block text-xs text-footer-muted sm:text-sm">
               {t("contact.emailLabel")}
             </span>
 
             <a
               href={`mailto:${contact.email}`}
               dir="ltr"
-              className="text-footer-foreground hover:text-custom-primary inline-block text-base transition-colors duration-300"
+              className="inline-block break-all text-sm text-footer-foreground transition-colors duration-300 hover:text-custom-primary sm:text-base"
             >
               {contact.email}
             </a>
           </div>
         </div>
 
-        {/* Fax */}
-        <div className="flex items-start gap-x-4">
+        <div className="flex items-start gap-x-3 sm:gap-x-4">
           <Printer
-            className="text-custom-primary mt-0.5 size-6 shrink-0"
+            className="mt-0.5 size-5 shrink-0 text-custom-primary sm:size-6"
             strokeWidth={1.5}
           />
 
           <div className="min-w-0">
-            <span className="text-footer-muted mb-1.5 block text-sm">
+            <span className="mb-1.5 block text-xs text-footer-muted sm:text-sm">
               {t("contact.faxLabel")}
             </span>
 
-            <span dir="ltr" className="text-footer-foreground block text-base">
+            <span
+              dir="ltr"
+              className="block text-sm text-footer-foreground sm:text-base"
+            >
               {contact.fax}
             </span>
           </div>

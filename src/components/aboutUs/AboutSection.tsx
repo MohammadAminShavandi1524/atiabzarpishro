@@ -10,7 +10,7 @@ export default function AboutSection() {
     <div className="bg-background">
       <AboutHero />
 
-      <div className="pt-16">
+      <div className="pt-8 sm:pt-10 lg:pt-12 xl:pt-16">
         <AboutFeatures />
       </div>
 

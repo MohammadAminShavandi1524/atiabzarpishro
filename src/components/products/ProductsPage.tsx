@@ -2,9 +2,9 @@
 
 import { useLocale } from "next-intl";
 
+import BrandOverview from "./BrandOverview";
 import ProductsAside from "./ProductsAside";
 import ProductsGrid from "./ProductsGrid";
-import ProductsHeader from "./ProductsHeader";
 
 import { brands, products } from "./products.data";
 
@@ -17,13 +17,11 @@ export default function ProductsPage({ activeBrand }: ProductsPageProps) {
 
   const isRTL = locale === "fa";
 
-  const filteredProducts = activeBrand
-    ? products.filter((product) => product.brand.slug === activeBrand)
-    : products;
-
   const activeBrandItem = brands.find((brand) => brand.slug === activeBrand);
 
-  const activeBrandName = activeBrandItem ? activeBrandItem.name_en : undefined;
+  const filteredProducts = activeBrandItem
+    ? products.filter((product) => product.brand.slug === activeBrandItem.slug)
+    : products;
 
   const productCounts = products.reduce<Record<string, number>>(
     (acc, product) => {
@@ -39,11 +37,13 @@ export default function ProductsPage({ activeBrand }: ProductsPageProps) {
   return (
     <section dir={isRTL ? "rtl" : "ltr"} className="bg-background">
       <div className="w90 py-12">
-        <ProductsHeader
+        {/* Page / Brand Overview */}
+        <BrandOverview
+          brand={activeBrandItem}
           count={filteredProducts.length}
-          activeBrandName={activeBrandName}
         />
 
+        {/* Products */}
         <div className="grid grid-cols-[290px_minmax(0,1fr)] items-start gap-8">
           <ProductsAside
             brands={brands}

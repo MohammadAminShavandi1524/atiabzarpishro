@@ -35,7 +35,7 @@ export default function ProductsAside({
   );
 
   return (
-    <aside className="sticky top-12 w-[290px] shrink-0 self-start">
+    <aside className="sticky top-12 w-[290px] shrink-0 self-start ">
       <div className="border-border-secondary bg-background flex max-h-[calc(100vh-80px)] flex-col overflow-hidden border">
         {/* Header */}
         <div className="border-border-secondary bg-card-secondary flex shrink-0 items-center justify-between border-b px-5 py-5 ps-6.5">
@@ -50,7 +50,7 @@ export default function ProductsAside({
 
         <ScrollArea
           dir={isRTL ? "rtl" : "ltr"}
-          className="h-[520px]"
+          className="h-[700px]"
           scrollBarClassName="me-0"
           lockWheel
         >

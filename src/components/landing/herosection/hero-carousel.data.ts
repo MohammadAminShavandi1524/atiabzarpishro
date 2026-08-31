@@ -1,140 +1,3 @@
-// import { HeroCarouselItem } from "./hero-carousel.types";
-
-// export const carouselItems: HeroCarouselItem[] = [
-//   {
-//     id: "1",
-//     href: "",
-
-//     darkImage: "/homepageCarousel/dark1.webp",
-//     lightImage: "/homepageCarousel/light1.webp",
-
-//     enLabel: "KORLOY",
-//     faLabel: "KORLOY",
-
-//     enTitle: "ADVANCED TURNING SOLUTIONS",
-//     faTitle: "راهکارهای پیشرفته تراشکاری",
-
-//     enDescription:
-//       "High-performance cutting tools and indexable inserts engineered for productive, precise, and reliable machining across demanding industrial applications.",
-//     faDescription:
-//       "ابزارهای برشی و اینسرت‌های تعویض‌شونده با عملکرد بالا، طراحی‌شده برای ماشین‌کاری دقیق، پایدار و پربازده در کاربردهای صنعتی.",
-//   },
-
-//   {
-//     id: "2",
-//     href: "",
-
-//     darkImage: "/homepageCarousel/dark2.webp",
-//     lightImage: "/homepageCarousel/light2.webp",
-
-//     enLabel: "WIDIN",
-//     faLabel: "WIDIN",
-
-//     enTitle: "SOLID CARBIDE CUTTING TOOLS",
-//     faTitle: "ابزارهای برشی تمام‌کارباید",
-
-//     enDescription:
-//       "High-performance solid carbide end mills, drills, and precision cutting tools developed for efficient machining across a wide range of materials.",
-//     faDescription:
-//       "فرزهای انگشتی، مته‌ها و ابزارهای دقیق تمام‌کارباید با عملکرد بالا برای ماشین‌کاری مؤثر طیف گسترده‌ای از مواد.",
-//   },
-
-//   {
-//     id: "3",
-//     href: "",
-
-//     darkImage: "/homepageCarousel/dark3.webp",
-//     lightImage: "/homepageCarousel/light3.webp",
-
-//     enLabel: "MPA",
-//     faLabel: "MPA",
-
-//     enTitle: "PRECISION TOOLING SYSTEMS",
-//     faTitle: "سیستم‌های ابزار دقیق ماشین‌کاری",
-
-//     enDescription:
-//       "Precision tooling solutions designed to deliver stability, accuracy, and consistent performance in modern machining and manufacturing processes.",
-//     faDescription:
-//       "راهکارهای ابزار دقیق با هدف دستیابی به پایداری، دقت و عملکرد یکنواخت در فرآیندهای مدرن ماشین‌کاری و تولید.",
-//   },
-
-//   {
-//     id: "4",
-//     href: "",
-
-//     darkImage: "/homepageCarousel/dark4.webp",
-//     lightImage: "/homepageCarousel/light4.webp",
-
-//     enLabel: "UNION MATERIALS",
-//     faLabel: "UNION MATERIALS",
-
-//     enTitle: "ADVANCED CARBIDE MATERIALS",
-//     faTitle: "مواد پیشرفته کاربایدی",
-
-//     enDescription:
-//       "Advanced carbide materials and precision components engineered for high wear resistance, durability, and demanding industrial applications.",
-//     faDescription:
-//       "مواد و قطعات دقیق کاربایدی با مقاومت بالا در برابر سایش و دوام مناسب برای کاربردهای صنعتی سنگین و تخصصی.",
-//   },
-
-//   {
-//     id: "5",
-//     href: "",
-
-//     darkImage: "/homepageCarousel/dark5.webp",
-//     lightImage: "/homepageCarousel/light5.webp",
-
-//     enLabel: "HANBOO ENGINEERING",
-//     faLabel: "HANBOO ENGINEERING",
-
-//     enTitle: "AUTOMOTIVE SPECIAL TOOLS",
-//     faTitle: "ابزارهای تخصصی صنایع خودروسازی",
-
-//     enDescription:
-//       "Specialized tooling solutions for machining critical automotive components including cylinder heads, cylinder blocks, and transmission cases.",
-//     faDescription:
-//       "راهکارهای تخصصی ابزارکاری برای ماشین‌کاری قطعات کلیدی خودرو از جمله سرسیلندر، بلوک سیلندر و پوسته گیربکس.",
-//   },
-
-//   {
-//     id: "6",
-//     href: "",
-
-//     darkImage: "/homepageCarousel/dark6.webp",
-//     lightImage: "/homepageCarousel/light6.webp",
-
-//     enLabel: "IZAR CUTTING TOOLS",
-//     faLabel: "IZAR CUTTING TOOLS",
-
-//     enTitle: "HSS & CARBIDE CUTTING TOOLS",
-//     faTitle: "ابزارهای برشی HSS و کارباید",
-
-//     enDescription:
-//       "A comprehensive range of HSS and carbide drills, end mills, and precision cutting tools developed for professional machining applications.",
-//     faDescription:
-//       "مجموعه‌ای گسترده از مته‌ها، فرزهای انگشتی و ابزارهای دقیق HSS و کارباید برای کاربردهای حرفه‌ای ماشین‌کاری.",
-//   },
-
-//   {
-//     id: "7",
-//     href: "",
-
-//     darkImage: "/homepageCarousel/dark7.webp",
-//     lightImage: "/homepageCarousel/light7.webp",
-
-//     enLabel: "SHINHAN DIAMOND",
-//     faLabel: "SHINHAN DIAMOND",
-
-//     enTitle: "INDUSTRIAL DIAMOND TOOLS",
-//     faTitle: "ابزارهای صنعتی الماسه",
-
-//     enDescription:
-//       "Advanced diamond tooling solutions engineered for precision cutting, grinding, and high-performance machining of challenging materials.",
-//     faDescription:
-//       "راهکارهای پیشرفته ابزارهای الماسه برای برش دقیق، سنگ‌زنی و ماشین‌کاری با عملکرد بالا روی مواد دشوار.",
-//   },
-// ];
-
 import type { HeroCarouselItem } from "./hero-carousel.types";
 
 export const carouselItems: HeroCarouselItem[] = [
@@ -145,10 +8,13 @@ export const carouselItems: HeroCarouselItem[] = [
     image: "/homepageCarousel/1.webp",
     logo: "/home/partners/korloy.webp",
 
+    brandName: "KORLOY",
+    className: "-ms-6",
+
     enLabel: "KORLOY MILLING TOOLS",
     faLabel: "ابزارهای فرزکاری KORLOY",
 
-    enTitle: "AEROMILL PCD FACE MILL",
+    enTitle: "Milling Tools",
     faTitle: "فرز پیشانی PCD مدل AEROMILL",
 
     enDescription:
@@ -165,10 +31,13 @@ export const carouselItems: HeroCarouselItem[] = [
     image: "/homepageCarousel/2.webp",
     logo: "/home/partners/korloy.webp",
 
+    brandName: "KORLOY",
+    className: "-ms-6",
+
     enLabel: "KORLOY TURNING TOOLS",
     faLabel: "ابزارهای تراشکاری KORLOY",
 
-    enTitle: "NEGATIVE TURNING INSERTS",
+    enTitle: "TURNING INSERTS",
     faTitle: "اینسرت‌های نگاتیو تراشکاری",
 
     enDescription:
@@ -182,14 +51,16 @@ export const carouselItems: HeroCarouselItem[] = [
     id: "3",
     href: "",
 
-    image: "/homepageCarousel/3.webp",
+    image: "/homepageCarousel/333.jpg",
     logo: "/home/partners/Widin.webp",
 
-    enLabel: "WIDIN SOLID CARBIDE ENDMILL",
+    className: "-mb-4",
+
+    enLabel: "WIDIN ",
     faLabel: "فرزهای تمام‌کارباید WIDIN",
 
-    enTitle: "U-WING ENDMILL",
-    faTitle: "فرز انگشتی U-WING",
+    enTitle: "SOLID CARBIDE ENDMILL",
+    faTitle: "",
 
     enDescription:
       "WIDIN with more than 30 years experiences provides high quality solid carbide End mills, Drills and Taps to different industrial segments.",
@@ -208,6 +79,8 @@ export const carouselItems: HeroCarouselItem[] = [
     enLabel: "IZAR HSS TOOLS",
     faLabel: "ابزارهای HSS برند IZAR",
 
+    className: "-mb-4",
+
     enTitle: "HSS-E JOBBER DRILL",
     faTitle: "مته HSS-E مدل JOBBER",
 
@@ -222,7 +95,7 @@ export const carouselItems: HeroCarouselItem[] = [
     id: "5",
     href: "",
 
-    image: "/homepageCarousel/5.webp",
+    image: "/homepageCarousel/55.webp",
     logo: "/home/partners/hanboo.webp",
 
     enLabel: "HANBOO ENGINEERING",
@@ -242,8 +115,10 @@ export const carouselItems: HeroCarouselItem[] = [
     id: "6",
     href: "",
 
-    image: "/homepageCarousel/6.webp",
+    image: "/homepageCarousel/66.webp",
     logo: "/home/partners/Funik.webp",
+
+    className: "ms-0.0",
 
     enLabel: "FUNIK ULTRA HARD MATERIAL",
     faLabel: "مواد فوق‌سخت FUNIK",
@@ -254,5 +129,105 @@ export const carouselItems: HeroCarouselItem[] = [
     enDescription: "Substantially Improve Cutting Efficiency And Tool Life",
 
     faDescription: "افزایش چشمگیر راندمان براده‌برداری و طول عمر ابزار",
+  },
+  {
+    id: "7",
+    href: "",
+
+    image: "/homepageCarousel/7.webp",
+    logo: "/home/partners/mpa.webp",
+
+    className: "-ms-4.5",
+
+    enLabel: "",
+    faLabel: "",
+
+    enTitle: "Special Heads",
+    faTitle: "",
+
+    enDescription: "Angle heads, Multispindle heads, Turret heads, Driven tools for turning centersIn order to perform drilling, tapping, milling, boring, operations through to the applications on all machine types, transfer machines, special machines.",
+
+    faDescription: "",
+  },
+  {
+    id: "8",
+    href: "",
+
+    image: "/homepageCarousel/88.webp",
+    logo: "/home/partners/Dine.webp",
+
+    className: "ms-0.5 -mb-4",
+
+    enLabel: "",
+    faLabel: "",
+
+    enTitle: "Tooling System",
+    faTitle: "",
+
+    enDescription:
+      "By providing high-quality products for automobile, electronic equipment, machine, plant industry. Furthermore, DINE Inc. do our effort to introduce the excellence of Korean tooling system through export.",
+
+    faDescription: "",
+  },
+  {
+    id: "9",
+    href: "",
+
+    image: "/homepageCarousel/9.webp",
+    logo: "/home/partners/union.webp",
+
+    className: "-mb-4",
+
+    enLabel: "",
+    faLabel: "",
+
+    enTitle: "CERAMIC AND CERMET INSERTS",
+    faTitle: "",
+
+    enDescription:
+      "Union Materials (SsangYong) is well-known Korean manufacturer of Ceramic and Cermet Inserts with more than 40 years experiences. Kindly note that on September-28-2017 the company name has been changed from SsangYong Corp. to Union Materials Crop.",
+
+    faDescription: "",
+  },
+  {
+    id: "10",
+    href: "",
+
+    image: "/homepageCarousel/10.webp",
+    logo: "/home/partners/osg.webp",
+
+    className: "-ms-6",
+
+    enLabel: "",
+    faLabel: "",
+
+    enTitle: "Tap",
+    faTitle: "",
+
+    enDescription:
+      "Threading solutions developed with years of cultivated technical know-how.Experience the performance of the world's No.1 tap market shareholder.",
+
+    faDescription: "",
+  },
+  {
+    id: "11",
+    href: "",
+
+    image: "/homepageCarousel/11.webp",
+    logo: "/home/partners/Shinhan_diamond.webp",
+
+    brandName: "SHINHAN DIAMOND",
+    className: "-ms-6 gap-x-4",
+
+    enLabel: "",
+    faLabel: "",
+
+    enTitle: "Super abrasive CBN & Diamond tools",
+    faTitle: "",
+
+    enDescription:
+      "Manufacturer of DIAMOND and CBN Grinding wheels and honing stones, fixed and rotary dressers, CBN and PCD tools, special for the automotive and glass industries",
+
+    faDescription: "",
   },
 ];
