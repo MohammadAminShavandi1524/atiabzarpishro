@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { industries } from "./industries.data";
+import { cn } from "@/lib/utils";
 
 interface IndustriesNetworkProps {
   t: (key: string) => string;
@@ -79,7 +80,7 @@ export default function IndustriesNetwork({ t }: IndustriesNetworkProps) {
               <span className="industry-node-point bg-custom-primary absolute start-0 top-[4px] z-20 hidden size-2" />
 
               <div className="bg-background z-10 flex items-center justify-center gap-x-2">
-                <div className="relative size-12 shrink-0">
+                <div className={cn("relative shrink-0" , industry.imageSize)}>
                   <Image src={industry.image} alt={industry.id} fill />
                 </div>
                 <p className="industry-node-title text-foreground  text-[22px] leading-6 font-medium">

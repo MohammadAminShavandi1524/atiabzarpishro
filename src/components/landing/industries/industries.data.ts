@@ -4,6 +4,7 @@ export interface IndustryItem {
   translationKey: string;
   code: string;
   image: string;
+  imageSize: string;
   x: number;
   y: number;
 }
@@ -17,6 +18,7 @@ export const industries: IndustryItem[] = [
     image: "/home/industriesLogos/automotive.png",
     x: 20,
     y: 20,
+    imageSize: "size-15",
   },
 
   {
@@ -27,6 +29,7 @@ export const industries: IndustryItem[] = [
     image: "/home/industriesLogos/power_generation.png",
     x: 50,
     y: 12,
+    imageSize: "size-13",
   },
 
   {
@@ -37,6 +40,7 @@ export const industries: IndustryItem[] = [
     image: "/home/industriesLogos/GearBox.png",
     x: 80,
     y: 20,
+    imageSize: "size-13",
   },
 
   {
@@ -47,6 +51,7 @@ export const industries: IndustryItem[] = [
     image: "/home/industriesLogos/pipe_rolling.png",
     x: 88,
     y: 50,
+    imageSize: "size-16",
   },
 
   {
@@ -57,6 +62,7 @@ export const industries: IndustryItem[] = [
     image: "/home/industriesLogos/mold_die.png",
     x: 80,
     y: 80,
+    imageSize: "size-13",
   },
 
   {
@@ -67,6 +73,7 @@ export const industries: IndustryItem[] = [
     image: "/home/industriesLogos/Oil_gas.png",
     x: 50,
     y: 88,
+    imageSize: "size-13",
   },
 
   {
@@ -77,6 +84,7 @@ export const industries: IndustryItem[] = [
     image: "/home/industriesLogos/Railway.png",
     x: 20,
     y: 80,
+    imageSize: "size-13",
   },
 
   {
@@ -87,5 +95,6 @@ export const industries: IndustryItem[] = [
     image: "/home/industriesLogos/aerospace.png",
     x: 12,
     y: 50,
+    imageSize: "size-13",
   },
 ];

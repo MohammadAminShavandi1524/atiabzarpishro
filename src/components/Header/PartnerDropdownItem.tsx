@@ -22,8 +22,9 @@ export default function PartnerDropdownItem({
 
   return (
     <Link
+    dir="ltr"
       href={`/${locale}/products?brand=${brand.slug}`}
-      className="partner-item group/item hover:bg-custom-primary/[0.045] relative flex items-center gap-2 py-1.75 ps-4 pe-4 transition-colors duration-200"
+      className="partner-item group/item hover:bg-custom-primary/[0.045] relative flex items-center gap-2 py-1.75 ps-4 pe-4 transition-colors duration-200 "
     >
       {/* Hover Line */}
       <span className="bg-custom-primary absolute inset-y-0 start-0 w-[2px] scale-y-0 transition-transform duration-200 group-hover/item:scale-y-100" />

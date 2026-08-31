@@ -11,7 +11,7 @@ const Nav = () => {
   const locale = useLocale();
 
   return (
-    <nav className="3xl:ms-6.5 ms-1.5 xl:ms-3 2xl:ms-5">
+    <nav className="ms-2.5">
       <ul className="3xl:gap-x-9 3xl:pt-3 3xl:pb-2 3xl:text-[20px] flex items-center gap-x-2.5 pt-2 pb-1.5 text-[13px] whitespace-nowrap xl:gap-x-4 xl:text-[15px] 2xl:gap-x-6 2xl:text-[17px]">
         <NavItem label={t("home")} href={`/${locale}`} />
 

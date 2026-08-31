@@ -10,13 +10,13 @@ const softwares = [
     key: "kts",
     version: "V0.1",
     size: "3.4 MB",
-    file: "/softwares/kts.zip",
+    file: "/softwares/kts.apk",
   },
   {
     key: "ktis",
     version: "Ver 1.00",
     size: "1.3 MB",
-    file: "/softwares/ktis.zip",
+    file: "/softwares/ktis.apk",
   },
 ] as const;
 

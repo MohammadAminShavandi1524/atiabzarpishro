@@ -60,8 +60,8 @@ const Header = () => {
         className="bg-border pointer-events-none absolute inset-x-0 bottom-0 h-px"
       />
 
-      <div className="w90 flex gap-x-1 py-2 xl:gap-x-1.5 xl:py-2.5">
-        <div className="3xl:mt-1 mt-0.5 flex shrink-0 items-start">
+      <div className="w90 px-0 flex py-2 xl:py-2.5">
+        <div className="flex shrink-0 items-start">
           <Logo />
         </div>
 
@@ -76,7 +76,7 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between ps-1.5">
+          <div className="flex items-center justify-between">
             <Nav />
           </div>
         </div>

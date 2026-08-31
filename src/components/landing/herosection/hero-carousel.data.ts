@@ -12,7 +12,8 @@ export const carouselItems: HeroCarouselItem[] = [
     className: "-ms-6",
 
     enLabel: "KORLOY MILLING TOOLS",
-    faLabel: "ابزارهای فرزکاری KORLOY",
+   
+    faLabel: "",
 
     enTitle: "Milling Tools",
     faTitle: "فرز پیشانی PCD مدل AEROMILL",

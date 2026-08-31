@@ -75,7 +75,7 @@ export default function BrandOverview({
           {/* Brand Name */}
           <h1
             lang="en"
-            dir="ltr"
+           
             className="text-foreground mt-3 text-[46px] leading-tight font-semibold tracking-[-0.035em]"
           >
             {brand.name_en}

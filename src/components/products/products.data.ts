@@ -38,7 +38,7 @@ export const brands: ProductBrand[] = [
     slug: "korloy",
 
     name_en: "KORLOY",
-    name_fa: "کرولوی",
+    name_fa: "کرلوی",
 
     description_en:
       "KORLOY is a leading South Korean manufacturer of advanced cutting tools and tooling systems, offering professional solutions for turning, milling, drilling and specialized machining applications across a wide range of industries.",
@@ -241,25 +241,6 @@ export const brands: ProductBrand[] = [
     website: "https://www.m-p-a.it/index.php/en/",
     catalog: "/catalogues/ati-abzar-pishro-catalogue.pdf",
   },
-
-  {
-    id: 12,
-    slug: "iljin",
-
-    name_en: "ILJIN Diamond",
-    name_fa: "ایلجین دایموند",
-
-    description_en:
-      "ILJIN Diamond is a South Korean manufacturer of industrial diamond materials, PCD and CBN blanks, tungsten carbide rods and blanks, and wear-resistant materials for cutting-tool and steel-industry applications.",
-
-    description_fa:
-      "ILJIN Diamond تولیدکننده کره‌ای مواد الماس صنعتی، بلنک‌های PCD و CBN، راد و بلنک‌های تنگستن کارباید و مواد مقاوم در برابر سایش برای صنایع ابزارسازی و فولاد است.",
-
-    image: "/home/partners/iljin_diamond.webp",
-
-    website: "https://www.iljindiamond.com/eng",
-    catalog: "/catalogues/ati-abzar-pishro-catalogue.pdf",
-  },
 ];
 
 const [
@@ -274,7 +255,6 @@ const [
   osg,
   fromm,
   mpa,
-  iljin,
 ] = brands;
 
 export const products: ProductItem[] = [
@@ -288,7 +268,7 @@ export const products: ProductItem[] = [
     short_description_en:
       "KORLOY drilling solutions designed for accurate, stable and efficient hole-making operations.",
     short_description_fa:
-      "راهکارهای سوراخ‌کاری کرولوی برای ایجاد سوراخ‌های دقیق، پایدار و پربازده در عملیات ماشین‌کاری.",
+      "راهکارهای سوراخ‌کاری کرلوی برای ایجاد سوراخ‌های دقیق، پایدار و پربازده در عملیات ماشین‌کاری.",
     image: PRODUCT_PLACEHOLDER_IMAGE,
     brochure: null,
     brand: korloy,
@@ -312,7 +292,7 @@ export const products: ProductItem[] = [
     short_description_en:
       "KORLOY end mills engineered for precision milling, contouring and high-performance material removal.",
     short_description_fa:
-      "فرزهای انگشتی کرولوی برای فرزکاری دقیق، کانتورزنی و براده‌برداری پربازده طراحی شده‌اند.",
+      "فرزهای انگشتی کرلوی برای فرزکاری دقیق، کانتورزنی و براده‌برداری پربازده طراحی شده‌اند.",
     image: PRODUCT_PLACEHOLDER_IMAGE,
     brochure: null,
     brand: korloy,
@@ -336,7 +316,7 @@ export const products: ProductItem[] = [
     short_description_en:
       "Practical tooling configurations illustrating KORLOY solutions for different machining applications.",
     short_description_fa:
-      "نمونه‌های کاربردی از چیدمان و انتخاب ابزارهای کرولوی برای عملیات مختلف ماشین‌کاری.",
+      "نمونه‌های کاربردی از چیدمان و انتخاب ابزارهای کرلوی برای عملیات مختلف ماشین‌کاری.",
     image: PRODUCT_PLACEHOLDER_IMAGE,
     brochure: null,
     brand: korloy,
@@ -945,57 +925,5 @@ export const products: ProductItem[] = [
     image: PRODUCT_PLACEHOLDER_IMAGE,
     brochure: null,
     brand: mpa,
-  },
-
-  // =========================================================
-  // ILJIN DIAMOND
-  // =========================================================
-  {
-    id: 54,
-    name_en: "Saw Diamond Grit",
-    name_fa: "دانه الماس Saw Diamond",
-    short_description_en:
-      "Industrial diamond grit developed for demanding sawing and abrasive cutting applications.",
-    short_description_fa:
-      "دانه‌های الماس صنعتی برای کاربردهای حرفه‌ای اره‌کاری و برش سایشی.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
-    brochure: null,
-    brand: iljin,
-  },
-  {
-    id: 55,
-    name_en: "PCD/CBN Blanks",
-    name_fa: "بلنک‌های PCD و CBN",
-    short_description_en:
-      "PCD and CBN blanks used as high-performance cutting material for precision tooling applications.",
-    short_description_fa:
-      "بلنک‌های PCD و CBN به‌عنوان مواد برشی پربازده برای ساخت ابزارهای دقیق صنعتی.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
-    brochure: null,
-    brand: iljin,
-  },
-  {
-    id: 56,
-    name_en: "TC Rod & Blanks",
-    name_fa: "راد و بلنک TC",
-    short_description_en:
-      "Tungsten carbide rods and blanks developed for manufacturing precision cutting and wear-resistant tools.",
-    short_description_fa:
-      "رادها و بلنک‌های تنگستن کارباید برای ساخت ابزارهای دقیق برشی و مقاوم در برابر سایش.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
-    brochure: null,
-    brand: iljin,
-  },
-  {
-    id: 57,
-    name_en: "TC Roll / Anvil Die",
-    name_fa: "TC Roll / Anvil Die",
-    short_description_en:
-      "Tungsten carbide rolls and anvil dies engineered for wear resistance and demanding industrial forming applications.",
-    short_description_fa:
-      "رول‌ها و Anvil Dieهای تنگستن کارباید برای مقاومت سایشی بالا و کاربردهای صنعتی پرفشار.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
-    brochure: null,
-    brand: iljin,
   },
 ];

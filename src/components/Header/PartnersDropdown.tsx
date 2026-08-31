@@ -158,7 +158,7 @@ const PartnersDropdown = () => {
         <div className="border-border-secondary bg-background w-[280px] overflow-hidden border shadow-[0_16px_45px_rgba(0,0,0,0.10)]">
           <ScrollArea
             dir={locale === "fa" ? "rtl" : "ltr"}
-            className="h-[min(650px,calc(100vh-120px))]"
+            className="h-[min(600px,calc(100vh-120px))]"
             scrollBarClassName="me-0"
             lockWheel
           >

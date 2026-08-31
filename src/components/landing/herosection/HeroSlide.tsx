@@ -28,10 +28,8 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
     <article
       className={cn(
         "hero-slide relative min-w-0 shrink-0 grow-0 basis-full overflow-hidden",
-
         "h-[550px]",
         "md:h-[590px]",
-
         "lg:h-[calc(100svh-154px)]",
         "lg:min-h-[620px]",
         "lg:max-h-[760px]",
@@ -69,36 +67,38 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
       <div className="w90 relative z-10 mx-auto flex h-full items-center">
         <div className="max-w-[680px] text-white">
           {/* logo */}
-          <div
-            className={cn(
-              "flex items-center",
-              item.brandName && "",
-              item.className,
-            )}
-          >
+          <div className="flex justify-start">
             <div
+              dir="ltr"
               className={cn(
-                "relative size-30",
-                ["3", "4", "8", "9"].includes(item.id) && "size-40",
-                ["8", "10"].includes(item.id) && "size-36",
+                "flex items-center",
+                item.brandName && "",
+                item.className,
               )}
             >
-              <Image
-                src={item.logo}
-                alt="logo"
-                fill
-                className="scale-1.8 object-cover [filter:drop-shadow(0_1px_1px_rgba(255,255,255,0.25))_drop-shadow(0_3px_6px_rgba(0,0,0,0.4))]"
-              />
-            </div>
-            {item.brandName && (
               <div
-                lang="en"
-                dir="ltr"
-                className="-ms-4 text-[24px] font-semibold tracking-wide"
+                className={cn(
+                  "relative size-30",
+                  ["3", "4", "8", "9"].includes(item.id) && "size-40",
+                  ["8", "10"].includes(item.id) && "size-36",
+                )}
               >
-                {item.brandName}
+                <Image
+                  src={item.logo}
+                  alt="logo"
+                  fill
+                  className="scale-1.8 object-cover [filter:drop-shadow(0_1px_1px_rgba(255,255,255,0.25))_drop-shadow(0_3px_6px_rgba(0,0,0,0.4))]"
+                />
               </div>
-            )}
+              {item.brandName && (
+                <div
+                  lang="en"
+                  className="-ms-4 text-[24px] font-semibold tracking-wide"
+                >
+                  {item.brandName}
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Title */}
