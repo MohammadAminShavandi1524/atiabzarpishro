@@ -87,7 +87,7 @@ export default async function LocaleLayout({
             <div className="text-foreground bg-background relative">
               <Header />
 
-              <main className="headerPadding">
+              <main className="headerPadding ">
                 <CustomToastProvider>
                   <SmoothScrollProvider>{children}</SmoothScrollProvider>
                 </CustomToastProvider>
