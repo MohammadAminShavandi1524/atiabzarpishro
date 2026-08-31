@@ -38,7 +38,7 @@ export const representations: RepresentationItem[] = [
     address_en: "Tehran, Iran",
     address_fa: "تهران، ایران",
 
-    image: "/representations/tehran.webp",
+    image: "/logo2.webp",
 
     latitude: 35.754243,
     longitude: 51.332173,

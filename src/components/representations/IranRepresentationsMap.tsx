@@ -185,7 +185,7 @@ export default function IranRepresentationsMap({
                     dir="ltr"
                     className="relative z-10 text-[11px] font-semibold"
                   >
-                    {representation.id.slice(0, 2).toUpperCase()}
+                   TEH
                   </span>
 
                   <span className="bg-custom-primary absolute -bottom-[4px] left-1/2 size-2.5 -translate-x-1/2 rotate-45" />

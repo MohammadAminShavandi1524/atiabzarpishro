@@ -22,25 +22,20 @@ export default function RepresentationCard({
   return (
     <div
       dir={isRTL ? "rtl" : "ltr"}
-      className="bg-background border-border-secondary flex w-[430px] items-stretch overflow-hidden rounded-lg border shadow-[0_8px_24px_rgba(0,0,0,0.12)]"
+      className="bg-background border-border-secondary flex min-h-25 w-[360px] items-center overflow-hidden rounded-lg border shadow-[0_8px_24px_rgba(0,0,0,0.12)]"
     >
-      {/* Image */}
-      <div className="relative w-[125px] h-[100px] shrink-0 bg-custom-primary overflow-hidden">
-        {/* {representation.image ? (
+      <div className=" mx-4">
+        <div className="relative size-[80px] shrink-0 overflow-hidden bg-transparent ">
           <Image
-            src={representation.image}
+            src={representation.image || "/logo2.webp"}
             alt={title}
             fill
-            sizes="125px"
-            className="object-cover"
+            className=" object-cover"
           />
-        ) : (
-          <div className="bg-secondary-bg size-full" />
-        )} */}
+        </div>
       </div>
-
       {/* Content */}
-      <div className="flex min-w-0 flex-1 items-center px-4 py-3.5">
+      <div className="flex min-w-0 flex-1 items-center pe-4 py-3.5">
         <div className="min-w-0 flex-1">
           <h3 className="text-foreground truncate text-[15px] font-semibold">
             {title}

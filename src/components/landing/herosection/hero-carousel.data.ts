@@ -213,7 +213,7 @@ export const carouselItems: HeroCarouselItem[] = [
     id: "11",
     href: "",
 
-    image: "/homepageCarousel/11.webp",
+    image: "/homepageCarousel/111.webp",
     logo: "/home/partners/Shinhan_diamond.webp",
 
     brandName: "SHINHAN DIAMOND",
