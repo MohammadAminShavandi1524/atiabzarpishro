@@ -27,7 +27,7 @@ export default function ContactSection() {
                 </span>
               </div>
 
-              <h1 className="text-foreground max-w-4xl text-[46px] leading-[1.12] font-semibold">
+              <h1 className="text-foreground max-w-4xl text-[46px] leading-[1.12] font-semibold ">
                 {t("title")}
               </h1>
 

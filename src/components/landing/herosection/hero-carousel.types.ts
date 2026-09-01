@@ -3,6 +3,7 @@ export interface HeroCarouselItem {
   href: string;
 
   image: string;
+  flipedImage?: string;
   logo: string;
 
   brandName?: string;

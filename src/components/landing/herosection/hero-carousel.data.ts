@@ -19,7 +19,7 @@ export const carouselItems: HeroCarouselItem[] = [
     faTitle: "ابزارهای فرزکاری",
 
     enDescription:
-      "Aero Mill Plus integrated the chip cover and the blade. To improve the chip interference on the chip cover and PCD life, a direct application system was applied, and it increased the life of the cutter by up to 20%.",
+      "Highly productive milling insert and cutters for optimize of all applications, such as face milling and shouldering, high feed and copy milling in a variety of designs.",
 
     faDescription:
       "ابزارهای فرزکاری کرلوی با بهره ‌وری بالا جهت بهینه‌سازی تمامی عملیات های فرز کاری مانند، کفتراشی و دیواره تراشی و فرزکاری با پیشروی و سرعت بالا",
@@ -136,7 +136,8 @@ export const carouselItems: HeroCarouselItem[] = [
     id: "7",
     href: "",
 
-    image: "/homepageCarousel/7.webp",
+    image: "/homepageCarousel/777.webp",
+    flipedImage: "/homepageCarousel/77.webp",
     logo: "/home/partners/mpa.webp",
 
     className: "-ms-4.5",

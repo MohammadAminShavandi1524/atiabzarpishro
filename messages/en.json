@@ -60,7 +60,7 @@
 
   "Home": {
     "companyStory": {
-      "eyebrow": "Machining Engineering Since 2012",
+      "eyebrow": "Machining & Engineering Solutions",
 
       "experience": "Years of experience and expertise in machining",
 
@@ -531,7 +531,7 @@
       "email": "Email",
       "phone": "Phone",
       "address": "Address",
-      "addressValue": "No. 14, Mokhberi Blvd, Ashrafi Esfahani HWY, Tehran, 1476693977, IRAN"
+      "addressValue": "Unit 14, No. 10, Mokhberi Blvd, Ashrafi Esfahani Highway, Tehran, IRAN - Postal Code: 1476693977"
     },
 
     "location": {
@@ -730,7 +730,7 @@
 
     "contact": {
       "addressLabel": "Address",
-      "address": "No. 14, Mokhberi Blvd, Ashrafi Esfahani HWY, Tehran, 1476693977, IRAN",
+      "address": "Unit 14, No. 10, Mokhberi Blvd, Ashrafi Esfahani Highway, Tehran, IRAN - Postal Code: 1476693977",
       "phoneLabel": "Phone",
       "emailLabel": "Email",
       "faxLabel": "Fax"

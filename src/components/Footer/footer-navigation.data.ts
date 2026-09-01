@@ -59,7 +59,6 @@ export const footerNavigation = {
     phone: "+98-21 444 55 407-9",
     fax: "+98-21 444 240 66",
     email: "info@Atiabzarpishro.com",
-    address:
-      "No. 14, Mokhberi Blvd, Ashrafi Esfahani HWY, Tehran, 1476693977, IRAN",
+
   },
 } as const;

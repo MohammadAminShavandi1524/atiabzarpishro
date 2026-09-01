@@ -17,7 +17,7 @@ export default function CompanyStoryStage({
       <div className="mb-16 flex items-center gap-4">
         <span className="bg-custom-primary block h-px w-12 shrink-0" />
 
-        <span className="text-muted-foreground text-sm font-medium tracking-[0.08em]">
+        <span className="text-muted-foreground text-sm font-medium tracking-[0.08em] b">
           {t("eyebrow")}
         </span>
       </div>

@@ -44,7 +44,7 @@ export const brands: ProductBrand[] = [
       "KORLOY is a leading South Korean manufacturer of advanced cutting tools and tooling systems, offering professional solutions for turning, milling, drilling and specialized machining applications across a wide range of industries.",
 
     description_fa:
-      "KORLOY یکی از تولیدکنندگان مطرح کره جنوبی در زمینه ابزارهای برشی و سیستم‌های ابزارکاری است و مجموعه‌ای گسترده از راهکارهای تراشکاری، فرزکاری، سوراخ‌کاری و ماشین‌کاری تخصصی را برای صنایع مختلف ارائه می‌دهد.",
+      "KORLOY یکی از تولیدکنندگان مطرح کره جنوبی در زمینه ابزارهای برشی و سیستم‌های گیرش ابزار است و مجموعه‌ای گسترده از راهکارهای تراشکاری، فرزکاری، سوراخ‌کاری و ماشین‌کاری تخصصی را برای صنایع مختلف ارائه می‌دهد.",
 
     image: "/home/partners/korloy.webp",
 
@@ -63,7 +63,7 @@ export const brands: ProductBrand[] = [
       "DINE develops high-quality tooling systems and precision tool-holding solutions for automotive, electronics, machinery and industrial manufacturing applications, with a focus on accuracy, rigidity and machining performance.",
 
     description_fa:
-      "DINE تولیدکننده سیستم‌های ابزارگیری و راهکارهای دقیق نگهداری ابزار برای صنایع خودرو، الکترونیک، ماشین‌سازی و تولید صنعتی است و محصولات خود را با تمرکز بر دقت، صلبیت و عملکرد پایدار ماشین‌کاری توسعه می‌دهد.",
+      "DINE تولیدکننده انواع ابزارگیرهای دقیق و با کیفیت بالا جهت استفاده در صنایع خودرو، الکترونیک، ماشین‌سازی و تولید صنعتی است و محصولات خود را با تمرکز بر دقت، صلبیت و عملکرد پایدار ماشین‌کاری توسعه می‌دهد.",
 
     image: "/home/partners/Dine.webp",
 
@@ -82,7 +82,7 @@ export const brands: ProductBrand[] = [
       "WIDIN is a South Korean cutting-tool manufacturer specializing in high-performance solid carbide end mills, drills, reamers and tapping tools for precision machining and demanding industrial applications.",
 
     description_fa:
-      "WIDIN یک تولیدکننده کره‌ای ابزارهای برشی است که در زمینه فرزهای انگشتی تمام‌کارباید، مته‌ها، برقوها و ابزارهای قلاویزکاری با عملکرد بالا برای ماشین‌کاری دقیق فعالیت می‌کند.",
+      "WIDIN تولیدکننده کره‌ای ابزارهای برشی است که در زمینه فرزهای انگشتی تمام‌کارباید، مته‌ها، برقوها و ابزارهای قلاویزکاری با عملکرد بالا برای ماشین‌کاری دقیق فعالیت می‌کند.",
 
     image: "/home/partners/Widin.webp",
 
@@ -101,7 +101,7 @@ export const brands: ProductBrand[] = [
       "HANBOO Engineering provides specialized tooling solutions for automotive manufacturing, including carbide, PCD and CBN tools, guide-pad tooling, honing systems and complete tooling packages for critical automotive components.",
 
     description_fa:
-      "HANBOO Engineering ارائه‌دهنده راهکارهای تخصصی ابزارکاری برای صنایع خودروسازی است و مجموعه‌ای از ابزارهای کارباید، PCD و CBN، ابزارهای Guide Pad، تجهیزات هونینگ و پکیج‌های کامل ابزارکاری را ارائه می‌دهد.",
+      "HANBOO Engineering ارائه‌دهنده راهکارهای تخصصی ماشینکاری برای صنایع خودروسازی است و مجموعه‌ای از ابزارهای کارباید، PCD و CBN، ابزارهای Guide Pad دار، تجهیزات هونینگ و پکیج‌های کامل ماشینکاری  بلوک سیلندر، سرسیلندر و پوسته گیربکس را ارائه می‌دهد.",
 
     image: "/home/partners/hanboo.webp",
 
@@ -139,7 +139,7 @@ export const brands: ProductBrand[] = [
       "FUNIK specializes in ultra-hard cutting materials and high-performance CBN solutions, including tipped and solid CBN inserts developed to improve cutting efficiency, wear resistance and tool life in hard machining applications.",
 
     description_fa:
-      "FUNIK در زمینه مواد فوق‌سخت و راهکارهای برشی CBN فعالیت می‌کند و انواع اینسرت‌های CBN Tip و Solid CBN را برای افزایش راندمان براده‌برداری، مقاومت سایشی و طول عمر ابزار ارائه می‌دهد.",
+      "FUNIK در زمینه تولید ابزار های برشی فوق‌سخت و  CBN ها فعالیت می‌کند و انواع اینسرت‌های CBN Tip و Solid CBN را برای افزایش راندمان براده‌برداری، مقاومت سایشی و طول عمر ابزار ارائه می‌دهد.",
 
     image: "/home/partners/Funik.webp",
 
@@ -158,7 +158,7 @@ export const brands: ProductBrand[] = [
       "IZAR Cutting Tools is a European manufacturer offering a broad range of HSS, HSS-E and carbide cutting tools, including drills, end mills, reamers, taps, rotary burrs and industrial sawing solutions.",
 
     description_fa:
-      "IZAR Cutting Tools یکی از تولیدکنندگان اروپایی ابزارهای برشی HSS، HSS-E و کارباید است و طیف گسترده‌ای از مته، فرز انگشتی، برقو، قلاویز، Rotary Burr و ابزارهای اره‌کاری صنعتی را تولید می‌کند.",
+      "IZAR Cutting Tools یکی از تولیدکنندگان اروپایی ابزارهای برشی HSS، HSS-E و کارباید است و طیف گسترده‌ای از مته، فرز انگشتی، برقو، قلاویز، Rotary Burr و ابزارهای صنعتی را تولید می‌کند.",
 
     image: "/home/partners/IZAR.webp",
 
@@ -177,7 +177,7 @@ export const brands: ProductBrand[] = [
       "UNION Materials is a South Korean manufacturer specializing in ceramic, cermet and advanced cutting inserts, together with tooling solutions developed for high-speed and demanding machining applications.",
 
     description_fa:
-      "UNION Materials تولیدکننده کره‌ای اینسرت‌های سرامیکی، سرمت و سایر مواد پیشرفته برشی است و راهکارهای تخصصی برای ماشین‌کاری سرعت بالا و کاربردهای صنعتی دشوار ارائه می‌دهد.",
+      "UNION Materials تولیدکننده کره‌ای اینسرت‌های سرامیکی، سرمت و سایر مواد پیشرفته برشی است و راهکارهای تخصصی برای ماشین‌کاری سرعت بالا و کاربردهای صنعتی خاص را ارائه می‌دهد.",
 
     image: "/home/partners/union.webp",
 
@@ -234,7 +234,7 @@ export const brands: ProductBrand[] = [
       "MPA provides advanced machine-tool accessories and specialized heads, including angle heads, multispindle systems, modular heads, speed increasers and driven tooling solutions for complex machining operations.",
 
     description_fa:
-      "MPA ارائه‌دهنده تجهیزات و هدهای تخصصی ماشین‌ابزار شامل Angle Head، سیستم‌های چنداسپیندله، هدهای ماژولار، افزایش‌دهنده‌های سرعت و ابزارهای Driven برای عملیات پیچیده ماشین‌کاری است.",
+      "MPA ارائه‌دهنده تجهیزات و هدهای تخصصی ماشین‌ابزار شامل Angle Head ، مولتی اسپیندل، افزایش‌دهنده‌های سرعت، تارت های مخصوص و  ابزارهای متحرک برای عملیات پیچیده ماشین‌کاری است.",
 
     image: "/home/partners/mpa.webp",
 

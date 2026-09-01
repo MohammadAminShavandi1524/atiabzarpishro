@@ -139,9 +139,9 @@ export default function ContactForm() {
           </div>
 
           <input
+            dir={locale === "en" ? "ltr" : "rtl"}
             id="phone"
             type="tel"
-            dir="ltr"
             autoComplete="tel"
             placeholder={t("form.phonePlaceholder")}
             {...register("phone")}
@@ -172,7 +172,6 @@ export default function ContactForm() {
           <input
             id="email"
             type="email"
-            dir="ltr"
             autoComplete="email"
             placeholder={t("form.emailPlaceholder")}
             {...register("email")}

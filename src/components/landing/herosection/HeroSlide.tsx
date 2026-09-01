@@ -39,14 +39,24 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
       {/* Image */}
       <div className="absolute inset-0">
         <Image
-          src={item.image}
+          src={
+            item.flipedImage
+              ? isRTL
+                ? item.flipedImage
+                : item.image
+              : item.image
+          }
           alt={title}
           fill
           priority={item.id === "1"}
           sizes="100vw"
           className={cn(
             "object-cover",
-            ["1", "2","7"].includes(item.id) ? "" : isRTL ? "-scale-x-100" : "",
+            ["1", "2", "7"].includes(item.id)
+              ? ""
+              : isRTL
+                ? "-scale-x-100"
+                : "",
           )}
         />
       </div>
