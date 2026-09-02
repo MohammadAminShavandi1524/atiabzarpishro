@@ -4,8 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Download, Eye } from "lucide-react";
-
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 import type { TechNewsItem } from "./techNews.data";
 
@@ -15,6 +14,7 @@ interface TechNewsCardProps {
 
 export default function TechNewsCard({ item }: TechNewsCardProps) {
   const locale = useLocale();
+  const t = useTranslations("TechNews");
 
   return (
     <article className="group min-w-0">
@@ -37,7 +37,9 @@ export default function TechNewsCard({ item }: TechNewsCardProps) {
           >
             <Eye size={22} strokeWidth={1.6} />
 
-            <span className="text-sm font-medium">Preview</span>
+            <span className="text-sm font-medium">
+              {t("actions.preview")}
+            </span>
           </Link>
 
           {/* Download */}
@@ -48,7 +50,9 @@ export default function TechNewsCard({ item }: TechNewsCardProps) {
           >
             <Download size={22} strokeWidth={1.6} />
 
-            <span className="text-sm font-medium">PDF</span>
+            <span className="text-sm font-medium">
+              {t("actions.download")}
+            </span>
           </a>
         </div>
       </div>

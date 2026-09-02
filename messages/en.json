@@ -307,17 +307,22 @@
     }
   },
 
-  "TechNews": {
-    "hero": {
-      "title": "Tech News",
-      "description": "Explore technical updates, product developments and machining-related news from ATI Abzar Pishro and our technology partners."
-    },
-
-    "library": {
-      "title": "Technical News",
-      "count": "Items"
-    }
+ "TechNews": {
+  "hero": {
+    "title": "Tech News",
+    "description": "Explore technical updates, product developments and machining-related news from ATI Abzar Pishro and our technology partners."
   },
+
+  "library": {
+    "title": "Technical News",
+    "count": "Items"
+  },
+
+  "actions": {
+    "preview": "Preview",
+    "download": "PDF"
+  }
+},
 
   "VideoClips": {
     "hero": {
