@@ -16,7 +16,7 @@ export default function TechNewsPage() {
 
       <section className="bg-background">
         <div className="w90 py-16">
-          <div className="border-border mb-10 flex items-end justify-between border-b pb-6">
+          {/* <div className="border-border mb-10 flex items-end justify-between border-b pb-6">
             <h2 className="text-foreground text-[32px] leading-tight font-semibold">
               {t("library.title")}
             </h2>
@@ -24,7 +24,7 @@ export default function TechNewsPage() {
             <span className="text-muted-foreground text-sm">
               {techNewsItems.length} {t("library.count")}
             </span>
-          </div>
+          </div> */}
 
           <div className="grid grid-cols-4 gap-x-16 gap-y-20">
             {techNewsItems.map((item) => (

@@ -75,7 +75,7 @@ export const carouselItems: HeroCarouselItem[] = [
     href: "",
 
     image: "/homepageCarousel/4.webp",
-    logo: "/home/partners/IZAR.webp",
+    logo: "/home/partners/izar2.webp",
 
     enLabel: "IZAR HSS TOOLS",
     faLabel: "ابزارهای HSS برند IZAR",
