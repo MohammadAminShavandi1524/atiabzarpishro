@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useRef } from "react";
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -8,10 +8,16 @@ import { useLocale, useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
 import { ContactFormValues, createContactSchema } from "./contact.schema";
 import { createContact } from "./contact.api";
 
 import { useCustomToast } from "@/components/ui/custom-toast";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function ContactForm() {
   const locale = useLocale();
@@ -21,6 +27,12 @@ export default function ContactForm() {
 
   const isRTL = locale === "fa";
   const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
+
+  const formRef = useRef<HTMLFormElement>(null);
+  const firstRowRef = useRef<HTMLDivElement>(null);
+  const secondRowRef = useRef<HTMLDivElement>(null);
+  const messageRef = useRef<HTMLDivElement>(null);
+  const submitRef = useRef<HTMLDivElement>(null);
 
   const schema = useMemo(
     () =>
@@ -58,6 +70,58 @@ export default function ContactForm() {
     },
   });
 
+  useGSAP(
+    () => {
+      if (
+        !formRef.current ||
+        !firstRowRef.current ||
+        !secondRowRef.current ||
+        !messageRef.current ||
+        !submitRef.current
+      ) {
+        return;
+      }
+
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      if (reduceMotion) {
+        return;
+      }
+
+      const elements = [
+        firstRowRef.current,
+        secondRowRef.current,
+        messageRef.current,
+        submitRef.current,
+      ];
+
+      gsap.fromTo(
+        elements,
+        {
+          opacity: 0,
+          y: 26,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.75,
+          stagger: 0.1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: formRef.current,
+            start: "top 82%",
+            once: true,
+          },
+        },
+      );
+    },
+    {
+      scope: formRef,
+    },
+  );
+
   const onSubmit = async (data: ContactFormValues) => {
     const payload = {
       full_name: data.name,
@@ -82,11 +146,12 @@ export default function ContactForm() {
 
   return (
     <form
+      ref={formRef}
       onSubmit={handleSubmit(onSubmit)}
       className="border-t-border space-y-5 border-t pt-5 sm:space-y-6 sm:pt-6"
     >
       {/* Name + Phone */}
-      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+      <div ref={firstRowRef} className="grid grid-cols-1 gap-5 md:grid-cols-2">
         {/* Name */}
         <div className="min-w-0">
           <div className="mb-2 flex items-center justify-between sm:gap-4">
@@ -98,7 +163,7 @@ export default function ContactForm() {
             </label>
 
             {errors.name && (
-              <span className="text-destructive text-xs leading-5 sm:text-end pt-1">
+              <span className="text-destructive pt-1 text-xs leading-5 sm:text-end">
                 {errors.name.message}
               </span>
             )}
@@ -125,7 +190,7 @@ export default function ContactForm() {
             </label>
 
             {errors.phone && (
-              <span className="text-destructive text-xs leading-5 sm:text-end pt-1">
+              <span className="text-destructive pt-1 text-xs leading-5 sm:text-end">
                 {errors.phone.message}
               </span>
             )}
@@ -144,10 +209,10 @@ export default function ContactForm() {
       </div>
 
       {/* Email + Company */}
-      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+      <div ref={secondRowRef} className="grid grid-cols-1 gap-5 md:grid-cols-2">
         {/* Email */}
         <div className="min-w-0">
-           <div className="mb-2 flex items-center justify-between sm:gap-4">
+          <div className="mb-2 flex items-center justify-between sm:gap-4">
             <label
               htmlFor="email"
               className="text-foreground shrink-0 text-sm font-medium"
@@ -156,7 +221,7 @@ export default function ContactForm() {
             </label>
 
             {errors.email && (
-              <span className="text-destructive text-xs leading-5 sm:text-end pt-1">
+              <span className="text-destructive pt-1 text-xs leading-5 sm:text-end">
                 {errors.email.message}
               </span>
             )}
@@ -174,7 +239,7 @@ export default function ContactForm() {
 
         {/* Company */}
         <div className="min-w-0">
-           <div className="mb-2 flex items-center justify-between sm:gap-4">
+          <div className="mb-2 flex items-center justify-between sm:gap-4">
             <label
               htmlFor="companyName"
               className="text-foreground shrink-0 text-sm font-medium"
@@ -183,7 +248,7 @@ export default function ContactForm() {
             </label>
 
             {errors.companyName && (
-              <span className="text-destructive text-xs leading-5 sm:text-end pt-1">
+              <span className="text-destructive pt-1 text-xs leading-5 sm:text-end">
                 {errors.companyName.message}
               </span>
             )}
@@ -201,7 +266,7 @@ export default function ContactForm() {
       </div>
 
       {/* Message */}
-      <div className="min-w-0">
+      <div ref={messageRef} className="min-w-0">
         <div className="mb-2 flex items-center justify-between sm:gap-4">
           <label
             htmlFor="message"
@@ -211,7 +276,7 @@ export default function ContactForm() {
           </label>
 
           {errors.message && (
-            <span className="text-destructive text-xs leading-5 sm:text-end pt-1">
+            <span className="text-destructive pt-1 text-xs leading-5 sm:text-end">
               {errors.message.message}
             </span>
           )}
@@ -227,7 +292,10 @@ export default function ContactForm() {
       </div>
 
       {/* Submit */}
-      <div className="xss:justify-end flex justify-stretch pt-1 sm:pt-2">
+      <div
+        ref={submitRef}
+        className="xss:justify-end flex justify-stretch pt-1 sm:pt-2"
+      >
         <button
           type="submit"
           disabled={isSubmitting}

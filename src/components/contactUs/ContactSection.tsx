@@ -124,7 +124,7 @@ export default function ContactSection() {
         "-=0.65",
       );
 
-      /* Contact information label */
+      /* Contact Label */
       if (contactLabelRef.current) {
         gsap.fromTo(
           contactLabelRef.current,
@@ -146,7 +146,7 @@ export default function ContactSection() {
         );
       }
 
-      /* Contact detail items */
+      /* Contact Items */
       const contactItems = Array.from(contactDetailsRef.current.children);
 
       gsap.fromTo(
@@ -160,34 +160,22 @@ export default function ContactSection() {
               opacity: 0,
               x: isRTL ? 28 : -28,
             },
-        isBelowLg
-          ? {
-              opacity: 1,
-              y: 0,
-              duration: 0.75,
-              stagger: 0.1,
-              ease: "power3.out",
-              scrollTrigger: {
-                trigger: contactDetailsRef.current,
-                start: "top 84%",
-                once: true,
-              },
-            }
-          : {
-              opacity: 1,
-              x: 0,
-              duration: 0.75,
-              stagger: 0.1,
-              ease: "power3.out",
-              scrollTrigger: {
-                trigger: contactDetailsRef.current,
-                start: "top 80%",
-                once: true,
-              },
-            },
+        {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          duration: 0.75,
+          stagger: 0.1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: contactDetailsRef.current,
+            start: isBelowLg ? "top 84%" : "top 80%",
+            once: true,
+          },
+        },
       );
 
-      /* Form label */
+      /* Form Label */
       if (formLabelRef.current) {
         gsap.fromTo(
           formLabelRef.current,
@@ -203,30 +191,6 @@ export default function ContactSection() {
             scrollTrigger: {
               trigger: formWrapperRef.current,
               start: "top 82%",
-              once: true,
-            },
-          },
-        );
-      }
-
-      /* Form */
-      const formElement = formWrapperRef.current.querySelector("form");
-
-      if (formElement) {
-        gsap.fromTo(
-          formElement,
-          {
-            opacity: 0,
-            y: isBelowLg ? 26 : 32,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.9,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: formWrapperRef.current,
-              start: isBelowLg ? "top 84%" : "top 80%",
               once: true,
             },
           },
@@ -263,29 +227,25 @@ export default function ContactSection() {
   );
 
   return (
-    <div
-      ref={rootRef}
-      dir={isRTL ? "rtl" : "ltr"}
-      className="bg-background"
-    >
+    <div ref={rootRef} dir={isRTL ? "rtl" : "ltr"} className="bg-background">
       {/* Contact Hero */}
       <section className="bg-secondary-bg border-border border-b">
         <div className="w90 py-11 sm:py-14 md:py-16 lg:py-[72px] xl:py-[76px] 2xl:py-20">
           <div className="grid grid-cols-1 gap-9 md:gap-11 lg:grid-cols-[1.25fr_0.75fr] lg:items-end lg:gap-10 xl:grid-cols-[1.35fr_0.65fr] xl:gap-14 2xl:gap-20">
             {/* Hero Intro */}
-            <div ref={heroIntroRef} className="min-w-0 max-w-5xl">
+            <div ref={heroIntroRef} className="max-w-5xl min-w-0">
               <div className="mb-4 flex items-center gap-3 sm:mb-5 sm:gap-4 2xl:mb-6">
                 <span
                   ref={heroLineRef}
                   className="bg-custom-primary h-px w-9 shrink-0 sm:w-10 xl:w-11 2xl:w-12"
                 />
 
-                <span className="text-custom-primary text-[11px] font-medium tracking-[0.12em] xss:text-xs sm:text-[13px] xl:text-sm xl:tracking-[0.14em]">
+                <span className="text-custom-primary xss:text-xs text-[11px] font-medium tracking-[0.12em] sm:text-[13px] xl:text-sm xl:tracking-[0.14em]">
                   {t("eyebrow")}
                 </span>
               </div>
 
-              <h1 className="text-foreground max-w-4xl text-[30px] leading-[1.2] font-semibold xss:text-[32px] sm:text-[36px] sm:leading-[1.16] md:text-[40px] lg:text-[40px] xl:text-[44px] 2xl:text-[46px] 2xl:leading-[1.12]">
+              <h1 className="text-foreground xss:text-[32px] max-w-4xl text-[30px] leading-[1.2] font-semibold sm:text-[36px] sm:leading-[1.16] md:text-[40px] lg:text-[40px] xl:text-[44px] 2xl:text-[46px] 2xl:leading-[1.12]">
                 {t("title")}
               </h1>
 
@@ -297,7 +257,7 @@ export default function ContactSection() {
             {/* Technical Meta */}
             <div
               ref={heroDetailRef}
-              className="border-border border-t pt-6 lg:border-t-0 lg:border-s lg:pt-0 lg:ps-6 xl:ps-8 2xl:ps-9"
+              className="border-border border-t pt-6 lg:border-s lg:border-t-0 lg:ps-6 lg:pt-0 xl:ps-8 2xl:ps-9"
             >
               <div className="text-custom-primary text-xs font-medium tracking-[0.12em] sm:text-[13px] xl:text-sm xl:tracking-[0.14em]">
                 {t("companyName")}
@@ -326,7 +286,6 @@ export default function ContactSection() {
           {/* Contact Information */}
           <aside ref={contactInfoRef} className="min-w-0 self-start">
             <div>
-              {/* Section Label */}
               <div
                 ref={contactLabelRef}
                 className="mb-4 flex items-center justify-between sm:mb-5 2xl:mb-6"
@@ -336,11 +295,7 @@ export default function ContactSection() {
                 </span>
               </div>
 
-              {/* Contact Details */}
-              <div
-                ref={contactDetailsRef}
-                className="border-border border-t"
-              >
+              <div ref={contactDetailsRef} className="border-border border-t">
                 {/* Phone */}
                 <a
                   href="tel:+982144455407"
@@ -373,10 +328,7 @@ export default function ContactSection() {
                   className="group/contact border-border flex items-start gap-4 border-b py-5 sm:gap-5 sm:py-6"
                 >
                   <span className="border-border group-hover/contact:border-custom-primary group-hover/contact:text-custom-primary flex size-10 shrink-0 items-center justify-center border transition-colors duration-300 sm:size-11">
-                    <Mail
-                      className="size-[18px] sm:size-5"
-                      strokeWidth={1.8}
-                    />
+                    <Mail className="size-[18px] sm:size-5" strokeWidth={1.8} />
                   </span>
 
                   <div className="min-w-0">
@@ -384,7 +336,7 @@ export default function ContactSection() {
                       {t("details.email")}
                     </span>
 
-                    <p className="text-foreground group-hover/contact:text-custom-primary mt-1 break-all text-sm transition-colors duration-300 sm:text-base">
+                    <p className="text-foreground group-hover/contact:text-custom-primary mt-1 text-sm break-all transition-colors duration-300 sm:text-base">
                       info@Atiabzarpishro.com
                     </p>
                   </div>
@@ -437,7 +389,7 @@ export default function ContactSection() {
         <div className="w90 py-8 sm:py-10 xl:py-12">
           <div
             ref={mapRef}
-            className="border-border relative h-[300px] overflow-hidden border xss:h-[320px] sm:h-[350px] md:h-[380px] lg:h-[400px] xl:h-[420px] 2xl:h-[430px]"
+            className="border-border xss:h-[320px] relative h-[300px] overflow-hidden border sm:h-[350px] md:h-[380px] lg:h-[400px] xl:h-[420px] 2xl:h-[430px]"
           >
             <iframe
               src="https://www.google.com/maps?q=35.754243,51.332173&z=15&output=embed"
