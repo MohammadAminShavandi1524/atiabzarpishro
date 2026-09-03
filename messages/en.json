@@ -464,7 +464,10 @@
       "badge": "News",
       "viewMore": "View More News",
       "showLess": "Show Less",
-      "readMore": "Read More"
+      "readMore": "Read More",
+      "loading": "Loading news...",
+      "emptyTitle": "No news available yet",
+      "emptyDescription": "There are currently no news items available. New industry updates and technical insights will appear here once published."
     },
 
     "Article": {
