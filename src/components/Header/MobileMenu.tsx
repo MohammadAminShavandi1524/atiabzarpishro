@@ -127,36 +127,29 @@ export default function MobileMenu() {
 
             {/* Partners */}
             <li className="border-border border-b">
-              <div className="flex min-h-13 items-center">
-                <Link
-                  href={productsHref}
-                  onClick={closeSidebar}
-                  className={cn(
-                    "hover:text-custom-primary flex flex-1 items-center py-3 text-[15px] font-medium transition-colors duration-300",
-                    partnersActive && "text-custom-primary",
-                  )}
-                >
-                  {t("ourPartners")}
-                </Link>
+              <button
+                type="button"
+                onClick={() => setPartnersOpen((prev) => !prev)}
+                aria-expanded={partnersOpen}
+                aria-controls="mobile-partners-menu"
+                className={cn(
+                  "hover:text-custom-primary flex min-h-13 w-full cursor-pointer items-center justify-between py-3 text-start text-[15px] font-medium transition-colors duration-300 pe-2.5",
+                  partnersActive && "text-custom-primary",
+                )}
+              >
+                <span>{t("ourPartners")}</span>
 
-                <button
-                  type="button"
-                  onClick={() => setPartnersOpen((prev) => !prev)}
-                  aria-expanded={partnersOpen}
-                  aria-label="Toggle partners"
-                  className="text-muted-foreground hover:text-custom-primary flex size-11 cursor-pointer items-center justify-center transition-colors duration-300"
-                >
-                  <ChevronDown
-                    className={cn(
-                      "size-5 transition-transform duration-300",
-                      partnersOpen && "rotate-180",
-                    )}
-                    strokeWidth={1.7}
-                  />
-                </button>
-              </div>
+                <ChevronDown
+                  className={cn(
+                    "text-muted-foreground size-5 shrink-0 transition-all duration-300",
+                    partnersOpen && "text-custom-primary rotate-180",
+                  )}
+                  strokeWidth={1.7}
+                />
+              </button>
 
               <div
+                id="mobile-partners-menu"
                 className={cn(
                   "grid transition-[grid-template-rows] duration-300 ease-in-out",
                   partnersOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
@@ -205,34 +198,29 @@ export default function MobileMenu() {
 
             {/* Technical Information */}
             <li className="border-border border-b">
-              <div className="flex min-h-13 items-center">
-                <span
-                  className={cn(
-                    "flex flex-1 items-center py-3 text-[15px] font-medium",
-                    technicalActive && "text-custom-primary",
-                  )}
-                >
-                  {t("technicalInformation")}
-                </span>
+              <button
+                type="button"
+                onClick={() => setTechnicalOpen((prev) => !prev)}
+                aria-expanded={technicalOpen}
+                aria-controls="mobile-technical-menu"
+                className={cn(
+                  "hover:text-custom-primary flex min-h-13 w-full cursor-pointer items-center justify-between py-3 text-start text-[15px] font-medium transition-colors duration-300 pe-2.5",
+                  technicalActive && "text-custom-primary",
+                )}
+              >
+                <span>{t("technicalInformation")}</span>
 
-                <button
-                  type="button"
-                  onClick={() => setTechnicalOpen((prev) => !prev)}
-                  aria-expanded={technicalOpen}
-                  aria-label="Toggle technical information"
-                  className="text-muted-foreground hover:text-custom-primary flex size-11 cursor-pointer items-center justify-center transition-colors duration-300"
-                >
-                  <ChevronDown
-                    className={cn(
-                      "size-5 transition-transform duration-300",
-                      technicalOpen && "rotate-180",
-                    )}
-                    strokeWidth={1.7}
-                  />
-                </button>
-              </div>
+                <ChevronDown
+                  className={cn(
+                    "text-muted-foreground size-5 shrink-0 transition-all duration-300",
+                    technicalOpen && "text-custom-primary rotate-180",
+                  )}
+                  strokeWidth={1.7}
+                />
+              </button>
 
               <div
+                id="mobile-technical-menu"
                 className={cn(
                   "grid transition-[grid-template-rows] duration-300 ease-in-out",
                   technicalOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",

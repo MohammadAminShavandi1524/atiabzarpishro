@@ -12,7 +12,7 @@ const Nav = () => {
 
   return (
     <nav className="ms-2.5">
-      <ul className="3xl:gap-x-9 3xl:pt-3 3xl:pb-2 3xl:text-[20px] flex items-center gap-x-2.5 pt-2 pb-1.5 text-[13px] whitespace-nowrap xl:gap-x-4 xl:text-[16px] 2xl:gap-x-6 2xl:text-[18px]">
+      <ul className="3xl:gap-x-9 3xl:pt-3 3xl:pb-2 3xl:text-[20px] flex items-center gap-x-2.5 pt-2 pb-1.5 text-[16px] whitespace-nowrap xl:gap-x-4 xl:text-[16px] 2xl:gap-x-6 2xl:text-[18px]">
         <NavItem label={t("home")} href={`/${locale}`} />
 
         <PartnersDropdown />
