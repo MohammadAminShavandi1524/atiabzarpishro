@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+
 import { Minus, Plus } from "lucide-react";
 import { useLocale } from "next-intl";
 
@@ -45,9 +46,7 @@ export default function FAQItem({
   const toggleRef = useRef<HTMLSpanElement>(null);
 
   const highlightOwnBottom = !isOpen && hoveredIndex === index;
-
   const highlightAsNextTop = hoveredIndex === index + 1;
-
   const highlightBoundary = highlightOwnBottom || highlightAsNextTop;
 
   const handleMouseEnter = () => {
@@ -84,11 +83,18 @@ export default function FAQItem({
 
         gsap.set(answerInnerRef.current, {
           opacity: isOpen ? 1 : 0,
+          y: 0,
         });
 
         gsap.set(indicatorRef.current, {
           scaleY: isOpen ? 1 : 0,
         });
+
+        gsap.set(toggleRef.current, {
+          scale: 1,
+        });
+
+        ScrollTrigger.refresh();
 
         return;
       }
@@ -219,17 +225,18 @@ export default function FAQItem({
       <button
         type="button"
         aria-expanded={isOpen}
+        aria-controls={`faq-answer-${id}`}
         onClick={onToggle}
         className={[
-          "flex w-full cursor-pointer items-start gap-7 py-8 text-start",
+          "flex w-full cursor-pointer items-start gap-3 py-5 text-start sm:gap-4 sm:py-6 md:gap-5 md:py-7 lg:gap-4 lg:py-6 xl:gap-6 xl:py-7 2xl:gap-7 2xl:py-8",
           "transition-[padding] duration-500 ease-out",
-          isOpen ? "ps-5" : "ps-0",
+          isOpen ? "ps-5 sm:ps-3 md:ps-4 lg:ps-3 xl:ps-4 2xl:ps-5" : "ps-0",
         ].join(" ")}
       >
         {/* Number */}
         <span
           className={[
-            "mt-1.5 shrink-0 text-sm font-medium transition-colors duration-300",
+            "xss:text-xs mt-1 shrink-0 text-[11px] font-medium transition-colors duration-300 sm:mt-1.5 sm:text-[13px] xl:text-sm max-sm:hidden",
             isOpen
               ? "text-custom-primary"
               : "text-muted-foreground group-hover:text-custom-primary",
@@ -239,10 +246,10 @@ export default function FAQItem({
         </span>
 
         {/* Question Content */}
-        <div className="flex flex-1 items-start justify-between gap-8">
+        <div className="xss:gap-3 flex min-w-0 flex-1 items-start justify-between gap-2.5 sm:gap-4 md:gap-5 lg:gap-4 xl:gap-6 2xl:gap-8">
           <h3
             className={[
-              "max-w-3xl text-lg leading-8 font-medium transition-colors duration-300",
+              "xss:text-[15px] xss:leading-7 min-w-0 text-[14px] leading-6.5 font-medium transition-colors duration-300 sm:text-base md:leading-7.5 lg:text-[15px] lg:leading-7 xl:text-base xl:leading-7.5 2xl:max-w-3xl 2xl:text-lg 2xl:leading-8",
               isOpen
                 ? "text-custom-primary"
                 : "text-foreground group-hover:text-custom-primary",
@@ -255,22 +262,33 @@ export default function FAQItem({
           <span
             ref={toggleRef}
             className={[
-              "flex size-10 shrink-0 items-center justify-center border",
+              "flex size-8.5 shrink-0 items-center justify-center border sm:size-9 md:size-10 lg:size-9 xl:size-10",
               "transition-[color,background-color,border-color] duration-300",
               isOpen
                 ? "border-custom-primary bg-custom-primary text-white"
                 : "border-border text-foreground group-hover:border-custom-primary group-hover:text-custom-primary",
             ].join(" ")}
           >
-            {isOpen ? <Minus size={18} /> : <Plus size={18} />}
+            {isOpen ? (
+              <Minus className="size-4 2xl:size-[18px]" />
+            ) : (
+              <Plus className="size-4 2xl:size-[18px]" />
+            )}
           </span>
         </div>
       </button>
 
       {/* Answer */}
-      <div ref={answerRef} className="h-0 overflow-hidden">
-        <div ref={answerInnerRef} className="ps-17 pe-16 pb-9 opacity-0">
-          <p className="text-muted-foreground max-w-3xl text-justify text-base leading-8">
+      <div
+        id={`faq-answer-${id}`}
+        ref={answerRef}
+        className="h-0 overflow-hidden"
+      >
+        <div
+          ref={answerInnerRef}
+          className="xss:ps-6.5 ps-5.5 pe-1 pb-6 opacity-0 sm:ps-11 sm:pe-4 sm:pb-7 md:ps-13 md:pe-8 md:pb-8 lg:ps-12 lg:pe-8 xl:ps-14 xl:pe-12 2xl:ps-17 2xl:pe-16 2xl:pb-9"
+        >
+          <p className="text-muted-foreground max-w-3xl text-justify text-sm leading-7 sm:text-[15px] sm:leading-7.5 lg:text-sm xl:text-[15px] 2xl:text-base 2xl:leading-8">
             {answer}
           </p>
         </div>
