@@ -3,11 +3,9 @@
 import { useMemo } from "react";
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
-
 import { useLocale, useTranslations } from "next-intl";
 
 import { useForm } from "react-hook-form";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { ContactFormValues, createContactSchema } from "./contact.schema";
@@ -22,7 +20,6 @@ export default function ContactForm() {
   const toast = useCustomToast();
 
   const isRTL = locale === "fa";
-
   const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
 
   const schema = useMemo(
@@ -64,13 +61,9 @@ export default function ContactForm() {
   const onSubmit = async (data: ContactFormValues) => {
     const payload = {
       full_name: data.name,
-
       phone_number: data.phone,
-
       email: data.email,
-
       company: data.companyName,
-
       message: data.message,
     };
 
@@ -90,22 +83,22 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="border-t-border space-y-6 border-t pt-6"
+      className="border-t-border space-y-5 border-t pt-5 sm:space-y-6 sm:pt-6"
     >
       {/* Name + Phone */}
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
         {/* Name */}
-        <div>
-          <div className="mb-2 flex items-center justify-between gap-4">
+        <div className="min-w-0">
+          <div className="mb-2 flex items-center justify-between sm:gap-4">
             <label
               htmlFor="name"
-              className="text-foreground text-sm font-medium"
+              className="text-foreground shrink-0 text-sm font-medium"
             >
               {t("form.name")}
             </label>
 
             {errors.name && (
-              <span className="text-destructive text-xs">
+              <span className="text-destructive text-xs leading-5 sm:text-end pt-1">
                 {errors.name.message}
               </span>
             )}
@@ -117,22 +110,22 @@ export default function ContactForm() {
             autoComplete="name"
             placeholder={t("form.namePlaceholder")}
             {...register("name")}
-            className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-custom-primary h-12 w-full border px-4 text-sm transition-colors duration-200 outline-none"
+            className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-custom-primary h-11 w-full min-w-0 border px-3.5 text-sm transition-colors duration-200 outline-none sm:h-12 sm:px-4"
           />
         </div>
 
         {/* Phone */}
-        <div>
-          <div className="mb-2 flex items-center justify-between gap-4">
+        <div className="min-w-0">
+          <div className="mb-2 flex items-center justify-between sm:gap-4">
             <label
               htmlFor="phone"
-              className="text-foreground text-sm font-medium"
+              className="text-foreground shrink-0 text-sm font-medium"
             >
               {t("form.phone")}
             </label>
 
             {errors.phone && (
-              <span className="text-destructive text-xs">
+              <span className="text-destructive text-xs leading-5 sm:text-end pt-1">
                 {errors.phone.message}
               </span>
             )}
@@ -145,25 +138,25 @@ export default function ContactForm() {
             autoComplete="tel"
             placeholder={t("form.phonePlaceholder")}
             {...register("phone")}
-            className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-custom-primary h-12 w-full border px-4 text-sm transition-colors duration-200 outline-none"
+            className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-custom-primary h-11 w-full min-w-0 border px-3.5 text-sm transition-colors duration-200 outline-none sm:h-12 sm:px-4"
           />
         </div>
       </div>
 
       {/* Email + Company */}
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
         {/* Email */}
-        <div>
-          <div className="mb-2 flex items-center justify-between gap-4">
+        <div className="min-w-0">
+           <div className="mb-2 flex items-center justify-between sm:gap-4">
             <label
               htmlFor="email"
-              className="text-foreground text-sm font-medium"
+              className="text-foreground shrink-0 text-sm font-medium"
             >
               {t("form.email")}
             </label>
 
             {errors.email && (
-              <span className="text-destructive text-xs">
+              <span className="text-destructive text-xs leading-5 sm:text-end pt-1">
                 {errors.email.message}
               </span>
             )}
@@ -175,22 +168,22 @@ export default function ContactForm() {
             autoComplete="email"
             placeholder={t("form.emailPlaceholder")}
             {...register("email")}
-            className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-custom-primary h-12 w-full border px-4 text-sm transition-colors duration-200 outline-none"
+            className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-custom-primary h-11 w-full min-w-0 border px-3.5 text-sm transition-colors duration-200 outline-none sm:h-12 sm:px-4"
           />
         </div>
 
         {/* Company */}
-        <div>
-          <div className="mb-2 flex items-center justify-between gap-4">
+        <div className="min-w-0">
+           <div className="mb-2 flex items-center justify-between sm:gap-4">
             <label
               htmlFor="companyName"
-              className="text-foreground text-sm font-medium"
+              className="text-foreground shrink-0 text-sm font-medium"
             >
               {t("form.companyName")}
             </label>
 
             {errors.companyName && (
-              <span className="text-destructive text-xs">
+              <span className="text-destructive text-xs leading-5 sm:text-end pt-1">
                 {errors.companyName.message}
               </span>
             )}
@@ -202,23 +195,23 @@ export default function ContactForm() {
             autoComplete="organization"
             placeholder={t("form.companyPlaceholder")}
             {...register("companyName")}
-            className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-custom-primary h-12 w-full border px-4 text-sm transition-colors duration-200 outline-none"
+            className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-custom-primary h-11 w-full min-w-0 border px-3.5 text-sm transition-colors duration-200 outline-none sm:h-12 sm:px-4"
           />
         </div>
       </div>
 
       {/* Message */}
-      <div>
-        <div className="mb-2 flex items-center justify-between gap-4">
+      <div className="min-w-0">
+        <div className="mb-2 flex items-center justify-between sm:gap-4">
           <label
             htmlFor="message"
-            className="text-foreground text-sm font-medium"
+            className="text-foreground shrink-0 text-sm font-medium"
           >
             {t("form.message")}
           </label>
 
           {errors.message && (
-            <span className="text-destructive text-xs">
+            <span className="text-destructive text-xs leading-5 sm:text-end pt-1">
               {errors.message.message}
             </span>
           )}
@@ -229,16 +222,16 @@ export default function ContactForm() {
           rows={5}
           placeholder={t("form.messagePlaceholder")}
           {...register("message")}
-          className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-custom-primary w-full resize-none border px-4 py-3 text-sm leading-7 transition-colors duration-200 outline-none"
+          className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-custom-primary min-h-[145px] w-full resize-none border px-3.5 py-3 text-sm leading-7 transition-colors duration-200 outline-none sm:min-h-[155px] sm:px-4"
         />
       </div>
 
       {/* Submit */}
-      <div className="flex justify-end pt-2">
+      <div className="xss:justify-end flex justify-stretch pt-1 sm:pt-2">
         <button
           type="submit"
           disabled={isSubmitting}
-          className="bg-custom-primary text-primary-foreground inline-flex min-w-[170px] cursor-pointer items-center justify-center gap-3 px-6 py-3 text-sm font-medium transition-opacity duration-200 disabled:cursor-not-allowed disabled:opacity-50"
+          className="bg-custom-primary text-primary-foreground xss:w-auto xss:min-w-[170px] inline-flex min-h-11 w-full cursor-pointer items-center justify-center gap-3 px-5 py-3 text-sm font-medium transition-opacity duration-200 disabled:cursor-not-allowed disabled:opacity-50 sm:px-6"
         >
           <span>{isSubmitting ? t("form.sending") : t("form.submit")}</span>
 
