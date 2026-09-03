@@ -5,6 +5,8 @@ import { createPortal } from "react-dom";
 
 import { AnimatePresence } from "framer-motion";
 
+import { getLenisInstance } from "@/lib/lenis-instance";
+
 import { MobileSidebarContentProps } from "./mobile-sidebar.types";
 import { MobileSidebarOverlay } from "./mobile-sidebar-overlay";
 import { MobileSidebarPanel } from "./mobile-sidebar-panel";
@@ -20,25 +22,34 @@ export function MobileSidebarContent({
 
   const [mounted, setMounted] = useState(false);
 
-  // Mount
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Body Scroll Lock
   useEffect(() => {
-    if (!mounted) return;
+    if (!mounted || !open) return;
 
-    const originalOverflow = document.body.style.overflow;
+    const body = document.body;
+    const html = document.documentElement;
 
-    document.body.style.overflow = open ? "hidden" : originalOverflow;
+    const originalBodyOverflow = body.style.overflow;
+    const originalHtmlOverflow = html.style.overflow;
+
+    const lenis = getLenisInstance();
+
+    body.style.overflow = "hidden";
+    html.style.overflow = "hidden";
+
+    lenis?.stop();
 
     return () => {
-      document.body.style.overflow = originalOverflow;
+      body.style.overflow = originalBodyOverflow;
+      html.style.overflow = originalHtmlOverflow;
+
+      lenis?.start();
     };
   }, [open, mounted]);
 
-  // Escape
   useEffect(() => {
     if (!open) return;
 

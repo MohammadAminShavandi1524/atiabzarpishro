@@ -38,7 +38,7 @@ export default function FooterColumn({ title, type, items }: Props) {
 
   return (
     <div dir={isRTL ? "rtl" : "ltr"} className="min-w-0">
-      <div className="border-footer-border border-b sm:border-b-0">
+      <div className="border-footer-border border-b sm:border-b-0 ">
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}

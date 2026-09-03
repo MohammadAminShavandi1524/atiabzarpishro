@@ -10,9 +10,13 @@ import { cn } from "@/lib/utils";
 
 type Props = {
   defaultLocale: Locale;
+  variant?: "default" | "icon";
 };
 
-export default function LanguageSwitcher({ defaultLocale }: Props) {
+export default function LanguageSwitcher({
+  defaultLocale,
+  variant = "default",
+}: Props) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
@@ -33,6 +37,24 @@ export default function LanguageSwitcher({ defaultLocale }: Props) {
 
   const currentLanguage = locale === "fa" ? "FA" : "EN";
   const targetLanguage = nextLocale === "fa" ? "FA" : "EN";
+
+  if (variant === "icon") {
+    return (
+      <button
+        type="button"
+        onClick={handleToggle}
+        disabled={isPending}
+        aria-label={`Switch language to ${targetLanguage}`}
+        className={cn(
+          "border-border bg-tertiary/70 text-muted-foreground hover:border-accent/40 hover:text-accent flex size-11 cursor-pointer items-center justify-center border shadow-[0_2px_10px_rgba(9,6,5,0.04)] transition-all duration-300 active:scale-[0.96]",
+          "dark:shadow-[0_2px_12px_rgba(0,0,0,0.15)]",
+          isPending && "pointer-events-none opacity-50",
+        )}
+      >
+        <Earth className="size-[22px]" strokeWidth={1.6} />
+      </button>
+    );
+  }
 
   return (
     <button

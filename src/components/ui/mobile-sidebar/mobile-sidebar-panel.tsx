@@ -7,9 +7,7 @@ import { cn } from "@/lib/utils";
 
 interface MobileSidebarPanelProps {
   children: React.ReactNode;
-
   width: number | string;
-
   className?: string;
 }
 
@@ -40,7 +38,7 @@ export function MobileSidebarPanel({
         width: typeof width === "number" ? `${width}px` : width,
       }}
       className={cn(
-        "bg-background border-border fixed top-0 z-[9999] flex h-screen flex-col pb-[max(20px,env(safe-area-inset-bottom))] shadow-2xl",
+        "bg-background border-border fixed top-0 z-[9999] flex h-dvh min-h-0 flex-col overflow-hidden pb-[max(20px,env(safe-area-inset-bottom))] shadow-2xl",
         locale === "fa" ? "right-0 border-l" : "left-0 border-r",
         className,
       )}

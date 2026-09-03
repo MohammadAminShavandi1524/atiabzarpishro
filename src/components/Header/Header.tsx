@@ -5,10 +5,12 @@ import { useLocale } from "next-intl";
 
 import LanguageSwitcher from "./LanguageSwitcher";
 import Logo from "./Logo";
+
 import SearchBar from "./Searchbar";
 import Nav from "./Nav";
 
 import { cn } from "@/lib/utils";
+import MobileHeader from "./MobileHeader";
 
 const Header = () => {
   const locale = useLocale();
@@ -40,7 +42,9 @@ const Header = () => {
 
     lastScrollY.current = window.scrollY;
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -51,7 +55,7 @@ const Header = () => {
     <header
       ref={headerRef}
       className={cn(
-        "bg-background fixed inset-x-0 top-0 z-50 hidden transition-transform duration-500 ease-out lg:block",
+        "bg-background fixed inset-x-0 top-0 z-50 transition-transform duration-500 ease-out",
         showHeader ? "translate-y-0" : "-translate-y-full",
       )}
     >
@@ -60,24 +64,32 @@ const Header = () => {
         className="bg-border pointer-events-none absolute inset-x-0 bottom-0 h-px"
       />
 
-      <div className="w90 px-0 flex py-2 xl:py-2.5">
-        <div className="flex shrink-0 items-start">
-          <Logo />
-        </div>
+      {/* Mobile / Tablet */}
+      <div className="lg:hidden">
+        <MobileHeader />
+      </div>
 
-        <div className="3xl:space-y-2.5 w-full space-y-1.5 pt-1.5 xl:space-y-2 xl:pt-2">
-          <div className="flex items-center justify-between">
-            <div />
-
-            <SearchBar />
-
-            <div className="flex items-center gap-x-3">
-              <LanguageSwitcher defaultLocale={locale} />
-            </div>
+      {/* Desktop */}
+      <div className="hidden lg:block">
+        <div className="w90 flex px-0 py-2 xl:py-2.5">
+          <div className="flex shrink-0 items-start">
+            <Logo />
           </div>
 
-          <div className="flex items-center justify-between">
-            <Nav />
+          <div className="3xl:space-y-2.5 w-full space-y-1.5 pt-1.5 xl:space-y-2 xl:pt-2">
+            <div className="flex items-center justify-between">
+              <div />
+
+              <SearchBar />
+
+              <div className="flex items-center gap-x-3">
+                <LanguageSwitcher defaultLocale={locale} />
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <Nav />
+            </div>
           </div>
         </div>
       </div>

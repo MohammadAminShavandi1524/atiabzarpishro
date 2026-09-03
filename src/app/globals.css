@@ -310,22 +310,10 @@
   }
 
   .headerPadding {
-    padding-top: 140px;
+    padding-top: 124px;
   }
 
-  @media (min-width: 1024px) {
-    .headerPadding {
-      padding-top: 140px;
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .headerPadding {
-      padding-top: 140px;
-    }
-  }
-
-  @media (min-width: 1536px) {
+  @media (min-width: 64rem) {
     .headerPadding {
       padding-top: 140px;
     }

@@ -10,7 +10,11 @@ export function MobileSidebarBody({
   children,
 }: MobileSidebarBodyProps) {
   return (
-    <div className="flex-1 overflow-y-auto px-6 py-5">
+    <div
+      data-lenis-prevent
+      data-lenis-prevent-wheel
+      className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 py-5"
+    >
       {children}
     </div>
   );

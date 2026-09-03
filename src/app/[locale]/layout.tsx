@@ -9,18 +9,24 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { Playfair_Display, Noto_Serif } from "next/font/google";
 
+import { Metadata } from "next";
+
 import { routing } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
-
-import { Metadata } from "next";
 
 import { ThemeProvider } from "@/components/theme/Providers";
 import AppToaster from "@/components/AppToaster";
 import Header from "@/components/Header/Header";
+
 import Footer from "@/components/Footer/Footer";
 import { CustomToastProvider } from "@/components/ui/custom-toast";
+import {
+  MobileSidebar,
+  MobileSidebarContent,
+} from "@/components/ui/mobile-sidebar";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import ScrollToTop from "@/components/ScrollToTop";
+import MobileMenu from "@/components/Header/MobileMenu";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -82,21 +88,27 @@ export default async function LocaleLayout({
       >
         <NextIntlClientProvider>
           <ThemeProvider>
-            <AppToaster />
+            <MobileSidebar>
+              <AppToaster />
 
-            <div className="text-foreground bg-background relative">
-              <Header />
+              <MobileSidebarContent width="min(88vw, 380px)">
+                <MobileMenu />
+              </MobileSidebarContent>
 
-              <main className="headerPadding ">
-                <CustomToastProvider>
-                  <SmoothScrollProvider>{children}</SmoothScrollProvider>
-                </CustomToastProvider>
-              </main>
+              <div className="bg-background text-foreground relative">
+                <Header />
 
-              <Footer />
+                <main className="headerPadding">
+                  <CustomToastProvider>
+                    <SmoothScrollProvider>{children}</SmoothScrollProvider>
+                  </CustomToastProvider>
+                </main>
 
-              <ScrollToTop />
-            </div>
+                <Footer />
+
+                <ScrollToTop />
+              </div>
+            </MobileSidebar>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

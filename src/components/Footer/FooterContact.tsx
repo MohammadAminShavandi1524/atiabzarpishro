@@ -15,7 +15,7 @@ export default function FooterContact() {
 
   return (
     <div dir={isRTL ? "rtl" : "ltr"} className="min-w-0">
-      <div className="mb-6 lg:mb-8">
+      <div className="mb-6 lg:mb-8 mt-4">
         <h3 className="text-base font-medium tracking-wide text-footer-foreground sm:text-lg">
           {t("columns.contact")}
         </h3>

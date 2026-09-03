@@ -34,7 +34,8 @@ export default function SmoothScrollProvider({
       prevent: (node) => {
         return (
           node instanceof HTMLElement &&
-          node.hasAttribute("data-lenis-prevent-wheel")
+          (node.hasAttribute("data-lenis-prevent") ||
+            node.hasAttribute("data-lenis-prevent-wheel"))
         );
       },
     });
