@@ -18,11 +18,9 @@ export default function CataloguesPage() {
         <div className="w90 py-16">
           {/* Header */}
           <div className="border-border mb-10 flex items-end justify-between border-b pb-6">
-            <div>
-              <h2 className="text-foreground mt-3 text-[32px] leading-tight font-semibold">
-                {t("library.title")}
-              </h2>
-            </div>
+            <h2 className="text-foreground text-[32px] leading-tight font-semibold">
+              {t("library.title")}
+            </h2>
 
             <span className="text-muted-foreground text-sm">
               {catalogues.length} {t("library.count")}

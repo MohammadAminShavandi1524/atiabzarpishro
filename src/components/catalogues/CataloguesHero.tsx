@@ -16,7 +16,7 @@ const CataloguesHero = () => {
           {t("hero.title")}
         </h1>
 
-        <p className="text-muted-foreground mt-5 max-w-3xl text-base leading-8">
+        <p className="text-muted-foreground mt-5 max-w-3xl text-justify text-base leading-8">
           {t("hero.description")}
         </p>
       </div>

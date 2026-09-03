@@ -307,22 +307,24 @@
     }
   },
 
- "TechNews": {
-  "hero": {
-   "title": "Tech News / Brochures",
-    "description": "Explore technical updates, product developments and machining-related news from ATI Abzar Pishro and our technology partners."
-  },
+  "TechNews": {
+    "hero": {
+      "title": "Tech News / Brochures",
+      "description": "Explore technical news, product updates, brochures and machining-related content from ATI Abzar Pishro and our technology partners."
+    },
 
-  "library": {
-    "title": "Technical News",
-    "count": "Items"
-  },
+    "library": {
+      "title": "Technical News & Brochures",
+      "count": "Items"
+    },
 
-  "actions": {
-    "preview": "Preview",
-    "download": "PDF"
-  }
-},
+    "actions": {
+      "preview": "Preview",
+      "download": "PDF",
+      "back": "Back",
+      "downloadPdf": "Download PDF"
+    }
+  },
 
   "VideoClips": {
     "hero": {
@@ -375,15 +377,21 @@
 
   "Catalogues": {
     "hero": {
-      "eyebrow": "TECHNICAL CATALOGUES",
-      "title": "Product Catalogues",
-      "description": "Explore technical catalogues, product ranges and machining solutions from ATI Abzar Pishro and our international technology partners."
+      "eyebrow": "CATALOGUES",
+      "title": "Technical Catalogues",
+      "description": "Explore our collection of technical catalogues and product documentation."
     },
 
     "library": {
-      "label": "CATALOGUES",
-      "title": "Technical Catalogue Library",
-      "count": "CATALOGUES"
+      "title": "Catalogue Library",
+      "count": "Catalogues"
+    },
+
+    "actions": {
+      "preview": "Preview",
+      "download": "Download",
+      "back": "Back",
+      "downloadPdf": "Download PDF"
     }
   },
 
