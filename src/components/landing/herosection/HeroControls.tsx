@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
+
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -21,7 +22,7 @@ export default function HeroControls({
   const isRTL = locale === "fa";
 
   return (
-    <div className="flex items-center gap-x-1.5" dir="ltr">
+    <div className="flex shrink-0 items-center gap-x-1.5" dir="ltr">
       {/* Previous */}
       <button
         type="button"
@@ -29,13 +30,14 @@ export default function HeroControls({
         disabled={!canScrollPrev}
         onClick={isRTL ? onNext : onPrev}
         className={cn(
-          "group relative flex size-12 cursor-pointer",
-          "items-center justify-center",
-          "overflow-hidden",
+          "group relative flex size-10 cursor-pointer items-center justify-center overflow-hidden",
           "border border-white/25",
           "bg-black/20 text-white",
           "backdrop-blur-md",
           "transition-all duration-300",
+
+          "sm:size-11",
+          "lg:size-12",
 
           "hover:border-accent",
           "hover:bg-accent",
@@ -48,23 +50,11 @@ export default function HeroControls({
         )}
       >
         <ArrowLeft
-          className={cn(
-            "relative z-10 size-4.5",
-            "transition-transform duration-300",
-          )}
+          className="relative z-10 size-4 sm:size-4.5"
           strokeWidth={1.6}
         />
 
-        {/* Technical accent */}
-        <span
-          className={cn(
-            "absolute start-0 bottom-0",
-            "h-[2px] w-0",
-            "bg-accent",
-            "transition-all duration-300",
-            "group-hover:w-full",
-          )}
-        />
+        <span className="bg-accent absolute start-0 bottom-0 h-[2px] w-0 transition-all duration-300 group-hover:w-full" />
       </button>
 
       {/* Next */}
@@ -74,13 +64,14 @@ export default function HeroControls({
         disabled={!canScrollNext}
         onClick={isRTL ? onPrev : onNext}
         className={cn(
-          "group relative flex size-12 cursor-pointer",
-          "items-center justify-center",
-          "overflow-hidden",
+          "group relative flex size-10 cursor-pointer items-center justify-center overflow-hidden",
           "border border-white/25",
           "bg-black/20 text-white",
           "backdrop-blur-md",
           "transition-all duration-300",
+
+          "sm:size-11",
+          "lg:size-12",
 
           "hover:border-accent",
           "hover:bg-accent",
@@ -93,23 +84,11 @@ export default function HeroControls({
         )}
       >
         <ArrowRight
-          className={cn(
-            "relative z-10 size-4.5",
-            "transition-transform duration-300",
-          )}
+          className="relative z-10 size-4 sm:size-4.5"
           strokeWidth={1.6}
         />
 
-        {/* Technical accent */}
-        <span
-          className={cn(
-            "absolute start-0 bottom-0",
-            "h-[2px] w-0",
-            "bg-accent",
-            "transition-all duration-300",
-            "group-hover:w-full",
-          )}
-        />
+        <span className="bg-accent absolute start-0 bottom-0 h-[2px] w-0 transition-all duration-300 group-hover:w-full" />
       </button>
     </div>
   );

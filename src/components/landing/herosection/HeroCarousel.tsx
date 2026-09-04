@@ -3,10 +3,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import useEmblaCarousel from "embla-carousel-react";
-
 import type { EmblaCarouselType } from "embla-carousel";
 
 import { useLocale } from "next-intl";
+
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 import { cn } from "@/lib/utils";
 
@@ -16,6 +18,8 @@ import HeroSlide from "./HeroSlide";
 import HeroControls from "./HeroControls";
 import HeroProgress from "./HeroProgress";
 
+gsap.registerPlugin(useGSAP);
+
 const AUTOPLAY_DURATION = 6000;
 const PROGRESS_INTERVAL = 50;
 
@@ -23,6 +27,9 @@ export default function HeroCarousel() {
   const locale = useLocale() as "fa" | "en";
 
   const isRTL = locale === "fa";
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const bottomControlsRef = useRef<HTMLDivElement>(null);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
@@ -49,6 +56,48 @@ export default function HeroCarousel() {
 
   const isPausedRef = useRef(false);
 
+  /*
+   * --------------------------------------------------
+   * Initial Controls Animation
+   * --------------------------------------------------
+   */
+
+  useGSAP(
+    () => {
+      if (!bottomControlsRef.current) return;
+
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      if (reduceMotion) return;
+
+      gsap.fromTo(
+        bottomControlsRef.current,
+        {
+          opacity: 0,
+          y: 14,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          delay: 0.18,
+          ease: "power3.out",
+        },
+      );
+    },
+    {
+      scope: sectionRef,
+    },
+  );
+
+  /*
+   * --------------------------------------------------
+   * Embla
+   * --------------------------------------------------
+   */
+
   const updateSelectedIndex = useCallback((api: EmblaCarouselType) => {
     setSelectedIndex(api.selectedScrollSnap());
   }, []);
@@ -60,12 +109,9 @@ export default function HeroCarousel() {
   }, []);
 
   useEffect(() => {
-    if (!emblaApi) {
-      return;
-    }
+    if (!emblaApi) return;
 
     updateSelectedIndex(emblaApi);
-
     updateButtons(emblaApi);
 
     emblaApi.on("select", updateSelectedIndex);
@@ -88,20 +134,22 @@ export default function HeroCarousel() {
   }, [emblaApi, updateSelectedIndex, updateButtons]);
 
   const scrollPrev = useCallback(() => {
-    if (!emblaApi) {
-      return;
-    }
+    if (!emblaApi) return;
 
     emblaApi.scrollPrev();
   }, [emblaApi]);
 
   const scrollNext = useCallback(() => {
-    if (!emblaApi) {
-      return;
-    }
+    if (!emblaApi) return;
 
     emblaApi.scrollNext();
   }, [emblaApi]);
+
+  /*
+   * --------------------------------------------------
+   * Autoplay
+   * --------------------------------------------------
+   */
 
   const clearAutoplay = useCallback(() => {
     if (autoplayTimerRef.current) {
@@ -118,9 +166,7 @@ export default function HeroCarousel() {
   }, []);
 
   const startAutoplay = useCallback(() => {
-    if (!emblaApi) {
-      return;
-    }
+    if (!emblaApi) return;
 
     clearAutoplay();
 
@@ -146,9 +192,7 @@ export default function HeroCarousel() {
   }, [emblaApi, clearAutoplay]);
 
   useEffect(() => {
-    if (!emblaApi) {
-      return;
-    }
+    if (!emblaApi) return;
 
     startAutoplay();
 
@@ -166,9 +210,7 @@ export default function HeroCarousel() {
   }, [emblaApi, startAutoplay, clearAutoplay]);
 
   const handleMouseEnter = () => {
-    if (isPausedRef.current) {
-      return;
-    }
+    if (isPausedRef.current) return;
 
     isPausedRef.current = true;
 
@@ -203,6 +245,7 @@ export default function HeroCarousel() {
 
   return (
     <section
+      ref={sectionRef}
       dir={isRTL ? "rtl" : "ltr"}
       className="relative w-full overflow-hidden"
       onMouseEnter={handleMouseEnter}
@@ -225,8 +268,14 @@ export default function HeroCarousel() {
       </div>
 
       {/* Bottom Controls */}
-      <div className={cn("absolute inset-x-0 bottom-0 z-20", "pb-7")}>
-        <div className="w90 mx-auto flex items-end justify-between">
+      <div
+        ref={bottomControlsRef}
+        className={cn(
+          "absolute inset-x-0 bottom-0 z-20",
+          "pb-4 sm:pb-5 lg:pb-6 2xl:pb-7",
+        )}
+      >
+        <div className="w90 mx-auto flex items-end justify-between gap-4">
           <HeroProgress
             current={selectedIndex + 1}
             total={carouselItems.length}

@@ -27,14 +27,14 @@ export default function HeroProgress({
 
   return (
     <div
-      className="flex items-center gap-x-4 text-white"
+      className="xss:gap-x-3 flex min-w-0 items-center gap-x-2.5 text-white sm:gap-x-4"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      <span className="min-w-[22px] text-xs font-medium tabular-nums">
+      <span className="min-w-[20px] text-[10px] font-medium tabular-nums sm:min-w-[22px] sm:text-xs">
         {formatNumber(current)}
       </span>
 
-      <div className="relative h-[2px] w-28 overflow-hidden bg-white/25 sm:w-36">
+      <div className="xss:w-20 relative h-[2px] w-16 overflow-hidden bg-white/25 sm:w-28 md:w-32 lg:w-36">
         <div
           className={cn(
             "bg-accent absolute inset-0",
@@ -46,7 +46,7 @@ export default function HeroProgress({
         />
       </div>
 
-      <span className="min-w-[22px] text-xs text-white/50 tabular-nums">
+      <span className="min-w-[20px] text-[10px] text-white/50 tabular-nums sm:min-w-[22px] sm:text-xs">
         {formatNumber(total)}
       </span>
     </div>
