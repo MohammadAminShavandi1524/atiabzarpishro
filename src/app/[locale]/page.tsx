@@ -19,7 +19,7 @@ export default function IndexPage({ params }: PageProps<"/[locale]">) {
       <CompanyStory />
       <Capabilities />
       <Industries />
-      {/* <Partners /> */}
+      <Partners />
       {/* <BlogInsights /> */}
     </div>
   );
