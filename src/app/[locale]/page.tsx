@@ -18,7 +18,7 @@ export default function IndexPage({ params }: PageProps<"/[locale]">) {
       {/* <HeroCarousel /> */}
       <CompanyStory />
       <Capabilities />
-      {/* <Industries /> */}
+      <Industries />
       {/* <Partners /> */}
       {/* <BlogInsights /> */}
     </div>
