@@ -36,7 +36,7 @@ export default function ProductsPage({ activeBrand }: ProductsPageProps) {
 
   return (
     <section dir={isRTL ? "rtl" : "ltr"} className="bg-background">
-      <div className="w90 py-12">
+      <div className="w90 py-8 sm:py-10 md:py-12">
         {/* Page / Brand Overview */}
         <BrandOverview
           brand={activeBrandItem}
@@ -44,14 +44,17 @@ export default function ProductsPage({ activeBrand }: ProductsPageProps) {
         />
 
         {/* Products */}
-        <div className="grid grid-cols-[290px_minmax(0,1fr)] items-start gap-8">
+        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[250px_minmax(0,1fr)] lg:gap-6 xl:grid-cols-[270px_minmax(0,1fr)] xl:gap-7 2xl:grid-cols-[290px_minmax(0,1fr)] 2xl:gap-8">
           <ProductsAside
             brands={brands}
             activeBrand={activeBrand}
             productCounts={productCounts}
           />
 
-          <ProductsGrid products={filteredProducts} />
+          <ProductsGrid
+            key={activeBrand ?? "all-products"}
+            products={filteredProducts}
+          />
         </div>
       </div>
     </section>
