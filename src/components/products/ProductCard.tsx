@@ -26,13 +26,13 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <article className="group border-border-secondary bg-background hover:border-custom-primary/40 flex h-full flex-col overflow-hidden border transition-colors duration-300">
       {/* Image */}
-      <div className="bg-secondary-bg relative aspect-[4/3] overflow-hidden">
+      <div className="bg-[#f5f5f5] relative aspect-[4/4] overflow-hidden">
         <Image
           src={product.image}
           alt={title}
           fill
           sizes="(max-width: 1280px) 25vw, 20vw"
-          className="object-contain p-4 transition-transform duration-500 ease-out group-hover:scale-[1.035]"
+          className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.03]"
         />
       </div>
 
