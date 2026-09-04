@@ -5,29 +5,22 @@ import { use } from "react";
 import CompanyStory from "@/components/landing/company-story/CompanyStory";
 import Capabilities from "@/components/landing/capabilities/Capabilities";
 import Industries from "@/components/landing/industries/Industries";
-import FeaturedProducts from "@/components/landing/featured-products/FeaturedProducts";
-import TechnicalInformation from "@/components/landing/TechnicalInformation/TechnicalInformation";
 import BlogInsights from "@/components/landing/BlogInsights/BlogInsights";
-import ContactCTA from "@/components/landing/ContactCTA/ContactCTA";
 import Partners from "@/components/landing/partners/Partners";
 
 export default function IndexPage({ params }: PageProps<"/[locale]">) {
   const { locale } = use(params);
 
-  // Enable static rendering
   setRequestLocale(locale as Locale);
 
   return (
     <div className="">
-      <HeroCarousel />
+      {/* <HeroCarousel /> */}
       <CompanyStory />
-      <Capabilities />
-      <Industries />
-      {/* <FeaturedProducts /> */}
-      <Partners />
-      {/* <TechnicalInformation /> */}
-      <BlogInsights />
-      {/* <ContactCTA /> */}
+      {/* <Capabilities /> */}
+      {/* <Industries /> */}
+      {/* <Partners /> */}
+      {/* <BlogInsights /> */}
     </div>
   );
 }

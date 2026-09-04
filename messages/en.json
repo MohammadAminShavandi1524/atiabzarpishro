@@ -136,24 +136,6 @@
         "aerospace": "Aerospace"
       }
     },
-    "featuredProducts": {
-      "eyebrow": "Featured Products",
-      "viewAll": "View All Products",
-      "items": {
-        "korloy": {
-          "title": "Indexable Machining Tools",
-          "description": "Professional Korloy tooling for turning, milling and drilling applications, engineered for accuracy, stability and high machining productivity."
-        },
-        "widin": {
-          "title": "Solid Carbide Cutting Tools",
-          "description": "WIDIN solid carbide end mills, drills and precision tools designed for reliable performance across demanding industrial machining applications."
-        },
-        "izar": {
-          "title": "Precision Cutting Tools",
-          "description": "IZAR cutting solutions including milling, drilling, tapping and precision machining tools for a broad range of industrial applications."
-        }
-      }
-    },
     "partners": {
       "eyebrow": "Global Partners",
       "label": "International Brands",
@@ -189,34 +171,6 @@
         },
         "fromm": {
           "description": "A German manufacturer of specialized HSS, HSS-E and carbide drills and reamers for precision machining applications."
-        }
-      }
-    },
-    "technicalInformation": {
-      "eyebrow": "Technical Information",
-      "titleLine1": "Technical Resources",
-      "titleLine2": "Built for the Shop Floor",
-      "description": "Access technical resources, product documentation, videos and engineering tools developed to support better machining decisions.",
-      "listDescription1": "Explore",
-      "listDescription2": " ATI Abzar Pishro technical resources and access the information you need.",
-      "bottomLabel": "Engineering knowledge & technical resources",
-
-      "items": {
-        "videos": {
-          "title": "Video Clips",
-          "description": "Product videos and machining demonstrations"
-        },
-        "brochures": {
-          "title": "Brochures",
-          "description": "Technical guides and product brochures"
-        },
-        "catalogues": {
-          "title": "Catalogues",
-          "description": "Product catalogues and technical data"
-        },
-        "softwares": {
-          "title": "Softwares",
-          "description": "Applications and engineering software"
         }
       }
     },
@@ -259,28 +213,6 @@
         "sixth": {
           "title": "Why Cutting Tool Selection Matters in Modern Manufacturing",
           "description": "Understanding how the right tooling strategy can improve machining performance, tool life, production consistency and overall manufacturing efficiency."
-        }
-      }
-    },
-    "contactCTA": {
-      "eyebrow": "Get in Touch",
-      "titleLine1": "Need the right",
-      "titleLine2": "machining solution?",
-      "titleLine3": "Let's talk",
-      "description": "Talk to ATI Abzar Pishro about your machining requirements, tooling needs and technical challenges.",
-      "sideDescription1": "Reach",
-      "sideDescription2": " our team directly by email or visit the contact page for complete company and communication details.",
-      "bottomLabel": "Start an engineering conversation",
-      "methods": {
-        "email": {
-          "eyebrow": "Direct Contact",
-          "title": "Send us an email",
-          "description": "Share your technical questions, machining requirements or collaboration inquiries directly with our team."
-        },
-        "contact": {
-          "eyebrow": "Contact Information",
-          "title": "Contact ATI Abzar Pishro",
-          "description": "Access our contact information, company location and additional ways to reach ATI Abzar Pishro."
         }
       }
     }
