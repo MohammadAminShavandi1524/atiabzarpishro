@@ -2,99 +2,74 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import useEmblaCarousel from "embla-carousel-react";
 import type { EmblaCarouselType } from "embla-carousel";
+import useEmblaCarousel from "embla-carousel-react";
 
 import { useLocale } from "next-intl";
-
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
 import { cn } from "@/lib/utils";
 
 import { carouselItems } from "./hero-carousel.data";
 
-import HeroSlide from "./HeroSlide";
 import HeroControls from "./HeroControls";
 import HeroProgress from "./HeroProgress";
-
-gsap.registerPlugin(useGSAP);
+import HeroSlide from "./HeroSlide";
 
 const AUTOPLAY_DURATION = 6000;
 const PROGRESS_INTERVAL = 50;
 
 export default function HeroCarousel() {
   const locale = useLocale() as "fa" | "en";
-
   const isRTL = locale === "fa";
 
-  const sectionRef = useRef<HTMLElement>(null);
-  const bottomControlsRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "start",
     direction: isRTL ? "rtl" : "ltr",
     skipSnaps: false,
+    duration: 16,
   });
 
   const [selectedIndex, setSelectedIndex] = useState(0);
-
   const [autoplayProgress, setAutoplayProgress] = useState(0);
-
   const [canScrollPrev, setCanScrollPrev] = useState(false);
-
   const [canScrollNext, setCanScrollNext] = useState(false);
 
-  const autoplayTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const autoplayTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const progressTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const startTimeRef = useRef(Date.now());
-
   const elapsedBeforePauseRef = useRef(0);
-
   const isPausedRef = useRef(false);
 
   /*
    * --------------------------------------------------
-   * Initial Controls Animation
+   * Mobile Detection
    * --------------------------------------------------
    */
 
-  useGSAP(
-    () => {
-      if (!bottomControlsRef.current) return;
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 39.999rem)");
 
-      const reduceMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
+    const updateMobileState = () => {
+      setIsMobile(mediaQuery.matches);
+    };
 
-      if (reduceMotion) return;
+    updateMobileState();
 
-      gsap.fromTo(
-        bottomControlsRef.current,
-        {
-          opacity: 0,
-          y: 14,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          delay: 0.18,
-          ease: "power3.out",
-        },
-      );
-    },
-    {
-      scope: sectionRef,
-    },
-  );
+    mediaQuery.addEventListener("change", updateMobileState);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateMobileState);
+    };
+  }, []);
 
   /*
    * --------------------------------------------------
-   * Embla
+   * Embla State
    * --------------------------------------------------
    */
 
@@ -104,7 +79,6 @@ export default function HeroCarousel() {
 
   const updateButtons = useCallback((api: EmblaCarouselType) => {
     setCanScrollPrev(api.canScrollPrev());
-
     setCanScrollNext(api.canScrollNext());
   }, []);
 
@@ -115,35 +89,45 @@ export default function HeroCarousel() {
     updateButtons(emblaApi);
 
     emblaApi.on("select", updateSelectedIndex);
-
     emblaApi.on("select", updateButtons);
 
     emblaApi.on("reInit", updateSelectedIndex);
-
     emblaApi.on("reInit", updateButtons);
 
     return () => {
       emblaApi.off("select", updateSelectedIndex);
-
       emblaApi.off("select", updateButtons);
 
       emblaApi.off("reInit", updateSelectedIndex);
-
       emblaApi.off("reInit", updateButtons);
     };
   }, [emblaApi, updateSelectedIndex, updateButtons]);
 
+  /*
+   * --------------------------------------------------
+   * Manual Navigation
+   * --------------------------------------------------
+   *
+   * Mobile:
+   * scrollNext(true)
+   * => instant snap
+   *
+   * Tablet/Desktop:
+   * scrollNext(false)
+   * => Embla animated movement
+   */
+
   const scrollPrev = useCallback(() => {
     if (!emblaApi) return;
 
-    emblaApi.scrollPrev();
-  }, [emblaApi]);
+    emblaApi.scrollPrev(isMobile === true);
+  }, [emblaApi, isMobile]);
 
   const scrollNext = useCallback(() => {
     if (!emblaApi) return;
 
-    emblaApi.scrollNext();
-  }, [emblaApi]);
+    emblaApi.scrollNext(isMobile === true);
+  }, [emblaApi, isMobile]);
 
   /*
    * --------------------------------------------------
@@ -153,29 +137,39 @@ export default function HeroCarousel() {
 
   const clearAutoplay = useCallback(() => {
     if (autoplayTimerRef.current) {
-      clearInterval(autoplayTimerRef.current);
-
+      clearTimeout(autoplayTimerRef.current);
       autoplayTimerRef.current = null;
     }
 
     if (progressTimerRef.current) {
       clearInterval(progressTimerRef.current);
-
       progressTimerRef.current = null;
     }
   }, []);
 
   const startAutoplay = useCallback(() => {
-    if (!emblaApi) return;
+    if (!emblaApi || isMobile === null) return;
 
     clearAutoplay();
+
+    /*
+     * Mobile:
+     * no autoplay
+     * no progress timer
+     */
+    if (isMobile) {
+      setAutoplayProgress(0);
+
+      elapsedBeforePauseRef.current = 0;
+      isPausedRef.current = false;
+
+      return;
+    }
 
     setAutoplayProgress(0);
 
     elapsedBeforePauseRef.current = 0;
-
     startTimeRef.current = Date.now();
-
     isPausedRef.current = false;
 
     progressTimerRef.current = setInterval(() => {
@@ -186,13 +180,13 @@ export default function HeroCarousel() {
       setAutoplayProgress(progress);
     }, PROGRESS_INTERVAL);
 
-    autoplayTimerRef.current = setInterval(() => {
+    autoplayTimerRef.current = setTimeout(() => {
       emblaApi.scrollNext();
     }, AUTOPLAY_DURATION);
-  }, [emblaApi, clearAutoplay]);
+  }, [emblaApi, clearAutoplay, isMobile]);
 
   useEffect(() => {
-    if (!emblaApi) return;
+    if (!emblaApi || isMobile === null) return;
 
     startAutoplay();
 
@@ -207,9 +201,17 @@ export default function HeroCarousel() {
 
       clearAutoplay();
     };
-  }, [emblaApi, startAutoplay, clearAutoplay]);
+  }, [emblaApi, isMobile, startAutoplay, clearAutoplay]);
+
+  /*
+   * --------------------------------------------------
+   * Desktop Hover Pause
+   * --------------------------------------------------
+   */
 
   const handleMouseEnter = () => {
+    if (isMobile !== false) return;
+
     if (isPausedRef.current) return;
 
     isPausedRef.current = true;
@@ -220,13 +222,18 @@ export default function HeroCarousel() {
   };
 
   const handleMouseLeave = () => {
+    if (isMobile !== false) return;
+
     if (!emblaApi || !isPausedRef.current) {
       return;
     }
 
     isPausedRef.current = false;
 
-    const remaining = AUTOPLAY_DURATION - elapsedBeforePauseRef.current;
+    const remaining = Math.max(
+      AUTOPLAY_DURATION - elapsedBeforePauseRef.current,
+      0,
+    );
 
     startTimeRef.current = Date.now() - elapsedBeforePauseRef.current;
 
@@ -238,14 +245,13 @@ export default function HeroCarousel() {
       setAutoplayProgress(progress);
     }, PROGRESS_INTERVAL);
 
-    autoplayTimerRef.current = setInterval(() => {
+    autoplayTimerRef.current = setTimeout(() => {
       emblaApi.scrollNext();
     }, remaining);
   };
 
   return (
     <section
-      ref={sectionRef}
       dir={isRTL ? "rtl" : "ltr"}
       className="relative w-full overflow-hidden"
       onMouseEnter={handleMouseEnter}
@@ -269,7 +275,6 @@ export default function HeroCarousel() {
 
       {/* Bottom Controls */}
       <div
-        ref={bottomControlsRef}
         className={cn(
           "absolute inset-x-0 bottom-0 z-20",
           "pb-4 sm:pb-5 lg:pb-6 2xl:pb-7",

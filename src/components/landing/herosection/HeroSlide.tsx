@@ -39,13 +39,9 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
   const isRTL = locale === "fa";
 
   const rootRef = useRef<HTMLElement>(null);
-
   const imageWrapperRef = useRef<HTMLDivElement>(null);
-
   const titleRef = useRef<HTMLHeadingElement>(null);
-
   const descriptionRef = useRef<HTMLParagraphElement>(null);
-
   const ctaRef = useRef<HTMLAnchorElement>(null);
 
   const label = isRTL ? item.faLabel : item.enLabel;
@@ -71,7 +67,7 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
 
   /*
    * --------------------------------------------------
-   * Active Slide Animation
+   * GSAP Active Slide Animation
    * --------------------------------------------------
    */
 
@@ -87,6 +83,10 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
 
       if (reduceMotion) return;
 
+      const isMobile = window.matchMedia("(max-width: 39.999rem)").matches;
+
+      const isDesktop = window.matchMedia("(min-width: 64rem)").matches;
+
       const logoBlocks =
         rootRef.current.querySelectorAll<HTMLElement>(".hero-logo-block");
 
@@ -97,20 +97,46 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
       });
 
       /*
-       * Background
+       * Image
+       *
+       * Mobile:
+       * opacity only
+       *
+       * Tablet:
+       * opacity only
+       *
+       * Desktop:
+       * very subtle zoom
        */
-      timeline.fromTo(
-        imageWrapperRef.current,
-        {
-          scale: 1.035,
-        },
-        {
-          scale: 1,
-          duration: 0.95,
-          ease: "power2.out",
-        },
-        0,
-      );
+      if (isDesktop) {
+        timeline.fromTo(
+          imageWrapperRef.current,
+          {
+            opacity: 0.92,
+            scale: 1.02,
+          },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.7,
+            ease: "power2.out",
+          },
+          0,
+        );
+      } else {
+        timeline.fromTo(
+          imageWrapperRef.current,
+          {
+            opacity: isMobile ? 0.88 : 0.92,
+          },
+          {
+            opacity: 1,
+            duration: isMobile ? 0.26 : 0.35,
+            ease: "power1.out",
+          },
+          0,
+        );
+      }
 
       /*
        * Logo
@@ -119,33 +145,39 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
         logoBlocks,
         {
           opacity: 0,
-          y: 14,
+          y: isMobile ? 7 : 10,
         },
         {
           opacity: 1,
           y: 0,
-          duration: 0.42,
+          duration: isMobile ? 0.26 : 0.36,
         },
-        0.08,
+        isMobile ? 0.02 : 0.06,
       );
 
       /*
        * Title
+       *
+       * Mobile has only a tiny horizontal movement,
+       * so we still get slide feeling without moving
+       * the entire hero.
        */
       if (titleRef.current) {
         timeline.fromTo(
           titleRef.current,
           {
             opacity: 0,
-            y: 22,
+            x: isMobile ? (isRTL ? 10 : -10) : 0,
+            y: isMobile ? 4 : 15,
           },
           {
             opacity: 1,
+            x: 0,
             y: 0,
-            duration: 0.5,
-            ease: "power4.out",
+            duration: isMobile ? 0.3 : 0.42,
+            ease: "power3.out",
           },
-          0.14,
+          isMobile ? 0.05 : 0.1,
         );
       }
 
@@ -157,14 +189,14 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
           descriptionRef.current,
           {
             opacity: 0,
-            y: 16,
+            y: isMobile ? 7 : 12,
           },
           {
             opacity: 1,
             y: 0,
-            duration: 0.43,
+            duration: isMobile ? 0.28 : 0.38,
           },
-          0.23,
+          isMobile ? 0.11 : 0.18,
         );
       }
 
@@ -176,20 +208,21 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
           ctaRef.current,
           {
             opacity: 0,
-            y: 12,
+            y: isMobile ? 6 : 10,
           },
           {
             opacity: 1,
             y: 0,
-            duration: 0.38,
+            duration: isMobile ? 0.25 : 0.34,
           },
-          0.3,
+          isMobile ? 0.16 : 0.24,
         );
       }
     },
     {
       scope: rootRef,
-      dependencies: [isActive, item.id, locale],
+      dependencies: [isActive, locale, item.id],
+      revertOnUpdate: true,
     },
   );
 
@@ -255,7 +288,9 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
       <div
         className={cn(
           "pointer-events-none absolute inset-0 lg:hidden",
+
           "bg-gradient-to-r from-black/55 via-black/15 to-transparent",
+
           isRTL && "bg-gradient-to-l from-black/55 via-black/15 to-transparent",
         )}
       />
@@ -276,7 +311,9 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
               <div
                 className={cn(
                   "relative size-[74px]",
+
                   ["3", "4", "8", "9"].includes(item.id) && "size-[86px]",
+
                   ["8", "10"].includes(item.id) && "size-[82px]",
                 )}
               >
@@ -311,7 +348,9 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
               <div
                 className={cn(
                   "relative size-30",
+
                   ["3", "4", "8", "9"].includes(item.id) && "size-40",
+
                   ["8", "10"].includes(item.id) && "size-36",
                 )}
               >
@@ -345,6 +384,7 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
 
                 "text-[32px] leading-[1.12]",
                 "xss:text-[35px]",
+
                 "sm:text-[42px] sm:leading-[1.1]",
                 "md:text-[48px]",
 
@@ -369,6 +409,7 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
                 "max-w-[650px] text-justify text-white/80",
 
                 "mt-6 text-[13px] leading-6.5",
+
                 "xss:text-[14px] xss:leading-7",
 
                 "sm:mt-7 sm:max-w-[580px] sm:text-[15px] sm:leading-7.5",

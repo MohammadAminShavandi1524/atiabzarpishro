@@ -30,14 +30,20 @@ export default function HeroProgress({
       className="xss:gap-x-3 flex min-w-0 items-center gap-x-2.5 text-white sm:gap-x-4"
       dir={isRTL ? "rtl" : "ltr"}
     >
+      {/* Current */}
       <span className="min-w-[20px] text-[10px] font-medium tabular-nums sm:min-w-[22px] sm:text-xs">
         {formatNumber(current)}
       </span>
 
-      <div className="xss:w-20 relative h-[2px] w-16 overflow-hidden bg-white/25 sm:w-28 md:w-32 lg:w-36">
+      {/* Mobile */}
+      <span className="text-[10px] text-white/30 sm:hidden">/</span>
+
+      {/* Tablet / Desktop Progress */}
+      <div className="relative hidden h-[2px] w-28 overflow-hidden bg-white/25 sm:block md:w-32 lg:w-36">
         <div
           className={cn(
             "bg-accent absolute inset-0",
+
             isRTL ? "origin-right" : "origin-left",
           )}
           style={{
@@ -46,6 +52,7 @@ export default function HeroProgress({
         />
       </div>
 
+      {/* Total */}
       <span className="min-w-[20px] text-[10px] text-white/50 tabular-nums sm:min-w-[22px] sm:text-xs">
         {formatNumber(total)}
       </span>

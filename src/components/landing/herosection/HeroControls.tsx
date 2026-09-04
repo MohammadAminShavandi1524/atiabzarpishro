@@ -31,12 +31,15 @@ export default function HeroControls({
         onClick={isRTL ? onNext : onPrev}
         className={cn(
           "group relative flex size-10 cursor-pointer items-center justify-center overflow-hidden",
+
           "border border-white/25",
-          "bg-black/20 text-white",
-          "backdrop-blur-md",
+
+          "bg-black/30 text-white",
+
           "transition-all duration-300",
 
-          "sm:size-11",
+          "sm:size-11 sm:bg-black/20 sm:backdrop-blur-md",
+
           "lg:size-12",
 
           "hover:border-accent",
@@ -65,12 +68,15 @@ export default function HeroControls({
         onClick={isRTL ? onPrev : onNext}
         className={cn(
           "group relative flex size-10 cursor-pointer items-center justify-center overflow-hidden",
+
           "border border-white/25",
-          "bg-black/20 text-white",
-          "backdrop-blur-md",
+
+          "bg-black/30 text-white",
+
           "transition-all duration-300",
 
-          "sm:size-11",
+          "sm:size-11 sm:bg-black/20 sm:backdrop-blur-md",
+
           "lg:size-12",
 
           "hover:border-accent",
