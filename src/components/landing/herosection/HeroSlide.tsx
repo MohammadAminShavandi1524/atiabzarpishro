@@ -35,6 +35,22 @@ const mobileObjectPositions: Record<string, string> = {
   "11": "68% 50%",
 };
 
+const mobileLogoSizes: Record<string, string> = {
+  "3": "size-[86px]",
+  "4": "size-[86px]",
+  "8": "size-[82px]",
+  "9": "size-[86px]",
+  "10": "size-[82px]",
+};
+
+const desktopLogoSizes: Record<string, string> = {
+  "3": "size-40",
+  "4": "size-40",
+  "8": "size-36",
+  "9": "size-40",
+  "10": "size-36",
+};
+
 export default function HeroSlide({ item, locale, isActive }: Props) {
   const isRTL = locale === "fa";
 
@@ -45,9 +61,7 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
   const ctaRef = useRef<HTMLAnchorElement>(null);
 
   const label = isRTL ? item.faLabel : item.enLabel;
-
   const title = isRTL ? item.faTitle : item.enTitle;
-
   const description = isRTL ? item.faDescription : item.enDescription;
 
   const imageSrc = item.flipedImage
@@ -65,11 +79,9 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
 
   const shouldFlipImage = !["1", "2", "7"].includes(item.id) && isRTL;
 
-  /*
-   * --------------------------------------------------
-   * GSAP Active Slide Animation
-   * --------------------------------------------------
-   */
+  const mobileLogoSize = mobileLogoSizes[item.id] ?? "size-[74px]";
+
+  const desktopLogoSize = desktopLogoSizes[item.id] ?? "size-30";
 
   useGSAP(
     () => {
@@ -98,15 +110,6 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
 
       /*
        * Image
-       *
-       * Mobile:
-       * opacity only
-       *
-       * Tablet:
-       * opacity only
-       *
-       * Desktop:
-       * very subtle zoom
        */
       if (isDesktop) {
         timeline.fromTo(
@@ -157,10 +160,6 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
 
       /*
        * Title
-       *
-       * Mobile has only a tiny horizontal movement,
-       * so we still get slide feeling without moving
-       * the entire hero.
        */
       if (titleRef.current) {
         timeline.fromTo(
@@ -231,18 +230,10 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
       ref={rootRef}
       className={cn(
         "hero-slide relative min-w-0 shrink-0 grow-0 basis-full overflow-hidden",
-
-        /*
-         * Mobile / Tablet
-         */
         "h-[590px]",
         "xss:h-[610px]",
         "sm:h-[640px]",
         "md:h-[670px]",
-
-        /*
-         * Desktop
-         */
         "lg:h-[calc(100svh-154px)]",
         "lg:min-h-[620px]",
         "lg:max-h-[760px]",
@@ -274,11 +265,8 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
       <div
         className={cn(
           "pointer-events-none absolute inset-0",
-
           "bg-gradient-to-b from-black/15 via-black/35 to-black/85",
-
           "lg:bg-gradient-to-r lg:from-black/75 lg:via-black/35 lg:to-transparent",
-
           isRTL &&
             "lg:bg-gradient-to-l lg:from-black/75 lg:via-black/35 lg:to-transparent",
         )}
@@ -288,9 +276,7 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
       <div
         className={cn(
           "pointer-events-none absolute inset-0 lg:hidden",
-
           "bg-gradient-to-r from-black/55 via-black/15 to-transparent",
-
           isRTL && "bg-gradient-to-l from-black/55 via-black/15 to-transparent",
         )}
       />
@@ -303,20 +289,15 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
         <div className="w-full max-w-[680px] text-white sm:max-w-[620px] lg:max-w-[680px]">
           {/* Logo */}
           <div className="flex justify-start">
-            {/* Mobile Logo */}
+            {/* Mobile / Tablet Logo */}
             <div
               dir="ltr"
-              className="hero-logo-block flex items-center lg:hidden"
+              className={cn(
+                "hero-logo-block flex items-center lg:hidden",
+                item.className,
+              )}
             >
-              <div
-                className={cn(
-                  "relative size-[74px]",
-
-                  ["3", "4", "8", "9"].includes(item.id) && "size-[86px]",
-
-                  ["8", "10"].includes(item.id) && "size-[82px]",
-                )}
-              >
+              <div className={cn("relative shrink-0", mobileLogoSize)}>
                 <Image
                   src={item.logo}
                   alt={item.brandName ?? "logo"}
@@ -330,7 +311,7 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
                 <div
                   lang="en"
                   dir="ltr"
-                  className="-ms-2 text-[17px] font-semibold tracking-wide sm:text-[19px]"
+                  className="-ms-2 text-[17px] font-semibold tracking-wide sm:-ms-3 sm:text-[19px]"
                 >
                   {item.brandName}
                 </div>
@@ -345,15 +326,7 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
                 item.className,
               )}
             >
-              <div
-                className={cn(
-                  "relative size-30",
-
-                  ["3", "4", "8", "9"].includes(item.id) && "size-40",
-
-                  ["8", "10"].includes(item.id) && "size-36",
-                )}
-              >
+              <div className={cn("relative shrink-0", desktopLogoSize)}>
                 <Image
                   src={item.logo}
                   alt={item.brandName ?? "logo"}
@@ -381,19 +354,14 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
               ref={titleRef}
               className={cn(
                 "max-w-[700px] font-semibold",
-
                 "text-[32px] leading-[1.12]",
                 "xss:text-[35px]",
-
                 "sm:text-[42px] sm:leading-[1.1]",
                 "md:text-[48px]",
-
                 "lg:text-6xl",
                 "xl:text-7xl",
-
                 "ltr:tracking-[-0.03em]",
                 "lg:ltr:tracking-tight",
-
                 isRTL && "font-IRANYekanX leading-[1.35]",
               )}
             >
@@ -407,17 +375,11 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
               ref={descriptionRef}
               className={cn(
                 "max-w-[650px] text-justify text-white/80",
-
                 "mt-6 text-[13px] leading-6.5",
-
                 "xss:text-[14px] xss:leading-7",
-
                 "sm:mt-7 sm:max-w-[580px] sm:text-[15px] sm:leading-7.5",
-
                 "md:max-w-[620px]",
-
                 "lg:mt-10 lg:text-start lg:text-base lg:leading-8",
-
                 isRTL && "font-IRANYekanX",
               )}
             >
@@ -432,15 +394,10 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
               href={item.href}
               className={cn(
                 "group mt-6 inline-flex items-center gap-x-2.5",
-
                 "bg-accent rounded-md px-4 py-2.5",
-
                 "text-accent-foreground text-xs font-medium",
-
                 "transition-colors duration-300",
-
                 "sm:mt-7 sm:gap-x-3 sm:px-5 sm:py-3 sm:text-sm",
-
                 "hover:bg-primary-hover",
               )}
             >

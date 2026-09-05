@@ -15,7 +15,7 @@ import HeroControls from "./HeroControls";
 import HeroProgress from "./HeroProgress";
 import HeroSlide from "./HeroSlide";
 
-const AUTOPLAY_DURATION = 6000;
+const AUTOPLAY_DURATION = 600000;
 const PROGRESS_INTERVAL = 50;
 
 export default function HeroCarousel() {

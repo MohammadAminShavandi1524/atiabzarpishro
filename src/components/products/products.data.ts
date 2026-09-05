@@ -501,7 +501,7 @@ export const products: ProductItem[] = [
       "Special carbide tools for specific machining requirements and specialized production processes.",
     short_description_fa:
       "ابزارهای کارباید مخصوص برای نیازهای خاص ماشین‌کاری و فرآیندهای تخصصی تولید.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/hanboo/Special-Carbide-tools.webp",
     brochure: null,
     brand: hanboo,
   },
@@ -513,7 +513,7 @@ export const products: ProductItem[] = [
       "Special PCD tools for high-precision machining and applications requiring extended tool life.",
     short_description_fa:
       "ابزارهای مخصوص PCD برای ماشین‌کاری بسیار دقیق و کاربردهایی که در آن به عمر بالای ابزار نیاز است.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/hanboo/Special-PCD-Tools.webp",
     brochure: null,
     brand: hanboo,
   },
@@ -525,7 +525,7 @@ export const products: ProductItem[] = [
       "Special tools equipped with Guide Pads to improve stability and dimensional accuracy in precision machining operations.",
     short_description_fa:
       "ابزارهای مخصوص مجهز به Guide Pad برای افزایش پایداری و دقت ابعادی در عملیات‌های دقیق ماشین‌کاری.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/hanboo/Special-Guide-pads-Tools.webp",
     brochure: null,
     brand: hanboo,
   },
@@ -537,7 +537,7 @@ export const products: ProductItem[] = [
       "Special motion tools for complex machining movements and customized production-line requirements using special-purpose machinery.",
     short_description_fa:
       "ابزارهای حرکتی مخصوص، برای حرکت‌های پیچیده ماشین‌کاری و نیازهای سفارشی خطوط تولید با ماشین‌آلات مخصوص.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/hanboo/Special-Motioning-tools.webp",
     brochure: null,
     brand: hanboo,
   },
@@ -549,7 +549,7 @@ export const products: ProductItem[] = [
       "Precision honing tools for improving bore geometry, dimensional accuracy and final surface quality.",
     short_description_fa:
       "هلدرهای دقیق هونینگ برای بهبود هندسه سوراخ، دقت ابعادی و کیفیت سطح نهایی.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/hanboo/Honing-Head.webp",
     brochure: null,
     brand: hanboo,
   },
@@ -561,7 +561,7 @@ export const products: ProductItem[] = [
       "Complete tooling packages for machining cylinder blocks, cylinder heads and major automotive components.",
     short_description_fa:
       "پکیج کامل ابزار ماشین‌کاری بلوک سیلندر، سرسیلندر و قطعات اصلی خودروسازی.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/hanboo/specialized-cylinder.webp",
     brochure: null,
     brand: hanboo,
   },
@@ -641,7 +641,7 @@ export const products: ProductItem[] = [
       "Solid CBN inserts for rough machining of cast iron, hardened steels and materials with poor machinability.",
     short_description_fa:
       "اینسرت‌های Solid CBN جهت ماشین‌کاری خشن قطعات چدنی، فولادهای سخت‌کاری‌شده و مواد با قابلیت ماشین‌کاری پایین.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/funic/Solid_CBN_Insert.webp",
     brochure: null,
     brand: funik,
   },
@@ -653,7 +653,7 @@ export const products: ProductItem[] = [
       "CBN Tip inserts for finish machining of cast iron, hardened steels and materials with poor machinability.",
     short_description_fa:
       "اینسرت‌های CBN Tip جهت ماشین‌کاری فینیش قطعات چدنی، فولادهای سخت‌کاری‌شده و مواد با قابلیت ماشین‌کاری پایین.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/funic/CBN_Tip_Insert.webp",
     brochure: null,
     brand: funik,
   },
@@ -665,7 +665,7 @@ export const products: ProductItem[] = [
       "PCD Tip inserts for precision machining of non-ferrous metals.",
     short_description_fa:
       "اینسرت‌های PCD Tip جهت ماشین‌کاری دقیق فلزات غیرآهنی.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/funic/pcd_insert.webp",
     brochure: null,
     brand: funik,
   },
@@ -681,7 +681,7 @@ export const products: ProductItem[] = [
       "HSS and carbide drilling tools developed for accurate hole-making across a wide range of materials.",
     short_description_fa:
       "ابزارهای سوراخ‌کاری HSS و کارباید برای ایجاد سوراخ دقیق در طیف گسترده‌ای از مواد.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/izar/hss&carbide_drilling.webp",
     brochure: null,
     brand: izar,
   },
@@ -693,7 +693,7 @@ export const products: ProductItem[] = [
       "Professional HSS and carbide milling tools for productive and reliable machining operations.",
     short_description_fa:
       "ابزارهای حرفه‌ای فرزکاری HSS و کارباید برای ماشین‌کاری پایدار و پربازده.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/izar/AtiAbzar_Izar_HSS_Carbide_Milling_Tools.webp",
     brochure: null,
     brand: izar,
   },
@@ -705,7 +705,7 @@ export const products: ProductItem[] = [
       "Precision reaming tools for dimensional accuracy, bore finishing and consistent hole quality.",
     short_description_fa:
       "ابزارهای دقیق برقوکاری برای دستیابی به دقت ابعادی و کیفیت سطح مناسب سوراخ.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/izar/AtiAbzar_Izar_HSS_Carbide_Reaming_Tools.webp",
     brochure: null,
     brand: izar,
   },
@@ -717,7 +717,7 @@ export const products: ProductItem[] = [
       "HSS threading tools engineered for reliable production of internal and external threads.",
     short_description_fa:
       "ابزارهای رزوه‌زنی HSS برای ایجاد دقیق و پایدار رزوه‌های داخلی و خارجی.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/izar/AtiAbzar_HSS_Threading_Tools.webp",
     brochure: null,
     brand: izar,
   },
@@ -729,7 +729,7 @@ export const products: ProductItem[] = [
       "Rotary burrs solutions for deburring, shaping, surface preparation and precision material removal.",
     short_description_fa:
       "ابزارهای Rotary Burrs برای پلیسه‌گیری، فرم‌دهی، آماده‌سازی سطح و براده‌برداری دقیق.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/izar/AtiAbzar_Rotary_Burrs_Tools.webp",
     brochure: null,
     brand: izar,
   },
