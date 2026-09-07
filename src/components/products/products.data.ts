@@ -449,7 +449,7 @@ export const products: ProductItem[] = [
       "Solid carbide end mills for precision milling, roughing, finishing and various machining conditions.",
     short_description_fa:
       "فرزهای انگشتی کارباید، جهت فرزکاری دقیق، خشن‌کاری، پرداخت و شرایط مختلف ماشین‌کاری.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/widin/Solid_carbide_end_mills.webp",
     brochure: null,
     brand: widin,
   },
@@ -461,7 +461,7 @@ export const products: ProductItem[] = [
       "High-performance carbide drills for precision hole-making and increased production productivity.",
     short_description_fa:
       "مته‌های کارباید، با بازدهی بالا جهت سوراخ‌کاری دقیق و افزایش بهره‌وری تولید.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/widin/Solid_Carbide_Drills.webp",
     brochure: null,
     brand: widin,
   },
@@ -473,7 +473,7 @@ export const products: ProductItem[] = [
       "HSS-E and carbide taps for producing accurate and stable internal threads in various materials.",
     short_description_fa:
       "قلاویزهای HSS-E و کارباید، برای ایجاد رزوه داخلی دقیق و پایدار در متریال‌های مختلف.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/widin/Taps_(Hss_&_Carbide).webp",
     brochure: null,
     brand: widin,
   },
@@ -485,7 +485,7 @@ export const products: ProductItem[] = [
       "Precision carbide chamfering and reaming tools for hole preparation and achieving optimal dimensional control.",
     short_description_fa:
       "ابزارهای دقیق پخ‌زنی و برقوکاری، برای آماده‌سازی سوراخ و دستیابی به کنترل ابعادی مطلوب.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/widin/Solid_Carbide_Centering&Reamers.webp",
     brochure: null,
     brand: widin,
   },
@@ -577,7 +577,7 @@ export const products: ProductItem[] = [
       "Diamond and CBN grinding wheels for precision grinding of components such as crankshafts and camshafts, providing high wear resistance and optimal surface quality.",
     short_description_fa:
       "سنگ‌های Diamond و CBN جهت سنگ‌زنی دقیق قطعات مانند میل‌لنگ، میل‌بادامک، با مقاومت سایشی بالا و دستیابی به کیفیت سطح مطلوب.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/shinhan/DiamondandCBNGrindingWheel.webp",
     brochure: null,
     brand: shinhan,
   },
@@ -589,7 +589,7 @@ export const products: ProductItem[] = [
       "PCD and CBN cutting tools for precision machining of hard materials and advanced industrial applications.",
     short_description_fa:
       "ابزارهای برشی PCD و CBN برای ماشین‌کاری دقیق مواد سخت و کاربردهای صنعتی پیشرفته.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/shinhan/pcd_cbn_insert_and_tools.webp",
     brochure: null,
     brand: shinhan,
   },
@@ -601,7 +601,7 @@ export const products: ProductItem[] = [
       "Diamond Wire Saw tools and diamond blades for professional stone cutting and construction applications.",
     short_description_fa:
       "ابزارهای Diamond Wire Saw و تیغه‌های الماسه برای برش حرفه‌ای سنگ و کاربردهای ساختمانی.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/shinhan/maining_and_stone.webp",
     brochure: null,
     brand: shinhan,
   },
@@ -613,7 +613,7 @@ export const products: ProductItem[] = [
       "Honing stones for controlled material removal and improving the quality of internal surfaces.",
     short_description_fa:
       "سنگ‌های هونینگ برای براده‌برداری کنترل‌شده جهت بهبود کیفیت سطوح داخلی.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/shinhan/Honing.webp",
     brochure: null,
     brand: shinhan,
   },
@@ -625,7 +625,7 @@ export const products: ProductItem[] = [
       "Specialized grinding wheels for controlled and precise finishing of various glass edges.",
     short_description_fa:
       "سنگ‌های تخصصی برای پرداخت کنترل‌شده و دقیق لبه انواع شیشه.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/shinhan/Safety-Glass-industry.webp",
     brochure: null,
     brand: shinhan,
   },
@@ -749,7 +749,7 @@ export const products: ProductItem[] = [
     short_description_fa:
       "اینسرت‌های سرامیکی جهت ماشین‌کاری انواع مواد با سرعت بالا و مقاومت حرارتی مناسب.",
 
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/union/ceramic_inserts.webp",
     brochure: null,
     brand: union,
   },
@@ -765,7 +765,7 @@ export const products: ProductItem[] = [
     short_description_fa:
       "اینسرت‌های سرمت جهت ماشین‌کاری با سرعت بالا و عملیات پرداخت، با مقاومت سایشی مناسب و دستیابی به کیفیت سطح پایدار.",
 
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/union/cermet_inseets.webp",
     brochure: null,
     brand: union,
   },
@@ -777,7 +777,7 @@ export const products: ProductItem[] = [
       "Turning tool holders with suitable rigidity for stable cutting performance and accurate insert positioning.",
     short_description_fa:
       "هلدرهای تراشکاری با صلبیت مناسب برای پایداری فرآیند برش و نگهداری دقیق اینسرت.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/union/Turning_Tool_Holders.webp",
     brochure: null,
     brand: union,
   },
@@ -789,7 +789,7 @@ export const products: ProductItem[] = [
       "Milling cutters designed for productive material removal and maintaining stability throughout the machining process.",
     short_description_fa:
       "کاترهای فرزکاری برای براده‌برداری پربازده و حفظ ثبات در فرآیند ماشین‌کاری.",
-    image: PRODUCT_PLACEHOLDER_IMAGE,
+    image: "/products/union/milling_tool_holder.webp",
     brochure: null,
     brand: union,
   },
