@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Link from "next/link";
 
@@ -15,7 +15,8 @@ import { cn } from "@/lib/utils";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-import { brands } from "../products/products.data";
+import { getBrands } from "../products/brands.api";
+import type { ProductBrand } from "../products/brands.types";
 
 import PartnerDropdownItem from "./PartnerDropdownItem";
 
@@ -25,12 +26,28 @@ const PartnersDropdown = () => {
   const locale = useLocale();
   const pathname = usePathname();
 
+  const [brands, setBrands] = useState<ProductBrand[]>([]);
+
   const dropdownRef = useRef<HTMLDivElement>(null);
   const chevronRef = useRef<SVGSVGElement>(null);
 
   const isActive =
     pathname === `/${locale}/products` ||
     pathname.startsWith(`/${locale}/products/`);
+
+  useEffect(() => {
+    const fetchBrands = async () => {
+      try {
+        const data = await getBrands();
+
+        setBrands(data);
+      } catch (error) {
+        console.error("FETCH BRANDS ERROR =>", error);
+      }
+    };
+
+    fetchBrands();
+  }, []);
 
   const openDropdown = () => {
     if (!dropdownRef.current) return;
