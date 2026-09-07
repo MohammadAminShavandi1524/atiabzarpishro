@@ -17,9 +17,13 @@
   "Header": {
     "logoLine1": "آتی",
     "logoLine2": "ابزار پیشرو",
-
+    
     "Search": {
-      "placeholder": "جستجو بر اساس برند یا دسته‌بندی"
+      "placeholder": "جستجو بر اساس برند یا دسته‌بندی",
+      "products": "محصولات",
+      "searching": "در حال جستجو...",
+      "noResults": "محصولی پیدا نشد",
+      "noResultsDescription": "عبارت دیگری را برای جستجو امتحان کنید."
     },
 
     "Navigation": {

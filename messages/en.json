@@ -18,7 +18,11 @@
     "logoLine2": "ABZAR PISHRO",
 
     "Search": {
-      "placeholder": "Search by brand or category"
+      "placeholder": "Search by brand or category",
+      "products": "Products",
+      "searching": "Searching...",
+      "noResults": "No products found",
+      "noResultsDescription": "Try searching with a different keyword."
     },
 
     "Navigation": {
