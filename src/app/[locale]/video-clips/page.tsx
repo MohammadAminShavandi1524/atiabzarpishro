@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Image from "next/image";
 
@@ -12,7 +12,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 import { cn } from "@/lib/utils";
-import { videos } from "@/data/videos";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 
@@ -20,11 +19,24 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const VIDEO_PLACEHOLDER = "/videos/korloyThumb.webp";
 
+interface VideoItem {
+  id: number;
+  name_en: string;
+  name_fa: string;
+  description_en: string;
+  description_fa: string;
+  video: string;
+  created: string;
+}
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 const Page = () => {
   const t = useTranslations("VideoClips");
   const locale = useLocale();
 
-  const [activeVideo, setActiveVideo] = useState(videos[0]);
+  const [videos, setVideos] = useState<VideoItem[]>([]);
+  const [activeVideo, setActiveVideo] = useState<VideoItem | null>(null);
 
   const isRTL = locale === "fa";
 
@@ -41,13 +53,36 @@ const Page = () => {
   const playerRef = useRef<HTMLDivElement>(null);
   const playlistRef = useRef<HTMLElement>(null);
 
-  const getTitle = (video: (typeof videos)[number]) =>
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const response = await fetch(`${API_URL}/video/get/`, {
+          cache: "no-store",
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch videos");
+        }
+
+        const data: VideoItem[] = await response.json();
+
+        setVideos(data);
+        setActiveVideo(data[0] ?? null);
+      } catch (error) {
+        console.error("FETCH VIDEOS ERROR =>", error);
+      }
+    };
+
+    fetchVideos();
+  }, []);
+
+  const getTitle = (video: VideoItem) =>
     isRTL ? video.name_fa : video.name_en;
 
-  const getDescription = (video: (typeof videos)[number]) =>
+  const getDescription = (video: VideoItem) =>
     isRTL ? video.description_fa : video.description_en;
 
-  const getImage = (video: (typeof videos)[number]) => VIDEO_PLACEHOLDER;
+  const getImage = (video: VideoItem) => VIDEO_PLACEHOLDER;
 
   useGSAP(
     () => {
@@ -243,7 +278,7 @@ const Page = () => {
     },
     {
       scope: rootRef,
-      dependencies: [isRTL],
+      dependencies: [isRTL, videos.length],
       revertOnUpdate: true,
     },
   );
@@ -324,42 +359,46 @@ const Page = () => {
           <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-[minmax(0,1fr)_330px] xl:grid-cols-[minmax(0,1fr)_360px] 2xl:grid-cols-[minmax(0,1fr)_390px]">
             {/* Active Video */}
             <div ref={playerRef} className="min-w-0">
-              {/* Player */}
-              <div className="border-border-secondary overflow-hidden border bg-black">
-                <video
-                  key={activeVideo.id}
-                  src={activeVideo.video}
-                  poster={getImage(activeVideo)}
-                  controls
-                  preload="metadata"
-                  playsInline
-                  className="aspect-video w-full object-contain"
-                >
-                  {t("playerNotSupported")}
-                </video>
-              </div>
-
-              {/* Video Information */}
-              <div className="border-border-secondary border-x border-b px-4 py-4 sm:px-5 sm:py-5 xl:px-6">
-                <div className="flex items-start gap-3 sm:gap-4">
-                  <div className="border-border-secondary flex size-9 shrink-0 items-center justify-center border sm:size-10">
-                    <Video
-                      className="text-custom-primary size-[17px] sm:size-[18px]"
-                      strokeWidth={1.6}
-                    />
+              {activeVideo && (
+                <>
+                  {/* Player */}
+                  <div className="border-border-secondary overflow-hidden border bg-black">
+                    <video
+                      key={activeVideo.id}
+                      src={activeVideo.video}
+                      poster={getImage(activeVideo)}
+                      controls
+                      preload="metadata"
+                      playsInline
+                      className="aspect-video w-full object-contain"
+                    >
+                      {t("playerNotSupported")}
+                    </video>
                   </div>
 
-                  <div className="min-w-0">
-                    <h3 className="text-foreground text-[17px] leading-7 font-semibold sm:text-lg xl:text-xl">
-                      {getTitle(activeVideo)}
-                    </h3>
+                  {/* Video Information */}
+                  <div className="border-border-secondary border-x border-b px-4 py-4 sm:px-5 sm:py-5 xl:px-6">
+                    <div className="flex items-start gap-3 sm:gap-4">
+                      <div className="border-border-secondary flex size-9 shrink-0 items-center justify-center border sm:size-10">
+                        <Video
+                          className="text-custom-primary size-[17px] sm:size-[18px]"
+                          strokeWidth={1.6}
+                        />
+                      </div>
 
-                    <p className="text-muted-foreground mt-2.5 max-w-4xl text-justify text-sm leading-7 sm:mt-3">
-                      {getDescription(activeVideo)}
-                    </p>
+                      <div className="min-w-0">
+                        <h3 className="text-foreground text-[17px] leading-7 font-semibold sm:text-lg xl:text-xl">
+                          {getTitle(activeVideo)}
+                        </h3>
+
+                        <p className="text-muted-foreground mt-2.5 max-w-4xl text-justify text-sm leading-7 sm:mt-3">
+                          {getDescription(activeVideo)}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+                </>
+              )}
             </div>
 
             {/* Playlist */}
@@ -394,7 +433,7 @@ const Page = () => {
               >
                 <div>
                   {videos.map((video) => {
-                    const active = activeVideo.id === video.id;
+                    const active = activeVideo?.id === video.id;
 
                     return (
                       <button
