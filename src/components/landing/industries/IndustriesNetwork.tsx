@@ -314,7 +314,7 @@ export default function IndustriesNetwork({ t }: IndustriesNetworkProps) {
               stroke="currentColor"
               strokeWidth="1"
               vectorEffect="non-scaling-stroke"
-              className="industry-link text-border"
+              className="industry-link text-[#8f837c]"
             />
           ))}
         </svg>

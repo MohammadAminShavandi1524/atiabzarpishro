@@ -310,7 +310,7 @@
   "Catalogues": {
     "hero": {
       "eyebrow": "CATALOGUES",
-      "title": "Technical Catalogues",
+      "title": "Product Catalogue",
       "description": "Explore our collection of technical catalogues and product documentation."
     },
 
@@ -499,8 +499,8 @@
 
   "About": {
     "hero": {
-      "eyebrow": "BRIEF HISTORY",
-      "title": "All Together to Improve",
+      "eyebrow": "HISTORY",
+      "title": "Brief Introduction",
       "description": "ATI ABZAR PISHRO has been operating since 2012 as a specialized engineering and trading company, dedicated to delivering cutting-edge machining solutions and high-performance cutting tools from globally recognized manufacturers. With a strong commitment to quality, innovation, and technical excellence, we serve a wide spectrum of industrial sectors including automotive, aerospace, mold and die, oil and gas, and general manufacturing.",
       "downloadCatalogue": "Download Company Catalogue",
       "established": "Since",
@@ -508,7 +508,7 @@
     },
     "purpose": {
       "eyebrow": "WHAT WE DO",
-      "title": "Engineering Progress Through Purpose",
+      "title": "All Together to Improve",
       "vision": {
         "title": "Our Vision",
         "description": "Guided by our core principle — ATI: All Together to Improve — we envision a future where collaborative growth and innovation drive the industry forward. Our strategic objective is to enhance operational productivity across all industrial segments by providing state-of-the-art machining solutions, fostering long-term partnerships, and maintaining close cooperation with our valued customers. Through this vision, we aspire to play a pivotal role in shaping the next generation of precision engineering and manufacturing excellence."
@@ -614,7 +614,7 @@
     "shortLabel": "FAQ",
 
     "sectionLabel": "FAQ",
-    "sectionTitle": "Technical answers, without the unnecessary complexity",
+    "sectionTitle": "Simple Questions, Quick Answers",
     "sectionDescription": "Explore frequently asked questions about our products, services and technical support. If you need more specific assistance, our technical team is ready to help.",
 
     "contact": "Email our technical team",

@@ -70,7 +70,7 @@ export const industries: IndustryItem[] = [
     index: "06",
     translationKey: "items.oilGas",
     code: "OIL / GAS",
-    image: "/home/industriesLogos/6.jpg",
+    image: "/home/industriesLogos/66.webp",
     x: 50,
     y: 88,
     imageSize: "size-13",

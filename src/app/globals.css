@@ -131,8 +131,11 @@
   --card-tertiary-foreground: #090605;
 
   /* Borders */
-  --border: #e4dfdc;
-  --border-secondary: #c9c2be;
+  /* --border: #e4dfdc;
+  --border-secondary: #c9c2be; */
+
+  --border: #c4bbb5;
+  --border-secondary: #9f948d;
 
   /* Input / Ring */
   --input: #e4dfdc;
