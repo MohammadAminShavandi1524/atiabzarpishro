@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useLocale, useTranslations } from "next-intl";
 
@@ -11,7 +11,8 @@ import { useGSAP } from "@gsap/react";
 import CataloguesHero from "./CataloguesHero";
 import CatalogueCard from "./CatalogueCard";
 
-import { catalogues } from "./catalogues.data";
+import { getCatalogues } from "./catalogues.api";
+import type { CatalogueItem } from "./catalogues.data";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -25,6 +26,22 @@ export default function CataloguesPage() {
   const libraryRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+
+  const [catalogues, setCatalogues] = useState<CatalogueItem[]>([]);
+
+  useEffect(() => {
+    const fetchCatalogues = async () => {
+      try {
+        const data = await getCatalogues();
+
+        setCatalogues(data);
+      } catch (error) {
+        console.error("Failed to fetch catalogues:", error);
+      }
+    };
+
+    fetchCatalogues();
+  }, []);
 
   useGSAP(
     () => {
@@ -85,7 +102,7 @@ export default function CataloguesPage() {
     },
     {
       scope: rootRef,
-      dependencies: [isRTL],
+      dependencies: [isRTL, catalogues],
       revertOnUpdate: true,
     },
   );

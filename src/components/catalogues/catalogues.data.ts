@@ -1,129 +1,169 @@
-export interface CatalogueItem {
+export interface CatalogueBrand {
   id: number;
 
-  title: string;
+  name_en: string;
+
+  name_fa: string;
+
+  description_en: string;
+
+  description_fa: string;
 
   image: string;
 
-  pdf: string;
-
-  date: string;
-
-  lang?: string;
+  url: string;
 }
 
-const TEMP_CATALOGUE_PDF = "/catalogues/ati-abzar-pishro-catalogue.pdf";
+export interface BrandCatalogue {
+  id: number;
 
-export const catalogues: CatalogueItem[] = [
-  {
-    id: 1,
+  name_en: string;
 
-    title: "Thread Turning",
+  name_fa: string;
 
-    image: "/1.png",
+  image: string;
 
-    pdf: TEMP_CATALOGUE_PDF,
+  object_storage: boolean;
 
-    date: "2025.11",
+  url: string;
 
-    lang: "EN",
-  },
+  created: string;
+}
 
-  {
-    id: 2,
+export interface CatalogueBrandWithCatalogs extends CatalogueBrand {
+  catalogs: BrandCatalogue[];
+}
 
-    title: "Cutting Tools_Solid 2025-2026",
+export interface CatalogueItem extends BrandCatalogue {
+  brand: CatalogueBrand;
+}
 
-    image: "/1.png",
+// export interface CatalogueItem {
+//   id: number;
 
-    pdf: TEMP_CATALOGUE_PDF,
+//   title: string;
 
-    date: "2025.08",
+//   image: string;
 
-    lang: "EN",
-  },
+//   pdf: string;
 
-  {
-    id: 3,
+//   date: string;
 
-    title: "Pipe Industry",
+//   lang?: string;
+// }
 
-    image: "/1.png",
+// const TEMP_CATALOGUE_PDF = "/catalogues/ati-abzar-pishro-catalogue.pdf";
 
-    pdf: TEMP_CATALOGUE_PDF,
+// export const catalogues: CatalogueItem[] = [
+//   {
+//     id: 1,
 
-    date: "2025.03",
+//     title: "Thread Turning",
 
-    lang: "EN",
-  },
+//     image: "/1.png",
 
-  {
-    id: 4,
+//     pdf: TEMP_CATALOGUE_PDF,
 
-    title: "Cutting Tools_Rotating 2025-2026",
+//     date: "2025.11",
 
-    image: "/1.png",
+//     lang: "EN",
+//   },
 
-    pdf: TEMP_CATALOGUE_PDF,
+//   {
+//     id: 2,
 
-    date: "2024.12",
+//     title: "Cutting Tools_Solid 2025-2026",
 
-    lang: "EN",
-  },
+//     image: "/1.png",
 
-  {
-    id: 5,
+//     pdf: TEMP_CATALOGUE_PDF,
 
-    title: "Cutting Tools",
+//     date: "2025.08",
 
-    image: "/1.png",
+//     lang: "EN",
+//   },
 
-    pdf: TEMP_CATALOGUE_PDF,
+//   {
+//     id: 3,
 
-    date: "2024.10",
+//     title: "Pipe Industry",
 
-    lang: "EN",
-  },
+//     image: "/1.png",
 
-  {
-    id: 6,
+//     pdf: TEMP_CATALOGUE_PDF,
 
-    title: "The Micro Endmill",
+//     date: "2025.03",
 
-    image: "/1.png",
+//     lang: "EN",
+//   },
 
-    pdf: TEMP_CATALOGUE_PDF,
+//   {
+//     id: 4,
 
-    date: "2024.08",
+//     title: "Cutting Tools_Rotating 2025-2026",
 
-    lang: "EN",
-  },
+//     image: "/1.png",
 
-  {
-    id: 7,
+//     pdf: TEMP_CATALOGUE_PDF,
 
-    title: "Herramientas de Corte",
+//     date: "2024.12",
 
-    image: "/1.png",
+//     lang: "EN",
+//   },
 
-    pdf: TEMP_CATALOGUE_PDF,
+//   {
+//     id: 5,
 
-    date: "2024.05",
+//     title: "Cutting Tools",
 
-    lang: "ES",
-  },
+//     image: "/1.png",
 
-  {
-    id: 8,
+//     pdf: TEMP_CATALOGUE_PDF,
 
-    title: "Solid Tools Solution",
+//     date: "2024.10",
 
-    image: "/1.png",
+//     lang: "EN",
+//   },
 
-    pdf: TEMP_CATALOGUE_PDF,
+//   {
+//     id: 6,
 
-    date: "2024.03",
+//     title: "The Micro Endmill",
 
-    lang: "EN",
-  },
-];
+//     image: "/1.png",
+
+//     pdf: TEMP_CATALOGUE_PDF,
+
+//     date: "2024.08",
+
+//     lang: "EN",
+//   },
+
+//   {
+//     id: 7,
+
+//     title: "Herramientas de Corte",
+
+//     image: "/1.png",
+
+//     pdf: TEMP_CATALOGUE_PDF,
+
+//     date: "2024.05",
+
+//     lang: "ES",
+//   },
+
+//   {
+//     id: 8,
+
+//     title: "Solid Tools Solution",
+
+//     image: "/1.png",
+
+//     pdf: TEMP_CATALOGUE_PDF,
+
+//     date: "2024.03",
+
+//     lang: "EN",
+//   },
+// ];

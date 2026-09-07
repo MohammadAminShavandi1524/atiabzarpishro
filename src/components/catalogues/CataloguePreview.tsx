@@ -30,6 +30,18 @@ export default function CataloguePreview({ catalogue }: CataloguePreviewProps) {
   const topRef = useRef<HTMLDivElement>(null);
   const previewRef = useRef<HTMLDivElement>(null);
 
+  const title = isRTL ? catalogue.name_fa : catalogue.name_en;
+
+  const brandName = isRTL ? catalogue.brand.name_fa : catalogue.brand.name_en;
+
+  const date = new Date(catalogue.created).toLocaleDateString(
+    isRTL ? "fa-IR" : "en-US",
+    {
+      year: "numeric",
+      month: "2-digit",
+    },
+  );
+
   useGSAP(
     () => {
       if (!topRef.current || !previewRef.current) return;
@@ -94,28 +106,16 @@ export default function CataloguePreview({ catalogue }: CataloguePreviewProps) {
         >
           {/* Information */}
           <div className="min-w-0">
-            <h1
-              lang="en"
-              dir="ltr"
-              className="text-foreground text-[22px] leading-8 font-semibold sm:text-[24px] sm:leading-9 xl:text-[28px]"
-            >
-              {catalogue.title}
+            <h1 className="text-foreground text-[22px] leading-8 font-semibold sm:text-[24px] sm:leading-9 xl:text-[28px]">
+              {title}
             </h1>
 
             <div className="text-muted-foreground mt-2 flex items-center gap-2 text-xs sm:text-sm">
-              <span lang="en" dir="ltr">
-                {catalogue.date}
-              </span>
+              <span>{date}</span>
 
-              {catalogue.lang && (
-                <>
-                  <span className="bg-border size-1 rounded-full" />
+              <span className="bg-border size-1 rounded-full" />
 
-                  <span lang="en" dir="ltr">
-                    {catalogue.lang}
-                  </span>
-                </>
-              )}
+              <span>{brandName}</span>
             </div>
           </div>
 
@@ -131,7 +131,7 @@ export default function CataloguePreview({ catalogue }: CataloguePreviewProps) {
             </Link>
 
             <a
-              href={catalogue.pdf}
+              href={catalogue.url}
               download
               className="bg-custom-primary flex min-h-11 items-center justify-center gap-2 px-3 text-xs font-medium text-white sm:px-4 sm:text-sm"
             >
@@ -148,8 +148,8 @@ export default function CataloguePreview({ catalogue }: CataloguePreviewProps) {
           className="border-border bg-secondary-bg h-[70dvh] min-h-[520px] overflow-hidden border sm:min-h-[600px] md:h-[75dvh] lg:h-[calc(100vh-240px)] lg:min-h-[750px] xl:min-h-[900px] 2xl:min-h-[1200px]"
         >
           <iframe
-            src={catalogue.pdf}
-            title={catalogue.title}
+            src={catalogue.url}
+            title={title}
             className="h-full w-full border-0"
           />
         </div>

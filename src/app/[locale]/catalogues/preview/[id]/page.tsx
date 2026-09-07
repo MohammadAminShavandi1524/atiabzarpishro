@@ -1,9 +1,7 @@
 import { notFound } from "next/navigation";
 
-
-
-import { catalogues } from "@/components/catalogues/catalogues.data";
 import CataloguePreview from "@/components/catalogues/CataloguePreview";
+import { getCatalogueById } from "@/components/catalogues/catalogues.api";
 
 interface PageProps {
   params: Promise<{
@@ -14,9 +12,13 @@ interface PageProps {
 export default async function Page({ params }: PageProps) {
   const { id } = await params;
 
-  const catalogue = catalogues.find(
-    (catalogue) => catalogue.id === Number(id),
-  );
+  const catalogueId = Number(id);
+
+  if (!Number.isInteger(catalogueId) || catalogueId <= 0) {
+    notFound();
+  }
+
+  const catalogue = await getCatalogueById(catalogueId);
 
   if (!catalogue) {
     notFound();
