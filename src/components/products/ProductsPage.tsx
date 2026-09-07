@@ -1,12 +1,18 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import { useLocale } from "next-intl";
 
 import BrandOverview from "./BrandOverview";
 import ProductsAside from "./ProductsAside";
 import ProductsGrid from "./ProductsGrid";
 
-import { brands, products } from "./products.data";
+import { getBrands } from "./brands.api";
+import { getProducts } from "./products.api";
+
+import type { ProductBrand } from "./brands.types";
+import type { ProductItem } from "./products.types";
 
 interface ProductsPageProps {
   activeBrand?: string;
@@ -17,21 +23,52 @@ export default function ProductsPage({ activeBrand }: ProductsPageProps) {
 
   const isRTL = locale === "fa";
 
-  const activeBrandItem = brands.find((brand) => brand.slug === activeBrand);
+  const [brands, setBrands] = useState<ProductBrand[]>([]);
+  const [products, setProducts] = useState<ProductItem[]>([]);
+
+  useEffect(() => {
+    const fetchProductsData = async () => {
+      try {
+        const [brandsData, productsData] = await Promise.all([
+          getBrands(),
+          getProducts(),
+        ]);
+
+        setBrands(brandsData);
+        setProducts(productsData);
+      } catch (error) {
+        console.error("FETCH PRODUCTS DATA ERROR =>", error);
+      }
+    };
+
+    fetchProductsData();
+  }, []);
+
+  const activeBrandId = Number(activeBrand);
+
+  const activeBrandItem =
+    Number.isInteger(activeBrandId) && activeBrandId > 0
+      ? brands.find((brand) => brand.id === activeBrandId)
+      : undefined;
 
   const filteredProducts = activeBrandItem
-    ? products.filter((product) => product.brand.slug === activeBrandItem.slug)
+    ? products.filter((product) => product.brand.id === activeBrandItem.id)
     : products;
 
-  const productCounts = products.reduce<Record<string, number>>(
+  const productCounts = products.reduce<Record<number, number>>(
     (acc, product) => {
-      const slug = product.brand.slug;
+      const brandId = product.brand.id;
 
-      acc[slug] = (acc[slug] ?? 0) + 1;
+      acc[brandId] = (acc[brandId] ?? 0) + 1;
 
       return acc;
     },
     {},
+  );
+
+  const visibleBrands = brands.filter(
+    (brand) =>
+      (productCounts[brand.id] ?? 0) > 0 || brand.id === activeBrandItem?.id,
   );
 
   return (
@@ -46,7 +83,7 @@ export default function ProductsPage({ activeBrand }: ProductsPageProps) {
         {/* Products */}
         <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[250px_minmax(0,1fr)] lg:gap-6 xl:grid-cols-[270px_minmax(0,1fr)] xl:gap-7 2xl:grid-cols-[290px_minmax(0,1fr)] 2xl:gap-8">
           <ProductsAside
-            brands={brands}
+            brands={visibleBrands}
             activeBrand={activeBrand}
             productCounts={productCounts}
           />

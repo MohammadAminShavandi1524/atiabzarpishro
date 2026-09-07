@@ -10,6 +10,8 @@ import { ArrowUpRight, ChevronDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
+import type { ProductBrand } from "../products/brands.types";
+
 type PageItem = {
   key: string;
   href: string;
@@ -18,7 +20,7 @@ type PageItem = {
 type Props = {
   title: string;
   type: "pages" | "partners";
-  items: readonly PageItem[] | readonly string[];
+  items: readonly PageItem[] | readonly ProductBrand[];
 };
 
 export default function FooterColumn({ title, type, items }: Props) {
@@ -29,7 +31,8 @@ export default function FooterColumn({ title, type, items }: Props) {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const partners = type === "partners" ? (items as readonly string[]) : [];
+  const partners =
+    type === "partners" ? (items as readonly ProductBrand[]) : [];
 
   const firstPartnerColumn = partners.slice(0, 10);
   const secondPartnerColumn = partners.slice(10);
@@ -38,7 +41,7 @@ export default function FooterColumn({ title, type, items }: Props) {
 
   return (
     <div dir={isRTL ? "rtl" : "ltr"} className="min-w-0">
-      <div className="border-footer-border border-b sm:border-b-0 ">
+      <div className="border-footer-border border-b sm:border-b-0">
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
@@ -103,10 +106,13 @@ export default function FooterColumn({ title, type, items }: Props) {
               >
                 <ul className="space-y-3.5 lg:space-y-4">
                   {firstPartnerColumn.map((partner) => (
-                    <li key={partner}>
-                      <span className="text-footer-muted hover:text-footer-foreground inline-block cursor-default text-sm transition-colors duration-300 sm:text-base">
-                        {partner}
-                      </span>
+                    <li key={partner.id}>
+                      <Link
+                        href={`/${locale}/products?brand=${partner.id}`}
+                        className="text-footer-muted hover:text-footer-foreground inline-block text-sm transition-colors duration-300 sm:text-base"
+                      >
+                        {partner.name_en}
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -114,10 +120,13 @@ export default function FooterColumn({ title, type, items }: Props) {
                 {hasSecondPartnerColumn && (
                   <ul className="space-y-3.5 lg:space-y-4">
                     {secondPartnerColumn.map((partner) => (
-                      <li key={partner}>
-                        <span className="text-footer-muted hover:text-footer-foreground inline-block cursor-default text-sm transition-colors duration-300 sm:text-base">
-                          {partner}
-                        </span>
+                      <li key={partner.id}>
+                        <Link
+                          href={`/${locale}/products?brand=${partner.id}`}
+                          className="text-footer-muted hover:text-footer-foreground inline-block text-sm transition-colors duration-300 sm:text-base"
+                        >
+                          {partner.name_en}
+                        </Link>
                       </li>
                     ))}
                   </ul>

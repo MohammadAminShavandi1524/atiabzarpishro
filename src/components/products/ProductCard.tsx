@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { useLocale } from "next-intl";
 
-import type { ProductItem } from "./products.data";
+import type { ProductItem } from "./products.types";
 
 interface ProductCardProps {
   product: ProductItem;
@@ -17,9 +17,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   const title = isRTL ? product.name_fa : product.name_en;
 
-  const description = isRTL
-    ? product.short_description_fa
-    : product.short_description_en;
+  const description = isRTL ? product.description_fa : product.description_en;
 
   const brandName = product.brand.name_en;
 
@@ -41,7 +39,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         {/* Brand */}
         <span
           lang="en"
-          className="text-custom-primary text-[10px] font-medium  sm:text-[10px] "
+          className="text-custom-primary text-[10px] font-medium sm:text-[10px]"
         >
           {brandName}
         </span>
@@ -52,9 +50,11 @@ export default function ProductCard({ product }: ProductCardProps) {
         </h3>
 
         {/* Description */}
-        <p className="text-muted-foreground mt-2 text-[12px] leading-5.5 sm:text-[13px] sm:leading-6">
-          {description}
-        </p>
+        {description && (
+          <p className="text-muted-foreground mt-2 text-[12px] leading-5.5 sm:text-[13px] sm:leading-6">
+            {description}
+          </p>
+        )}
       </div>
     </article>
   );

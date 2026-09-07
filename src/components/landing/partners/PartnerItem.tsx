@@ -3,10 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import type { PartnerItem as PartnerItemType } from "./partners.data";
+import type { ProductBrand } from "../../products/brands.types";
 
 interface PartnerItemProps {
-  partner: PartnerItemType;
+  partner: ProductBrand;
 }
 
 export default function PartnerItem({ partner }: PartnerItemProps) {
@@ -17,14 +17,14 @@ export default function PartnerItem({ partner }: PartnerItemProps) {
         {/* Base logo scale */}
         <div
           style={{
-            transform: `scale(${partner.logoScale})`,
+            transform: "scale(1.8)",
           }}
         >
           {/* Hover scale */}
           <div className="relative h-[46px] w-[88px] transition-transform duration-300 ease-out sm:h-[52px] sm:w-[100px] md:h-[56px] md:w-[106px] lg:h-[58px] lg:w-[110px] lg:group-hover:scale-[1.05] xl:h-[64px] xl:w-[120px] 2xl:h-[70px] 2xl:w-[130px]">
             <Image
-              src={partner.logo}
-              alt={partner.name}
+              src={partner.image}
+              alt={partner.name_en}
               fill
               sizes="(max-width: 639px) 100px, (max-width: 1279px) 120px, 160px"
               className="object-contain grayscale-0 transition-[filter] duration-300 ease-out lg:grayscale lg:group-hover:grayscale-0"
@@ -39,21 +39,21 @@ export default function PartnerItem({ partner }: PartnerItemProps) {
         dir="ltr"
         className="text-muted-foreground lg:group-hover:text-custom-primary mt-3 text-center text-[11px] font-medium tracking-[0.05em] transition-colors duration-300 sm:mt-4 sm:text-xs md:text-[13px] 2xl:mt-5 2xl:tracking-[0.06em]"
       >
-        {partner.name}
+        {partner.name_en}
       </span>
     </article>
   );
 
-  if (!partner.website) {
+  if (!partner.url) {
     return content;
   }
 
   return (
     <Link
-      href={partner.website}
+      href={partner.url}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`Visit ${partner.name} website`}
+      aria-label={`Visit ${partner.name_en} website`}
       className="block min-w-0"
     >
       {content}

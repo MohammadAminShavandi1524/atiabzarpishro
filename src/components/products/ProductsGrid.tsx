@@ -11,7 +11,7 @@ import { useGSAP } from "@gsap/react";
 
 import ProductCard from "./ProductCard";
 
-import type { ProductItem } from "./products.data";
+import type { ProductItem } from "./products.types";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 

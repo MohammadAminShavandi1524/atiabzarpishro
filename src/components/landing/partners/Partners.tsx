@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useLocale, useTranslations } from "next-intl";
 
@@ -8,8 +8,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
+import { getBrands } from "../../products/brands.api";
+import type { ProductBrand } from "../../products/brands.types";
+
 import PartnerItem from "./PartnerItem";
-import { partners } from "./partners.data";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -19,12 +21,28 @@ export default function Partners() {
 
   const isRTL = locale === "fa";
 
+  const [partners, setPartners] = useState<ProductBrand[]>([]);
+
   const sectionRef = useRef<HTMLElement>(null);
   const eyebrowRef = useRef<HTMLDivElement>(null);
   const eyebrowLineRef = useRef<HTMLSpanElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const introRef = useRef<HTMLParagraphElement>(null);
   const partnersRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const fetchPartners = async () => {
+      try {
+        const brands = await getBrands();
+
+        setPartners(brands.slice(0, 10));
+      } catch (error) {
+        console.error("FETCH PARTNERS ERROR =>", error);
+      }
+    };
+
+    fetchPartners();
+  }, []);
 
   useGSAP(
     () => {
@@ -150,7 +168,7 @@ export default function Partners() {
     },
     {
       scope: sectionRef,
-      dependencies: [isRTL],
+      dependencies: [isRTL, partners.length],
       revertOnUpdate: true,
     },
   );

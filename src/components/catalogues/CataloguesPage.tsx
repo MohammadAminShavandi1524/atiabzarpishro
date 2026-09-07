@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { useLocale, useTranslations } from "next-intl";
+import { useSearchParams } from "next/navigation";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -19,6 +20,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 export default function CataloguesPage() {
   const t = useTranslations("Catalogues");
   const locale = useLocale();
+  const searchParams = useSearchParams();
 
   const isRTL = locale === "fa";
 
@@ -28,6 +30,9 @@ export default function CataloguesPage() {
   const gridRef = useRef<HTMLDivElement>(null);
 
   const [catalogues, setCatalogues] = useState<CatalogueItem[]>([]);
+
+  const activeBrand = searchParams.get("brand");
+  const activeBrandId = Number(activeBrand);
 
   useEffect(() => {
     const fetchCatalogues = async () => {
@@ -42,6 +47,15 @@ export default function CataloguesPage() {
 
     fetchCatalogues();
   }, []);
+
+  const filteredCatalogues =
+    activeBrand &&
+    Number.isInteger(activeBrandId) &&
+    activeBrandId > 0
+      ? catalogues.filter(
+          (catalogue) => catalogue.brand.id === activeBrandId,
+        )
+      : catalogues;
 
   useGSAP(
     () => {
@@ -102,7 +116,7 @@ export default function CataloguesPage() {
     },
     {
       scope: rootRef,
-      dependencies: [isRTL, catalogues],
+      dependencies: [isRTL, catalogues, activeBrand],
       revertOnUpdate: true,
     },
   );
@@ -123,7 +137,7 @@ export default function CataloguesPage() {
             </h2>
 
             <span className="text-muted-foreground shrink-0 text-xs sm:text-[13px] xl:text-sm">
-              {catalogues.length} {t("library.count")}
+              {filteredCatalogues.length} {t("library.count")}
             </span>
           </div>
 
@@ -132,7 +146,7 @@ export default function CataloguesPage() {
             ref={gridRef}
             className="xss:grid-cols-2 xss:gap-x-4 mlg:grid-cols-3 mlg:gap-x-8 mlg:gap-y-14 grid grid-cols-1 gap-x-5 gap-y-10 sm:gap-x-6 sm:gap-y-12 xl:grid-cols-4 xl:gap-x-10 xl:gap-y-16 2xl:gap-x-16 2xl:gap-y-20"
           >
-            {catalogues.map((catalogue) => (
+            {filteredCatalogues.map((catalogue) => (
               <div key={catalogue.id} className="catalogue-card min-w-0">
                 <CatalogueCard catalogue={catalogue} />
               </div>

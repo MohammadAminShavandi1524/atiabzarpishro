@@ -1,6 +1,8 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+import Link from "next/link";
 
 import { Download, ExternalLink } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -8,7 +10,9 @@ import { useLocale, useTranslations } from "next-intl";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-import type { ProductBrand } from "./products.data";
+import { getCatalogues } from "../catalogues/catalogues.api";
+
+import type { ProductBrand } from "./brands.types";
 
 gsap.registerPlugin(useGSAP);
 
@@ -25,11 +29,35 @@ export default function BrandOverview({ brand, count }: BrandOverviewProps) {
 
   const rootRef = useRef<HTMLDivElement>(null);
 
+  const [hasCatalogues, setHasCatalogues] = useState(false);
+
   const description = brand
     ? isRTL
       ? brand.description_fa
       : brand.description_en
     : undefined;
+
+  useEffect(() => {
+    if (!brand) {
+      setHasCatalogues(false);
+      return;
+    }
+
+    const fetchBrandCatalogues = async () => {
+      try {
+        const catalogues = await getCatalogues();
+
+        setHasCatalogues(
+          catalogues.some((catalogue) => catalogue.brand.id === brand.id),
+        );
+      } catch (error) {
+        console.error("FETCH BRAND CATALOGUES ERROR =>", error);
+        setHasCatalogues(false);
+      }
+    };
+
+    fetchBrandCatalogues();
+  }, [brand]);
 
   useGSAP(
     () => {
@@ -62,7 +90,7 @@ export default function BrandOverview({ brand, count }: BrandOverviewProps) {
     },
     {
       scope: rootRef,
-      dependencies: [brand?.slug, isRTL],
+      dependencies: [brand?.id, isRTL],
       revertOnUpdate: true,
     },
   );
@@ -142,9 +170,9 @@ export default function BrandOverview({ brand, count }: BrandOverviewProps) {
             data-overview-reveal
             className="xss:flex-row xss:items-center mt-6 flex flex-col gap-2.5 sm:gap-3 xl:mt-7"
           >
-            {brand.website && (
+            {brand.url && (
               <a
-                href={brand.website}
+                href={brand.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border-border text-foreground hover:border-custom-primary hover:text-custom-primary xss:w-auto inline-flex h-11 w-full items-center justify-center gap-3 border px-4 text-sm font-medium transition-colors duration-300 sm:px-5"
@@ -155,18 +183,15 @@ export default function BrandOverview({ brand, count }: BrandOverviewProps) {
               </a>
             )}
 
-            {brand.catalog && (
-              <a
-                href={brand.catalog}
-                target="_blank"
-                rel="noopener noreferrer"
-                download
+            {hasCatalogues && (
+              <Link
+                href={`/${locale}/catalogues?brand=${brand.id}`}
                 className="bg-custom-primary xss:w-auto inline-flex h-11 w-full items-center justify-center gap-3 px-4 text-sm font-medium text-white sm:px-5"
               >
                 <span>{t("overview.catalog")}</span>
 
                 <Download size={15} strokeWidth={1.7} />
-              </a>
+              </Link>
             )}
           </div>
         </div>
@@ -174,7 +199,7 @@ export default function BrandOverview({ brand, count }: BrandOverviewProps) {
         {/* Product Count */}
         <div
           data-overview-reveal
-          className="hidden lg:flex shrink-0 items-baseline gap-2 lg:mb-1"
+          className="hidden shrink-0 items-baseline gap-2 lg:mb-1 lg:flex"
         >
           <span
             dir="ltr"

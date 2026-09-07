@@ -1,6 +1,11 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import { useLocale, useTranslations } from "next-intl";
+
+import { getBrands } from "../products/brands.api";
+import type { ProductBrand } from "../products/brands.types";
 
 import FooterColumn from "./FooterColumn";
 import FooterContact from "./FooterContact";
@@ -12,6 +17,22 @@ export default function FooterMain() {
   const t = useTranslations("Footer");
 
   const isRTL = locale === "fa";
+
+  const [partners, setPartners] = useState<ProductBrand[]>([]);
+
+  useEffect(() => {
+    const fetchPartners = async () => {
+      try {
+        const brands = await getBrands();
+
+        setPartners(brands.slice(0, 10));
+      } catch (error) {
+        console.error("FETCH FOOTER PARTNERS ERROR =>", error);
+      }
+    };
+
+    fetchPartners();
+  }, []);
 
   return (
     <section
@@ -28,7 +49,7 @@ export default function FooterMain() {
         <FooterColumn
           title={t("columns.partners")}
           type="partners"
-          items={footerNavigation.partners}
+          items={partners}
         />
 
         <div className="sm:col-span-2 lg:col-span-1">

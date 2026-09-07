@@ -16,14 +16,14 @@ import { cn } from "@/lib/utils";
 
 import { ScrollArea } from "../ui/scroll-area";
 
-import type { ProductBrand } from "./products.data";
+import type { ProductBrand } from "./brands.types";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 interface ProductsAsideProps {
   brands: ProductBrand[];
   activeBrand?: string;
-  productCounts: Record<string, number>;
+  productCounts: Record<number, number>;
 }
 
 export default function ProductsAside({
@@ -40,15 +40,20 @@ export default function ProductsAside({
 
   const asideRef = useRef<HTMLElement>(null);
 
+  const activeBrandId = Number(activeBrand);
+
   const totalProducts = Object.values(productCounts).reduce(
     (sum, count) => sum + count,
     0,
   );
 
-  const activeBrandItem = brands.find((brand) => brand.slug === activeBrand);
+  const activeBrandItem =
+    Number.isInteger(activeBrandId) && activeBrandId > 0
+      ? brands.find((brand) => brand.id === activeBrandId)
+      : undefined;
 
   const activeCount = activeBrandItem
-    ? (productCounts[activeBrandItem.slug] ?? 0)
+    ? (productCounts[activeBrandItem.id] ?? 0)
     : totalProducts;
 
   useGSAP(
@@ -184,14 +189,14 @@ export default function ProductsAside({
                     "border-border-secondary group relative flex min-h-[62px] items-center gap-3 border-b px-4 py-2.5 sm:px-5",
                     "transition-colors duration-200",
                     "hover:bg-custom-primary/[0.04]",
-                    !activeBrand && "bg-custom-primary/[0.055]",
+                    !activeBrandItem && "bg-custom-primary/[0.055]",
                   )}
                 >
                   <div className="flex size-10 shrink-0 items-center justify-center">
                     <Boxes
                       className={cn(
                         "text-muted-foreground size-5.5 transition-colors duration-200",
-                        !activeBrand && "text-custom-primary",
+                        !activeBrandItem && "text-custom-primary",
                       )}
                       strokeWidth={1.6}
                     />
@@ -201,7 +206,7 @@ export default function ProductsAside({
                     className={cn(
                       "text-foreground min-w-0 flex-1 truncate text-sm font-medium transition-colors duration-200",
                       "group-hover:text-custom-primary",
-                      !activeBrand && "text-custom-primary",
+                      !activeBrandItem && "text-custom-primary",
                     )}
                   >
                     {t("aside.allProducts")}
@@ -214,19 +219,19 @@ export default function ProductsAside({
                   <span
                     className={cn(
                       "bg-custom-primary absolute inset-y-0 start-0 w-[2px] scale-y-0 transition-transform duration-200",
-                      !activeBrand && "scale-y-100",
+                      !activeBrandItem && "scale-y-100",
                     )}
                   />
                 </Link>
 
                 {/* Brands */}
                 {brands.map((brand) => {
-                  const active = activeBrand === brand.slug;
+                  const active = activeBrandId === brand.id;
 
                   return (
                     <Link
                       key={brand.id}
-                      href={`/${locale}/products?brand=${brand.slug}`}
+                      href={`/${locale}/products?brand=${brand.id}`}
                       onClick={() => setMobileOpen(false)}
                       className={cn(
                         "border-border-secondary group relative flex min-h-[62px] items-center gap-3 border-b px-4 py-2.5 last:border-b-0 sm:px-5",
@@ -261,7 +266,7 @@ export default function ProductsAside({
 
                       {/* Count */}
                       <span className="text-muted-foreground shrink-0 font-mono text-xs">
-                        {productCounts[brand.slug] ?? 0}
+                        {productCounts[brand.id] ?? 0}
                       </span>
 
                       {/* Active Line */}
@@ -306,7 +311,7 @@ export default function ProductsAside({
               "border-border-secondary group relative flex min-h-[64px] shrink-0 items-center gap-3 border-b py-2.5 ps-3 pe-4 xl:ps-4 xl:pe-5",
               "transition-colors duration-200",
               "hover:bg-custom-primary/[0.04]",
-              !activeBrand && "bg-custom-primary/[0.055]",
+              !activeBrandItem && "bg-custom-primary/[0.055]",
             )}
           >
             <div className="flex h-9 w-11 shrink-0 items-center justify-center xl:w-13 xl:pe-1">
@@ -314,7 +319,7 @@ export default function ProductsAside({
                 strokeWidth={1.6}
                 className={cn(
                   "text-muted-foreground size-5.5 transition-colors duration-200 xl:size-6",
-                  !activeBrand && "text-custom-primary",
+                  !activeBrandItem && "text-custom-primary",
                 )}
               />
             </div>
@@ -323,7 +328,7 @@ export default function ProductsAside({
               className={cn(
                 "text-foreground min-w-0 flex-1 truncate text-[13px] font-medium transition-colors duration-200 xl:text-sm",
                 "group-hover:text-custom-primary",
-                !activeBrand && "text-custom-primary",
+                !activeBrandItem && "text-custom-primary",
               )}
             >
               {t("aside.allProducts")}
@@ -337,7 +342,7 @@ export default function ProductsAside({
               className={cn(
                 "bg-custom-primary absolute inset-y-0 start-0 w-[2px] scale-y-0 transition-transform duration-200",
                 "group-hover:scale-y-100",
-                !activeBrand && "scale-y-100",
+                !activeBrandItem && "scale-y-100",
               )}
             />
           </Link>
@@ -345,12 +350,12 @@ export default function ProductsAside({
           {/* Brands */}
           <div>
             {brands.map((brand) => {
-              const active = activeBrand === brand.slug;
+              const active = activeBrandId === brand.id;
 
               return (
                 <Link
                   key={brand.id}
-                  href={`/${locale}/products?brand=${brand.slug}`}
+                  href={`/${locale}/products?brand=${brand.id}`}
                   className={cn(
                     "border-border-secondary group relative flex min-h-[64px] items-center gap-3 border-b py-2.5 ps-2.5 pe-4 last:border-b-0 xl:ps-3 xl:pe-5",
                     "transition-colors duration-200",
@@ -384,7 +389,7 @@ export default function ProductsAside({
 
                   {/* Count */}
                   <span className="text-muted-foreground shrink-0 font-mono text-[11px] xl:text-xs">
-                    {productCounts[brand.slug] ?? 0}
+                    {productCounts[brand.id] ?? 0}
                   </span>
 
                   {/* Active Line */}
