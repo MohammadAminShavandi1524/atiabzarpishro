@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useLocale, useTranslations } from "next-intl";
 
@@ -11,7 +11,8 @@ import { useGSAP } from "@gsap/react";
 import TechNewsHero from "./TechNewsHero";
 import TechNewsCard from "./TechNewsCard";
 
-import { techNewsItems } from "./techNews.data";
+import { getTechNews } from "./techNews.api";
+import type { TechNewsItem } from "./techNews.data";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -25,6 +26,22 @@ export default function TechNewsPage() {
   const libraryRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+
+  const [techNewsItems, setTechNewsItems] = useState<TechNewsItem[]>([]);
+
+  useEffect(() => {
+    const fetchTechNews = async () => {
+      try {
+        const data = await getTechNews();
+
+        setTechNewsItems(data);
+      } catch (error) {
+        console.error("Failed to fetch tech news:", error);
+      }
+    };
+
+    fetchTechNews();
+  }, []);
 
   useGSAP(
     () => {
@@ -85,7 +102,7 @@ export default function TechNewsPage() {
     },
     {
       scope: rootRef,
-      dependencies: [isRTL],
+      dependencies: [isRTL, techNewsItems],
       revertOnUpdate: true,
     },
   );

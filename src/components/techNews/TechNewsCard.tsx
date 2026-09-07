@@ -16,13 +16,25 @@ export default function TechNewsCard({ item }: TechNewsCardProps) {
   const locale = useLocale();
   const t = useTranslations("TechNews");
 
+  const isRTL = locale === "fa";
+
+  const title = isRTL ? item.name_fa : item.name_en;
+
+  const date = new Date(item.created).toLocaleDateString(
+    isRTL ? "fa-IR" : "en-US",
+    {
+      year: "numeric",
+      month: "2-digit",
+    },
+  );
+
   return (
     <article className="group min-w-0">
       {/* Cover */}
       <div className="border-border bg-card-secondary relative aspect-[210/297] w-full overflow-hidden border">
         <Image
           src={item.image}
-          alt={item.title}
+          alt={title}
           fill
           sizes="(max-width: 399px) 100vw, (max-width: 895px) 50vw, (max-width: 1279px) 33vw, 25vw"
           className="object-cover transition-transform duration-500 lg:group-hover:scale-[1.02]"
@@ -42,7 +54,7 @@ export default function TechNewsCard({ item }: TechNewsCardProps) {
 
           {/* PDF */}
           <a
-            href={item.pdf}
+            href={item.url}
             download
             className="bg-custom-primary xss:text-[13px] flex min-h-11 items-center justify-center gap-2 px-2 text-xs font-medium text-white transition-opacity duration-200 hover:opacity-90 sm:min-h-12 sm:text-sm"
           >
@@ -68,7 +80,7 @@ export default function TechNewsCard({ item }: TechNewsCardProps) {
 
           {/* Download */}
           <a
-            href={item.pdf}
+            href={item.url}
             download
             className="bg-custom-primary flex size-20 flex-col items-center justify-center gap-2 rounded-full text-white transition-transform duration-300 hover:scale-105 xl:size-22 2xl:size-24"
           >
@@ -83,20 +95,12 @@ export default function TechNewsCard({ item }: TechNewsCardProps) {
 
       {/* Information */}
       <div className="pt-3.5 text-center sm:pt-4 xl:pt-5">
-        <span
-          lang="en"
-          dir="ltr"
-          className="text-muted-foreground block text-xs sm:text-[13px] xl:text-[14px]"
-        >
-          {item.date}
+        <span className="text-muted-foreground block text-xs sm:text-[13px] xl:text-[14px]">
+          {date}
         </span>
 
-        <h2
-          lang="en"
-          dir="ltr"
-          className="text-foreground lg:group-hover:text-custom-primary mx-auto mt-2 max-w-[320px] text-[16px] leading-6 font-medium transition-colors duration-300 sm:mt-2.5 sm:text-[17px] lg:text-[19px] lg:leading-7 2xl:mt-3 2xl:text-[21px]"
-        >
-          {item.title}
+        <h2 className="text-foreground lg:group-hover:text-custom-primary mx-auto mt-2 max-w-[320px] text-[16px] leading-6 font-medium transition-colors duration-300 sm:mt-2.5 sm:text-[17px] lg:text-[19px] lg:leading-7 2xl:mt-3 2xl:text-[21px]">
+          {title}
         </h2>
       </div>
     </article>

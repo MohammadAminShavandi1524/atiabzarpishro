@@ -1,1 +1,1 @@
-export const defaultLanguage: "fa" | "en" = "en";
+export const defaultLanguage: "fa" | "en" = "fa";

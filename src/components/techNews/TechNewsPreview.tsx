@@ -30,6 +30,16 @@ export default function TechNewsPreview({ item }: TechNewsPreviewProps) {
   const topRef = useRef<HTMLDivElement>(null);
   const previewRef = useRef<HTMLDivElement>(null);
 
+  const title = isRTL ? item.name_fa : item.name_en;
+
+  const date = new Date(item.created).toLocaleDateString(
+    isRTL ? "fa-IR" : "en-US",
+    {
+      year: "numeric",
+      month: "2-digit",
+    },
+  );
+
   useGSAP(
     () => {
       if (!topRef.current || !previewRef.current) return;
@@ -94,20 +104,12 @@ export default function TechNewsPreview({ item }: TechNewsPreviewProps) {
         >
           {/* Information */}
           <div className="min-w-0">
-            <h1
-              lang="en"
-              dir="ltr"
-              className="text-foreground text-[22px] leading-8 font-semibold sm:text-[24px] sm:leading-9 xl:text-[28px]"
-            >
-              {item.title}
+            <h1 className="text-foreground text-[22px] leading-8 font-semibold sm:text-[24px] sm:leading-9 xl:text-[28px]">
+              {title}
             </h1>
 
-            <span
-              lang="en"
-              dir="ltr"
-              className="text-muted-foreground mt-2 block text-xs sm:text-sm"
-            >
-              {item.date}
+            <span className="text-muted-foreground mt-2 block text-xs sm:text-sm">
+              {date}
             </span>
           </div>
 
@@ -125,7 +127,7 @@ export default function TechNewsPreview({ item }: TechNewsPreviewProps) {
 
             {/* Download */}
             <a
-              href={item.pdf}
+              href={item.url}
               download
               className="bg-custom-primary flex min-h-11 items-center justify-center gap-2 px-3 text-xs font-medium text-white sm:px-4 sm:text-sm"
             >
@@ -142,8 +144,8 @@ export default function TechNewsPreview({ item }: TechNewsPreviewProps) {
           className="border-border bg-secondary-bg h-[70dvh] min-h-[520px] overflow-hidden border sm:min-h-[600px] md:h-[75dvh] lg:h-[calc(100vh-240px)] lg:min-h-[750px] xl:min-h-[900px] 2xl:min-h-[1200px]"
         >
           <iframe
-            src={item.pdf}
-            title={item.title}
+            src={item.url}
+            title={title}
             className="h-full w-full border-0"
           />
         </div>

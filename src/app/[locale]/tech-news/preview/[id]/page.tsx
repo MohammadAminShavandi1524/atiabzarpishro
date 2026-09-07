@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 
 import TechNewsPreview from "@/components/techNews/TechNewsPreview";
 
-import { techNewsItems } from "@/components/techNews/techNews.data";
+import { getTechNewsById } from "@/components/techNews/techNews.api";
 
 interface PageProps {
   params: Promise<{
@@ -13,11 +13,21 @@ interface PageProps {
 export default async function Page({ params }: PageProps) {
   const { id } = await params;
 
-  const item = techNewsItems.find((item) => item.id === Number(id));
+  const newsId = Number(id);
 
-  if (!item) {
+  if (!Number.isInteger(newsId) || newsId <= 0) {
     notFound();
   }
 
-  return <TechNewsPreview item={item} />;
+  try {
+    const item = await getTechNewsById(newsId);
+
+    if (!item) {
+      notFound();
+    }
+
+    return <TechNewsPreview item={item} />;
+  } catch {
+    notFound();
+  }
 }
