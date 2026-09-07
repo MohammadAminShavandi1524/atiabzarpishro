@@ -6,16 +6,14 @@ export const carouselItems: HeroCarouselItem[] = [
     href: "",
 
     image: "/homepageCarousel/1.webp",
+    mobileImage: "/homepageCarousel/mobile/1.webp",
+
     logo: "/home/partners/korloy.webp",
 
     brandName: "KORLOY",
 
-    /*
-     * Mobile: subtle offset
-     * Tablet: slightly stronger
-     * Desktop: original -ms-6
-     */
-    className: "-ms-2 sm:-ms-3 lg:-ms-6 gap-x-2 sm:gap-x-4 lg:gap-x-0",
+    className:
+      "ltr:-ml-2 rtl:mr-0 sm:ltr:-ml-3 sm:rtl:mr-0 lg:ltr:-ml-6 lg:rtl:mr-0 gap-x-2 sm:gap-x-4 lg:gap-x-0 mb-2 sm:mb-0",
 
     enLabel: "KORLOY MILLING TOOLS",
     faLabel: "",
@@ -35,11 +33,14 @@ export const carouselItems: HeroCarouselItem[] = [
     href: "",
 
     image: "/homepageCarousel/2.webp",
+    mobileImage: "/homepageCarousel/mobile/2.webp",
+
     logo: "/home/partners/korloy.webp",
 
     brandName: "KORLOY",
 
-    className: "-ms-2 sm:-ms-3 lg:-ms-6 gap-x-2 sm:gap-x-4 lg:gap-x-0",
+    className:
+      "ltr:-ml-2 rtl:mr-0 sm:ltr:-ml-3 sm:rtl:mr-0 lg:ltr:-ml-6 lg:rtl:mr-0 gap-x-2 sm:gap-x-4 lg:gap-x-0 mb-2 sm:mb-0",
 
     enLabel: "KORLOY TURNING TOOLS",
     faLabel: "ابزارهای تراشکاری KORLOY",
@@ -59,14 +60,12 @@ export const carouselItems: HeroCarouselItem[] = [
     href: "",
 
     image: "/homepageCarousel/333.jpg",
+    mobileImage: "/homepageCarousel/mobile/3.webp",
+
     logo: "/home/partners/Widin.webp",
 
-    /*
-     * Keep WIDIN slightly lower,
-     * but less aggressive on small screens.
-     */
     className:
-  "ltr:-ml-1 rtl:-mr-1 -mb-2 sm:ltr:-ml-1.5 sm:rtl:-mr-1.5 sm:-mb-3 lg:ltr:-ml-2 lg:rtl:-mr-2 lg:-mb-4",
+      "ltr:ml-2 rtl:mr-2 -mb-0 sm:ltr:-ml-1.5 sm:rtl:-mr-1.5 sm:-mb-3 lg:ltr:-ml-2 lg:rtl:-mr-2 lg:-mb-4",
 
     enLabel: "WIDIN ",
     faLabel: "فرزهای تمام‌کارباید WIDIN",
@@ -86,9 +85,11 @@ export const carouselItems: HeroCarouselItem[] = [
     href: "",
 
     image: "/homepageCarousel/4.webp",
+    mobileImage: "/homepageCarousel/mobile/4.webp",
+
     logo: "/home/partners/izar2.webp",
 
-    className: "-mb-2 sm:-mb-3 lg:-mb-4",
+    className: "-mb-2 sm:-mb-3 lg:-mb-4 ltr:ml-4 rtl:mr-4 sm:ltr:ml-0 sm:rtl:mr-0",
 
     enLabel: "IZAR HSS TOOLS",
     faLabel: "ابزارهای HSS برند IZAR",
@@ -108,9 +109,11 @@ export const carouselItems: HeroCarouselItem[] = [
     href: "",
 
     image: "/homepageCarousel/55.webp",
+    mobileImage: "/homepageCarousel/mobile/5.webp",
+
     logo: "/home/partners/hanboo.webp",
 
-    className: "",
+    className: "mb-1 sm:mb-0  ltr:ml-2 rtl:mr-2 sm:ltr:ml-0 sm:rtl:mr-0",
 
     enLabel: "HANBOO ENGINEERING",
     faLabel: "مهندسی HANBOO",
@@ -130,13 +133,12 @@ export const carouselItems: HeroCarouselItem[] = [
     href: "",
 
     image: "/homepageCarousel/66.webp",
+    mobileImage: "/homepageCarousel/mobile/6.webp",
+
     logo: "/home/partners/Funik.webp",
 
-    /*
-     * ms-0.0 replaced with valid ms-0
-     */
     className:
-      "ltr:-ml-0.5 rtl:-mr-0.5 sm:ltr:-ml-1.5 sm:rtl:-mr-1.5 lg:ltr:-ml-2 lg:rtl:-mr-2",
+      "ltr:ml-2 rtl:mr-1 sm:ltr:-ml-1.5 sm:rtl:-mr-1.5 lg:ltr:-ml-2 lg:rtl:-mr-2",
 
     enLabel: "FUNIK ULTRA HARD MATERIAL",
     faLabel: "مواد فوق‌سخت FUNIK",
@@ -155,14 +157,14 @@ export const carouselItems: HeroCarouselItem[] = [
     href: "",
 
     image: "/homepageCarousel/777.webp",
+    mobileImage: "/homepageCarousel/mobile/7.webp",
+
     flipedImage: "/homepageCarousel/77.webp",
+
     logo: "/home/partners/mpa.webp",
 
-    /*
-     * Original desktop = -ms-4.5
-     */
     className:
-      "ltr:-ml-1.5 rtl:-mr-1.5 sm:ltr:-ml-2.5 sm:rtl:-mr-2.5 lg:ltr:-ml-4.5 lg:rtl:-mr-4.5",
+      "mb-2 sm:mb-0 ltr:ml-0 rtl:mr-0 sm:ltr:-ml-2.5 sm:rtl:-mr-2.5 lg:ltr:-ml-4.5 lg:rtl:-mr-4.5",
 
     enLabel: "",
     faLabel: "",
@@ -182,13 +184,11 @@ export const carouselItems: HeroCarouselItem[] = [
     href: "",
 
     image: "/homepageCarousel/88.webp",
+    mobileImage: "/homepageCarousel/mobile/8.webp",
+
     logo: "/home/partners/Dine.webp",
 
-    /*
-     * Original desktop:
-     * ms-0.5 -mb-4
-     */
-    className: "ms-0.5 -mb-2 sm:-mb-3 lg:-mb-4",
+    className: "ltr:ml-4 rtl:mr-4.5 sm:ltr:ml-0 sm:rtl:mr-0 mb-0 sm:-mb-3 lg:-mb-4",
 
     enLabel: "",
     faLabel: "",
@@ -208,9 +208,11 @@ export const carouselItems: HeroCarouselItem[] = [
     href: "",
 
     image: "/homepageCarousel/9.webp",
+    mobileImage: "/homepageCarousel/mobile/9.webp",
+
     logo: "/home/partners/union.webp",
 
-    className: "-mb-2 sm:-mb-3 lg:-mb-4",
+    className: "ltr:ml-3.5 rtl:mr-4 sm:ltr:ml-0 sm:rtl:mr-0 mb-0 sm:-mb-3 lg:-mb-4",
 
     enLabel: "",
     faLabel: "",
@@ -230,10 +232,12 @@ export const carouselItems: HeroCarouselItem[] = [
     href: "",
 
     image: "/homepageCarousel/10.webp",
+    mobileImage: "/homepageCarousel/mobile/10.webp",
+
     logo: "/home/partners/osg.webp",
 
     className:
-      "ltr:-ml-2 rtl:-mr-2 sm:ltr:-ml-3 sm:rtl:-mr-3 lg:ltr:-ml-6 lg:rtl:-mr-6",
+       " mb-4 sm:mb-0  ltr:-ml-2 rtl:-mr-2 sm:ltr:-ml-3 sm:rtl:-mr-3 lg:ltr:-ml-6 lg:rtl:-mr-6",
 
     enLabel: "",
     faLabel: "",
@@ -253,16 +257,14 @@ export const carouselItems: HeroCarouselItem[] = [
     href: "",
 
     image: "/homepageCarousel/111.webp",
+    mobileImage: "/homepageCarousel/mobile/11.webp",
+
     logo: "/home/partners/Shinhan_diamond.webp",
 
     brandName: "SHINHAN DIAMOND",
 
-    /*
-     * Original desktop:
-     * -ms-6 gap-x-4
-     */
     className:
-      "ltr:ml-0 rtl:mr-0 gap-x-2 sm:ltr:ml-0 sm:rtl:mr-0 sm:gap-x-3 lg:ltr:ml-0 lg:rtl:mr-0 lg:gap-x-4 2xl:ltr:ml-0 2xl:rtl:mr-0",
+      "ltr:ml-2 rtl:mr-0 gap-x-2 sm:ltr:ml-0 sm:rtl:mr-0 sm:gap-x-3 lg:ltr:ml-0 lg:rtl:mr-0 lg:gap-x-4 2xl:ltr:ml-0 2xl:rtl:mr-0",
 
     enLabel: "",
     faLabel: "",

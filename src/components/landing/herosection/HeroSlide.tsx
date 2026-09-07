@@ -77,7 +77,7 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
         : "72% 50%"
       : (mobileObjectPositions[item.id] ?? "50% 50%");
 
-  const shouldFlipImage = !["1", "2", "7"].includes(item.id) && isRTL;
+  const shouldFlipImage = !["1", "2", "7", "3"].includes(item.id) && isRTL;
 
   const mobileLogoSize = mobileLogoSizes[item.id] ?? "size-[74px]";
 
@@ -242,8 +242,9 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
     >
       {/* Background Image */}
       <div ref={imageWrapperRef} className="absolute inset-0 overflow-hidden">
+        {/* Mobile Image */}
         <Image
-          src={imageSrc}
+          src={item.mobileImage}
           alt={title || label || item.brandName || "ATI Abzar Pishro"}
           fill
           priority={item.id === "1"}
@@ -252,20 +253,34 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
             objectPosition: mobileObjectPosition,
           }}
           className={cn(
-            "object-cover lg:object-center",
+            "object-cover sm:hidden",
+            shouldFlipImage && "-scale-x-100",
+          )}
+        />
+
+        {/* Tablet / Desktop Image */}
+        <Image
+          src={imageSrc}
+          alt={title || label || item.brandName || "ATI Abzar Pishro"}
+          fill
+          priority={item.id === "1"}
+          sizes="100vw"
+          className={cn(
+            "hidden object-cover sm:block lg:object-center",
             shouldFlipImage && "-scale-x-100",
           )}
         />
       </div>
 
       {/* Mobile Readability */}
-      <div className="pointer-events-none absolute inset-0 bg-black/20 lg:hidden" />
+      <div className="pointer-events-none absolute inset-0 bg-black/10 sm:hidden" />
 
       {/* Main Readable Overlay */}
       <div
         className={cn(
           "pointer-events-none absolute inset-0",
-          "bg-gradient-to-b from-black/15 via-black/35 to-black/85",
+          "bg-gradient-to-b from-black/10 via-black/25 to-black/70",
+          "sm:from-black/15 sm:via-black/35 sm:to-black/85",
           "lg:bg-gradient-to-r lg:from-black/75 lg:via-black/35 lg:to-transparent",
           isRTL &&
             "lg:bg-gradient-to-l lg:from-black/75 lg:via-black/35 lg:to-transparent",
@@ -275,9 +290,9 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
       {/* Mobile Side Gradient */}
       <div
         className={cn(
-          "pointer-events-none absolute inset-0 lg:hidden",
-          "bg-gradient-to-r from-black/55 via-black/15 to-transparent",
-          isRTL && "bg-gradient-to-l from-black/55 via-black/15 to-transparent",
+          "pointer-events-none absolute inset-0 sm:hidden",
+          "bg-gradient-to-r from-black/40 via-black/10 to-transparent",
+          isRTL && "bg-gradient-to-l from-black/40 via-black/10 to-transparent",
         )}
       />
 
@@ -303,7 +318,12 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
                   alt={item.brandName ?? "logo"}
                   fill
                   sizes="90px"
-                  className="scale-[1.45] object-contain [filter:drop-shadow(0_1px_1px_rgba(255,255,255,0.25))_drop-shadow(0_3px_6px_rgba(0,0,0,0.4))]"
+                  className={cn(
+                    "scale-[1.45] object-contain",
+                    ["3", "4"].includes(item.id)
+                      ? "[filter:drop-shadow(0_0_1px_rgba(255,255,255,1))_drop-shadow(0_0_4px_rgba(255,255,255,0.75))_drop-shadow(0_3px_7px_rgba(0,0,0,0.55))]"
+                      : "[filter:drop-shadow(0_1px_1px_rgba(255,255,255,0.25))_drop-shadow(0_3px_6px_rgba(0,0,0,0.4))]",
+                  )}
                 />
               </div>
 
@@ -311,7 +331,7 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
                 <div
                   lang="en"
                   dir="ltr"
-                  className="-ms-2 text-[17px] font-semibold tracking-wide sm:-ms-3 sm:text-[19px]"
+                  className="text-[17px] font-semibold tracking-wide sm:-ms-3 sm:text-[19px]"
                 >
                   {item.brandName}
                 </div>
@@ -385,29 +405,6 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
             >
               {description}
             </p>
-          )}
-
-          {/* CTA */}
-          {item.href && (
-            <Link
-              ref={ctaRef}
-              href={item.href}
-              className={cn(
-                "group mt-6 inline-flex items-center gap-x-2.5",
-                "bg-accent rounded-md px-4 py-2.5",
-                "text-accent-foreground text-xs font-medium",
-                "transition-colors duration-300",
-                "sm:mt-7 sm:gap-x-3 sm:px-5 sm:py-3 sm:text-sm",
-                "hover:bg-primary-hover",
-              )}
-            >
-              <span>{isRTL ? "مشاهده بیشتر" : "Explore More"}</span>
-
-              <ArrowUpRight
-                className={cn("size-4", isRTL && "rotate-[270deg]")}
-                strokeWidth={1.8}
-              />
-            </Link>
           )}
         </div>
       </div>

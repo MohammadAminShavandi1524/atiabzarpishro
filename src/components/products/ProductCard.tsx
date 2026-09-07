@@ -41,8 +41,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         {/* Brand */}
         <span
           lang="en"
-          dir="ltr"
-          className="text-custom-primary text-[9px] font-medium tracking-[0.12em] sm:text-[10px] sm:tracking-[0.13em]"
+          className="text-custom-primary text-[10px] font-medium  sm:text-[10px] "
         >
           {brandName}
         </span>
