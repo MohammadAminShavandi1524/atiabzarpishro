@@ -16,8 +16,8 @@ import ArticleFooter from "@/components/news/ArticleFooter";
 interface NewsChild {
   id: number;
   blog: number;
-  title: string;
-  description: string;
+  title: string | null;
+  description: string | null;
   image: string | null;
 }
 
