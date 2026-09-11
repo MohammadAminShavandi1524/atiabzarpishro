@@ -24,7 +24,7 @@ const Logo = ({ variant = "default", onClick }: LogoProps) => {
       >
         <div className="relative size-[52px] shrink-0">
           <Image
-            src="/logo.webp"
+            src="/logo3.webp"
             alt={t("logoLine2")}
             fill
             sizes="52px"
@@ -68,7 +68,7 @@ const Logo = ({ variant = "default", onClick }: LogoProps) => {
       >
         <div className="relative size-[52px] shrink-0">
           <Image
-            src="/logo.webp"
+            src="/logo3.webp"
             alt={t("logoLine2")}
             fill
             sizes="52px"
@@ -111,7 +111,7 @@ const Logo = ({ variant = "default", onClick }: LogoProps) => {
     >
       <div className="3xl:size-[90px] relative size-[60px] shrink-0 xl:size-[72px] 2xl:size-[82px]">
         <Image
-          src="/logo.webp"
+          src="/logo3.webp"
           alt={t("logoLine2")}
           fill
           className="z-10 object-contain drop-shadow-[0_0_8px_rgba(0,0,0,0.08)] dark:drop-shadow-[0_0_10px_rgba(0,0,0,0.35)]"

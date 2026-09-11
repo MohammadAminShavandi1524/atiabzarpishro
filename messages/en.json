@@ -179,46 +179,14 @@
       }
     },
     "blogInsights": {
-      "eyebrow": "Tech News",
+      "eyebrow": "Technical News",
 
-      "titleLine1": "Machining Knowledge",
-      "titleLine2": "Built from Experience",
+      "titleLine1": "Technical News",
+      "titleLine2": "& Brochures",
 
-      "description": "Technical articles, practical machining knowledge and industry insights from ATI Abzar Pishro.",
+      "description": "Explore the latest technical publications, product updates and machining resources from ATI Abzar Pishro.",
 
-      "viewAll": "View All Articles",
-
-      "items": {
-        "first": {
-          "title": "Choosing the Right Cutting Tools for High-Performance Machining",
-          "description": "A practical look at the key factors involved in selecting cutting tools for stable, accurate and productive machining."
-        },
-
-        "second": {
-          "title": "How Cutting Parameters Affect Tool Life",
-          "description": "Understand how cutting speed, feed and depth of cut influence tool wear, process stability and overall machining performance."
-        },
-
-        "third": {
-          "title": "Understanding Carbide Inserts and Their Applications",
-          "description": "Explore the fundamentals of carbide inserts, common geometries and how different insert types are applied across machining operations."
-        },
-
-        "fourth": {
-          "title": "Improving Milling Performance Through Better Process Control",
-          "description": "A practical overview of the machining conditions and tooling decisions that can improve stability, surface quality and milling productivity."
-        },
-
-        "fifth": {
-          "title": "Reducing Machining Cycle Time Without Sacrificing Quality",
-          "description": "Explore practical approaches to improving production efficiency while maintaining dimensional accuracy, surface quality and process reliability."
-        },
-
-        "sixth": {
-          "title": "Why Cutting Tool Selection Matters in Modern Manufacturing",
-          "description": "Understanding how the right tooling strategy can improve machining performance, tool life, production consistency and overall manufacturing efficiency."
-        }
-      }
+      "viewAll": "View All Technical News"
     }
   },
 
@@ -564,7 +532,7 @@
       "backgroundTitle": "Professional Background",
       "background": "With an academic background in Metallurgy Engineering and more than two decades of professional experience in the industrial tooling and manufacturing sector, Mr. Mohammad Reza Adinelou has built a strong career in technical sales and business development. He previously served as Sales Manager for SECO Tools Company in Iran for 11 years and later spent 15 years as Sales Manager of AKERS Roll Manufacturing Co. in Iran. Drawing on this extensive industry experience, he went on to establish Ati Abzar Pishro and has since led the company as its Founder and CEO.",
       "educationLabel": "Education",
-      "education": "M.Sc. in Metallurgy Engineering Sharif Univercity",
+      "education": "M.Sc. in Metallurgy Engineering Sharif University",
       "roleLabel": "Current Role",
       "role": "Founder & CEO",
       "emailLabel": "Email"

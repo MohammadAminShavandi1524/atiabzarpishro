@@ -13,5 +13,13 @@ export const getProducts = async (): Promise<ProductItem[]> => {
 
   const products: ProductItem[] = await response.json();
 
-  return products.sort((a, b) => a.index - b.index);
+  return products.sort((a, b) => {
+    const brandIndexDifference = a.brand.index - b.brand.index;
+
+    if (brandIndexDifference !== 0) {
+      return brandIndexDifference;
+    }
+
+    return a.index - b.index;
+  });
 };

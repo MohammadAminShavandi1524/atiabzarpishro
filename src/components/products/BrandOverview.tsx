@@ -12,6 +12,7 @@ import { useGSAP } from "@gsap/react";
 
 import { getCatalogues } from "../catalogues/catalogues.api";
 
+import type { CatalogueItem } from "../catalogues/catalogues.data";
 import type { ProductBrand } from "./brands.types";
 
 gsap.registerPlugin(useGSAP);
@@ -29,7 +30,7 @@ export default function BrandOverview({ brand, count }: BrandOverviewProps) {
 
   const rootRef = useRef<HTMLDivElement>(null);
 
-  const [hasCatalogues, setHasCatalogues] = useState(false);
+  const [brandCatalogues, setBrandCatalogues] = useState<CatalogueItem[]>([]);
 
   const description = brand
     ? isRTL
@@ -39,7 +40,7 @@ export default function BrandOverview({ brand, count }: BrandOverviewProps) {
 
   useEffect(() => {
     if (!brand) {
-      setHasCatalogues(false);
+      setBrandCatalogues([]);
       return;
     }
 
@@ -47,12 +48,14 @@ export default function BrandOverview({ brand, count }: BrandOverviewProps) {
       try {
         const catalogues = await getCatalogues();
 
-        setHasCatalogues(
-          catalogues.some((catalogue) => catalogue.brand.id === brand.id),
+        const filteredCatalogues = catalogues.filter(
+          (catalogue) => catalogue.brand.id === brand.id,
         );
+
+        setBrandCatalogues(filteredCatalogues);
       } catch (error) {
         console.error("FETCH BRAND CATALOGUES ERROR =>", error);
-        setHasCatalogues(false);
+        setBrandCatalogues([]);
       }
     };
 
@@ -95,12 +98,6 @@ export default function BrandOverview({ brand, count }: BrandOverviewProps) {
     },
   );
 
-  /*
-   * --------------------------------------------------
-   * All Products
-   * --------------------------------------------------
-   */
-
   if (!brand) {
     return (
       <div
@@ -131,12 +128,6 @@ export default function BrandOverview({ brand, count }: BrandOverviewProps) {
       </div>
     );
   }
-
-  /*
-   * --------------------------------------------------
-   * Selected Brand
-   * --------------------------------------------------
-   */
 
   return (
     <div
@@ -183,7 +174,20 @@ export default function BrandOverview({ brand, count }: BrandOverviewProps) {
               </a>
             )}
 
-            {hasCatalogues && (
+            {brandCatalogues.length === 1 && (
+              <a
+                href={brandCatalogues[0].url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-custom-primary xss:w-auto inline-flex h-11 w-full items-center justify-center gap-3 px-4 text-sm font-medium text-white sm:px-5"
+              >
+                <span>{t("overview.catalog")}</span>
+
+                <Download size={15} strokeWidth={1.7} />
+              </a>
+            )}
+
+            {brandCatalogues.length > 1 && (
               <Link
                 href={`/${locale}/catalogues?brand=${brand.id}`}
                 className="bg-custom-primary xss:w-auto inline-flex h-11 w-full items-center justify-center gap-3 px-4 text-sm font-medium text-white sm:px-5"

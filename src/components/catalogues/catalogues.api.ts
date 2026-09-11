@@ -6,12 +6,9 @@ import type {
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const getCatalogues = async (): Promise<CatalogueItem[]> => {
-  const response = await fetch(
-    `${API_URL}/catalog/catalog/get_all_brands/`,
-    {
-      cache: "no-store",
-    },
-  );
+  const response = await fetch(`${API_URL}/catalog/catalog/get_all_brands/`, {
+    cache: "no-store",
+  });
 
   if (!response.ok) {
     throw new Error("Failed to fetch catalogues");
@@ -19,7 +16,7 @@ export const getCatalogues = async (): Promise<CatalogueItem[]> => {
 
   const brands: CatalogueBrandWithCatalogs[] = await response.json();
 
-  return brands.flatMap((brand) =>
+  const catalogues = brands.flatMap((brand) =>
     brand.catalogs.map((catalogue) => ({
       ...catalogue,
 
@@ -31,9 +28,20 @@ export const getCatalogues = async (): Promise<CatalogueItem[]> => {
         description_fa: brand.description_fa,
         image: brand.image,
         url: brand.url,
+        index: brand.index,
       },
     })),
   );
+
+  return catalogues.sort((a, b) => {
+    const brandIndexDifference = a.brand.index - b.brand.index;
+
+    if (brandIndexDifference !== 0) {
+      return brandIndexDifference;
+    }
+
+    return new Date(b.created).getTime() - new Date(a.created).getTime();
+  });
 };
 
 export const getCatalogueById = async (

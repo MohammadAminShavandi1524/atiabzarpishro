@@ -42,11 +42,4 @@ export const teamMembers: TeamMember[] = [
     email: "Kian.adinelou@atiabzarpishro.com",
     phone: "09338709522",
   },
-  {
-    id: 6,
-    key: "ehsanSalem",
-    image: "/about/team/6.jpg",
-    email: "Ehsan.Salem@atiabzarpishro.com",
-    phone: "09124891536",
-  },
 ];

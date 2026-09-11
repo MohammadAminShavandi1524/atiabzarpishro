@@ -20,7 +20,7 @@ export default function IndexPage({ params }: PageProps<"/[locale]">) {
       <Capabilities />
       <Industries />
       <Partners />
-      {/* <BlogInsights /> */}
+      <BlogInsights />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Link from "next/link";
 
@@ -8,15 +8,14 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { useLocale, useTranslations } from "next-intl";
 
-import useEmblaCarousel from "embla-carousel-react";
-
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
-import ArticleCard from "./ArticleCard";
+import TechNewsCard from "@/components/techNews/TechNewsCard";
+import { getTechNews } from "@/components/techNews/techNews.api";
 
-import { blogInsights } from "./blogInsights.data";
+import type { TechNewsItem } from "@/components/techNews/techNews.data";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -26,8 +25,7 @@ export default function BlogInsights() {
 
   const isRTL = locale === "fa";
 
-  const PrevIcon = isRTL ? ArrowRight : ArrowLeft;
-  const NextIcon = isRTL ? ArrowLeft : ArrowRight;
+  const Arrow = isRTL ? ArrowLeft : ArrowRight;
 
   const sectionRef = useRef<HTMLElement>(null);
   const eyebrowRef = useRef<HTMLDivElement>(null);
@@ -36,55 +34,58 @@ export default function BlogInsights() {
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const viewAllRef = useRef<HTMLAnchorElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
-  const controlsRef = useRef<HTMLDivElement>(null);
 
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: "start",
-    loop: true,
-    direction: isRTL ? "rtl" : "ltr",
-    slidesToScroll: 1,
-  });
+  const [techNewsItems, setTechNewsItems] = useState<TechNewsItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi]);
+  /*
+   * --------------------------------------------------
+   * Fetch Tech News
+   * --------------------------------------------------
+   */
 
   useEffect(() => {
-    if (!emblaApi) return;
+    const fetchTechNews = async () => {
+      try {
+        const data = await getTechNews();
 
-    onSelect();
+        const latestItems = [...data]
+          .sort(
+            (a, b) =>
+              new Date(b.created).getTime() - new Date(a.created).getTime(),
+          )
+          .slice(0, 4);
 
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
+        setTechNewsItems(latestItems);
+      } catch (error) {
+        console.error("Failed to fetch home tech news:", error);
 
-    return () => {
-      emblaApi.off("select", onSelect);
-      emblaApi.off("reInit", onSelect);
+        setTechNewsItems([]);
+      } finally {
+        setIsLoading(false);
+      }
     };
-  }, [emblaApi, onSelect]);
 
-  const scrollPrev = useCallback(() => {
-    emblaApi?.scrollPrev();
-  }, [emblaApi]);
+    fetchTechNews();
+  }, []);
 
-  const scrollNext = useCallback(() => {
-    emblaApi?.scrollNext();
-  }, [emblaApi]);
+  /*
+   * --------------------------------------------------
+   * Animation
+   * --------------------------------------------------
+   */
 
   useGSAP(
     () => {
       if (
+        isLoading ||
+        !techNewsItems.length ||
         !sectionRef.current ||
         !eyebrowRef.current ||
         !titleRef.current ||
         !descriptionRef.current ||
         !viewAllRef.current ||
-        !cardsRef.current ||
-        !controlsRef.current
+        !cardsRef.current
       ) {
         return;
       }
@@ -97,8 +98,9 @@ export default function BlogInsights() {
 
       const titleLines = Array.from(titleRef.current.children);
 
-      const cards =
-        cardsRef.current.querySelectorAll<HTMLElement>(".blog-insight-card");
+      const cards = cardsRef.current.querySelectorAll<HTMLElement>(
+        ".home-tech-news-card",
+      );
 
       /*
        * Initial States
@@ -133,12 +135,7 @@ export default function BlogInsights() {
 
       gsap.set(cards, {
         opacity: 0,
-        y: 24,
-      });
-
-      gsap.set(controlsRef.current, {
-        opacity: 0,
-        y: 12,
+        y: 28,
       });
 
       /*
@@ -211,41 +208,115 @@ export default function BlogInsights() {
       );
 
       /* Cards */
-      timeline.to(
-        cards,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.48,
-          stagger: 0.055,
-          ease: "power3.out",
-        },
-        "-=0.22",
-      );
-
-      /* Controls */
-      timeline.to(
-        controlsRef.current,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.38,
-        },
-        "-=0.25",
-      );
+      if (cards.length) {
+        timeline.to(
+          cards,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.55,
+            stagger: 0.08,
+            ease: "power3.out",
+          },
+          "-=0.22",
+        );
+      }
     },
     {
       scope: sectionRef,
-      dependencies: [isRTL],
+      dependencies: [isRTL, isLoading, techNewsItems.length],
       revertOnUpdate: true,
     },
   );
+
+  /*
+   * --------------------------------------------------
+   * Loading
+   * --------------------------------------------------
+   */
+
+  if (isLoading) {
+    return (
+      <section
+        dir={isRTL ? "rtl" : "ltr"}
+        className="bg-background border-border border-b pt-14 pb-12 sm:pt-16 sm:pb-14 md:pt-20 md:pb-16 lg:pt-20 xl:pt-[88px] xl:pb-20 2xl:pt-24 2xl:pb-24"
+      >
+        <div className="w90">
+          {/* Header Skeleton */}
+          <div className="flex flex-col gap-7 sm:gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-12 xl:gap-16 2xl:gap-20">
+            <div className="w-full max-w-[900px]">
+              {/* Eyebrow */}
+              <div className="flex items-center gap-3 sm:gap-4">
+                <span className="bg-border-secondary h-px w-9 animate-pulse sm:w-10 xl:w-11 2xl:w-12" />
+
+                <span className="bg-card-secondary h-3 w-24 animate-pulse" />
+              </div>
+
+              {/* Title */}
+              <div className="mt-6 space-y-3 sm:mt-7">
+                <div className="bg-card-secondary h-10 w-[72%] max-w-[560px] animate-pulse sm:h-12 lg:h-14" />
+
+                <div className="bg-card-secondary h-10 w-[55%] max-w-[420px] animate-pulse sm:h-12 lg:h-14" />
+              </div>
+
+              {/* Description */}
+              <div className="mt-5 max-w-[760px] space-y-2.5 sm:mt-6 xl:mt-8">
+                <div className="bg-card-secondary h-3.5 w-full animate-pulse" />
+
+                <div className="bg-card-secondary h-3.5 w-[82%] animate-pulse" />
+              </div>
+            </div>
+
+            {/* View All Skeleton */}
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="bg-card-secondary h-4 w-24 animate-pulse" />
+
+              <div className="border-border bg-card-secondary size-9 animate-pulse border sm:size-10" />
+            </div>
+          </div>
+
+          {/* Cards Skeleton */}
+          <div className="xss:grid-cols-2 xss:gap-x-4 mlg:grid-cols-3 mlg:gap-x-8 mt-10 grid grid-cols-1 gap-x-5 gap-y-10 sm:mt-12 sm:gap-x-6 sm:gap-y-12 lg:mt-14 xl:grid-cols-4 xl:gap-x-10 2xl:mt-16 2xl:gap-x-16">
+            {Array.from({ length: 4 }).map((_, index) => (
+              <div key={index} className="min-w-0">
+                {/* Cover */}
+                <div className="border-border bg-card-secondary relative aspect-[210/297] w-full animate-pulse border" />
+
+                {/* Info */}
+                <div className="pt-3.5 text-center sm:pt-4 xl:pt-5">
+                  <div className="bg-card-secondary mx-auto h-3 w-16 animate-pulse" />
+
+                  <div className="bg-card-secondary mx-auto mt-3 h-5 w-[75%] animate-pulse sm:h-6" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  /*
+   * --------------------------------------------------
+   * No Tech News
+   * --------------------------------------------------
+   */
+
+  if (!techNewsItems.length) {
+    return null;
+  }
+
+  /*
+   * --------------------------------------------------
+   * Content
+   * --------------------------------------------------
+   */
 
   return (
     <section
       ref={sectionRef}
       dir={isRTL ? "rtl" : "ltr"}
-      className="bg-background border-border border-b pt-14 pb-8 sm:pt-16 sm:pb-9 md:pt-20 md:pb-10 lg:pt-20 xl:pt-[88px] 2xl:pt-24 2xl:pb-12"
+      className="bg-background border-border border-b pt-14 pb-12 sm:pt-16 sm:pb-14 md:pt-20 md:pb-16 lg:pt-20 xl:pt-[88px] xl:pb-20 2xl:pt-24 2xl:pb-24"
     >
       <div className="w90">
         {/* Header */}
@@ -288,13 +359,13 @@ export default function BlogInsights() {
           {/* View All */}
           <Link
             ref={viewAllRef}
-            href={`/${locale}/blogs`}
+            href={`/${locale}/tech-news`}
             className="group text-foreground flex w-fit shrink-0 items-center gap-3 text-xs font-medium sm:gap-4 sm:text-sm lg:mb-1"
           >
             <span>{t("viewAll")}</span>
 
             <span className="border-border group-hover:border-custom-primary flex size-9 items-center justify-center border transition-colors duration-300 sm:size-10">
-              <NextIcon
+              <Arrow
                 size={16}
                 strokeWidth={1.7}
                 className="text-custom-primary"
@@ -303,67 +374,16 @@ export default function BlogInsights() {
           </Link>
         </div>
 
-        {/* Carousel */}
-        <div ref={cardsRef} className="mt-8 overflow-hidden sm:mt-10 lg:mt-8">
-          <div ref={emblaRef} className="overflow-hidden">
-            <div className="-ms-3 flex sm:-ms-4 2xl:-ms-5">
-              {blogInsights.map((article) => (
-                <div
-                  key={article.id}
-                  className="min-w-0 flex-[0_0_100%] ps-3 sm:flex-[0_0_50%] sm:ps-4 xl:flex-[0_0_33.333333%] 2xl:ps-5"
-                >
-                  <div className="blog-insight-card h-full min-w-0">
-                    <ArticleCard
-                      article={article}
-                      isRTL={isRTL}
-                      locale={locale}
-                      t={t}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Controls */}
+        {/* Tech News Grid */}
         <div
-          ref={controlsRef}
-          className="border-border mt-5 flex items-center justify-between border-t pt-4 sm:mt-6"
+          ref={cardsRef}
+          className="xss:grid-cols-2 xss:gap-x-4 mlg:grid-cols-3 mlg:gap-x-8 mlg:gap-y-14 mt-10 grid grid-cols-1 gap-x-5 gap-y-10 sm:mt-12 sm:gap-x-6 sm:gap-y-12 lg:mt-14 xl:grid-cols-4 xl:gap-x-10 xl:gap-y-16 2xl:mt-16 2xl:gap-x-16 2xl:gap-y-20"
         >
-          {/* Counter */}
-          <div dir="ltr" className="flex items-center gap-2.5 sm:gap-3">
-            <span className="text-custom-primary text-xs font-medium sm:text-sm">
-              {String(selectedIndex + 1).padStart(2, "0")}
-            </span>
-
-            <span className="text-border">/</span>
-
-            <span className="text-muted-foreground text-xs sm:text-sm">
-              {String(blogInsights.length).padStart(2, "0")}
-            </span>
-          </div>
-
-          {/* Navigation */}
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={scrollPrev}
-              aria-label="Previous article"
-              className="border-border text-foreground hover:border-custom-primary hover:text-custom-primary flex size-10 cursor-pointer items-center justify-center border transition-colors duration-300 sm:size-11"
-            >
-              <PrevIcon size={17} strokeWidth={1.7} />
-            </button>
-
-            <button
-              type="button"
-              onClick={scrollNext}
-              aria-label="Next article"
-              className="border-border text-foreground hover:border-custom-primary hover:text-custom-primary flex size-10 cursor-pointer items-center justify-center border transition-colors duration-300 sm:size-11"
-            >
-              <NextIcon size={17} strokeWidth={1.7} />
-            </button>
-          </div>
+          {techNewsItems.map((item) => (
+            <div key={item.id} className="home-tech-news-card min-w-0">
+              <TechNewsCard item={item} />
+            </div>
+          ))}
         </div>
       </div>
     </section>

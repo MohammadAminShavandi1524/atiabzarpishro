@@ -30,6 +30,7 @@ export default function CataloguesPage() {
   const gridRef = useRef<HTMLDivElement>(null);
 
   const [catalogues, setCatalogues] = useState<CatalogueItem[]>([]);
+  console.log("🚀 ~ CataloguesPage ~ catalogues:", catalogues)
 
   const activeBrand = searchParams.get("brand");
   const activeBrandId = Number(activeBrand);

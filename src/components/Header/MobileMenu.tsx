@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -27,14 +27,16 @@ import {
   useMobileSidebar,
 } from "@/components/ui/mobile-sidebar";
 
-import { brands } from "../products/products.data";
-
 import Logo from "./Logo";
+import { ProductBrand } from "../products/brands.types";
+import { getBrands } from "../products/brands.api";
 
 export default function MobileMenu() {
   const locale = useLocale();
   const t = useTranslations("Header.Navigation");
   const pathname = usePathname();
+
+  const [brands, setBrands] = useState<ProductBrand[]>([]);
 
   const { closeSidebar } = useMobileSidebar();
 
@@ -94,6 +96,20 @@ export default function MobileMenu() {
       isActive(href) && "text-custom-primary",
     );
 
+  useEffect(() => {
+    const fetchBrands = async () => {
+      try {
+        const data = await getBrands();
+
+        setBrands(data);
+      } catch (error) {
+        console.error("FETCH BRANDS ERROR =>", error);
+      }
+    };
+
+    fetchBrands();
+  }, []);
+
   return (
     <>
       {/* Header */}
@@ -133,7 +149,7 @@ export default function MobileMenu() {
                 aria-expanded={partnersOpen}
                 aria-controls="mobile-partners-menu"
                 className={cn(
-                  "hover:text-custom-primary flex min-h-13 w-full cursor-pointer items-center justify-between py-3 text-start text-[15px] font-medium transition-colors duration-300 pe-2.5",
+                  "hover:text-custom-primary flex min-h-13 w-full cursor-pointer items-center justify-between py-3 pe-2.5 text-start text-[15px] font-medium transition-colors duration-300",
                   partnersActive && "text-custom-primary",
                 )}
               >
@@ -160,7 +176,7 @@ export default function MobileMenu() {
                     {brands.map((brand) => (
                       <Link
                         key={brand.id}
-                        href={`/${locale}/products?brand=${brand.slug}`}
+                        href={`/${locale}/products?brand=${brand.id}`}
                         onClick={closeSidebar}
                         dir="ltr"
                         className="group/partner hover:bg-custom-primary/[0.045] flex items-center gap-3 px-3 py-2 transition-colors duration-200"
@@ -204,7 +220,7 @@ export default function MobileMenu() {
                 aria-expanded={technicalOpen}
                 aria-controls="mobile-technical-menu"
                 className={cn(
-                  "hover:text-custom-primary flex min-h-13 w-full cursor-pointer items-center justify-between py-3 text-start text-[15px] font-medium transition-colors duration-300 pe-2.5",
+                  "hover:text-custom-primary flex min-h-13 w-full cursor-pointer items-center justify-between py-3 pe-2.5 text-start text-[15px] font-medium transition-colors duration-300",
                   technicalActive && "text-custom-primary",
                 )}
               >

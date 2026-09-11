@@ -352,7 +352,12 @@ export default function HeroSlide({ item, locale, isActive }: Props) {
                   alt={item.brandName ?? "logo"}
                   fill
                   sizes="160px"
-                  className="scale-1.8 object-contain [filter:drop-shadow(0_1px_1px_rgba(255,255,255,0.25))_drop-shadow(0_3px_6px_rgba(0,0,0,0.4))]"
+                  className={cn(
+                    "scale-1.8 object-contain",
+                    ["4"].includes(item.id)
+                      ? "[filter:drop-shadow(0_0_1px_rgba(255,255,255,1))_drop-shadow(0_0_4px_rgba(255,255,255,0.75))_drop-shadow(0_3px_7px_rgba(0,0,0,0.55))]"
+                      : "[filter:drop-shadow(0_1px_1px_rgba(255,255,255,0.25))_drop-shadow(0_3px_6px_rgba(0,0,0,0.4))]",
+                  )}
                 />
               </div>
 
