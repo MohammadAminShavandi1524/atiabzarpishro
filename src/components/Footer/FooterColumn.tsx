@@ -101,7 +101,7 @@ export default function FooterColumn({ title, type, items }: Props) {
               <div
                 className={cn(
                   "grid gap-x-8",
-                  hasSecondPartnerColumn ? "grid-cols-2" : "grid-cols-1",
+                  hasSecondPartnerColumn ? "grid-cols-1 lg:grid-cols-2" : "grid-cols-1",
                 )}
               >
                 <ul className="space-y-3.5 lg:space-y-4">
@@ -118,7 +118,7 @@ export default function FooterColumn({ title, type, items }: Props) {
                 </ul>
 
                 {hasSecondPartnerColumn && (
-                  <ul className="space-y-3.5 lg:space-y-4">
+                  <ul className=" lg:mt-0 mt-3.5 sm:mt-4 space-y-3.5 lg:space-y-4">
                     {secondPartnerColumn.map((partner) => (
                       <li key={partner.id}>
                         <Link

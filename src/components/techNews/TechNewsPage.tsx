@@ -80,25 +80,27 @@ export default function TechNewsPage() {
       const cards =
         gridRef.current.querySelectorAll<HTMLElement>(".tech-news-card");
 
-      gsap.fromTo(
-        cards,
-        {
-          opacity: 0,
-          y: 32,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.08,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: gridRef.current,
-            start: "top 84%",
-            once: true,
+      if (cards.length > 0) {
+        gsap.fromTo(
+          cards,
+          {
+            opacity: 0,
+            y: 32,
           },
-        },
-      );
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.08,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: gridRef.current,
+              start: "top 84%",
+              once: true,
+            },
+          },
+        );
+      }
     },
     {
       scope: rootRef,
@@ -132,11 +134,19 @@ export default function TechNewsPage() {
             ref={gridRef}
             className="xss:grid-cols-2 xss:gap-x-4 mlg:grid-cols-3 mlg:gap-x-8 mlg:gap-y-14 grid grid-cols-1 gap-x-5 gap-y-10 sm:gap-x-6 sm:gap-y-12 xl:grid-cols-4 xl:gap-x-10 xl:gap-y-16 2xl:gap-x-16 2xl:gap-y-20"
           >
-            {techNewsItems.map((item) => (
-              <div key={item.id} className="tech-news-card min-w-0">
-                <TechNewsCard item={item} />
+            {techNewsItems.length > 0 ? (
+              techNewsItems.map((item) => (
+                <div key={item.id} className="tech-news-card min-w-0">
+                  <TechNewsCard item={item} />
+                </div>
+              ))
+            ) : (
+              <div className="col-span-full flex min-h-[180px] items-center justify-center">
+                <p className="text-muted-foreground text-center text-[15px] sm:text-[16px]">
+                  {t("library.empty")}
+                </p>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>

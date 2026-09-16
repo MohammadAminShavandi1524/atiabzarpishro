@@ -216,12 +216,11 @@
       "title": "Tech News / Brochures",
       "description": "Explore technical news, product updates, brochures and machining-related content from ATI Abzar Pishro and our technology partners."
     },
-
     "library": {
       "title": "Technical News & Brochures",
-      "count": "Items"
+      "count": "Items",
+      "empty": "No technical news or brochures are available at the moment."
     },
-
     "actions": {
       "preview": "Preview",
       "download": "PDF",

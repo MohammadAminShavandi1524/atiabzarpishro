@@ -35,7 +35,7 @@ export default function Partners() {
       try {
         const brands = await getBrands();
 
-        setPartners(brands.slice(0, 10));
+        setPartners(brands.slice(0, 20));
       } catch (error) {
         console.error("FETCH PARTNERS ERROR =>", error);
       }

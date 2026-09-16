@@ -6,7 +6,7 @@ export const footerNavigation = {
     },
     {
       key: "ourPartners",
-      href: "/our-partners",
+      href: "/products",
     },
     {
       key: "representations",

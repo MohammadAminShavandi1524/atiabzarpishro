@@ -103,20 +103,6 @@ export default function HeroCarousel() {
     };
   }, [emblaApi, updateSelectedIndex, updateButtons]);
 
-  /*
-   * --------------------------------------------------
-   * Manual Navigation
-   * --------------------------------------------------
-   *
-   * Mobile:
-   * scrollNext(true)
-   * => instant snap
-   *
-   * Tablet/Desktop:
-   * scrollNext(false)
-   * => Embla animated movement
-   */
-
   const scrollPrev = useCallback(() => {
     if (!emblaApi) return;
 
@@ -128,12 +114,6 @@ export default function HeroCarousel() {
 
     emblaApi.scrollNext(isMobile === true);
   }, [emblaApi, isMobile]);
-
-  /*
-   * --------------------------------------------------
-   * Autoplay
-   * --------------------------------------------------
-   */
 
   const clearAutoplay = useCallback(() => {
     if (autoplayTimerRef.current) {
@@ -152,11 +132,6 @@ export default function HeroCarousel() {
 
     clearAutoplay();
 
-    /*
-     * Mobile:
-     * no autoplay
-     * no progress timer
-     */
     if (isMobile) {
       setAutoplayProgress(0);
 
@@ -202,12 +177,6 @@ export default function HeroCarousel() {
       clearAutoplay();
     };
   }, [emblaApi, isMobile, startAutoplay, clearAutoplay]);
-
-  /*
-   * --------------------------------------------------
-   * Desktop Hover Pause
-   * --------------------------------------------------
-   */
 
   const handleMouseEnter = () => {
     if (isMobile !== false) return;
