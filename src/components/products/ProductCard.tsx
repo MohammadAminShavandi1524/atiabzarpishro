@@ -45,7 +45,10 @@ export default function ProductCard({ product }: ProductCardProps) {
         </span>
 
         {/* Title */}
-        <h3 className="text-foreground mt-2 line-clamp-2 min-h-[48px] text-[14px] leading-6 font-semibold sm:min-h-[52px] sm:text-[15px] lg:text-[16px]">
+        <h3
+          data-product-title
+          className="text-foreground mt-2 line-clamp-2 text-[14px] leading-6 font-semibold sm:text-[15px] lg:text-[16px]"
+        >
           {title}
         </h3>
 

@@ -2,70 +2,47 @@
 
 import { useEffect, useState } from "react";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, FileQuestion } from "lucide-react";
+import { useLocale } from "next-intl";
 
-import { useLocale, useTranslations } from "next-intl";
-
-import { NewsSection } from "@/components/news/NewsSection";
 import ArticleFooter from "@/components/news/ArticleFooter";
+import NewsArticleHero from "@/components/news/NewsArticleHero";
+import NewsArticleContent from "@/components/news/NewsArticleContent";
+import NewsCatalogueSection from "@/components/news/NewsCatalogueSection";
+import NewsRelatedArticles from "@/components/news/NewsRelatedArticles";
 
-interface NewsChild {
-  id: number;
-  blog: number;
-  title: string | null;
-  description: string | null;
-  image: string | null;
-}
+import type {
+  NewsLanguage,
+  NewsParent,
+  NewsResponse,
+} from "@/components/news/news-article.types";
 
-interface NewsParent {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-
-  category: {
-    id: number;
-    name: string;
-  };
-
-  root_blog: number;
-  tags: string[];
-  lang: string;
-  published: boolean;
-  slug: string;
-}
-
-interface NewsResponse {
-  fa: {
-    parent: NewsParent;
-    child: NewsChild[];
-  };
-
-  en: {
-    parent: NewsParent;
-    child: NewsChild[];
-  };
-}
-
-const Page = () => {
+export default function Page() {
   const locale = useLocale();
-  const t = useTranslations("News.Article");
-
   const params = useParams();
+
   const id = params.id as string;
+
+  const language: NewsLanguage = locale === "fa" ? "fa" : "en";
+  const isRTL = language === "fa";
 
   const [newsData, setNewsData] = useState<NewsResponse | null>(null);
   const [relatedNews, setRelatedNews] = useState<NewsParent[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
-  const relatedId =
-    locale === "fa" ? newsData?.fa.parent.id : newsData?.en.parent.id;
-
+  // Fetch article and its children.
   useEffect(() => {
+    let cancelled = false;
+
     const fetchNews = async () => {
+      setIsLoading(true);
+      setHasError(false);
+      setNewsData(null);
+
       try {
         const res = await fetch(`/api/blogs/children/${id}`, {
           cache: "no-store",
@@ -75,18 +52,50 @@ const Page = () => {
           throw new Error("Failed to fetch news");
         }
 
-        const data = await res.json();
+        const data: NewsResponse = await res.json();
 
-        setNewsData(data);
+        if (!cancelled) {
+          setNewsData(data);
+        }
       } catch (error) {
         console.error("FETCH NEWS ERROR =>", error);
+
+        if (!cancelled) {
+          setHasError(true);
+          setNewsData(null);
+        }
+      } finally {
+        if (!cancelled) {
+          setIsLoading(false);
+        }
       }
     };
 
     fetchNews();
+
+    return () => {
+      cancelled = true;
+    };
   }, [id]);
 
+  // The API may return only one language.
+  const languageData = newsData?.[language];
+
+  const news =
+    languageData?.parent?.published === true ? languageData.parent : null;
+
+  const children = Array.isArray(languageData?.child) ? languageData.child : [];
+
+  const hasChildren = children.length > 0;
+
+  const relatedId = news?.id;
+
+  // Fetch related news only when this language is available.
   useEffect(() => {
+    let cancelled = false;
+
+    setRelatedNews([]);
+
     if (!relatedId) return;
 
     const fetchRelatedNews = async () => {
@@ -99,163 +108,120 @@ const Page = () => {
           throw new Error("Failed to fetch related news");
         }
 
-        const data = await res.json();
+        const data: NewsParent[] = await res.json();
 
-        setRelatedNews(data);
+        if (!cancelled) {
+          const validArticles = Array.isArray(data)
+            ? data.filter(
+                (article) =>
+                  article.id !== relatedId &&
+                  article.published !== false &&
+                  (!article.lang || article.lang === language),
+              )
+            : [];
+
+          setRelatedNews(validArticles);
+        }
       } catch (error) {
         console.error("FETCH RELATED NEWS ERROR =>", error);
+
+        if (!cancelled) {
+          setRelatedNews([]);
+        }
       }
     };
 
     fetchRelatedNews();
-  }, [relatedId]);
 
-  if (!newsData) return null;
+    return () => {
+      cancelled = true;
+    };
+  }, [relatedId, language]);
 
-  const news = locale === "fa" ? newsData.fa.parent : newsData.en.parent;
+  // Loading state.
+  if (isLoading) {
+    return (
+      <div
+        dir={isRTL ? "rtl" : "ltr"}
+        className="bg-background flex min-h-[60vh] items-center justify-center px-5 py-20"
+      >
+        <p role="status" className="text-muted-foreground text-sm">
+          {isRTL ? "در حال دریافت خبر..." : "Loading article..."}
+        </p>
+      </div>
+    );
+  }
 
-  const children = locale === "fa" ? newsData.fa.child : newsData.en.child;
+  // Request error or unavailable language.
+  if (hasError || !news) {
+    const title = hasError
+      ? isRTL
+        ? "خطا در دریافت خبر"
+        : "Unable to load article"
+      : isRTL
+        ? "این خبر به زبان فارسی در دسترس نیست"
+        : "This article is not available in English";
 
-  return (
-    <div dir={locale === "fa" ? "rtl" : "ltr"} className="bg-background">
-      {/* News Hero */}
-      <section className="border-border border-b">
-        <div className="w90 py-12 sm:py-14 md:py-16 lg:py-18 xl:py-20">
-          <div className="grid grid-cols-1 items-center gap-10 sm:gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-10 xl:gap-12 2xl:gap-16">
-            {/* Content */}
-            <div className="min-w-0 lg:pe-5 xl:pe-6 2xl:pe-8">
-              {/* Category */}
-              <div className="mb-5 flex items-center gap-3 sm:mb-6 sm:gap-4">
-                <span className="bg-custom-primary h-px w-9 shrink-0 sm:w-10" />
+    const description = hasError
+      ? isRTL
+        ? "در دریافت اطلاعات خبر مشکلی پیش آمده است. لطفاً دوباره تلاش کنید."
+        : "Something went wrong while loading this article. Please try again."
+      : isRTL
+        ? "نسخه فارسی این خبر هنوز ایجاد یا منتشر نشده است."
+        : "The English version of this article has not been created or published yet.";
 
-                <span className="text-custom-primary text-xs font-medium tracking-[0.12em] sm:text-[13px] sm:tracking-[0.14em] xl:text-sm">
-                  {news.category.name}
-                </span>
-              </div>
+    return (
+      <section dir={isRTL ? "rtl" : "ltr"} className="bg-background">
+        <div className="w90 flex min-h-[60vh] flex-col items-center justify-center py-20 text-center">
+          <FileQuestion
+            className="text-custom-primary size-10 sm:size-12"
+            strokeWidth={1.3}
+          />
 
-              {/* Title */}
-              <h1 className="text-foreground xss:text-[33px] max-w-3xl text-[30px] leading-[1.3] font-semibold sm:text-[36px] sm:leading-[1.25] md:text-[38px] lg:text-[36px] xl:text-[40px] xl:leading-[1.2]">
-                {news.title}
-              </h1>
+          <h1 className="text-foreground mt-6 text-xl leading-8 font-semibold sm:text-2xl">
+            {title}
+          </h1>
 
-              {/* Description */}
-              <p className="text-muted-foreground mt-5 max-w-3xl text-justify text-sm leading-7 sm:mt-6 sm:text-[15px] sm:leading-7.5 xl:mt-7 xl:text-base xl:leading-8">
-                {news.description}
-              </p>
+          <p className="text-muted-foreground mt-4 max-w-md text-sm leading-7 sm:text-[15px]">
+            {description}
+          </p>
 
-              {/* Meta */}
-              <div className="border-border mt-7 flex flex-wrap items-center gap-x-3 gap-y-2 border-t pt-5 sm:mt-8 sm:gap-x-4 sm:pt-6 xl:mt-9">
-                <div className="text-muted-foreground text-xs sm:text-sm">
-                  {t("writtenBy")}
+          <Link
+            href={`/${locale}/news`}
+            className="border-border text-foreground hover:border-custom-primary hover:text-custom-primary mt-8 inline-flex min-h-11 items-center gap-2 border px-5 text-sm font-medium transition-colors duration-300"
+          >
+            <ArrowLeft className="size-4 rtl:rotate-180" />
 
-                  <span className="text-foreground ms-2 font-medium">
-                    {t("author")}
-                  </span>
-                </div>
-
-                <span className="bg-border size-1 shrink-0 rounded-full" />
-
-                <span className="text-muted-foreground text-xs sm:text-sm">
-                  {locale === "fa" ? "۷" : "7"} {t("readTime")}
-                </span>
-              </div>
-            </div>
-
-            {/* Image */}
-            <div className="border-border relative aspect-[16/9] w-full overflow-hidden border">
-              <Image
-                alt={news.title}
-                src={news.image}
-                fill
-                sizes="(max-width: 1023px) 100vw, 52vw"
-                className="object-cover"
-                priority
-              />
-            </div>
-          </div>
+            <span>{isRTL ? "بازگشت به اخبار" : "Back to news"}</span>
+          </Link>
         </div>
       </section>
+    );
+  }
+
+  return (
+    <div dir={isRTL ? "rtl" : "ltr"} className="bg-background">
+      {/* Hero is displayed only when the article has children. */}
+      {hasChildren && <NewsArticleHero news={news} />}
 
       {/* Article Content */}
       <section className="w90 py-14 sm:py-16 md:py-20 lg:py-20 xl:py-24">
         <div className="grid grid-cols-1 items-start gap-14 md:gap-16 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-8 xl:grid-cols-[minmax(0,1fr)_340px] xl:gap-12 2xl:grid-cols-[minmax(0,1fr)_360px] 2xl:gap-16">
           {/* Main Content */}
-          <div className="border-border min-w-0 lg:border-e lg:pe-8 xl:pe-10 2xl:pe-14">
-            {children.map((child) => (
-              <NewsSection
-                key={child.id}
-                title={child.title}
-                paragraphs={[child.description]}
-                image={child.image}
-              />
-            ))}
-          </div>
+          <main className="border-border min-w-0 lg:border-e lg:pe-8 xl:pe-10 2xl:pe-14">
+            <NewsArticleContent news={news} children={children} />
+
+            {/* Show only when the parent has a catalogue. */}
+            <NewsCatalogueSection catalogue={news.catalog} />
+          </main>
 
           {/* Related News */}
-          <aside className="lg:sticky lg:top-16">
-            <div className="border-border border">
-              {/* Heading */}
-              <div className="border-border flex flex-wrap items-center justify-between gap-3 border-b px-4 py-4 sm:px-5 sm:py-5 xl:px-6">
-                <span className="text-foreground text-sm font-semibold sm:text-base">
-                  {t("moreArticles")}
-                </span>
-
-                <Link
-                  href={`/${locale}/news`}
-                  className="text-muted-foreground hover:text-custom-primary flex items-center gap-2 text-xs transition-colors duration-300 sm:text-sm"
-                >
-                  <span>{t("viewAll")}</span>
-
-                  <ArrowLeft className="size-4 ltr:rotate-180" />
-                </Link>
-              </div>
-
-              {/* Related Items */}
-              <div className="px-4 sm:px-5 xl:px-6">
-                {relatedNews.length === 0 ? (
-                  <div className="text-muted-foreground flex min-h-40 items-center justify-center text-center text-sm leading-7">
-                    {t("noRelatedNews")}
-                  </div>
-                ) : (
-                  relatedNews.slice(0, 4).map((article) => (
-                    <Link
-                      key={article.id}
-                      href={`/${locale}/news/${article.id}/${article.slug}`}
-                      className="group/news border-border flex items-center gap-3 border-b py-4 last:border-b-0 sm:gap-4 sm:py-5"
-                    >
-                      {/* Related Image */}
-                      <div className="border-border xss:w-28 relative aspect-[16/9] w-24 shrink-0 overflow-hidden border lg:w-24 xl:w-28">
-                        <Image
-                          src={article.image}
-                          alt={article.title}
-                          fill
-                          sizes="112px"
-                          className="object-cover"
-                        />
-                      </div>
-
-                      {/* Content */}
-                      <div className="flex min-w-0 flex-1 flex-col justify-center">
-                        <span className="text-custom-primary text-[11px] font-medium sm:text-xs">
-                          {article.category.name}
-                        </span>
-
-                        <h3 className="text-foreground group-hover/news:text-custom-primary mt-1.5 line-clamp-2 text-[13px] leading-5 font-medium transition-colors duration-300 sm:mt-2 sm:text-sm sm:leading-6">
-                          {article.title}
-                        </h3>
-                      </div>
-                    </Link>
-                  ))
-                )}
-              </div>
-            </div>
-          </aside>
+          <NewsRelatedArticles articles={relatedNews} />
         </div>
 
-        <ArticleFooter tags={news.tags} />
+        {/* Footer */}
+        <ArticleFooter tags={news.tags ?? []} />
       </section>
     </div>
   );
-};
-
-export default Page;
+}

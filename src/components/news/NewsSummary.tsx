@@ -33,71 +33,75 @@ const NewsSummary = ({
   const isRTL = locale === "fa";
 
   return (
-    <article
-      dir={isRTL ? "rtl" : "ltr"}
-      className="group/news border-border bg-background relative flex h-full min-w-0 flex-col overflow-hidden border"
+    <Link
+      href={`/${locale}/news/${id}/${slug}`}
+      aria-label={title}
+      className="focus-visible:outline-custom-primary block h-full min-w-0 focus-visible:outline-2 focus-visible:outline-offset-2"
     >
-      {/* Image */}
-      <div className="border-border relative aspect-[16/8.5] w-full shrink-0 overflow-hidden border-b">
-        <Image
-          src={imageSrc}
-          alt={title}
-          fill
-          sizes="(max-width: 895px) 100vw, (max-width: 1535px) 50vw, 720px"
-          className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/news:scale-[1.025]"
-        />
-      </div>
-
-      {/* Content */}
-      <div className="flex min-h-[260px] flex-1 flex-col p-5 sm:min-h-[275px] sm:p-6 lg:min-h-[285px] xl:p-6 2xl:min-h-[300px] 2xl:p-7">
-        {/* Tags */}
-        {tags.length > 0 && (
-          <div className="mb-4 flex flex-wrap gap-1.5 sm:mb-5 sm:gap-2">
-            {tags.slice(0, 3).map((tag, index) => (
-              <span
-                key={`${tag}-${index}`}
-                className="border-border text-muted-foreground border px-2 py-1 text-[11px] sm:px-2.5 sm:text-xs"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
-
-        {/* Title */}
-        <h3
-          className={cn(
-            "text-foreground group-hover/news:text-custom-primary max-w-xl text-[17px] leading-7 font-semibold transition-colors duration-300 sm:text-lg sm:leading-7.5 xl:text-[19px] 2xl:text-[20px] 2xl:leading-8",
-            isRTL && "text-justify",
-          )}
-        >
-          {title}
-        </h3>
-
-        {/* Description */}
-        <p className="text-muted-foreground mt-3 line-clamp-3 max-w-2xl text-justify text-sm leading-7 sm:mt-4 sm:text-[15px]">
-          {description}
-        </p>
-
-        {/* Footer */}
-        <div className="border-border mt-auto flex items-center justify-end border-t pt-4 sm:pt-5">
-          <Link
-            href={`/${locale}/news/${id}/${slug}`}
-            className="group/link text-foreground hover:text-custom-primary inline-flex items-center gap-2.5 text-sm font-medium transition-colors duration-300 sm:gap-3"
-          >
-            <span>{t("readMore")}</span>
-
-            <ArrowRight
-              className="size-4 transition-transform duration-300 rtl:rotate-180"
-              strokeWidth={1.8}
-            />
-          </Link>
+      <article
+        dir={isRTL ? "rtl" : "ltr"}
+        className="group/news border-border bg-background relative flex h-full min-w-0 flex-col overflow-hidden border"
+      >
+        {/* Image */}
+        <div className="border-border relative aspect-[16/8.5] w-full shrink-0 overflow-hidden border-b">
+          <Image
+            src={imageSrc}
+            alt={title}
+            fill
+            sizes="(max-width: 895px) 100vw, (max-width: 1535px) 50vw, 720px"
+            className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/news:scale-[1.025]"
+          />
         </div>
-      </div>
 
-      {/* Hover Indicator */}
-      <span className="bg-custom-primary origin-start absolute inset-x-0 top-0 z-10 h-0.5 scale-x-0 transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/news:scale-x-100" />
-    </article>
+        {/* Content */}
+        <div className="flex min-h-[260px] flex-1 flex-col p-5 sm:min-h-[275px] sm:p-6 lg:min-h-[285px] xl:p-6 2xl:min-h-[300px] 2xl:p-7">
+          {/* Tags */}
+          {tags.length > 0 && (
+            <div className="mb-4 flex flex-wrap gap-1.5 sm:mb-5 sm:gap-2">
+              {tags.slice(0, 3).map((tag, index) => (
+                <span
+                  key={`${tag}-${index}`}
+                  className="border-border text-muted-foreground border px-2 py-1 text-[11px] sm:px-2.5 sm:text-xs"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {/* Title */}
+          <h3
+            data-news-title
+            className={cn(
+              "text-foreground group-hover/news:text-custom-primary max-w-xl text-[17px] leading-7 font-semibold transition-colors duration-300 sm:text-lg sm:leading-7.5 xl:text-[19px] 2xl:text-[20px] 2xl:leading-8",
+              isRTL && "text-justify",
+            )}
+          >
+            {title}
+          </h3>
+
+          {/* Description */}
+          <p className="text-muted-foreground my-3 line-clamp-3 max-w-2xl text-justify text-sm leading-7 sm:mt-4 sm:text-[15px]">
+            {description}
+          </p>
+
+          {/* Footer */}
+          <div className="border-border mt-auto flex items-center justify-end border-t pt-4 sm:pt-5">
+            <span className="group/link text-foreground group-hover/news:text-custom-primary inline-flex items-center gap-2.5 text-sm font-medium transition-colors duration-300 sm:gap-3">
+              <span>{t("readMore")}</span>
+
+              <ArrowRight
+                className="size-4 transition-transform duration-300 rtl:rotate-180"
+                strokeWidth={1.8}
+              />
+            </span>
+          </div>
+        </div>
+
+        {/* Hover Indicator */}
+        <span className="bg-custom-primary origin-start pointer-events-none absolute inset-x-0 top-0 z-10 h-0.5 scale-x-0 transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover/news:scale-x-100" />
+      </article>
+    </Link>
   );
 };
 

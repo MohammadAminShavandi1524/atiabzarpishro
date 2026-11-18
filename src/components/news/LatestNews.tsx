@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import { useLocale, useTranslations } from "next-intl";
 
@@ -58,7 +58,13 @@ const LatestNews = () => {
 
         const data = await res.json();
 
-        setNews(Array.isArray(data) ? data : []);
+        const sortedNews: LatestNewsItem[] = Array.isArray(data)
+          ? [...data].sort(
+              (a: LatestNewsItem, b: LatestNewsItem) => b.id - a.id,
+            )
+          : [];
+
+        setNews(sortedNews);
       } catch (error) {
         console.error("FETCH LATEST NEWS ERROR =>", error);
 
@@ -75,6 +81,95 @@ const LatestNews = () => {
   }, [locale]);
 
   const visibleNews = showAll ? news : news.slice(0, 4);
+
+  // Align title heights separately for each visible grid row.
+  useLayoutEffect(() => {
+    const grid = gridRef.current;
+
+    if (!grid || isLoading || news.length === 0) return;
+
+    let frameId = 0;
+    let disposed = false;
+    let previousWidth = grid.getBoundingClientRect().width;
+
+    const alignTitles = () => {
+      if (disposed) return;
+
+      const cards = Array.from(
+        grid.querySelectorAll<HTMLElement>(".news-card"),
+      );
+
+      const titles = cards.map((card) =>
+        card.querySelector<HTMLElement>("[data-news-title]"),
+      );
+
+      // Reset previous values to measure natural title heights.
+      titles.forEach((title) => {
+        if (title) {
+          title.style.minHeight = "";
+        }
+      });
+
+      const rows = new Map<number, HTMLElement[]>();
+
+      cards.forEach((card, index) => {
+        const title = titles[index];
+
+        if (!title) return;
+
+        const rowPosition = card.offsetTop;
+        const rowTitles = rows.get(rowPosition) ?? [];
+
+        rowTitles.push(title);
+        rows.set(rowPosition, rowTitles);
+      });
+
+      rows.forEach((rowTitles) => {
+        const maxHeight = Math.max(
+          ...rowTitles.map((title) => title.getBoundingClientRect().height),
+        );
+
+        rowTitles.forEach((title) => {
+          title.style.minHeight = `${maxHeight}px`;
+        });
+      });
+    };
+
+    const scheduleAlignment = () => {
+      cancelAnimationFrame(frameId);
+      frameId = requestAnimationFrame(alignTitles);
+    };
+
+    alignTitles();
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      const width = entries[0]?.contentRect.width;
+
+      if (width === undefined || width === previousWidth) return;
+
+      previousWidth = width;
+      scheduleAlignment();
+    });
+
+    resizeObserver.observe(grid);
+
+    window.addEventListener("resize", scheduleAlignment);
+
+    document.fonts?.ready.then(() => {
+      if (!disposed && grid.isConnected) {
+        scheduleAlignment();
+      }
+    });
+
+    return () => {
+      disposed = true;
+
+      cancelAnimationFrame(frameId);
+      resizeObserver.disconnect();
+
+      window.removeEventListener("resize", scheduleAlignment);
+    };
+  }, [isLoading, news, showAll, locale]);
 
   useGSAP(
     () => {

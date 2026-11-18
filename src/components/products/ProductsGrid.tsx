@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 
 import { useTranslations } from "next-intl";
 import { PackageSearch } from "lucide-react";
@@ -23,6 +23,92 @@ export default function ProductsGrid({ products }: ProductsGridProps) {
   const t = useTranslations("Products");
 
   const rootRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const grid = rootRef.current;
+
+    if (!grid || !products.length) return;
+
+    let frameId = 0;
+
+    const alignTitles = () => {
+      const cards = Array.from(
+        grid.querySelectorAll<HTMLElement>(".product-card-item"),
+      );
+
+      const titles = cards.map((card) =>
+        card.querySelector<HTMLElement>("[data-product-title]"),
+      );
+
+      // Remove previous measurements before reading natural heights.
+      titles.forEach((title) => {
+        if (title) {
+          title.style.minHeight = "";
+        }
+      });
+
+      const rows = new Map<number, HTMLElement[]>();
+
+      cards.forEach((card, index) => {
+        const title = titles[index];
+
+        if (!title) return;
+
+        const rowPosition = card.offsetTop;
+
+        const row = rows.get(rowPosition) ?? [];
+
+        row.push(title);
+
+        rows.set(rowPosition, row);
+      });
+
+      // Every row receives its own tallest title height.
+      rows.forEach((rowTitles) => {
+        const maxHeight = Math.max(
+          ...rowTitles.map((title) => title.getBoundingClientRect().height),
+        );
+
+        rowTitles.forEach((title) => {
+          title.style.minHeight = `${maxHeight}px`;
+        });
+      });
+    };
+
+    const scheduleAlignment = () => {
+      cancelAnimationFrame(frameId);
+
+      frameId = requestAnimationFrame(alignTitles);
+    };
+
+    // Initial alignment.
+    alignTitles();
+
+    // Recalculate when the grid width changes.
+    const resizeObserver = new ResizeObserver(scheduleAlignment);
+
+    resizeObserver.observe(grid);
+
+    // Also handle viewport changes.
+    window.addEventListener("resize", scheduleAlignment);
+
+    // Recalculate after web fonts are ready.
+    if (document.fonts) {
+      document.fonts.ready.then(() => {
+        if (grid.isConnected) {
+          scheduleAlignment();
+        }
+      });
+    }
+
+    return () => {
+      cancelAnimationFrame(frameId);
+
+      resizeObserver.disconnect();
+
+      window.removeEventListener("resize", scheduleAlignment);
+    };
+  }, [products]);
 
   useGSAP(
     () => {
