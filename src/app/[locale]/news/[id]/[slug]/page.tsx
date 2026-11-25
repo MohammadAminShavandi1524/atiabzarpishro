@@ -11,7 +11,7 @@ import { useLocale } from "next-intl";
 import ArticleFooter from "@/components/news/ArticleFooter";
 import NewsArticleHero from "@/components/news/NewsArticleHero";
 import NewsArticleContent from "@/components/news/NewsArticleContent";
-import NewsCatalogueSection from "@/components/news/NewsCatalogueSection";
+import NewsTechNewsSection from "@/components/news/NewsTechNewsSection";
 import NewsRelatedArticles from "@/components/news/NewsRelatedArticles";
 
 import type {
@@ -211,8 +211,8 @@ export default function Page() {
           <main className="border-border min-w-0 lg:border-e lg:pe-8 xl:pe-10 2xl:pe-14">
             <NewsArticleContent news={news} children={children} />
 
-            {/* Show only when the parent has a catalogue. */}
-            <NewsCatalogueSection catalogue={news.catalog} />
+            {/* Related Tech News */}
+            <NewsTechNewsSection techNews={news.tech_news} />
           </main>
 
           {/* Related News */}

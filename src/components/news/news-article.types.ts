@@ -1,18 +1,13 @@
-
 export type NewsLanguage = "fa" | "en";
 
-export interface NewsCatalogue {
+export interface NewsTechNews {
   id: number;
   name_en: string;
   name_fa: string;
   image: string | null;
-  url: string | null;
-  object_storage?: boolean;
-  brand?: {
-    id: number;
-    name_en: string;
-    name_fa: string;
-  } | null;
+  object_storage: boolean;
+  url: string;
+  created: string;
 }
 
 export interface NewsChild {
@@ -37,7 +32,7 @@ export interface NewsParent {
   lang: string;
   published: boolean;
   slug: string;
-  catalog?: NewsCatalogue | null;
+  tech_news: NewsTechNews | null;
 }
 
 export interface NewsLanguageData {
